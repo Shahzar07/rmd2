@@ -7,6 +7,10 @@ A fast, static, black-and-white hosting website for RMDHost. The layout, page fl
 - **SEO**: a unique title, description, canonical URL and H1 on every page, Open Graph tags, Organization/Product/FAQ/Breadcrumb/BlogPosting JSON-LD, plus `sitemap.xml` and `robots.txt`.
 - **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences) and a mobile layout.
 
+## Photos and videos
+
+All photos and videos in `src/static/assets/media/` were generated for RMDHost: photos with **Nano Banana 2.1**, videos with **Seedance 2.5** (via Higgsfield). Each photo has a full-size and a mobile (`-sm`) WebP. Each video has MP4 and WebM versions plus a `-poster.webp`, and only plays while it's on screen. To swap one, replace the file with the same name. If a photo's dimensions change, update `src/data/media.mjs`.
+
 ## Run locally
 
 ```bash

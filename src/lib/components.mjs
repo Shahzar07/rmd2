@@ -14,7 +14,7 @@ export function img(name, alt = '', { cls = '', eager = false, sizes = '(max-wid
 
 export function vid(name, { cls = '', label = '' } = {}) {
   const m = MEDIA[name] || {};
-  return `<video class="${cls}" muted loop playsinline preload="none" data-autoplay poster="/assets/media/${name}-poster.webp"${m.w ? ` width="${m.w}" height="${m.h}"` : ''}${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><source src="/assets/media/${name}.mp4" type="video/mp4"></video>`;
+  return `<video class="${cls}" muted loop playsinline preload="none" data-autoplay poster="/assets/media/${name}-poster.webp"${m.w ? ` width="${m.w}" height="${m.h}"` : ''}${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><source src="/assets/media/${name}.mp4" type="video/mp4"><source src="/assets/media/${name}.webm" type="video/webm"></video>`;
 }
 
 // ───────────────────────────── prices
