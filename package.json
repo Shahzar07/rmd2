@@ -1,0 +1,15 @@
+{
+  "name": "rmdhost-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RMDHost.com – static website for VPS, dedicated and game server hosting",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
