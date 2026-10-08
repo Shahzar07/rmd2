@@ -4,7 +4,7 @@ import { homeFaqs, locations, posts, kb, tutorials, statusServices, references, 
 import { icon } from '../lib/icons.mjs';
 import {
   pageHero, sectionHead, planCard, faqList, faqSchema, breadcrumbSchema, worldMap, scenes,
-  featureGrid, ctaBand, money, checklist, stars,
+  featureGrid, ctaBand, money, checklist, stars, img,
 } from '../lib/components.mjs';
 
 const crumbs = (name, path) => [['Home', '/'], [name, path]];
@@ -53,6 +53,7 @@ const dataCentres = {
 ${pageHero({ eyebrow: 'Global network', h1: 'Data centres around the world', lede: 'Deploy closer to your users. Six locations across the UK, Europe and North America with Cisco 10 Gb/s fibre and direct LINX connectivity.', crumbs: crumbs('Data centres', '/data-centres/') })}
 <section class="section">
   <div class="container">
+<figure class="page-photo" data-reveal>${img('datacentre-aisle', 'Server racks lining a data centre aisle', { sizes: '100vw' })}<figcaption>Six data centres. One network built for uptime.</figcaption></figure>
     <div class="map-big" data-reveal>${worldMap()}</div>
     <div class="loc-grid">
       ${locations.map((l) => `
@@ -155,6 +156,7 @@ const about = {
 ${pageHero({ eyebrow: 'About us', h1: 'Infrastructure built on trust and performance', lede: 'We deliver VPS, Windows VPS and dedicated server solutions from state-of-the-art data centres across the UK, Europe and North America.', crumbs: crumbs('About us', '/about/') })}
 <section class="section">
   <div class="container">
+<figure class="page-photo" data-reveal>${img('agency-team', 'Team collaborating in a bright office', { sizes: '100vw' })}<figcaption>Real people building infrastructure you can trust.</figcaption></figure>
     <div class="stats stats-plain" data-reveal>
       ${site.stats.map((s) => `<div class="stat"><b><span data-count="${s.value}" data-decimals="${s.decimals || 0}">0</span>${s.suffix}</b><span>${s.label}</span></div>`).join('')}
     </div>
@@ -211,6 +213,7 @@ const sustain = {
 ${pageHero({ eyebrow: 'Sustainability', h1: 'Hosting with a smaller footprint', lede: 'Every watt counts. We design our infrastructure to do more with less energy – and keep hardware in service for longer.', crumbs: crumbs('Sustainability', '/sustainability/') })}
 <section class="section">
   <div class="container">
+    <figure class="page-photo" data-reveal>${img('datacentre-building', 'Data centre building surrounded by trees', { sizes: '100vw' })}<figcaption>Doing more with every watt.</figcaption></figure>
     ${featureGrid([
       { icon: 'leaf', title: 'Efficient facilities', text: 'Our data centres use N+1 cooling with under-floor air distribution to reduce energy waste.' },
       { icon: 'server', title: 'High utilisation', text: 'Virtualisation lets many customers share efficient hardware instead of idling separate machines.' },
@@ -345,6 +348,7 @@ const support = {
 ${pageHero({ eyebrow: 'Support', h1: 'Talk to a real engineer, 24/7', lede: 'Our team answers every ticket – day or night, every day of the year.', crumbs: crumbs('Support', '/support/'), small: true })}
 <section class="section">
   <div class="container">
+<figure class="page-photo" data-reveal>${img('support-engineer', 'Support engineer wearing a headset', { sizes: '100vw' })}<figcaption>Every ticket answered by an engineer – 24/7/365.</figcaption></figure>
     <div class="three">
       <a class="soft-card" href="${site.ticketUrl}" data-reveal data-spot>${icon('chat')}<strong>Open a ticket</strong><span>Fastest route for technical issues. Average first reply in minutes.</span></a>
       <a class="soft-card" href="mailto:${site.email}" data-reveal data-spot>${icon('mail')}<strong>${site.email}</strong><span>Technical support and account questions.</span></a>

@@ -1,8 +1,21 @@
 import { site } from '../data/site.mjs';
 import { locations } from '../data/content.mjs';
 import { MAP, WORLD_PATH } from '../data/world-dots.mjs';
+import { MEDIA } from '../data/media.mjs';
 import { icon } from './icons.mjs';
 import { esc } from './layout.mjs';
+
+// ───────────────────────────── photos & videos (src/static/assets/media)
+// Generated with Nano Banana 2.1 (images) and Seedance 2.5 (video).
+export function img(name, alt = '', { cls = '', eager = false, sizes = '(max-width: 900px) 100vw, 50vw' } = {}) {
+  const m = MEDIA[name] || {};
+  return `<img class="${cls}" src="/assets/media/${name}.webp"${m.small ? ` srcset="/assets/media/${name}-sm.webp ${m.small}w, /assets/media/${name}.webp ${m.w}w" sizes="${sizes}"` : ''} alt="${esc(alt)}"${m.w ? ` width="${m.w}" height="${m.h}"` : ''} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+}
+
+export function vid(name, { cls = '', label = '' } = {}) {
+  const m = MEDIA[name] || {};
+  return `<video class="${cls}" muted loop playsinline preload="none" data-autoplay poster="/assets/media/${name}-poster.webp"${m.w ? ` width="${m.w}" height="${m.h}"` : ''}${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><source src="/assets/media/${name}.mp4" type="video/mp4"></video>`;
+}
 
 // ───────────────────────────── prices
 export function money(gbp, { usd, per = '/mo', cls = '' } = {}) {
@@ -294,9 +307,10 @@ export function pageHero({ eyebrow, h1, lede, actions = '', visual = '', crumbs 
 </section>`;
 }
 
-export function featureGrid(features) {
+export function featureGrid(features, photo) {
   return `<div class="bento">${features.map((f, i) => `
-  <div class="bento-card ${i === 0 || (i === 5 && features.length === 6) ? 'wide' : ''}" data-reveal data-spot>
+  <div class="bento-card ${i === 0 || (i === 5 && features.length === 6) ? 'wide' : ''}${i === 0 && photo ? ' has-photo' : ''}" data-reveal data-spot>
+    ${i === 0 && photo ? `<span class="bento-photo">${img(photo, '')}</span>` : ''}
     <span class="b-ico">${icon(f.icon)}</span>
     <h3>${f.title}</h3>
     <p>${f.text}</p>
@@ -314,8 +328,10 @@ export function ctaBand({ title = 'Imagined it.<br>Now deploy it.', text = 'No s
       <a class="btn btn-white btn-lg" href="${href}">${cta}</a>
     </div>
     <div class="cta-visual" data-reveal>
+      <div class="photo-frame">${img('business-owner', 'Small business owner smiling at a laptop after launching a website')}</div>
       <div class="cta-domain float-a">${icon('globe')} yourproject<b>.com</b></div>
-      ${scenes.terminal()}
+      <div class="toast cta-toast float-b">${icon('check')}<div><b>Server online</b><small>Deployed in 38 seconds</small></div></div>
+      <div class="cta-prompt float-c"><span>Deploy a VPS in London</span><b>${icon('arrow')}</b></div>
     </div>
   </div>
 </section>`;

@@ -13,8 +13,7 @@
   /* ───────── theme */
   function currentTheme() {
     var t = doc.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return t || 'light'; // white by default; dark only when chosen
   }
   $$('[data-theme-toggle]').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -410,6 +409,19 @@
     }
   }
   $$('[data-now]').forEach(function (el) { el.textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); });
+
+  /* ───────── background videos: play only while visible */
+  var vids = $$('video[data-autoplay]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { if (v.preload === 'none') { v.preload = 'auto'; v.load(); } var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.15 });
+    vids.forEach(function (v) { vo.observe(v); });
+  }
 
   /* ───────── cookie consent */
   var CK = 'rmd-consent';

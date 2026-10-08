@@ -60,6 +60,13 @@ function useTabs(p) {
 </section>`;
 }
 
+// Photo behind the first feature card on each product page.
+const PHOTOS = {
+  vps: 'server-rack', 'windows-vps': 'windows-trader', 'ssd-vps': 'typing-hands', 'cloud-vps': 'datacentre-aisle',
+  'owncloud-storage': 'photographer', 'ai-vps': 'founder', 'macos-vps': 'dev-laptop', 'dedicated-servers': 'server-rack',
+  'instant-dedicated-servers-usa': 'datacentre-building', 'macos-dedicated-servers': 'dev-laptop', 'game-servers': 'gamer',
+};
+
 const productPage = (p) => ({
   path: `/${p.slug}/`,
   title: p.title,
@@ -107,7 +114,7 @@ ${useTabs(p)}
 <section class="section section-soft" id="features">
   <div class="container">
     ${sectionHead({ title: `Secure, speedy, reliable ${p.name}` })}
-    ${featureGrid(p.features)}
+    ${featureGrid(p.features, PHOTOS[p.slug])}
   </div>
 </section>
 

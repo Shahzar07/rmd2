@@ -3,7 +3,7 @@ import { bySlug, products } from '../data/products.mjs';
 import { homeFaqs, reviews } from '../data/content.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
-  scenes, planCard, sectionHead, faqList, faqSchema, locationsBlock, ctaBand, money, stars, checklist,
+  scenes, planCard, sectionHead, faqList, faqSchema, locationsBlock, ctaBand, money, stars, checklist, img, vid,
 } from '../lib/components.mjs';
 
 const tabs = [
@@ -34,10 +34,10 @@ const tabs = [
 ];
 
 const essentials = [
-  { slug: 'vps', title: 'Linux VPS', text: 'Root access on SSD-boosted nodes.', art: 'art-vps' },
-  { slug: 'windows-vps', title: 'Windows VPS', text: 'Ryzen + NVMe with Remote Desktop.', art: 'art-win' },
-  { slug: 'dedicated-servers', title: 'Dedicated servers', text: 'Bare-metal Intel Xeon power.', art: 'art-ded' },
-  { slug: 'owncloud-storage', title: 'Private cloud storage', text: 'Your own OwnCloud server.', art: 'art-own' },
+  { slug: 'vps', title: 'Linux VPS', text: 'Root access on SSD-boosted nodes.', photo: 'dev-laptop', alt: 'Developer smiling at a laptop with a terminal open', chip: ['server', 'srv-482 · Running'] },
+  { slug: 'windows-vps', title: 'Windows VPS', text: 'Ryzen + NVMe with Remote Desktop.', photo: 'windows-trader', alt: 'Trader using a Windows remote desktop with charts', chip: ['desktop', 'RDP connected'] },
+  { slug: 'dedicated-servers', title: 'Dedicated servers', text: 'Bare-metal Intel Xeon power.', photo: 'server-rack', alt: 'Rack-mounted dedicated servers with status lights', chip: ['rack', 'Uranus · Online'] },
+  { slug: 'owncloud-storage', title: 'Private cloud storage', text: 'Your own OwnCloud server.', photo: 'photographer', alt: 'Photographer browsing a photo library on a tablet', chip: ['folder', '2,481 photos synced'] },
 ];
 
 const xcards = [
@@ -57,6 +57,26 @@ const pricingTabs = [
   { id: 'p-ded', label: 'Dedicated', product: bySlug['dedicated-servers'], pick: [0, 2, 3] },
 ];
 
+const review = (r) => `
+      <figure class="review" data-reveal>
+        ${stars(r.rating)}
+        <blockquote>“${r.text}”</blockquote>
+        <figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span>${r.sample ? '<em class="pill pill-xs" title="Replace with a real customer review before launch">Sample</em>' : ''}</figcaption>
+      </figure>`;
+
+// Hostinger-style wall: four columns mixing videos, photos and reviews.
+const tile = (t) => {
+  if (t.review != null) return review(reviews[t.review]);
+  const media = t.video ? vid(t.video, { cls: 'wall-media' }) : img(t.photo, t.alt, { cls: 'wall-media', sizes: '(max-width: 640px) 100vw, 25vw' });
+  return `<a class="wall-tile ${t.tall ? 'tall' : ''}" href="${t.href}" data-reveal>${media}<span class="m-tag">${t.tag}</span>${t.video ? `<span class="play">${icon('play')}</span>` : ''}<span class="wall-cap">${t.cap}</span></a>`;
+};
+const wall = [
+  [{ video: 'tile-gamer', tag: 'Game Servers', cap: 'Game<br>networks', href: '/game-servers/', tall: true }, { review: 0 }, { photo: 'typing-hands', alt: 'Developer typing on a laptop at night', tag: 'SSD VPS', cap: 'Developers', href: '/ssd-vps/' }],
+  [{ review: 1 }, { photo: 'agency-team', alt: 'Creative agency team working together', tag: 'Linux VPS', cap: 'Web<br>agencies', href: '/vps/', tall: true }, { review: 2 }],
+  [{ photo: 'founder', alt: 'Software startup founder in a bright office', tag: 'Dedicated', cap: 'SaaS<br>startups', href: '/dedicated-servers/' }, { review: 3 }, { video: 'tile-typing', tag: 'Cloud VPS', cap: 'Builders', href: '/cloud-vps/', tall: true }],
+  [{ review: 4 }, { video: 'tile-founder', tag: 'AI VPS', cap: 'AI-first<br>teams', href: '/ai-vps/', tall: true }, { review: 5 }],
+];
+
 export default {
   path: '/',
   title: 'RMDHost – Fast VPS, Windows VPS & Dedicated Server Hosting',
@@ -68,6 +88,7 @@ export default {
   body: () => `
 <!-- HERO -->
 <section class="hero hero-home dark">
+  <div class="hero-media" aria-hidden="true">${vid('hero-datacentre', { cls: 'hero-video' })}</div>
   <div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="container hero-center">
@@ -85,6 +106,7 @@ export default {
 <section class="section promo-sec">
   <div class="container promo-grid">
     <a class="promo-big" href="/pricing/" data-reveal data-spot>
+      ${img('datacentre-building', '', { cls: 'promo-bg' })}
       <span class="stripes" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="pill pill-glass">Pricing</span>
       <span class="promo-big-body">
@@ -159,7 +181,7 @@ export default {
     <div class="ess-grid">
       ${essentials.map((e) => `
       <a class="ess" href="/${e.slug}/" data-reveal>
-        <span class="ess-art ${e.art}" aria-hidden="true"><i></i><i></i><i></i><b>${icon(bySlug[e.slug].icon)}</b></span>
+        <span class="ess-photo">${img(e.photo, e.alt, { sizes: '(max-width: 640px) 50vw, 25vw' })}<span class="ess-chip">${icon(e.chip[0])}${e.chip[1]}</span></span>
         <strong>${e.title}</strong>
         <span>${e.text}</span>
         <span class="ess-price">From ${money(bySlug[e.slug].from)}</span>
@@ -220,7 +242,8 @@ export default {
         <p class="muted">Every plan includes 24/7 support. Need more? Add fully managed services, custom hardware builds and dedicated account management.</p>
         <a class="row-link row-link-light" href="/support/">Learn more${icon('arrow')}</a>
       </div>
-      <div class="stack-cards" aria-hidden="true">
+      <div class="stack-cards">
+        <span class="stack-photo">${img('support-engineer', 'RMDHost support engineer wearing a headset')}</span>
         <span class="sc sc1">${icon('wrench')} Install cPanel on my server</span>
         <span class="sc sc2">${icon('backup')} Restore last night’s snapshot</span>
         <span class="sc sc3">${icon('globe')} Add 4 IPs in Frankfurt
@@ -303,14 +326,8 @@ export default {
   <div class="container">
     ${sectionHead({ title: 'Trusted by teams that can’t<br>afford downtime', text: 'From agencies and traders to game networks and SaaS startups.' })}
     <p class="center" data-reveal><a class="btn btn-primary" href="/references/">See customer stories</a></p>
-    <div class="masonry">
-      ${reviews.map((r, i) => `
-      ${i % 2 === 0 ? `<div class="m-visual" data-reveal>${['dashboard', 'game', 'storage'][i / 2] ? scenes[['dashboard', 'game', 'storage'][i / 2]]() : ''}<span class="m-tag">${r.product}</span></div>` : ''}
-      <figure class="review" data-reveal>
-        ${stars(r.rating)}
-        <blockquote>“${r.text}”</blockquote>
-        <figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span>${r.sample ? '<em class="pill pill-xs" title="Replace with a real customer review before launch">Sample</em>' : ''}</figcaption>
-      </figure>`).join('')}
+    <div class="wall">
+      ${wall.map((col, ci) => `<div class="wall-col${ci % 2 ? ' off' : ''}">${col.map((t) => tile(t)).join('')}</div>`).join('')}
     </div>
     <div class="rating-bar" data-reveal>
       <span>${stars(5)}</span>
