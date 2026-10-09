@@ -4,10 +4,12 @@ import { icon } from './icons.mjs';
 export const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// Corporate mark: a solid square with three server-rack slots, plus a plain
+// wordmark. Uses currentColor so it works on light and dark backgrounds.
 export const logo = (cls = '') => `
-<a href="/" class="logo ${cls}" aria-label="${site.name} home">
-  <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="currentColor"/><path class="logo-r" d="M11 24V8.5h6.2a4.6 4.6 0 0 1 0 9.2H11m6.4 0L22 24" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span class="logo-word">RMD<b>HOST</b></span>
+<a href="/" class="logo ${cls}" aria-label="RMDHost home">
+  <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" fill="currentColor"/><path class="logo-slots" d="M7 8.5h14M7 14h14M7 19.5h9"/><rect class="logo-led" x="19" y="18" width="3" height="3"/></svg>
+  <span class="logo-word">RMDHost</span>
 </a>`;
 
 const currencySelect = (id) => `
@@ -24,6 +26,14 @@ const themeToggle = `
   ${icon('moon', 'only-light')}${icon('sun', 'only-dark')}
 </button>`;
 
+// Small CSS visuals for the mega-menu promo panels.
+function promoVisual(kind) {
+  if (kind === 'rack') return `<span class="mp-vis mp-rack" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<i style="--d:${i * 0.3}s"><b></b><b></b></i>`).join('')}</span>`;
+  if (kind === 'map') return `<span class="mp-vis mp-map" aria-hidden="true">${[[22, 38], [23, 34], [32, 36], [40, 46], [58, 24], [-62, 58]].map(([x, y], i) => `<i style="left:${x < 0 ? 12 : 30 + x}%;top:${y}%;--d:${i * 0.3}s"></i>`).join('')}</span>`;
+  if (kind === 'terminal') return `<span class="mp-vis mp-term" aria-hidden="true"><b>$ ssh root@srv-482</b><b>$ ufw allow 22/tcp</b><b class="g">Rules updated ✓</b></span>`;
+  return '';
+}
+
 function megaPanel(item, i) {
   const cols = item.mega.map((col) => `
     <div class="mega-col">
@@ -38,6 +48,7 @@ function megaPanel(item, i) {
     </div>`).join('');
   const promo = item.promo ? `
     <a class="mega-promo" href="${item.promo.href}">
+      ${promoVisual(item.promo.visual)}
       <span class="pill pill-invert">${item.promo.eyebrow}</span>
       <strong>${item.promo.title}</strong>
       <span>${item.promo.text}</span>
@@ -190,7 +201,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 <script>(function(){try{var t=localStorage.getItem('rmd-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <script type="application/ld+json">${JSON.stringify(ld.length === 1 ? ld[0] : ld)}</script>

@@ -3,41 +3,42 @@ import { bySlug, products } from '../data/products.mjs';
 import { homeFaqs, reviews } from '../data/content.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
-  scenes, planCard, sectionHead, faqList, faqSchema, locationsBlock, ctaBand, money, stars, checklist, img, vid,
+  scenes, techVisual, planCard, sectionHead, faqList, faqSchema, locationsBlock, ctaBand, money, stars, checklist, img, vid,
 } from '../lib/components.mjs';
+import { esc } from '../lib/layout.mjs';
 
 const tabs = [
   {
     id: 'deploy', label: 'Deploy', scene: 'terminal', icon: 'rocket',
-    title: 'You choose. We deploy it live.',
-    text: 'Pick a plan, choose your OS and location, and your VPS is online in under a minute – with root access, IPv6 and DDoS protection already configured.',
+    title: 'Provision in seconds, not tickets.',
+    text: 'Pick a plan, OS image and data centre. Your KVM instance boots with root SSH access, IPv4 + IPv6 /64 and DDoS filtering already applied.',
     link: ['Deploy a VPS', '/vps/'],
   },
   {
     id: 'scale', label: 'Scale', scene: 'dashboard', icon: 'scale',
-    title: 'Grow from one vCore to bare metal.',
-    text: 'Upgrade your VPS in a click, add IPs and storage, or move to a dedicated server when your traffic demands it. No migrations headaches – we help for free.',
+    title: 'Scale from 1 vCore to bare metal.',
+    text: 'Resize vCPU, RAM and disk from the client area, attach extra IPs, or move to a dedicated Xeon box when load demands it – our engineers handle the migration.',
     link: ['Compare plans', '/pricing/'],
   },
   {
     id: 'protect', label: 'Protect', scene: 'shield', icon: 'shield',
-    title: 'DDoS protection on every server.',
-    text: 'Malicious traffic is filtered at the network edge before it reaches you. Game servers get game-aware mitigation for UDP floods.',
+    title: 'Filtered at the edge.',
+    text: 'Volumetric and protocol attacks are scrubbed upstream before they reach your port. Game servers add UDP-aware mitigation for Minecraft, CS and ARMA.',
     link: ['How DDoS protection works', '/ddos-protection/'],
   },
   {
     id: 'manage', label: 'Manage', scene: 'windows', icon: 'panel',
-    title: 'Full control, from any device.',
-    text: 'SSH, Remote Desktop, VNC console, snapshots and reinstalls – manage everything from the client area or connect straight to your server.',
+    title: 'Root, RDP and out-of-band console.',
+    text: 'SSH or Remote Desktop in, use the VNC console when the network is down, snapshot before risky changes and reinstall any of 25+ OS images.',
     link: ['Explore Windows VPS', '/windows-vps/'],
   },
 ];
 
 const essentials = [
-  { slug: 'vps', title: 'Linux VPS', text: 'Root access on SSD-boosted nodes.', photo: 'dev-laptop', alt: 'Developer smiling at a laptop with a terminal open', chip: ['server', 'srv-482 · Running'] },
-  { slug: 'windows-vps', title: 'Windows VPS', text: 'Ryzen + NVMe with Remote Desktop.', photo: 'windows-trader', alt: 'Trader using a Windows remote desktop with charts', chip: ['desktop', 'RDP connected'] },
-  { slug: 'dedicated-servers', title: 'Dedicated servers', text: 'Bare-metal Intel Xeon power.', photo: 'server-rack', alt: 'Rack-mounted dedicated servers with status lights', chip: ['rack', 'Uranus · Online'] },
-  { slug: 'owncloud-storage', title: 'Private cloud storage', text: 'Your own OwnCloud server.', photo: 'photographer', alt: 'Photographer browsing a photo library on a tablet', chip: ['folder', '2,481 photos synced'] },
+  { slug: 'vps', title: 'Linux VPS', text: 'KVM · full root · SSD + HDD · unmetered 100 Mbit/s.', visual: 'linux', chip: 'srv-482 · running' },
+  { slug: 'windows-vps', title: 'Windows VPS', text: 'Ryzen vCPU · NVMe · RDP · free backups.', visual: 'windows', chip: 'rdp :3389 · connected' },
+  { slug: 'dedicated-servers', title: 'Dedicated servers', text: 'Bare-metal Xeon & Core · RAID 1 · 1 Gbit/s.', visual: 'rack', chip: 'uranus · e-2146g · online' },
+  { slug: 'owncloud-storage', title: 'Private cloud storage', text: 'OwnCloud · E2E encryption · up to 1.6 TB.', visual: 'storage', chip: 'sync · 2,481 objects' },
 ];
 
 const xcards = [
@@ -51,10 +52,11 @@ const xcards = [
 const carousel = products.map((p) => ({ href: `/${p.slug}/`, icon: p.icon, title: p.name, text: p.lede.split('. ')[0] + '.', tag: p.tag }));
 
 const pricingTabs = [
-  { id: 'p-vps', label: 'Linux VPS', product: bySlug.vps, pick: [0, 1, 2] },
-  { id: 'p-win', label: 'Windows VPS', product: bySlug['windows-vps'], pick: [0, 1, 3] },
-  { id: 'p-ssd', label: 'SSD VPS', product: bySlug['ssd-vps'], pick: [0, 1, 2] },
-  { id: 'p-ded', label: 'Dedicated', product: bySlug['dedicated-servers'], pick: [0, 2, 3] },
+  // Packages, specs, prices and order links mirror the DigitalBerg product pages.
+  { id: 'p-vps', label: 'Linux VPS', product: bySlug.vps, pick: [0, 1, 2, 3] },
+  { id: 'p-win', label: 'Windows VPS', product: bySlug['windows-vps'], pick: [0, 1, 2, 3] },
+  { id: 'p-ssd', label: 'SSD VPS', product: bySlug['ssd-vps'], pick: [0, 1, 2, 3] },
+  { id: 'p-ded', label: 'Dedicated', product: bySlug['dedicated-servers'], pick: [0, 1, 2, 3] },
 ];
 
 const review = (r) => `
@@ -77,6 +79,55 @@ const wall = [
   [{ review: 4 }, { video: 'tile-founder', tag: 'AI VPS', cap: 'AI-first<br>teams', href: '/ai-vps/', tall: true }, { review: 5 }],
 ];
 
+// DreamHost-style hero: eyebrow, headline, benefit text, offer, CTAs, stats,
+// plus a translucent offer/review banner. All copy comes from homepage.json
+// (or WordPress) – nothing here is hard-coded.
+function hero(h) {
+  const { hero: x, banner: b, stats } = h;
+  const r = b?.rating || {};
+  const hasScore = r.score != null && r.score !== '';
+  const ratingStars = hasScore
+    ? `<span class="hb-stars" style="--pct:${Math.max(0, Math.min(100, (r.score / (r.scale || 5)) * 100))}%" aria-hidden="true"><i>★★★★★</i><i>★★★★★</i></span>`
+    : `<span class="hb-badge" aria-hidden="true">${icon('star')}</span>`; // no score entered: neutral icon, never implied stars
+  return `
+<section class="hero hero-home hero-promo dark">
+  <div class="hero-arcs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="container hero-center">
+    ${x.eyebrow ? `<p class="hero-eyebrow" data-reveal>${esc(x.eyebrow)}</p>` : ''}
+    <h1 class="h-display hero-title" data-reveal>${esc(x.headline)}</h1>
+    ${x.text ? `<p class="lead" data-reveal>${esc(x.text)}</p>` : ''}
+    ${x.offer?.price != null ? `
+    <p class="hero-offer" data-reveal><span class="ho-label">${esc(x.offer.label)}</span> ${money(Number(x.offer.price), { per: esc(x.offer.suffix || '') })}${x.offer.note ? `<span class="ho-note">${esc(x.offer.note)}</span>` : ''}</p>` : ''}
+    <div class="hero-cta" data-reveal>
+      ${x.primaryCta?.label ? `<a class="btn btn-white btn-lg" href="${esc(x.primaryCta.href)}">${esc(x.primaryCta.label)}</a>` : ''}
+      ${x.secondaryCta?.label ? `<a class="btn btn-ghost-light btn-lg" href="${esc(x.secondaryCta.href)}">${esc(x.secondaryCta.label)}</a>` : ''}
+    </div>
+    ${stats?.length ? `<ul class="hero-stats" data-reveal>${stats.map((st) => `<li><b>${esc(st.value)}</b><span>${esc(st.label)}</span></li>`).join('')}</ul>` : ''}
+  </div>
+  ${b?.enabled ? `
+  <div class="hero-banner" data-reveal>
+    <div class="container hb-inner">
+      <div class="hb-offer">
+        ${b.offerTag ? `<span class="hb-tag">${esc(b.offerTag)}</span>` : ''}
+        <p>${esc(b.offerText)}</p>
+        ${b.offerCta?.label ? `<a class="hb-link" href="${esc(b.offerCta.href)}">${esc(b.offerCta.label)} ${icon('arrow')}</a>` : ''}
+      </div>
+      ${r.url ? `
+      <a class="hb-rating" href="${esc(r.url)}" target="_blank" rel="noopener">
+        ${ratingStars}
+        <span class="hb-text">
+          ${hasScore ? `<b>${esc(String(r.score))}</b><span class="hb-scale">/ ${esc(String(r.scale || 5))}</span>` : ''}
+          <span class="hb-label">${esc(r.label)}${r.count ? ` · ${esc(String(r.count))} reviews` : ''}</span>
+          ${r.note ? `<small>${esc(r.note)}</small>` : ''}
+        </span>
+        <span class="hb-link">${esc(r.linkText || 'Read reviews')} ${icon('arrowUpRight')}</span>
+      </a>` : ''}
+    </div>
+  </div>` : ''}
+</section>`;
+}
+
 export default {
   path: '/',
   title: 'RMDHost – Fast VPS, Windows VPS & Dedicated Server Hosting',
@@ -85,22 +136,9 @@ export default {
     faqSchema(homeFaqs),
     { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.url },
   ],
-  body: () => `
+  body: ({ home }) => `
 <!-- HERO -->
-<section class="hero hero-home dark">
-  <div class="hero-media" aria-hidden="true">${vid('hero-datacentre', { cls: 'hero-video' })}</div>
-  <div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="container hero-center">
-    <h1 class="h-display hero-title" data-reveal><span class="line">Your servers, online.</span><span class="line">Made <span class="shimmer">effortless.</span></span></h1>
-    <p class="lead" data-reveal>High-performance VPS, dedicated and game servers in six data centres – with DDoS protection and 24/7 expert support built in.</p>
-    <div class="hero-cta" data-reveal>
-      <a class="btn btn-white btn-lg" href="/pricing/">Get started</a>
-    </div>
-    <p class="hero-note" data-reveal>${icon('shield')} No setup fees · Instant VPS deployment</p>
-  </div>
-  <div class="hero-scroll" aria-hidden="true"><span></span></div>
-</section>
+${hero(home)}
 
 <!-- PROMO GRID -->
 <section class="section promo-sec">
@@ -111,14 +149,14 @@ export default {
       <span class="pill pill-glass">Pricing</span>
       <span class="promo-big-body">
         <strong>Plans and prices</strong>
-        <span>Linux VPS from ${money(8.99)}, Windows VPS, dedicated, game servers and private cloud storage – all with DDoS protection and no setup fees.</span>
+        <span>KVM Linux VPS from ${money(8.99)}, Ryzen Windows VPS, OpenStack NVMe VPS and bare-metal Xeon servers – monthly billing, no setup fee on Linux &amp; SSD VPS.</span>
         <span class="btn btn-white">Explore all offers</span>
       </span>
     </a>
-    <a class="promo-small" href="/ai-vps/" data-reveal data-spot>
+    <a class="promo-small" href="/aws-lightsail-vps/" data-reveal data-spot>
       <span class="pill">New</span>${icon('arrowUpRight', 'corner')}
-      <strong>AI VPS</strong>
-      <span>Run private LLMs, AI agents and n8n automations on high-memory servers.</span>
+      <strong>AWS Lightsail VPS</strong>
+      <span>Fixed-price cloud bundles: 2 vCPUs, 1–8 GB RAM and 2–5 TB transfer from ${money(11.99)}.</span>
     </a>
     <a class="promo-small" href="/instant-dedicated-servers-usa/" data-reveal data-spot>
       <span class="pill">Trending</span>${icon('arrowUpRight', 'corner')}
@@ -181,7 +219,7 @@ export default {
     <div class="ess-grid">
       ${essentials.map((e) => `
       <a class="ess" href="/${e.slug}/" data-reveal>
-        <span class="ess-photo">${img(e.photo, e.alt, { sizes: '(max-width: 640px) 50vw, 25vw' })}<span class="ess-chip">${icon(e.chip[0])}${e.chip[1]}</span></span>
+        <span class="ess-photo ess-tech">${techVisual(e.visual)}<span class="ess-chip"><i class="led"></i>${e.chip}</span></span>
         <strong>${e.title}</strong>
         <span>${e.text}</span>
         <span class="ess-price">From ${money(bySlug[e.slug].from)}</span>
@@ -257,8 +295,8 @@ export default {
 <!-- PRICING -->
 <section class="section section-soft" id="pricing">
   <div class="container">
-    ${sectionHead({ title: 'Choose the plan that<br>matches what you need', text: 'Everything you need to deploy, run and scale – with DDoS protection on every plan.' })}
-    <ul class="assure" data-reveal><li>${icon('shield')} DDoS protection</li><li>${icon('refresh')} Cancel anytime</li><li>${icon('headset')} 24/7 support</li></ul>
+    ${sectionHead({ title: 'Choose the plan that<br>matches what you need', text: 'Compare vCPU, RAM, storage, bandwidth and network protection side by side – every package links straight to checkout.' })}
+    <ul class="assure" data-reveal><li>${icon('shield')} Anti-DDoS on VPS</li><li>${icon('refresh')} Monthly billing</li><li>${icon('headset')} 24/7 support</li></ul>
     <div class="tabs" data-tabs>
       <div class="tablist tablist-center" role="tablist" aria-label="Plan type" data-reveal>
         <span class="tab-ind" aria-hidden="true"></span>
@@ -266,7 +304,7 @@ export default {
       </div>
       ${pricingTabs.map((t, i) => `
       <div class="tabpanel" role="tabpanel" id="panel-${t.id}" aria-labelledby="tab-${t.id}" ${i ? 'hidden' : ''}>
-        <div class="plans plans-3">
+        <div class="plans plans-4">
           ${t.pick.map((n) => planCard(t.product.plans[n], { featured: !!t.product.plans[n].badge, product: t.product.name })).join('')}
         </div>
         <p class="center mt"><a class="row-link inline" href="/${t.product.slug}/">View all ${t.product.name} plans${icon('arrowUpRight')}</a></p>

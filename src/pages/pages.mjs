@@ -3,7 +3,7 @@ import { products } from '../data/products.mjs';
 import { homeFaqs, locations, posts, kb, tutorials, statusServices, references, reviews } from '../data/content.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
-  pageHero, sectionHead, planCard, faqList, faqSchema, breadcrumbSchema, worldMap, scenes,
+  pageHero, sectionHead, planCard, faqList, faqSchema, breadcrumbSchema, worldMap, locationsBlock, scenes,
   featureGrid, ctaBand, money, checklist, stars, img,
 } from '../lib/components.mjs';
 
@@ -54,16 +54,7 @@ ${pageHero({ eyebrow: 'Global network', h1: 'Data centres around the world', led
 <section class="section">
   <div class="container">
 <figure class="page-photo" data-reveal>${img('datacentre-aisle', 'Server racks lining a data centre aisle', { sizes: '100vw' })}<figcaption>Six data centres. One network built for uptime.</figcaption></figure>
-    <div class="map-big" data-reveal>${worldMap()}</div>
-    <div class="loc-grid">
-      ${locations.map((l) => `
-      <article class="loc-card" data-reveal data-spot>
-        <p class="loc-top"><span class="flag">${l.code}</span><span class="status-dot">Operational</span></p>
-        <h2 class="h4">${l.city}</h2>
-        <p class="muted">${l.country} · ${l.region}</p>
-        <ul class="tags">${l.services.map((s) => `<li>${s}</li>`).join('')}</ul>
-      </article>`).join('')}
-    </div>
+    <div class="dark-panel dark">${locationsBlock()}</div>
   </div>
 </section>
 <section class="section section-soft">

@@ -12,9 +12,9 @@ export const site = {
 
   // Client area / billing system (WHMCS or similar). Order buttons fall back
   // to `${clientArea}/cart.php` when a plan has no `order` link of its own.
-  clientArea: 'https://my.rmdhost.com',
+  clientArea: 'https://my.digitalberg.com',
   get orderFallback() { return `${this.clientArea}/cart.php`; },
-  get loginUrl() { return `${this.clientArea}/clientarea.php`; },
+  get loginUrl() { return `${this.clientArea}/login`; },
   get domainSearchUrl() { return `${this.clientArea}/cart.php?a=add&domain=register&query=`; },
   get ticketUrl() { return `${this.clientArea}/submitticket.php`; },
 
@@ -57,6 +57,7 @@ export const nav = [
           { label: 'Windows VPS', href: '/windows-vps/', desc: 'Ryzen + NVMe with Remote Desktop', icon: 'windows' },
           { label: 'SSD VPS (OpenStack)', href: '/ssd-vps/', desc: 'NVMe VPS with free control panel', icon: 'bolt' },
           { label: 'Cloud VPS', href: '/cloud-vps/', desc: 'OpenStack KVM with snapshots', icon: 'cloud' },
+          { label: 'AWS Lightsail VPS', href: '/aws-lightsail-vps/', desc: 'Fixed-price cloud VPS bundles', icon: 'cloud', tag: 'New' },
           { label: 'AI VPS', href: '/ai-vps/', desc: 'Servers ready for AI workloads', icon: 'spark', tag: 'New' },
           { label: 'macOS VPS', href: '/macos-vps/', desc: 'Virtual Macs for builds and testing', icon: 'apple', tag: 'Soon' },
         ],
@@ -77,12 +78,14 @@ export const nav = [
         ],
       },
     ],
+    // Promotional copy supplied by RMDHost.
     promo: {
-      eyebrow: 'Most popular',
-      title: 'Linux VPS from £8.99/mo',
-      text: 'Unlimited bandwidth, full root access and no setup fee.',
-      href: '/vps/',
-      cta: 'Explore VPS',
+      visual: 'rack',
+      eyebrow: 'Dedicated & VPS',
+      title: 'Award-Winning Dedicated/VPS Servers',
+      text: 'Get award-winning dedicated or VPS hosting designed for speed and simplicity, with free migration help, NVMe SSD options, backups and 24/7 support from in-house server experts.',
+      href: '/pricing/',
+      cta: 'Compare servers',
     },
   },
   {
@@ -105,6 +108,14 @@ export const nav = [
         ],
       },
     ],
+    promo: {
+      visual: 'map',
+      eyebrow: 'Infrastructure',
+      title: 'Six data centres across the UK, EU and US',
+      text: 'Deploy in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York – staffed 24/7 with CCTV, fob access and N+1 diesel backup power.',
+      href: '/data-centres/',
+      cta: 'Explore data centres',
+    },
   },
   {
     label: 'Resources',
@@ -126,6 +137,14 @@ export const nav = [
         ],
       },
     ],
+    promo: {
+      visual: 'terminal',
+      eyebrow: 'Guides',
+      title: 'Deploy, secure and scale your server',
+      text: 'Step-by-step tutorials for SSH hardening, Docker, WordPress on Nginx, WireGuard and Proxmox – written by our in-house server team.',
+      href: '/tutorials/',
+      cta: 'Browse tutorials',
+    },
   },
   { label: 'Support', href: '/support/' },
 ];
@@ -138,6 +157,7 @@ export const footer = [
       ['Windows VPS', '/windows-vps/'],
       ['SSD VPS (OpenStack)', '/ssd-vps/'],
       ['Cloud VPS', '/cloud-vps/'],
+      ['AWS Lightsail VPS', '/aws-lightsail-vps/'],
       ['AI VPS', '/ai-vps/'],
       ['macOS VPS', '/macos-vps/'],
       ['OwnCloud Storage', '/owncloud-storage/'],

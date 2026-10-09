@@ -105,6 +105,7 @@ const productPage = (p) => ({
     ${p.instant ? instantTable(p) : planGrid(p.plans, p.name)}
     ${p.table ? dedicatedTable(p.table) : ''}
     ${everyPlan(p.everyPlan)}
+    ${p.review ? `<p class="to-confirm"><em class="pill pill-xs">To confirm</em> ${p.review}</p>` : ''}
     <p class="fine">Prices exclude VAT and are billed monthly. Toggle GBP / USD in the header.</p>
   </div>
 </section>
@@ -155,6 +156,8 @@ ${useTabs(p)}
     </div>
   </div>
 </section>
+
+${p.disclaimer ? `<section class="section pt-0 disclaimer"><div class="container"><p class="fine left">${p.disclaimer}</p></div></section>` : ''}
 
 ${ctaBand({ title: `Ready to launch your<br>${p.name.toLowerCase().includes('server') ? p.name : p.name + ' server'}?`, href: '#plans', cta: p.from != null ? 'Choose plan' : 'Contact sales' })}
 `,

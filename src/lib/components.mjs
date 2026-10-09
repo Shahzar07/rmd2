@@ -1,6 +1,6 @@
 import { site } from '../data/site.mjs';
 import { locations } from '../data/content.mjs';
-import { MAP, WORLD_PATH } from '../data/world-dots.mjs';
+import { MAP, EUROPE, WORLD_PATH, EUROPE_PATH } from '../data/world-dots.mjs';
 import { MEDIA } from '../data/media.mjs';
 import { icon } from './icons.mjs';
 import { esc } from './layout.mjs';
@@ -57,7 +57,7 @@ export function planCard(plan, { featured = false, product } = {}) {
     ${product ? `<p class="plan-sub">${product}</p>` : ''}
   </header>
   <div class="plan-price">${money(plan.price, { usd: plan.usd })}</div>
-  <p class="plan-note">${soon ? 'Final pricing announced soon' : 'Billed monthly · No setup fee'}</p>
+  <p class="plan-note">${soon ? 'Final pricing announced soon' : plan.note || 'Billed monthly · Excl. VAT'}</p>
   ${soon
     ? `<a class="btn ${featured ? 'btn-white' : 'btn-outline'} btn-block" href="/support/?topic=${encodeURIComponent(plan.name)}">Contact sales</a>`
     : `<a class="btn ${featured ? 'btn-white' : 'btn-primary'} btn-block" href="${orderUrl(plan)}">Order now</a>`}
@@ -177,7 +177,7 @@ export const scenes = {
       <path d="M200 60 L90 150"/><path d="M200 60 L310 150"/><path d="M90 150 L200 220"/><path d="M310 150 L200 220"/><path d="M200 60 L200 220"/>
     </g>
     ${[[200, 60, 'Controller'], [90, 150, 'vCloud 1'], [310, 150, 'vCloud 2'], [200, 220, 'Storage']].map(([x, y, l], i) => `
-      <g class="node n${i}" transform="translate(${x} ${y})"><rect x="-46" y="-18" width="92" height="36" rx="10"/><text y="5">${l}</text></g>`).join('')}
+      <g class="node n${i}" transform="translate(${x} ${y})"><rect x="-46" y="-18" width="92" height="36"/><text y="5">${l}</text></g>`).join('')}
   </svg>
   <div class="toast float-b">${icon('backup')}<div><b>Snapshot created</b><small>vCloud 2 · 2 min ago</small></div></div>
 </div>`,
@@ -250,41 +250,86 @@ export const scenes = {
 </div>`,
 };
 
-// ───────────────────────────── world map
+// ───────────────────────────── technical visuals (CSS/canvas, no photos)
+export function techVisual(kind) {
+  const leds = (n) => Array.from({ length: n }, (_, i) => `<i style="--d:${((i * 0.37) % 1.6).toFixed(2)}s"></i>`).join('');
+  const v = {
+    linux: `<canvas class="matrix" data-matrix aria-hidden="true"></canvas>
+      <div class="tv-term"><p><b>root@srv-482</b>:~# uptime</p><p class="g">up 182 days, load avg 0.12 0.09 0.05</p><p><b>root@srv-482</b>:~# nproc &amp;&amp; free -h | head -2</p><p class="g">2</p><p class="g">Mem: 8.0Gi used 1.9Gi free 6.1Gi</p><p><b>root@srv-482</b>:~# <span class="cur"></span></p></div>`,
+    windows: `<div class="tv-grid"></div>
+      <div class="tv-win"><p class="tv-bar">Performance Monitor — winberg-x8</p>
+        <svg viewBox="0 0 200 80" preserveAspectRatio="none" class="tv-graph"><path class="l1" d="M0 60 L20 52 L40 56 L60 40 L80 44 L100 30 L120 36 L140 22 L160 28 L180 18 L200 24"/><path class="l2" d="M0 70 L25 66 L50 68 L75 60 L100 64 L125 58 L150 62 L175 54 L200 58"/></svg>
+        <p class="tv-kv"><span>CPU</span><b>23%</b><span>RAM</span><b>3.1/8 GB</b><span>NVMe</span><b>1.2 GB/s</b></p></div>`,
+    rack: `<div class="tv-grid"></div><div class="tv-rack">${['MERCURY', 'VENUS', 'URANUS', 'MARS', 'NEPTUNE', 'SATURN'].map((n, i) => `<p class="${i === 2 ? 'on' : ''}"><span class="lds">${leds(3)}</span><span class="vt"></span><span>${n}</span></p>`).join('')}</div>`,
+    storage: `<div class="tv-grid"></div><div class="tv-sync">${[['projects/', '12.4 GB'], ['invoices-2026/', '840 MB'], ['photos/', '96.1 GB'], ['client-portal/', '3.2 GB']].map(([n, z], i) => `<p><span>${n}</span><small>${z}</small><i style="--d:${i * 0.7}s"></i></p>`).join('')}<p class="tv-hash">sha256 e3b0c442…98fb92427ae41e4649b934ca495991b7852b855</p></div>`,
+  };
+  return `<span class="tv tv-${kind}" aria-hidden="true">${v[kind] || ''}</span>`;
+}
+
+// ───────────────────────────── world map + data-centre list
 export const lonlat = (lon, lat) => [
   ((lon + 180) / 360) * MAP.w,
   ((MAP.latTop - lat) / (MAP.latTop - MAP.latBottom)) * MAP.h,
 ];
 
-// Label text and offsets – European pins sit close together, so the two UK
-// sites share one label.
-const LABELS = {
-  Leeds: ['Derby & Leeds', -12, -10, 'end'],
-  Amsterdam: ['Amsterdam', -6, 26, 'end'],
-  Frankfurt: ['Frankfurt', 10, 22, 'start'],
-  Riga: ['Riga', 10, -8, 'start'],
-  'New York': ['New York', -12, -10, 'end'],
+// Square, numbered markers. `n` matches the numbered location list.
+const marker = (l, i, { size = 7, label = false } = {}) => {
+  const [x, y] = lonlat(l.lon, l.lat);
+  const h = size / 2;
+  const lb = label && l.label;
+  return `<g class="mk" data-loc="${i}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})" style="--d:${i * 0.35}s">
+    <rect class="mk-pulse" x="${-h}" y="${-h}" width="${size}" height="${size}"/>
+    <rect class="mk-dot" x="${-h}" y="${-h}" width="${size}" height="${size}"/>
+    ${lb ? `<text class="mk-label" x="${lb[1]}" y="${lb[2]}" text-anchor="${lb[3]}"><tspan class="mk-n">${String(i + 1).padStart(2, '0')}</tspan> ${l.city}</text>` : ''}
+  </g>`;
 };
 
-export function worldMap({ labels = true, cls = '' } = {}) {
-  const pins = locations.map((l, i) => {
-    const [x, y] = lonlat(l.lon, l.lat);
-    const lb = LABELS[l.city];
-    return `<g class="pin" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="--d:${i * 0.4}s"><circle class="pulse" r="6"/><circle class="dot" r="4.5"/>${labels && lb ? `<text x="${lb[1]}" y="${lb[2]}" text-anchor="${lb[3]}">${lb[0]}</text>` : ''}</g>`;
-  }).join('');
-  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-label="Map of RMDHost data centre locations"><path class="land" d="${WORLD_PATH}"/>${pins}</svg>`;
+export function worldMap({ cls = '' } = {}) {
+  // Europe cluster outline (matches the inset).
+  const [ex1, ey1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
+  const [ex2, ey2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
+  const ny = locations.findIndex((l) => l.region === 'North America');
+  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-label="World map showing RMDHost data centres in the UK, Europe and the United States">
+    <path class="land" d="${WORLD_PATH}"/>
+    <rect class="eu-box" x="${ex1.toFixed(1)}" y="${ey1.toFixed(1)}" width="${(ex2 - ex1).toFixed(1)}" height="${(ey2 - ey1).toFixed(1)}"/>
+    <text class="eu-box-label" x="${(ex1 + 2).toFixed(1)}" y="${(ey1 - 5).toFixed(1)}">EUROPE · 5 SITES</text>
+    ${locations.map((l, i) => marker(l, i, { size: 10, label: i === ny })).join('')}
+  </svg>`;
+}
+
+export function europeMap() {
+  const [x1, y1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
+  const [x2, y2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
+  return `<svg class="eumap" viewBox="${x1.toFixed(2)} ${y1.toFixed(2)} ${(x2 - x1).toFixed(2)} ${(y2 - y1).toFixed(2)}" role="img" aria-label="Map of RMDHost data centres in Europe">
+    <path class="land" d="${EUROPE_PATH}"/>
+    ${locations.map((l, i) => (l.region === 'Europe' ? marker(l, i, { size: 2.6, label: true }) : '')).join('')}
+  </svg>`;
 }
 
 export function locationsBlock() {
   return `
-<div class="locs" data-reveal>
-  <div class="locs-copy">
-    <p class="loc-reco"><span>Recommended server location:</span><b data-reco-loc>London, United Kingdom</b><small>· Best latency <span data-reco-ms>8</span> ms</small></p>
-    <h3 class="h3">Local deployment. Global reach.</h3>
-    <p class="muted">Choose a server location close to your audience for faster load times. We operate data centres in the UK, mainland Europe and North America, connected with Cisco 10 Gb/s fibre and direct LINX peering.</p>
-    <a class="btn btn-white" href="/data-centres/">View all locations</a>
+<div class="dc" data-reveal data-dc>
+  <div class="dc-head">
+    <div>
+      <p class="kicker">// Global network</p>
+      <h3 class="h3">6 data centres. UK, EU &amp; US.</h3>
+    </div>
+    <p class="muted">Deploy close to your users in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York. Every site is staffed 24/7 with CCTV, fob-controlled access, VESDA fire detection and N+1 diesel backup power.</p>
+    <a class="btn btn-white" href="/data-centres/">Data-centre details</a>
   </div>
-  <div class="locs-map">${worldMap()}</div>
+  <div class="dc-maps">
+    <figure class="dc-world"><figcaption>WORLD</figcaption>${worldMap()}</figure>
+    <figure class="dc-eu"><figcaption>EUROPE · ZOOM</figcaption>${europeMap()}</figure>
+  </div>
+  <ol class="dc-list">
+    ${locations.map((l, i) => `
+    <li data-loc="${i}" tabindex="0">
+      <span class="dc-n">${String(i + 1).padStart(2, '0')}</span>
+      <span class="dc-city"><b>${l.city}</b><small>${l.country}</small></span>
+      <span class="dc-code">${l.code}</span>
+      <span class="dc-status"><i class="led"></i>Online</span>
+    </li>`).join('')}
+  </ol>
 </div>`;
 }
 
@@ -317,7 +362,7 @@ export function featureGrid(features, photo) {
   </div>`).join('')}</div>`;
 }
 
-export function ctaBand({ title = 'Imagined it.<br>Now deploy it.', text = 'No setup fees on VPS plans. Free migration help from our engineers.', href = '/pricing/', cta = 'Get started' } = {}) {
+export function ctaBand({ title = 'Imagined it.<br>Now deploy it.', text = 'No setup fee on Linux & SSD VPS. Free migration help from our in-house engineers.', href = '/pricing/', cta = 'Get started' } = {}) {
   return `
 <section class="cta-band dark">
   <div class="glow" aria-hidden="true"><i></i><i></i></div>

@@ -3,8 +3,8 @@
 export const homeFaqs = [
   ['What is RMDHost?', 'RMDHost is an international hosting provider offering Linux VPS, Windows VPS, cloud servers, dedicated servers, game servers and private cloud storage from data centres in the UK, Europe and North America.'],
   ['Which server is right for me?', 'Start with a Linux VPS for websites and apps, choose Windows VPS for Remote Desktop and .NET, and move to a dedicated server when you need a whole machine for heavy traffic, large databases or virtualisation. Our sales team can recommend a plan for free.'],
-  ['Do you charge setup fees?', 'No setup fees apply to VPS plans or in-stock instant dedicated servers.'],
-  ['Is DDoS protection included?', 'Yes. Every VPS, dedicated and game server includes network-level DDoS protection at no extra cost. Game servers add game-aware filtering.'],
+  ['Do you charge setup fees?', 'Linux VPS and SSD VPS plans have no setup fee, and in-stock instant dedicated servers in the USA include free setup. Any setup fee for other products is shown at checkout.'],
+  ['Is DDoS protection included?', 'VPS plans include DDoS protection – Windows, SSD and Cloud VPS come with Anti-DDoS Pro – and game servers include Anti-DDoS Game. For dedicated servers, ask our sales team about protection options.'],
   ['Where are your data centres?', 'Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia) and New York (USA), with additional instant dedicated capacity across the USA.'],
   ['Can I pay in USD or GBP?', 'Yes. Use the currency selector at the top of the page to view prices in GBP or USD. You choose your billing currency at checkout.'],
   ['How fast is server delivery?', 'VPS plans are provisioned instantly. Standard dedicated servers are delivered within 24 hours and instant dedicated servers in the USA are online within minutes.'],
@@ -24,13 +24,15 @@ export const reviews = [
   { sample: true, name: 'Nina V.', role: 'Photographer', product: 'OwnCloud', rating: 5, text: 'I replaced Dropbox with my own OwnCloud server in Germany. Clients get private galleries and I keep control of my files.' },
 ];
 
+// Data centres as listed on digitalberg.com/data-center/.
+// `label`: [text, dx, dy, anchor] for the Europe inset map.
 export const locations = [
-  { city: 'Derby', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 52.92, lon: -1.48, services: ['VPS', 'Windows VPS', 'Dedicated'], latency: 8 },
-  { city: 'Leeds', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 53.8, lon: -1.55, services: ['VPS', 'Windows VPS', 'Dedicated'], latency: 9 },
-  { city: 'Amsterdam', country: 'Netherlands', code: 'NL', region: 'Europe', lat: 52.37, lon: 4.9, services: ['VPS', 'Windows VPS', 'Dedicated'], latency: 12 },
-  { city: 'Frankfurt', country: 'Germany', code: 'DE', region: 'Europe', lat: 50.11, lon: 8.68, services: ['VPS', 'Dedicated', 'OwnCloud', 'Game'], latency: 14 },
-  { city: 'Riga', country: 'Latvia', code: 'LV', region: 'Europe', lat: 56.95, lon: 24.1, services: ['VPS', 'Windows VPS', 'Dedicated'], latency: 31 },
-  { city: 'New York', country: 'United States', code: 'US', region: 'North America', lat: 40.71, lon: -74.0, services: ['VPS', 'Windows VPS', 'Dedicated', 'Instant', 'Game'], latency: 72 },
+  { city: 'Derby', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 52.92, lon: -1.48, label: ['Derby', -3, 4.2, 'end'] },
+  { city: 'Leeds', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 53.8, lon: -1.55, label: ['Leeds', -3, -2, 'end'] },
+  { city: 'Amsterdam', country: 'Netherlands', code: 'NL', region: 'Europe', lat: 52.37, lon: 4.9, label: ['Amsterdam', 3, -2.2, 'start'] },
+  { city: 'Frankfurt', country: 'Germany', code: 'DE', region: 'Europe', lat: 50.11, lon: 8.68, label: ['Frankfurt', 3, 4.6, 'start'] },
+  { city: 'Riga', country: 'Latvia', code: 'LV', region: 'Europe', lat: 56.95, lon: 24.1, label: ['Riga', 3, 1.3, 'start'] },
+  { city: 'New York', country: 'United States', code: 'US', region: 'North America', lat: 40.71, lon: -74.0, label: ['New York', -12, -10, 'end'] },
 ];
 
 export const posts = [

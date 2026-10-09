@@ -338,14 +338,60 @@
     f(); setInterval(f, 30000);
   });
 
-  /* ───────── recommended location (by timezone) */
-  var reco = $('[data-reco-loc]');
-  if (reco) {
-    var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-    var pick = /America/.test(tz) ? ['New York, United States', 24] : /Berlin|Vienna|Zurich|Prague|Warsaw/.test(tz) ? ['Frankfurt, Germany', 9] : /Riga|Vilnius|Tallinn|Helsinki|Kiev|Kyiv/.test(tz) ? ['Riga, Latvia', 7] : /Amsterdam|Brussels|Paris|Madrid|Rome/.test(tz) ? ['Amsterdam, Netherlands', 11] : /Europe/.test(tz) ? ['Derby, United Kingdom', 8] : ['Frankfurt, Germany', 38];
-    reco.textContent = pick[0];
-    $$('[data-reco-ms]').forEach(function (el) { el.textContent = pick[1]; });
-  }
+  /* ───────── data-centre map ↔ list highlighting */
+  $$('[data-dc]').forEach(function (dc) {
+    function hl(i, on) {
+      $$('[data-loc="' + i + '"]', dc).forEach(function (el) { el.classList.toggle('hl', on); });
+    }
+    $$('.dc-list li', dc).forEach(function (li) {
+      var i = li.getAttribute('data-loc');
+      ['mouseenter', 'focus'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, true); }); });
+      ['mouseleave', 'blur'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, false); }); });
+    });
+  });
+
+  /* ───────── matrix rain (essentials visuals) */
+  var glyphs = '01アイウエオカキクケコｱｲｳｴｵ#$%{}[]<>/\\=+*';
+  $$('canvas[data-matrix]').forEach(function (cv) {
+    var ctx = cv.getContext('2d'), cols = [], fs = 12, running = false, last = 0;
+    function size() {
+      var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = Math.max(1, r.width * dpr); cv.height = Math.max(1, r.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.ceil(r.width / fs);
+      cols = Array.from({ length: n }, function () { return Math.random() * -40; });
+      ctx.fillStyle = '#050605'; ctx.fillRect(0, 0, r.width, r.height);
+    }
+    function frame(t) {
+      if (!running) return;
+      requestAnimationFrame(frame);
+      if (t - last < 60) return; // ~16 fps is plenty and cheap
+      last = t;
+      draw();
+    }
+    function draw() {
+      var w = cv.width, h = cv.height / Math.min(2, window.devicePixelRatio || 1);
+      ctx.fillStyle = 'rgba(5,6,5,0.16)'; ctx.fillRect(0, 0, w, h);
+      ctx.font = fs + 'px "JetBrains Mono", monospace';
+      for (var i = 0; i < cols.length; i++) {
+        var y = cols[i] * fs;
+        ctx.fillStyle = Math.random() > 0.96 ? '#e6fff0' : '#3ddc84';
+        ctx.fillText(glyphs.charAt(Math.floor(Math.random() * glyphs.length)), i * fs, y);
+        cols[i] = y > h && Math.random() > 0.975 ? 0 : cols[i] + 1;
+      }
+    }
+    size();
+    window.addEventListener('resize', size);
+    if (reduce) { for (var k = 0; k < 40; k++) draw(); return; }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting && !running) { running = true; requestAnimationFrame(frame); }
+          else if (!e.isIntersecting) running = false;
+        });
+      }).observe(cv);
+    }
+  });
 
   /* ───────── product subnav highlight */
   var sub = $('[data-subnav]');

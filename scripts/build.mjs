@@ -11,6 +11,7 @@ import { document } from '../src/lib/layout.mjs';
 import home from '../src/pages/home.mjs';
 import productPages from '../src/pages/product.mjs';
 import otherPages from '../src/pages/pages.mjs';
+import { loadHomepage } from '../src/lib/cms.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'public');
@@ -19,9 +20,10 @@ if (existsSync(out)) rmSync(out, { recursive: true });
 mkdirSync(out, { recursive: true });
 cpSync(join(root, 'src/static'), out, { recursive: true });
 
+const ctx = { home: await loadHomepage() };
 const pages = [home, ...productPages, ...otherPages];
 for (const page of pages) {
-  const html = document({ ...page, body: page.body() });
+  const html = document({ ...page, body: page.body(ctx) });
   const file = page.file ? join(out, page.file) : join(out, page.path, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);

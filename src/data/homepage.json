@@ -1,0 +1,58 @@
+{
+  "_help": "Homepage hero, offer banner, review score and stats. Edit here, or in WordPress (Settings → RMDHost Homepage) when WP_URL is set at build time. Empty values are hidden on the site.",
+  "hero": {
+    "eyebrow": "KVM VPS · Bare-metal dedicated · Cloud",
+    "headline": "High-performance VPS & dedicated servers",
+    "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
+    "offer": {
+      "label": "Linux VPS from",
+      "price": 8.99,
+      "suffix": "/mo",
+      "note": "No setup fee · Unlimited bandwidth · Full root access"
+    },
+    "primaryCta": {
+      "label": "View plans",
+      "href": "#pricing"
+    },
+    "secondaryCta": {
+      "label": "Talk to an engineer",
+      "href": "/support/"
+    }
+  },
+  "banner": {
+    "enabled": true,
+    "offerTag": "Offer",
+    "offerText": "Free setup on Linux & SSD VPS – plus free migration help from our in-house server team.",
+    "offerCta": {
+      "label": "Claim offer",
+      "href": "/vps/"
+    },
+    "rating": {
+      "label": "DigitalBerg on HostAdvice",
+      "note": "Customer reviews of DigitalBerg, the platform behind RMDHost servers",
+      "score": null,
+      "scale": 5,
+      "count": null,
+      "url": "https://hostadvice.com/hosting-company/digitalberg-reviews/",
+      "linkText": "Read reviews"
+    }
+  },
+  "stats": [
+    {
+      "value": "6",
+      "label": "Data centres · UK, EU & US"
+    },
+    {
+      "value": "24/7",
+      "label": "In-house engineers"
+    },
+    {
+      "value": "£0",
+      "label": "Setup fee · Linux & SSD VPS"
+    },
+    {
+      "value": "1 Gbit/s",
+      "label": "Ports on dedicated servers"
+    }
+  ]
+}
