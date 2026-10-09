@@ -1,0 +1,2255 @@
+# Copyright (C) 2026 RMDHost
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: RMDHost 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/rmdhost\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-09T20:31:22+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: rmdhost\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+msgid "RMDHost"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://rmdhost.com/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A technical, black-and-white hosting theme for VPS, dedicated, cloud and game server providers. Square-edged design with a terminal-green accent, mega menus, animated product scenes, plan tables with GBP/USD switching, data-centre maps, light/dark mode and a GDPR cookie banner. Works out of the box, and is fully compatible with the block editor, Elementor and WooCommerce. Install the RMDHost Core plugin for server plans, Elementor widgets and one-click demo import."
+msgstr ""
+
+#: 404.php:13
+msgid "Error 404"
+msgstr ""
+
+#: 404.php:14
+msgid "This page went offline"
+msgstr ""
+
+#: 404.php:15
+msgid "The page you’re looking for doesn’t exist or has moved."
+msgstr ""
+
+#: 404.php:17
+msgid "Back to home"
+msgstr ""
+
+#: archive.php:13
+msgid "Archive"
+msgstr ""
+
+#. translators: %s: number of comments.
+#: comments.php:20
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:36
+msgid "Comments are closed."
+msgstr ""
+
+#: header.php:19
+msgid "Skip to content"
+msgstr ""
+
+#: home.php:16
+#: inc/template-tags.php:386
+msgid "Blog"
+msgstr ""
+
+#: home.php:17
+msgid "Guides, news and ideas"
+msgstr ""
+
+#: home.php:18
+msgid "Practical advice for running fast, secure servers."
+msgstr ""
+
+#: inc/class-assets.php:81
+msgid "Thanks – your message has been sent. We’ll reply shortly."
+msgstr ""
+
+#: inc/class-assets.php:82
+msgid "Something went wrong. Please email us instead."
+msgstr ""
+
+#: inc/class-customizer.php:31
+msgid "Hero + offer banner"
+msgstr ""
+
+#: inc/class-customizer.php:32
+msgid "Promo grid"
+msgstr ""
+
+#: inc/class-customizer.php:33
+msgid "Server finder"
+msgstr ""
+
+#: inc/class-customizer.php:34
+#: inc/defaults.php:22
+msgid "Feature tabs"
+msgstr ""
+
+#: inc/class-customizer.php:35
+msgid "Essentials cards"
+msgstr ""
+
+#: inc/class-customizer.php:36
+msgid "Alternating highlights"
+msgstr ""
+
+#: inc/class-customizer.php:37
+msgid "Support cards"
+msgstr ""
+
+#: inc/class-customizer.php:38
+#: inc/defaults.php:26
+msgid "Pricing tabs"
+msgstr ""
+
+#: inc/class-customizer.php:39
+#: inc/defaults.php:27
+msgid "Automation + product carousel"
+msgstr ""
+
+#: inc/class-customizer.php:40
+msgid "Data-centre map + stats"
+msgstr ""
+
+#: inc/class-customizer.php:41
+#: inc/defaults.php:29
+msgid "Testimonials wall"
+msgstr ""
+
+#: inc/class-customizer.php:42
+#: inc/defaults.php:30
+#: page-templates/template-faq.php:16
+#: template-parts/sections/product-hero.php:54
+msgid "FAQ"
+msgstr ""
+
+#: inc/class-customizer.php:43
+msgid "Closing call to action"
+msgstr ""
+
+#: inc/class-customizer.php:58
+msgid "RMDHost Theme"
+msgstr ""
+
+#: inc/class-customizer.php:64
+msgid "Client area & links"
+msgstr ""
+
+#: inc/class-customizer.php:65
+msgid "Client area login URL (account icon)"
+msgstr ""
+
+#: inc/class-customizer.php:66
+msgid "Default order URL (plans without their own link)"
+msgstr ""
+
+#: inc/class-customizer.php:67
+msgid "Domain search URL (query is appended)"
+msgstr ""
+
+#: inc/class-customizer.php:68
+msgid "Open ticket URL"
+msgstr ""
+
+#: inc/class-customizer.php:69
+msgid "Support email"
+msgstr ""
+
+#: inc/class-customizer.php:70
+msgid "Sales email"
+msgstr ""
+
+#: inc/class-customizer.php:71
+msgid "Header \"Status\" link"
+msgstr ""
+
+#: inc/class-customizer.php:74
+msgid "Header"
+msgstr ""
+
+#: inc/class-customizer.php:75
+msgid "Show domain search bar"
+msgstr ""
+
+#: inc/class-customizer.php:76
+msgid "Domain search placeholder"
+msgstr ""
+
+#: inc/class-customizer.php:76
+#: template-parts/layout/site-header.php:91
+msgid "Type the domain you want"
+msgstr ""
+
+#: inc/class-customizer.php:77
+msgid "Note beside the domain bar (HTML allowed: strong, br)"
+msgstr ""
+
+#: inc/class-customizer.php:77
+#: template-parts/layout/site-header.php:94
+msgid "<strong>No setup fees</strong><br>on VPS &amp; in-stock servers"
+msgstr ""
+
+#: inc/class-customizer.php:78
+msgid "Show \"Status\" button"
+msgstr ""
+
+#: inc/class-customizer.php:79
+msgid "Show currency switcher"
+msgstr ""
+
+#: inc/class-customizer.php:80
+msgid "Show light/dark toggle"
+msgstr ""
+
+#: inc/class-customizer.php:83
+#: inc/template-tags.php:520
+msgid "Currency"
+msgstr ""
+
+#: inc/class-customizer.php:94
+msgid "Default currency"
+msgstr ""
+
+#: inc/class-customizer.php:103
+msgid "GBP → USD rate (plans can set their own USD price)"
+msgstr ""
+
+#: inc/class-customizer.php:106
+#: inc/defaults.php:19
+msgid "Homepage hero"
+msgstr ""
+
+#: inc/class-customizer.php:109
+#: inc/class-menu.php:185
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/class-customizer.php:110
+msgid "Headline"
+msgstr ""
+
+#: inc/class-customizer.php:111
+msgid "Benefit text"
+msgstr ""
+
+#: inc/class-customizer.php:112
+msgid "Offer label"
+msgstr ""
+
+#: inc/class-customizer.php:113
+msgid "Offer price (GBP, empty = hide)"
+msgstr ""
+
+#: inc/class-customizer.php:114
+msgid "Offer suffix"
+msgstr ""
+
+#: inc/class-customizer.php:115
+msgid "Offer note"
+msgstr ""
+
+#: inc/class-customizer.php:116
+msgid "Primary button label"
+msgstr ""
+
+#: inc/class-customizer.php:117
+msgid "Primary button link"
+msgstr ""
+
+#: inc/class-customizer.php:118
+msgid "Secondary button label"
+msgstr ""
+
+#: inc/class-customizer.php:119
+msgid "Secondary button link"
+msgstr ""
+
+#: inc/class-customizer.php:126
+msgid "Offer & review banner"
+msgstr ""
+
+#: inc/class-customizer.php:126
+msgid "Review figures must match the review source exactly. Leave the score empty to show a neutral icon and link only."
+msgstr ""
+
+#: inc/class-customizer.php:127
+msgid "Show banner"
+msgstr ""
+
+#: inc/class-customizer.php:128
+msgid "Offer tag"
+msgstr ""
+
+#: inc/class-customizer.php:129
+msgid "Offer text"
+msgstr ""
+
+#: inc/class-customizer.php:130
+msgid "Offer link label"
+msgstr ""
+
+#: inc/class-customizer.php:131
+msgid "Offer link URL"
+msgstr ""
+
+#: inc/class-customizer.php:132
+msgid "Review source label"
+msgstr ""
+
+#: inc/class-customizer.php:133
+msgid "Review note"
+msgstr ""
+
+#: inc/class-customizer.php:134
+msgid "Review score (empty = hide)"
+msgstr ""
+
+#: inc/class-customizer.php:135
+msgid "Score scale"
+msgstr ""
+
+#: inc/class-customizer.php:136
+msgid "Number of reviews (empty = hide)"
+msgstr ""
+
+#: inc/class-customizer.php:137
+msgid "Review page URL"
+msgstr ""
+
+#: inc/class-customizer.php:138
+msgid "Review link text"
+msgstr ""
+
+#: inc/class-customizer.php:141
+msgid "Hero stats row"
+msgstr ""
+
+#. translators: %d: stat number
+#: inc/class-customizer.php:145
+#, php-format
+msgid "Stat %d value"
+msgstr ""
+
+#. translators: %d: stat number
+#: inc/class-customizer.php:147
+#, php-format
+msgid "Stat %d label"
+msgstr ""
+
+#: inc/class-customizer.php:151
+msgid "Homepage sections"
+msgstr ""
+
+#: inc/class-customizer.php:151
+msgid "Used when the front page is not built with Elementor or blocks."
+msgstr ""
+
+#: inc/class-customizer.php:157
+msgid "Footer"
+msgstr ""
+
+#. translators: %s: site name
+#: inc/class-customizer.php:159
+msgid "Copyright text ({year} is replaced)"
+msgstr ""
+
+#. translators: %s: site name
+#: inc/class-customizer.php:159
+#: template-parts/layout/site-footer.php:19
+#, php-format
+msgid "© {year} %s – High-performance VPS & dedicated servers."
+msgstr ""
+
+#: inc/class-customizer.php:160
+msgid "Right-hand note"
+msgstr ""
+
+#: inc/class-customizer.php:160
+#: template-parts/layout/site-footer.php:82
+msgid "Prices are listed without VAT."
+msgstr ""
+
+#: inc/class-customizer.php:161
+msgid "Payment methods (comma separated)"
+msgstr ""
+
+#. translators: %s: social network
+#: inc/class-customizer.php:164
+#, php-format
+msgid "%s URL"
+msgstr ""
+
+#: inc/class-customizer.php:168
+msgid "Cookie banner"
+msgstr ""
+
+#: inc/class-customizer.php:169
+msgid "Show cookie consent banner"
+msgstr ""
+
+#: inc/class-customizer.php:170
+#: inc/class-menu.php:186
+msgid "Title"
+msgstr ""
+
+#: inc/class-customizer.php:170
+#: template-parts/layout/cookie.php:16
+msgid "We care about your privacy"
+msgstr ""
+
+#: inc/class-customizer.php:171
+#: inc/class-menu.php:187
+msgid "Text"
+msgstr ""
+
+#: inc/class-customizer.php:171
+#: template-parts/layout/cookie.php:17
+msgid "We use cookies that are needed for the site to work, plus optional cookies for analytics and marketing. You can accept all, reject optional cookies or choose your preferences."
+msgstr ""
+
+#: inc/class-customizer.php:186
+msgid "Signal accent colour"
+msgstr ""
+
+#: inc/class-menu.php:165
+msgid "Icon (mega menu)"
+msgstr ""
+
+#: inc/class-menu.php:171
+msgid "Tag (e.g. New)"
+msgstr ""
+
+#: inc/class-menu.php:177
+msgid "Mega-menu promo panel (optional)"
+msgstr ""
+
+#: inc/class-menu.php:180
+msgid "Visual"
+msgstr ""
+
+#: inc/class-menu.php:188
+msgid "Link URL"
+msgstr ""
+
+#: inc/class-menu.php:189
+msgid "Link label"
+msgstr ""
+
+#: inc/class-meta-boxes.php:58
+msgid "RMDHost page settings"
+msgstr ""
+
+#: inc/class-meta-boxes.php:70
+msgid "Hide the page hero (title banner)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:71
+msgid "Transparent header (Elementor pages that start with a dark section)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:72
+msgid "Hero title (defaults to the page title)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:74
+msgid "Hero eyebrow"
+msgstr ""
+
+#: inc/class-meta-boxes.php:76
+msgid "Hero intro text (defaults to the excerpt)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:78
+msgid "Hero visual (animated scene on the right)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:80
+msgid "— None —"
+msgstr ""
+
+#: inc/class-meta-boxes.php:85
+msgid "Server product (for the \"Server product\" template)"
+msgstr ""
+
+#: inc/class-meta-boxes.php:87
+msgid "— Select —"
+msgstr ""
+
+#: inc/class-plugins-notice.php:34
+msgid "(server plans, Elementor widgets, blocks, demo import – included with the theme)"
+msgstr ""
+
+#: inc/class-plugins-notice.php:40
+msgid "(optional)"
+msgstr ""
+
+#: inc/class-plugins-notice.php:48
+msgid "RMDHost theme:"
+msgstr ""
+
+#: inc/class-plugins-notice.php:49
+msgid "install these plugins to unlock every feature."
+msgstr ""
+
+#: inc/class-setup.php:60
+msgid "Primary (mega menu)"
+msgstr ""
+
+#: inc/class-setup.php:61
+msgid "Footer column 1"
+msgstr ""
+
+#: inc/class-setup.php:62
+msgid "Footer column 2"
+msgstr ""
+
+#: inc/class-setup.php:63
+msgid "Footer column 3"
+msgstr ""
+
+#: inc/class-setup.php:64
+msgid "Footer column 4"
+msgstr ""
+
+#: inc/class-setup.php:65
+msgid "Footer column 5"
+msgstr ""
+
+#: inc/class-setup.php:66
+msgid "Footer legal links"
+msgstr ""
+
+#: inc/class-setup.php:85
+msgid "Blog sidebar"
+msgstr ""
+
+#: inc/class-setup.php:87
+msgid "Shown next to blog posts and archives."
+msgstr ""
+
+#: inc/class-setup.php:95
+#: inc/class-woocommerce.php:148
+msgid "Shop sidebar"
+msgstr ""
+
+#: inc/class-setup.php:97
+msgid "Shown on WooCommerce shop and category pages."
+msgstr ""
+
+#: inc/class-setup.php:105
+msgid "Footer top"
+msgstr ""
+
+#: inc/class-setup.php:107
+msgid "Optional full-width widget row above the footer columns."
+msgstr ""
+
+#: inc/class-woocommerce.php:128
+msgid "Store"
+msgstr ""
+
+#. translators: %d: items in cart.
+#: inc/class-woocommerce.php:228
+#, php-format
+msgid "Cart, %d item"
+msgid_plural "Cart, %d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-woocommerce.php:260
+msgid "Server plan (RMDHost)"
+msgstr ""
+
+#: inc/class-woocommerce.php:260
+msgid "Shown in plan boxes and on the product page. Put the product in a category whose slug matches a product group (e.g. \"vps\") to list it on that page."
+msgstr ""
+
+#: inc/class-woocommerce.php:262
+#: inc/class-woocommerce.php:315
+#: template-parts/components/plan-card.php:16
+#: template-parts/components/server-table-dedicated.php:12
+msgid "CPU"
+msgstr ""
+
+#: inc/class-woocommerce.php:263
+#: inc/class-woocommerce.php:316
+#: template-parts/components/plan-card.php:17
+#: template-parts/components/server-table-dedicated.php:12
+#: template-parts/components/server-table-instant.php:20
+#: template-parts/components/server-table-instant.php:33
+msgid "RAM"
+msgstr ""
+
+#: inc/class-woocommerce.php:264
+#: inc/class-woocommerce.php:317
+#: template-parts/components/plan-card.php:18
+#: template-parts/components/server-table-dedicated.php:12
+#: template-parts/components/server-table-instant.php:20
+#: template-parts/components/server-table-instant.php:34
+msgid "Storage"
+msgstr ""
+
+#: inc/class-woocommerce.php:265
+#: inc/class-woocommerce.php:318
+#: template-parts/components/plan-card.php:19
+msgid "Bandwidth"
+msgstr ""
+
+#: inc/class-woocommerce.php:266
+#: inc/class-woocommerce.php:319
+#: template-parts/components/plan-card.php:20
+msgid "Location"
+msgstr ""
+
+#: inc/class-woocommerce.php:267
+msgid "DDoS protection"
+msgstr ""
+
+#: inc/class-woocommerce.php:268
+msgid "Badge (e.g. Most popular)"
+msgstr ""
+
+#: inc/class-woocommerce.php:269
+msgid "Fixed USD price (optional)"
+msgstr ""
+
+#: inc/class-woocommerce.php:270
+msgid "Note under the price"
+msgstr ""
+
+#: inc/class-woocommerce.php:283
+msgid "More details (one per line)"
+msgstr ""
+
+#: inc/class-woocommerce.php:284
+msgid ""
+"IPv6 /64\n"
+"Free setup"
+msgstr ""
+
+#: inc/class-woocommerce.php:320
+#: template-parts/components/plan-card.php:21
+msgid "DDoS"
+msgstr ""
+
+#: inc/class-woocommerce.php:344
+msgid "Store (WooCommerce)"
+msgstr ""
+
+#: inc/class-woocommerce.php:360
+msgid "Plan boxes use"
+msgstr ""
+
+#: inc/class-woocommerce.php:361
+msgid "WooCommerce: plans come from products in the category matching each product group, and “Order now” adds the plan to the cart and opens checkout."
+msgstr ""
+
+#: inc/class-woocommerce.php:365
+msgid "Server plans / client area links"
+msgstr ""
+
+#: inc/class-woocommerce.php:366
+msgid "WooCommerce products"
+msgstr ""
+
+#: inc/class-woocommerce.php:380
+msgid "Show cart icon in the header"
+msgstr ""
+
+#: inc/class-woocommerce.php:436
+msgid "Most popular"
+msgstr ""
+
+#: inc/defaults.php:20
+msgid "Promo cards"
+msgstr ""
+
+#: inc/defaults.php:21
+msgid "Server finder prompt"
+msgstr ""
+
+#: inc/defaults.php:23
+msgid "Essentials grid"
+msgstr ""
+
+#: inc/defaults.php:24
+msgid "Alternating rows"
+msgstr ""
+
+#: inc/defaults.php:25
+#: inc/defaults.php:335
+msgid "24/7 support"
+msgstr ""
+
+#: inc/defaults.php:28
+msgid "Data-centre map"
+msgstr ""
+
+#: inc/defaults.php:31
+msgid "Call to action"
+msgstr ""
+
+#: inc/defaults.php:32
+msgid "Product hero"
+msgstr ""
+
+#: inc/defaults.php:33
+msgid "Product plans"
+msgstr ""
+
+#: inc/defaults.php:34
+msgid "Product use cases"
+msgstr ""
+
+#: inc/defaults.php:35
+msgid "Feature bento"
+msgstr ""
+
+#: inc/defaults.php:36
+msgid "OS & one-click apps"
+msgstr ""
+
+#: inc/defaults.php:37
+msgid "Product carousel"
+msgstr ""
+
+#: inc/defaults.php:38
+msgid "All plans (pricing page)"
+msgstr ""
+
+#: inc/defaults.php:39
+msgid "Numbered steps"
+msgstr ""
+
+#: inc/defaults.php:40
+msgid "Cards / stats / photo"
+msgstr ""
+
+#: inc/defaults.php:41
+msgid "Captioned photo"
+msgstr ""
+
+#: inc/defaults.php:42
+msgid "References + reviews"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/defaults.php:43
+#: page-templates/template-network-status.php:16
+#: template-parts/layout/site-header.php:116
+msgid "Network status"
+msgstr ""
+
+#: inc/defaults.php:44
+msgid "Contact routes + form"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/defaults.php:45
+#: page-templates/template-knowledge-base.php:17
+msgid "Knowledge base"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/defaults.php:46
+#: page-templates/template-tutorials.php:16
+msgid "Tutorials"
+msgstr ""
+
+#: inc/defaults.php:47
+msgid "All FAQs"
+msgstr ""
+
+#: inc/defaults.php:48
+msgid "Section heading"
+msgstr ""
+
+#: inc/defaults.php:125
+msgid "Read reviews"
+msgstr ""
+
+#: inc/defaults.php:130
+#: template-parts/sections/product-hero.php:54
+msgid "Pricing"
+msgstr ""
+
+#: inc/defaults.php:131
+#: page-templates/template-pricing.php:20
+msgid "Plans and prices"
+msgstr ""
+
+#: inc/defaults.php:132
+msgid "KVM Linux VPS from {price:vps}, Ryzen Windows VPS, OpenStack NVMe VPS and bare-metal Xeon servers – monthly billing, no setup fee on Linux &amp; SSD VPS."
+msgstr ""
+
+#: inc/defaults.php:133
+msgid "Explore all offers"
+msgstr ""
+
+#: inc/defaults.php:138
+msgid "New"
+msgstr ""
+
+#: inc/defaults.php:139
+msgid "AWS Lightsail VPS"
+msgstr ""
+
+#: inc/defaults.php:140
+msgid "Fixed-price cloud bundles: 2 vCPUs, 1–8 GB RAM and 2–5 TB transfer from {price:aws-lightsail-vps}."
+msgstr ""
+
+#: inc/defaults.php:145
+msgid "Trending"
+msgstr ""
+
+#: inc/defaults.php:146
+msgid "Instant dedicated servers"
+msgstr ""
+
+#: inc/defaults.php:147
+msgid "Bare metal in the USA, online in minutes from {price:instant-dedicated-servers-usa}."
+msgstr ""
+
+#: inc/defaults.php:156
+msgid "Tell us your project.<br><span class=\"grad-text\">We’ll pick the perfect server.</span>"
+msgstr ""
+
+#: inc/defaults.php:157
+msgid "Get an instant server recommendation. Free, no signup."
+msgstr ""
+
+#: inc/defaults.php:159
+msgid "A Minecraft server for 100 players"
+msgstr ""
+
+#: inc/defaults.php:160
+msgid "WordPress sites for my agency"
+msgstr ""
+
+#: inc/defaults.php:161
+msgid "MetaTrader bots running 24/7"
+msgstr ""
+
+#: inc/defaults.php:162
+msgid "A private ChatGPT for my team"
+msgstr ""
+
+#: inc/defaults.php:163
+msgid "A Postgres database for my SaaS"
+msgstr ""
+
+#: inc/defaults.php:164
+msgid "iOS builds for my app"
+msgstr ""
+
+#: inc/defaults.php:170
+msgid "Servers for every online project"
+msgstr ""
+
+#: inc/defaults.php:171
+msgid "Get more power and control over what you run online, without taking on more technical complexity."
+msgstr ""
+
+#: inc/defaults.php:174
+msgid "Deploy"
+msgstr ""
+
+#: inc/defaults.php:177
+msgid "Provision in seconds, not tickets."
+msgstr ""
+
+#: inc/defaults.php:178
+msgid "Pick a plan, OS image and data centre. Your KVM instance boots with root SSH access, IPv4 + IPv6 /64 and DDoS filtering already applied."
+msgstr ""
+
+#: inc/defaults.php:179
+msgid "Deploy a VPS"
+msgstr ""
+
+#: inc/defaults.php:183
+#: inc/defaults.php:317
+msgid "Scale"
+msgstr ""
+
+#: inc/defaults.php:186
+msgid "Scale from 1 vCore to bare metal."
+msgstr ""
+
+#: inc/defaults.php:187
+msgid "Resize vCPU, RAM and disk from the client area, attach extra IPs, or move to a dedicated Xeon box when load demands it – our engineers handle the migration."
+msgstr ""
+
+#: inc/defaults.php:188
+msgid "Compare plans"
+msgstr ""
+
+#: inc/defaults.php:192
+msgid "Protect"
+msgstr ""
+
+#: inc/defaults.php:195
+msgid "Filtered at the edge."
+msgstr ""
+
+#: inc/defaults.php:196
+msgid "Volumetric and protocol attacks are scrubbed upstream before they reach your port. Game servers add UDP-aware mitigation for Minecraft, CS and ARMA."
+msgstr ""
+
+#: inc/defaults.php:197
+msgid "How DDoS protection works"
+msgstr ""
+
+#: inc/defaults.php:201
+msgid "Manage"
+msgstr ""
+
+#: inc/defaults.php:204
+msgid "Root, RDP and out-of-band console."
+msgstr ""
+
+#: inc/defaults.php:205
+msgid "SSH or Remote Desktop in, use the VNC console when the network is down, snapshot before risky changes and reinstall any of 25+ OS images."
+msgstr ""
+
+#: inc/defaults.php:206
+msgid "Explore Windows VPS"
+msgstr ""
+
+#: inc/defaults.php:210
+msgid "clients choose"
+msgstr ""
+
+#: inc/defaults.php:212
+msgid "Want more hands-on control?"
+msgstr ""
+
+#: inc/defaults.php:216
+#: inc/defaults.php:249
+msgid "Dedicated servers"
+msgstr ""
+
+#: inc/defaults.php:217
+msgid "Bare-metal Xeon, fully under your control."
+msgstr ""
+
+#: inc/defaults.php:222
+msgid "Game servers"
+msgstr ""
+
+#: inc/defaults.php:223
+msgid "Anti-DDoS Game for Minecraft, CS2, ARMA and more."
+msgstr ""
+
+#: inc/defaults.php:231
+msgid "Set up the essentials to go online"
+msgstr ""
+
+#: inc/defaults.php:235
+#: inc/defaults.php:400
+msgid "Linux VPS"
+msgstr ""
+
+#: inc/defaults.php:236
+msgid "KVM · full root · SSD + HDD · unmetered 100 Mbit/s."
+msgstr ""
+
+#: inc/defaults.php:242
+msgid "Windows VPS"
+msgstr ""
+
+#: inc/defaults.php:243
+msgid "Ryzen vCPU · NVMe · RDP · free backups."
+msgstr ""
+
+#: inc/defaults.php:250
+msgid "Bare-metal Xeon & Core · RAID 1 · 1 Gbit/s."
+msgstr ""
+
+#: inc/defaults.php:256
+msgid "Private cloud storage"
+msgstr ""
+
+#: inc/defaults.php:257
+msgid "OwnCloud · E2E encryption · up to 1.6 TB."
+msgstr ""
+
+#: inc/defaults.php:268
+msgid "Grow without limits and keep more of what you earn"
+msgstr ""
+
+#: inc/defaults.php:269
+msgid "Unlimited bandwidth on VPS and dedicated plans, no setup fees and transparent monthly pricing in GBP or USD."
+msgstr ""
+
+#: inc/defaults.php:270
+msgid "See all pricing"
+msgstr ""
+
+#: inc/defaults.php:275
+msgid "Bring AI in-house with a private AI VPS"
+msgstr ""
+
+#: inc/defaults.php:276
+msgid "Run open-source models, AI agents and n8n automations on your own server – your prompts and data never leave it."
+msgstr ""
+
+#: inc/defaults.php:277
+msgid "Explore AI VPS"
+msgstr ""
+
+#: inc/defaults.php:286
+msgid "24/7/365<br>Expert support"
+msgstr ""
+
+#: inc/defaults.php:287
+msgid "Real engineers. Real answers.<br>Every hour of every day."
+msgstr ""
+
+#: inc/defaults.php:288
+msgid "Migrate, fix, secure and scale your servers with help from our in-house engineers – no chatbots, no scripts."
+msgstr ""
+
+#: inc/defaults.php:289
+#: template-parts/sections/contact.php:24
+msgid "Open a ticket"
+msgstr ""
+
+#: inc/defaults.php:293
+msgid "Migrate"
+msgstr ""
+
+#: inc/defaults.php:294
+msgid "Tell us where your site lives today and our engineers move it to RMDHost for free."
+msgstr ""
+
+#: inc/defaults.php:295
+msgid "Can you move my WordPress site from my old host?"
+msgstr ""
+
+#: inc/defaults.php:296
+msgid "Of course – send us read-only access and we’ll migrate it with zero downtime."
+msgstr ""
+
+#: inc/defaults.php:299
+msgid "Secure"
+msgstr ""
+
+#: inc/defaults.php:300
+msgid "Get help hardening SSH, firewalls and updates on your new server."
+msgstr ""
+
+#: inc/defaults.php:301
+msgid "How do I lock down SSH on my VPS?"
+msgstr ""
+
+#: inc/defaults.php:302
+msgid "Use key-only login and disable root. I’ve added a step-by-step guide to your ticket."
+msgstr ""
+
+#: inc/defaults.php:305
+msgid "Fix"
+msgstr ""
+
+#: inc/defaults.php:306
+msgid "Share your error and get clear steps to sort it out – day or night."
+msgstr ""
+
+#: inc/defaults.php:307
+msgid "My site is showing a 502 Bad Gateway. Can you help?"
+msgstr ""
+
+#: inc/defaults.php:308
+msgid "Let me check your Nginx and PHP-FPM logs – I’ll find what’s causing it."
+msgstr ""
+
+#: inc/defaults.php:311
+msgid "Speed up"
+msgstr ""
+
+#: inc/defaults.php:312
+msgid "Describe your speed issue and get tuning tips for your stack."
+msgstr ""
+
+#: inc/defaults.php:313
+msgid "Why is my WooCommerce store slow?"
+msgstr ""
+
+#: inc/defaults.php:314
+msgid "Your MySQL buffer is too small. Increasing it to 2 GB should halve load time."
+msgstr ""
+
+#: inc/defaults.php:318
+msgid "Ask for an upgrade path that matches your growth and budget."
+msgstr ""
+
+#: inc/defaults.php:319
+msgid "We’re expecting 10× traffic next month."
+msgstr ""
+
+#: inc/defaults.php:320
+msgid "A Premium Berg VPS or the Uranus dedicated server will handle it – here’s a quote."
+msgstr ""
+
+#: inc/defaults.php:323
+msgid "Same team. More ways to grow."
+msgstr ""
+
+#: inc/defaults.php:324
+msgid "Every plan includes 24/7 support. Need more? Add fully managed services, custom hardware builds and dedicated account management."
+msgstr ""
+
+#: inc/defaults.php:325
+msgid "Learn more"
+msgstr ""
+
+#: inc/defaults.php:328
+msgid "Install cPanel on my server"
+msgstr ""
+
+#: inc/defaults.php:328
+msgid "Restore last night’s snapshot"
+msgstr ""
+
+#: inc/defaults.php:328
+msgid "Add 4 IPs in Frankfurt"
+msgstr ""
+
+#: inc/defaults.php:333
+msgid "Choose the plan that<br>matches what you need"
+msgstr ""
+
+#: inc/defaults.php:334
+msgid "Compare vCPU, RAM, storage, bandwidth and network protection side by side – every package links straight to checkout."
+msgstr ""
+
+#: inc/defaults.php:335
+msgid "Anti-DDoS on VPS"
+msgstr ""
+
+#: inc/defaults.php:335
+msgid "Monthly billing"
+msgstr ""
+
+#: inc/defaults.php:339
+msgid "Prices exclude VAT. All plans are billed monthly. Unlimited bandwidth is subject to our Acceptable Use Policy."
+msgstr ""
+
+#: inc/defaults.php:346
+msgid "Put your servers to work"
+msgstr ""
+
+#: inc/defaults.php:347
+msgid "Launch AI tools, dev stacks and popular apps in a few clicks – then let them run in the background, around the clock."
+msgstr ""
+
+#: inc/defaults.php:348
+msgid "One-click apps"
+msgstr ""
+
+#: inc/defaults.php:349
+msgid "Connect your tools, hand repetitive tasks to AI and keep things running – even when you’re not."
+msgstr ""
+
+#: inc/defaults.php:352
+msgid "Self-hosted n8n"
+msgstr ""
+
+#: inc/defaults.php:356
+msgid "Ollama + Open WebUI"
+msgstr ""
+
+#: inc/defaults.php:360
+msgid "Docker & Compose"
+msgstr ""
+
+#: inc/defaults.php:364
+msgid "More power when you need it"
+msgstr ""
+
+#: inc/defaults.php:369
+msgid "// Global network"
+msgstr ""
+
+#: inc/defaults.php:370
+msgid "6 data centres. UK, EU & US."
+msgstr ""
+
+#: inc/defaults.php:371
+msgid "Deploy close to your users in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York. Every site is staffed 24/7 with CCTV, fob-controlled access, VESDA fire detection and N+1 diesel backup power."
+msgstr ""
+
+#: inc/defaults.php:372
+msgid "Data-centre details"
+msgstr ""
+
+#: inc/defaults.php:375
+msgid "Online"
+msgstr ""
+
+#: inc/defaults.php:380
+msgid "Trusted by teams that can’t<br>afford downtime"
+msgstr ""
+
+#: inc/defaults.php:381
+msgid "From agencies and traders to game networks and SaaS startups."
+msgstr ""
+
+#: inc/defaults.php:382
+msgid "See customer stories"
+msgstr ""
+
+#: inc/defaults.php:387
+msgid "Game Servers"
+msgstr ""
+
+#: inc/defaults.php:388
+msgid "Game<br>networks"
+msgstr ""
+
+#: inc/defaults.php:394
+msgid "SSD VPS"
+msgstr ""
+
+#: inc/defaults.php:395
+msgid "Developers"
+msgstr ""
+
+#: inc/defaults.php:401
+msgid "Web<br>agencies"
+msgstr ""
+
+#: inc/defaults.php:407
+msgid "Dedicated"
+msgstr ""
+
+#: inc/defaults.php:408
+msgid "SaaS<br>startups"
+msgstr ""
+
+#: inc/defaults.php:413
+msgid "Cloud VPS"
+msgstr ""
+
+#: inc/defaults.php:414
+msgid "Builders"
+msgstr ""
+
+#: inc/defaults.php:420
+msgid "AI VPS"
+msgstr ""
+
+#: inc/defaults.php:421
+msgid "AI-first<br>teams"
+msgstr ""
+
+#: inc/defaults.php:426
+msgid "Read independent reviews of our infrastructure on <a href=\"https://hostadvice.com/hosting-company/digitalberg-reviews/\" rel=\"noopener\" target=\"_blank\">HostAdvice</a>."
+msgstr ""
+
+#. translators: %s: site name
+#: inc/defaults.php:432
+#, php-format
+msgid "%s hosting FAQs"
+msgstr ""
+
+#: inc/defaults.php:439
+msgid "Imagined it.<br>Now deploy it."
+msgstr ""
+
+#: inc/defaults.php:440
+msgid "No setup fee on Linux & SSD VPS. Free migration help from our in-house engineers."
+msgstr ""
+
+#: inc/defaults.php:441
+msgid "Get started"
+msgstr ""
+
+#: inc/defaults.php:445
+msgid "Server online"
+msgstr ""
+
+#: inc/defaults.php:446
+msgid "Deployed in 38 seconds"
+msgstr ""
+
+#: inc/defaults.php:447
+msgid "Deploy a VPS in London"
+msgstr ""
+
+#: inc/defaults.php:456
+msgid "Prices exclude VAT and are billed monthly. Toggle GBP / USD in the header."
+msgstr ""
+
+#: inc/defaults.php:472
+msgid "One-click deployment"
+msgstr ""
+
+#: inc/defaults.php:473
+msgid "Deploy popular operating systems, control panels and applications. Get up and running in minutes."
+msgstr ""
+
+#: inc/defaults.php:480
+msgid "Section title"
+msgstr ""
+
+#: inc/defaults.php:496
+#: template-parts/sections/carousel.php:13
+msgid "Explore more servers"
+msgstr ""
+
+#: inc/defaults.php:501
+msgid "How it works"
+msgstr ""
+
+#: inc/defaults.php:521
+#: template-parts/sections/references.php:33
+msgid "What customers say"
+msgstr ""
+
+#: inc/defaults.php:523
+#: page-templates/template-network-status.php:17
+#: template-parts/sections/status.php:16
+msgid "All systems operational"
+msgstr ""
+
+#: inc/defaults.php:527
+#: template-parts/sections/contact.php:30
+msgid "Send us a message"
+msgstr ""
+
+#: inc/defaults.php:532
+#: template-parts/sections/all-plans.php:49
+msgid "Prices exclude VAT and are billed monthly."
+msgstr ""
+
+#: inc/template-tags.php:96
+msgid "/mo"
+msgstr ""
+
+#: inc/template-tags.php:101
+msgid "Price coming soon"
+msgstr ""
+
+#. translators: %s: site name
+#: inc/template-tags.php:134
+#, php-format
+msgid "%s home"
+msgstr ""
+
+#: inc/template-tags.php:238
+msgid "Server dashboard"
+msgstr ""
+
+#: inc/template-tags.php:239
+msgid "Terminal deploy"
+msgstr ""
+
+#: inc/template-tags.php:240
+msgid "Remote desktop"
+msgstr ""
+
+#: inc/template-tags.php:241
+msgid "Cloud nodes"
+msgstr ""
+
+#: inc/template-tags.php:242
+msgid "File sync"
+msgstr ""
+
+#: inc/template-tags.php:243
+msgid "AI chat"
+msgstr ""
+
+#: inc/template-tags.php:244
+msgid "Xcode build"
+msgstr ""
+
+#: inc/template-tags.php:245
+msgid "Server rack"
+msgstr ""
+
+#: inc/template-tags.php:246
+msgid "Game panel"
+msgstr ""
+
+#: inc/template-tags.php:247
+msgid "DDoS shield"
+msgstr ""
+
+#. translators: %d: number of stars
+#: inc/template-tags.php:306
+#, php-format
+msgid "%d out of 5 stars"
+msgstr ""
+
+#: inc/template-tags.php:355
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/template-tags.php:373
+#: template-parts/sections/product-hero.php:20
+msgid "Home"
+msgstr ""
+
+#. translators: %s: search query
+#: inc/template-tags.php:389
+#, php-format
+msgid "Search: %s"
+msgstr ""
+
+#: inc/template-tags.php:510
+msgid "Toggle dark mode"
+msgstr ""
+
+#: inc/template-tags.php:598
+msgid "World map showing data-centre locations"
+msgstr ""
+
+#. translators: %d: number of European data centres
+#: inc/template-tags.php:607
+#, php-format
+msgid "EUROPE · %d SITES"
+msgstr ""
+
+#: inc/template-tags.php:616
+msgid "Map of data centres in Europe"
+msgstr ""
+
+#: inc/template-tags.php:630
+#: template-parts/components/product-carousel.php:16
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php:631
+#: template-parts/components/product-carousel.php:16
+msgid "Next"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Blank canvas (header + footer)"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Data centres"
+msgstr ""
+
+#: page-templates/template-data-centres.php:20
+msgid "Global network"
+msgstr ""
+
+#: page-templates/template-data-centres.php:21
+msgid "Deploy closer to your users. Six locations across the UK, Europe and North America with Cisco 10 Gb/s fibre and direct LINX connectivity."
+msgstr ""
+
+#: page-templates/template-data-centres.php:29
+msgid "Server racks lining a data centre aisle"
+msgstr ""
+
+#: page-templates/template-data-centres.php:30
+msgid "Six data centres. One network built for uptime."
+msgstr ""
+
+#: page-templates/template-data-centres.php:38
+msgid "Built for uptime"
+msgstr ""
+
+#: page-templates/template-data-centres.php:43
+msgid "24/7 physical security"
+msgstr ""
+
+#: page-templates/template-data-centres.php:44
+msgid "Biometric access control, CCTV monitoring and on-site security teams at every facility."
+msgstr ""
+
+#: page-templates/template-data-centres.php:48
+msgid "Redundant power"
+msgstr ""
+
+#: page-templates/template-data-centres.php:49
+msgid "Dual power feeds, N+1 UPS battery backup and diesel generators."
+msgstr ""
+
+#: page-templates/template-data-centres.php:53
+msgid "Efficient cooling"
+msgstr ""
+
+#: page-templates/template-data-centres.php:54
+msgid "N+1 climate control with under-floor air distribution."
+msgstr ""
+
+#: page-templates/template-data-centres.php:58
+msgid "Carrier-grade network"
+msgstr ""
+
+#: page-templates/template-data-centres.php:59
+msgid "Cisco 10 Gb/s fibre backbone with multi-path connectivity and LINX peering."
+msgstr ""
+
+#: page-templates/template-data-centres.php:63
+msgid "DDoS mitigation"
+msgstr ""
+
+#: page-templates/template-data-centres.php:64
+msgid "Edge filtering protects every server in every location."
+msgstr ""
+
+#: page-templates/template-data-centres.php:68
+msgid "Remote hands"
+msgstr ""
+
+#: page-templates/template-data-centres.php:69
+msgid "Engineers on site to replace hardware and assist 24/7."
+msgstr ""
+
+#: page-templates/template-data-centres.php:74
+msgid "Pick a location.<br>Deploy in seconds."
+msgstr ""
+
+#. Template Name of the theme
+msgid "FAQ (all products)"
+msgstr ""
+
+#: page-templates/template-faq.php:17
+msgid "Everything you need to know about our servers, billing and support."
+msgstr ""
+
+#: page-templates/template-faq.php:26
+msgid "Still have questions?"
+msgstr ""
+
+#: page-templates/template-faq.php:27
+msgid "Our engineers are available 24/7."
+msgstr ""
+
+#: page-templates/template-faq.php:28
+#: page-templates/template-knowledge-base.php:31
+msgid "Contact support"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full width (sections)"
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:14
+msgid "Search the knowledge base"
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:14
+msgid "e.g. reset root password"
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:18
+msgid "How can we help?"
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:19
+msgid "Search our help articles or browse by topic."
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:29
+msgid "Can’t find an answer?"
+msgstr ""
+
+#: page-templates/template-knowledge-base.php:30
+msgid "Open a ticket and an engineer will reply – usually within minutes."
+msgstr ""
+
+#: page-templates/template-network-status.php:18
+msgid "Live health of our platform, data centres and services. Subscribe to updates from the client area."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Pricing (all plans)"
+msgstr ""
+
+#: page-templates/template-pricing.php:21
+msgid "Monthly billing, no setup fees on VPS, DDoS protection on every server. Switch between GBP and USD at any time."
+msgstr ""
+
+#. Template Name of the theme
+#: page-templates/template-references.php:16
+msgid "References"
+msgstr ""
+
+#: page-templates/template-references.php:17
+msgid "From agencies and traders to game networks and AI start-ups – here’s who trusts us with their infrastructure."
+msgstr ""
+
+#: page-templates/template-references.php:22
+msgid "Become our next<br>success story."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Server product"
+msgstr ""
+
+#: page-templates/template-server-product.php:31
+msgid "Choose a product group in “RMDHost page settings” to display plans on this page."
+msgstr ""
+
+#. translators: %s: product name
+#: page-templates/template-server-product.php:65
+#, php-format
+msgid "%s FAQs"
+msgstr ""
+
+#. translators: %s: product name, e.g. "Linux VPS server".
+#: page-templates/template-server-product.php:81
+#, php-format
+msgid "Ready to launch your<br>%s?"
+msgstr ""
+
+#. translators: %s: product name, e.g. "Linux VPS server".
+#: page-templates/template-server-product.php:81
+msgid "server"
+msgstr ""
+
+#: page-templates/template-server-product.php:83
+#: template-parts/sections/product-hero.php:41
+msgid "Choose plan"
+msgstr ""
+
+#: page-templates/template-server-product.php:83
+#: template-parts/components/plan-card.php:38
+#: template-parts/sections/product-hero.php:43
+msgid "Contact sales"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Support & contact"
+msgstr ""
+
+#: page-templates/template-support.php:20
+msgid "Support"
+msgstr ""
+
+#: page-templates/template-support.php:21
+msgid "Our team answers every ticket – day or night, every day of the year."
+msgstr ""
+
+#: page-templates/template-support.php:30
+msgid "Quick answers"
+msgstr ""
+
+#: page-templates/template-tutorials.php:17
+msgid "Learn by doing"
+msgstr ""
+
+#: page-templates/template-tutorials.php:18
+msgid "Step-by-step guides to get the most from your server."
+msgstr ""
+
+#: search.php:13
+#: searchform.php:16
+#: template-parts/layout/site-header.php:92
+msgid "Search"
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:15
+#, php-format
+msgid "Results for “%s”"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:15
+msgid "Search…"
+msgstr ""
+
+#: sidebar.php:14
+msgid "Sidebar"
+msgstr ""
+
+#: single.php:54
+msgid "Back to the blog"
+msgstr ""
+
+#: template-parts/components/plan-card.php:36
+msgid "Final pricing announced soon"
+msgstr ""
+
+#: template-parts/components/plan-card.php:36
+msgid "Billed monthly · Excl. VAT"
+msgstr ""
+
+#: template-parts/components/plan-card.php:40
+#: template-parts/components/server-table-dedicated.php:38
+#: template-parts/components/server-table-instant.php:39
+msgid "Order now"
+msgstr ""
+
+#: template-parts/components/plan-card.php:48
+msgid "More details"
+msgstr ""
+
+#: template-parts/components/product-carousel.php:33
+#: template-parts/sections/essentials.php:27
+msgid "From"
+msgstr ""
+
+#: template-parts/components/product-carousel.php:33
+msgid "Pricing coming soon"
+msgstr ""
+
+#: template-parts/components/review.php:30
+msgid "Replace with a real customer review before launch"
+msgstr ""
+
+#: template-parts/components/review.php:30
+#: template-parts/sections/references.php:30
+msgid "Sample"
+msgstr ""
+
+#: template-parts/components/server-table-dedicated.php:12
+msgid "Server"
+msgstr ""
+
+#: template-parts/components/server-table-dedicated.php:12
+msgid "Network"
+msgstr ""
+
+#: template-parts/components/server-table-dedicated.php:12
+#: template-parts/components/server-table-instant.php:20
+#: template-parts/components/server-table-instant.php:36
+msgid "Price"
+msgstr ""
+
+#: template-parts/components/server-table-dedicated.php:20
+#: template-parts/components/server-table-instant.php:20
+msgid "Order"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:13
+msgid "Filter servers"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:17
+msgid "In stock only"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:20
+#: template-parts/components/server-table-instant.php:32
+msgid "Processor"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:20
+#: template-parts/components/server-table-instant.php:35
+msgid "Included"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:35
+msgid "/64 IPv6 · DDoS protection"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:39
+msgid "Free setup"
+msgstr ""
+
+#: template-parts/components/server-table-instant.php:41
+msgid "Sold out"
+msgstr ""
+
+#: template-parts/content/loop.php:34
+msgid "Nothing found"
+msgstr ""
+
+#: template-parts/content/loop.php:35
+msgid "No results matched your search. Try different keywords."
+msgstr ""
+
+#: template-parts/content/loop.php:35
+msgid "There’s nothing here yet."
+msgstr ""
+
+#: template-parts/content/post-card.php:28
+msgid "Read article"
+msgstr ""
+
+#: template-parts/layout/cookie.php:13
+msgid "Cookie consent"
+msgstr ""
+
+#. translators: 1: cookie policy link, 2: privacy policy link
+#: template-parts/layout/cookie.php:21
+#, php-format
+msgid "Read our %1$s and %2$s."
+msgstr ""
+
+#: template-parts/layout/cookie.php:22
+#: template-parts/layout/site-footer.php:70
+msgid "Cookie policy"
+msgstr ""
+
+#. translators: %s: privacy policy link.
+#: template-parts/layout/cookie.php:23
+#: template-parts/layout/site-footer.php:68
+#: template-parts/sections/contact.php:60
+msgid "Privacy policy"
+msgstr ""
+
+#: template-parts/layout/cookie.php:29
+#: template-parts/layout/cookie.php:45
+msgid "Accept all"
+msgstr ""
+
+#: template-parts/layout/cookie.php:30
+#: template-parts/layout/cookie.php:43
+msgid "Reject all"
+msgstr ""
+
+#: template-parts/layout/cookie.php:31
+msgid "Manage preferences"
+msgstr ""
+
+#: template-parts/layout/cookie.php:37
+msgid "Cookie preferences"
+msgstr ""
+
+#: template-parts/layout/cookie.php:37
+msgid "Close"
+msgstr ""
+
+#: template-parts/layout/cookie.php:38
+msgid "Choose which optional cookies we may use. Necessary cookies are always on because the site cannot work without them."
+msgstr ""
+
+#: template-parts/layout/cookie.php:39
+msgid "Necessary"
+msgstr ""
+
+#: template-parts/layout/cookie.php:39
+msgid "Security, load balancing, currency and theme preferences."
+msgstr ""
+
+#: template-parts/layout/cookie.php:39
+msgid "Necessary cookies (always on)"
+msgstr ""
+
+#: template-parts/layout/cookie.php:40
+msgid "Analytics"
+msgstr ""
+
+#: template-parts/layout/cookie.php:40
+msgid "Anonymous statistics that help us improve the website."
+msgstr ""
+
+#: template-parts/layout/cookie.php:40
+msgid "Analytics cookies"
+msgstr ""
+
+#: template-parts/layout/cookie.php:41
+msgid "Marketing"
+msgstr ""
+
+#: template-parts/layout/cookie.php:41
+msgid "Used to show relevant offers on other websites."
+msgstr ""
+
+#: template-parts/layout/cookie.php:41
+msgid "Marketing cookies"
+msgstr ""
+
+#: template-parts/layout/cookie.php:44
+msgid "Save preferences"
+msgstr ""
+
+#: template-parts/layout/site-footer.php:69
+msgid "Terms of service"
+msgstr ""
+
+#: template-parts/layout/site-footer.php:77
+msgid "Cookie settings"
+msgstr ""
+
+#: template-parts/layout/site-header.php:22
+msgid "Main"
+msgstr ""
+
+#: template-parts/layout/site-header.php:66
+#: template-parts/sections/support.php:58
+msgid "Status"
+msgstr ""
+
+#: template-parts/layout/site-header.php:77
+msgid "Client area login"
+msgstr ""
+
+#: template-parts/layout/site-header.php:78
+msgid "Open menu"
+msgstr ""
+
+#: template-parts/layout/site-header.php:90
+msgid "Search for a domain"
+msgstr ""
+
+#: template-parts/layout/site-header.php:99
+msgid "Close menu"
+msgstr ""
+
+#: template-parts/layout/site-header.php:100
+msgid "Mobile"
+msgstr ""
+
+#: template-parts/layout/site-header.php:128
+msgid "Client area"
+msgstr ""
+
+#: template-parts/sections/all-plans.php:24
+msgid "Product"
+msgstr ""
+
+#. translators: %s: product name
+#: template-parts/sections/all-plans.php:39
+#, php-format
+msgid "%s details"
+msgstr ""
+
+#: template-parts/sections/all-plans.php:45
+msgid "Need instant bare metal in the USA?"
+msgstr ""
+
+#: template-parts/sections/all-plans.php:45
+msgid "Pre-configured dedicated servers online in minutes from"
+msgstr ""
+
+#: template-parts/sections/all-plans.php:46
+msgid "View instant servers"
+msgstr ""
+
+#: template-parts/sections/apps.php:20
+msgid "Applications"
+msgstr ""
+
+#: template-parts/sections/apps.php:21
+msgid "Operating systems"
+msgstr ""
+
+#: template-parts/sections/apps.php:22
+msgid "Use cases"
+msgstr ""
+
+#: template-parts/sections/automation.php:30
+msgid "AI Agent"
+msgstr ""
+
+#: template-parts/sections/contact.php:16
+msgid "Sales question"
+msgstr ""
+
+#: template-parts/sections/contact.php:16
+msgid "Technical support"
+msgstr ""
+
+#: template-parts/sections/contact.php:16
+#: template-parts/sections/support.php:58
+msgid "Billing"
+msgstr ""
+
+#: template-parts/sections/contact.php:21
+#: template-parts/sections/support.php:51
+msgid "Support engineer wearing a headset"
+msgstr ""
+
+#: template-parts/sections/contact.php:21
+msgid "Every ticket answered by an engineer – 24/7/365."
+msgstr ""
+
+#: template-parts/sections/contact.php:24
+msgid "Fastest route for technical issues. Average first reply in minutes."
+msgstr ""
+
+#: template-parts/sections/contact.php:25
+msgid "Technical support and account questions."
+msgstr ""
+
+#: template-parts/sections/contact.php:26
+msgid "Custom builds, AI and macOS servers, volume pricing."
+msgstr ""
+
+#: template-parts/sections/contact.php:31
+msgid "Tell us what you need and we’ll get back to you quickly. Existing customers: please use the client area so we can verify your account."
+msgstr ""
+
+#: template-parts/sections/contact.php:32
+msgid "24/7/365 availability"
+msgstr ""
+
+#: template-parts/sections/contact.php:32
+msgid "Free migration assistance"
+msgstr ""
+
+#: template-parts/sections/contact.php:32
+msgid "Custom hardware quotes"
+msgstr ""
+
+#: template-parts/sections/contact.php:38
+msgid "Leave empty"
+msgstr ""
+
+#: template-parts/sections/contact.php:43
+msgid "Name"
+msgstr ""
+
+#: template-parts/sections/contact.php:44
+msgid "Email"
+msgstr ""
+
+#: template-parts/sections/contact.php:45
+msgid "Topic"
+msgstr ""
+
+#: template-parts/sections/contact.php:53
+msgid "Message"
+msgstr ""
+
+#: template-parts/sections/contact.php:54
+msgid "Send message"
+msgstr ""
+
+#. translators: %s: privacy policy link.
+#: template-parts/sections/contact.php:60
+#, php-format
+msgid "By sending this form you agree to our %s."
+msgstr ""
+
+#: template-parts/sections/cta.php:24
+msgid "Small business owner smiling at a laptop after launching a website"
+msgstr ""
+
+#: template-parts/sections/faq-all.php:13
+msgid "General"
+msgstr ""
+
+#. translators: %s: product name.
+#: template-parts/sections/features.php:33
+#, php-format
+msgid "Secure, speedy, reliable %s"
+msgstr ""
+
+#: template-parts/sections/finder.php:19
+msgid "Describe what you want to host"
+msgstr ""
+
+#: template-parts/sections/finder.php:21
+msgid "Get a recommendation"
+msgstr ""
+
+#. translators: %s: number of reviews
+#: template-parts/sections/hero.php:68
+#, php-format
+msgid "%s reviews"
+msgstr ""
+
+#: template-parts/sections/kb.php:31
+msgid "No articles match your search."
+msgstr ""
+
+#: template-parts/sections/kb.php:31
+msgid "Ask our engineers"
+msgstr ""
+
+#: template-parts/sections/locations.php:37
+msgid "WORLD"
+msgstr ""
+
+#: template-parts/sections/locations.php:38
+msgid "EUROPE · ZOOM"
+msgstr ""
+
+#. translators: %s: short product name, e.g. "VPS".
+#: template-parts/sections/plans.php:18
+#, php-format
+msgid "Choose your %s plan"
+msgstr ""
+
+#: template-parts/sections/plans.php:47
+msgid "Every plan has <u>everything you need</u> and more"
+msgstr ""
+
+#: template-parts/sections/plans.php:52
+msgid "To confirm"
+msgstr ""
+
+#: template-parts/sections/pricing.php:48
+msgid "Plan type"
+msgstr ""
+
+#. translators: %s: product name
+#: template-parts/sections/pricing.php:63
+#, php-format
+msgid "View all %s plans"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:32
+msgid "from"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:41
+msgid "See specifications"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:46
+msgid "DDoS protection included · 24/7 expert support"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:53
+msgid "On this page"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:54
+msgid "Features"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:54
+msgid "OS &amp; apps"
+msgstr ""
+
+#: template-parts/sections/product-hero.php:54
+msgid "Locations"
+msgstr ""
+
+#: template-parts/sections/references.php:30
+msgid "Replace with a real customer before launch"
+msgstr ""
+
+#: template-parts/sections/status.php:16
+msgid "Last checked"
+msgstr ""
+
+#: template-parts/sections/status.php:16
+msgid "just now"
+msgstr ""
+
+#: template-parts/sections/status.php:26
+msgid "Operational"
+msgstr ""
+
+#: template-parts/sections/status.php:31
+msgid "Scheduled maintenance"
+msgstr ""
+
+#: template-parts/sections/status.php:32
+msgid "No maintenance is currently scheduled. Planned work is announced at least 72 hours in advance by email."
+msgstr ""
+
+#: template-parts/sections/support.php:58
+msgid "Tickets"
+msgstr ""
+
+#: template-parts/sections/support.php:58
+msgid "Chat"
+msgstr ""
+
+#: template-parts/sections/support.php:58
+msgid "Docs"
+msgstr ""
+
+#: template-parts/sections/tools.php:25
+msgid "What you can do"
+msgstr ""
+
+#: template-parts/sections/tutorials.php:17
+msgid "Filter tutorials"
+msgstr ""
+
+#: template-parts/sections/tutorials.php:18
+msgid "All"
+msgstr ""
+
+#: template-parts/sections/tutorials.php:28
+msgid "Start tutorial"
+msgstr ""
+
+#. translators: %s: product name.
+#: template-parts/sections/use-tabs.php:19
+#, php-format
+msgid "What you can run on %s"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Soft grey"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Line"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Signal green"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "DM Sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "JetBrains Mono"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""

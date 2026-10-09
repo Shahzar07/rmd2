@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<ruleset name="RMDHost">
+	<description>WordPress Coding Standards for the RMDHost theme and RMDHost Core plugin.</description>
+
+	<file>themes/rmdhost</file>
+	<file>plugins/rmdhost-core</file>
+	<exclude-pattern>*/inc/generated/*</exclude-pattern>
+	<exclude-pattern>*/template-parts/scenes/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.4"/>
+
+	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Docs">
+		<exclude-pattern>*/template-parts/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="rmdhost"/>
+				<element value="rmdhost-core"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Hooks are namespaced with "/" (like Elementor and WooCommerce Blocks): rmdhost/plans. -->
+	<rule ref="WordPress.NamingConventions.ValidHookName">
+		<properties>
+			<property name="additionalWordDelimiters" value="/"/>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="rmdhost"/>
+				
+				<element value="RMDHost"/>
+				<element value="RMDHost_Core"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Theme helpers that return markup built entirely from escaped parts. -->
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array">
+				<element value="rmdhost_icon"/>
+				<element value="rmdhost_image"/>
+				<element value="rmdhost_video"/>
+				<element value="rmdhost_money"/>
+				<element value="rmdhost_logo"/>
+				<element value="rmdhost_kses_inline"/>
+				<element value="rmdhost_section_head"/>
+				<element value="rmdhost_checklist"/>
+				<element value="rmdhost_stars"/>
+				<element value="rmdhost_plan_card"/>
+				<element value="rmdhost_faq_list"/>
+				<element value="rmdhost_breadcrumbs"/>
+				<element value="rmdhost_scene"/>
+				<element value="rmdhost_theme_toggle"/>
+				<element value="rmdhost_currency_select"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- One small class per Elementor widget, kept together on purpose. -->
+	<rule ref="Generic.Files.OneObjectStructurePerFile">
+		<exclude-pattern>*/includes/elementor/widgets.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>*/includes/elementor/widgets.php</exclude-pattern>
+	</rule>
+</ruleset>

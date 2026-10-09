@@ -1,0 +1,19 @@
+/*
+Theme Name: RMDHost
+Theme URI: https://rmdhost.com/
+Author: RMDHost
+Author URI: https://rmdhost.com/
+Description: A technical, black-and-white hosting theme for VPS, dedicated, cloud and game server providers. Square-edged design with a terminal-green accent, mega menus, animated product scenes, plan tables with GBP/USD switching, data-centre maps, light/dark mode and a GDPR cookie banner. Works out of the box, and is fully compatible with the block editor, Elementor and WooCommerce. Install the RMDHost Core plugin for server plans, Elementor widgets and one-click demo import.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rmdhost
+Domain Path: /languages
+Tags: business, e-commerce, one-column, two-columns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
+*/
+
+/* The design system lives in assets/css/main.css (shared with the static site).
+   WordPress-specific styles: assets/css/wordpress.css, WooCommerce: assets/css/woocommerce.css. */

@@ -7,6 +7,10 @@ A fast, static hosting website for RMDHost: technical black/white design with sq
 - **SEO**: a unique title, description, canonical URL and H1 on every page, Open Graph tags, Organization/Product/FAQ/Breadcrumb/BlogPosting JSON-LD, plus `sitemap.xml` and `robots.txt`.
 - **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences) and a mobile layout.
 
+## WordPress theme
+
+The whole site is also available as a WordPress theme with a companion plugin. It works with Elementor, WooCommerce and the block editor, and includes a one-click demo import. See **[wordpress/README.md](wordpress/README.md)**. `npm run build` keeps the theme in sync with `src/`, and `npm run package:wp` creates the installable zips in `dist/`.
+
 ## Photos and videos
 
 All photos and videos in `src/static/assets/media/` were generated for RMDHost: photos with **Nano Banana 2.1**, videos with **Seedance 2.5** (via Higgsfield). Each photo has a full-size and a mobile (`-sm`) WebP. Each video has MP4 and WebM versions plus a `-poster.webp`, and only plays while it's on screen. To swap one, replace the file with the same name. If a photo's dimensions change, update `src/data/media.mjs`.

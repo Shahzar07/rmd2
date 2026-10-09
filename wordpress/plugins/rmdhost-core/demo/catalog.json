@@ -1,0 +1,3174 @@
+{
+ "version": 1,
+ "site": {
+  "name": "RMDHost",
+  "email": "support@rmdhost.com",
+  "salesEmail": "sales@rmdhost.com",
+  "clientArea": "https://my.digitalberg.com",
+  "loginUrl": "https://my.digitalberg.com/login",
+  "orderFallback": "https://my.digitalberg.com/cart.php",
+  "domainSearchUrl": "https://my.digitalberg.com/cart.php?a=add&domain=register&query=",
+  "ticketUrl": "https://my.digitalberg.com/submitticket.php",
+  "currency": {
+   "default": "GBP",
+   "list": [
+    {
+     "code": "GBP",
+     "symbol": "£",
+     "rate": 1
+    },
+    {
+     "code": "USD",
+     "symbol": "$",
+     "rate": 1.27
+    }
+   ]
+  },
+  "social": {
+   "x": "https://x.com/rmdhost",
+   "linkedin": "https://www.linkedin.com/company/rmdhost",
+   "facebook": "https://www.facebook.com/rmdhost",
+   "youtube": "https://www.youtube.com/@rmdhost",
+   "github": "https://github.com/rmdhost"
+  },
+  "stats": [
+   {
+    "value": 10,
+    "suffix": "K+",
+    "label": "Active clients"
+   },
+   {
+    "value": 15,
+    "suffix": "+",
+    "label": "Years in hosting"
+   },
+   {
+    "value": 99.99,
+    "suffix": "%",
+    "decimals": 2,
+    "label": "Uptime SLA"
+   },
+   {
+    "value": 6,
+    "suffix": "",
+    "label": "Data centre locations"
+   }
+  ]
+ },
+ "homepage": {
+  "hero": {
+   "eyebrow": "KVM VPS · Bare-metal dedicated · Cloud",
+   "headline": "High-performance VPS & dedicated servers",
+   "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
+   "offer": {
+    "label": "Linux VPS from",
+    "price": 8.99,
+    "suffix": "/mo",
+    "note": "No setup fee · Unlimited bandwidth · Full root access"
+   },
+   "primaryCta": {
+    "label": "View plans",
+    "href": "#pricing"
+   },
+   "secondaryCta": {
+    "label": "Talk to an engineer",
+    "href": "/support/"
+   }
+  },
+  "banner": {
+   "enabled": true,
+   "offerTag": "Offer",
+   "offerText": "Free setup on Linux & SSD VPS – plus free migration help from our in-house server team.",
+   "offerCta": {
+    "label": "Claim offer",
+    "href": "/vps/"
+   },
+   "rating": {
+    "label": "DigitalBerg on HostAdvice",
+    "note": "Customer reviews of DigitalBerg, the platform behind RMDHost servers",
+    "score": null,
+    "scale": 5,
+    "count": null,
+    "url": "https://hostadvice.com/hosting-company/digitalberg-reviews/",
+    "linkText": "Read reviews"
+   }
+  },
+  "stats": [
+   {
+    "value": "6",
+    "label": "Data centres · UK, EU & US"
+   },
+   {
+    "value": "24/7",
+    "label": "In-house engineers"
+   },
+   {
+    "value": "£0",
+    "label": "Setup fee · Linux & SSD VPS"
+   },
+   {
+    "value": "1 Gbit/s",
+    "label": "Ports on dedicated servers"
+   }
+  ]
+ },
+ "nav": [
+  {
+   "label": "Pricing",
+   "href": "/pricing/"
+  },
+  {
+   "label": "Products",
+   "mega": [
+    {
+     "title": "Virtual servers",
+     "items": [
+      {
+       "label": "Linux VPS",
+       "href": "/vps/",
+       "desc": "Root access on SSD-boosted nodes",
+       "icon": "server"
+      },
+      {
+       "label": "Windows VPS",
+       "href": "/windows-vps/",
+       "desc": "Ryzen + NVMe with Remote Desktop",
+       "icon": "windows"
+      },
+      {
+       "label": "SSD VPS (OpenStack)",
+       "href": "/ssd-vps/",
+       "desc": "NVMe VPS with free control panel",
+       "icon": "bolt"
+      },
+      {
+       "label": "Cloud VPS",
+       "href": "/cloud-vps/",
+       "desc": "OpenStack KVM with snapshots",
+       "icon": "cloud"
+      },
+      {
+       "label": "AWS Lightsail VPS",
+       "href": "/aws-lightsail-vps/",
+       "desc": "Fixed-price cloud VPS bundles",
+       "icon": "cloud",
+       "tag": "New"
+      },
+      {
+       "label": "AI VPS",
+       "href": "/ai-vps/",
+       "desc": "Servers ready for AI workloads",
+       "icon": "spark",
+       "tag": "New"
+      },
+      {
+       "label": "macOS VPS",
+       "href": "/macos-vps/",
+       "desc": "Virtual Macs for builds and testing",
+       "icon": "apple",
+       "tag": "Soon"
+      }
+     ]
+    },
+    {
+     "title": "Dedicated servers",
+     "items": [
+      {
+       "label": "Dedicated Servers",
+       "href": "/dedicated-servers/",
+       "desc": "Bare metal Intel Xeon & Core",
+       "icon": "rack"
+      },
+      {
+       "label": "Instant Dedicated USA",
+       "href": "/instant-dedicated-servers-usa/",
+       "desc": "Online in minutes, not days",
+       "icon": "rocket"
+      },
+      {
+       "label": "macOS Dedicated",
+       "href": "/macos-dedicated-servers/",
+       "desc": "Dedicated Mac hardware",
+       "icon": "apple",
+       "tag": "Soon"
+      },
+      {
+       "label": "Game Servers",
+       "href": "/game-servers/",
+       "desc": "Anti-DDoS Game protection",
+       "icon": "game"
+      }
+     ]
+    },
+    {
+     "title": "Storage",
+     "items": [
+      {
+       "label": "OwnCloud Storage",
+       "href": "/owncloud-storage/",
+       "desc": "Private cloud with E2E encryption",
+       "icon": "folder"
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "visual": "rack",
+    "eyebrow": "Dedicated & VPS",
+    "title": "Award-Winning Dedicated/VPS Servers",
+    "text": "Get award-winning dedicated or VPS hosting designed for speed and simplicity, with free migration help, NVMe SSD options, backups and 24/7 support from in-house server experts.",
+    "href": "/pricing/",
+    "cta": "Compare servers"
+   }
+  },
+  {
+   "label": "Company",
+   "mega": [
+    {
+     "title": "Company",
+     "items": [
+      {
+       "label": "About us",
+       "href": "/about/",
+       "desc": "Who we are and how we work",
+       "icon": "users"
+      },
+      {
+       "label": "References",
+       "href": "/references/",
+       "desc": "Teams that run on RMDHost",
+       "icon": "star"
+      },
+      {
+       "label": "Sustainability",
+       "href": "/sustainability/",
+       "desc": "Greener infrastructure",
+       "icon": "leaf"
+      }
+     ]
+    },
+    {
+     "title": "Infrastructure",
+     "items": [
+      {
+       "label": "Data centres",
+       "href": "/data-centres/",
+       "desc": "Six locations across UK, EU & US",
+       "icon": "globe"
+      },
+      {
+       "label": "DDoS protection",
+       "href": "/ddos-protection/",
+       "desc": "Edge filtering on every plan",
+       "icon": "shield"
+      },
+      {
+       "label": "Network status",
+       "href": "/network-status/",
+       "desc": "Live service health",
+       "icon": "pulse"
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "visual": "map",
+    "eyebrow": "Infrastructure",
+    "title": "Six data centres across the UK, EU and US",
+    "text": "Deploy in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York – staffed 24/7 with CCTV, fob access and N+1 diesel backup power.",
+    "href": "/data-centres/",
+    "cta": "Explore data centres"
+   }
+  },
+  {
+   "label": "Resources",
+   "mega": [
+    {
+     "title": "Learn",
+     "items": [
+      {
+       "label": "Knowledge base",
+       "href": "/knowledge-base/",
+       "desc": "Answers to common questions",
+       "icon": "book"
+      },
+      {
+       "label": "Tutorials",
+       "href": "/tutorials/",
+       "desc": "Step-by-step server guides",
+       "icon": "terminal"
+      },
+      {
+       "label": "Blog",
+       "href": "/blog/",
+       "desc": "News, guides and releases",
+       "icon": "pen"
+      }
+     ]
+    },
+    {
+     "title": "Help",
+     "items": [
+      {
+       "label": "Support",
+       "href": "/support/",
+       "desc": "24/7 expert help",
+       "icon": "headset"
+      },
+      {
+       "label": "FAQ",
+       "href": "/faq/",
+       "desc": "Billing, servers and more",
+       "icon": "help"
+      },
+      {
+       "label": "Network status",
+       "href": "/network-status/",
+       "desc": "Live service health",
+       "icon": "pulse"
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "visual": "terminal",
+    "eyebrow": "Guides",
+    "title": "Deploy, secure and scale your server",
+    "text": "Step-by-step tutorials for SSH hardening, Docker, WordPress on Nginx, WireGuard and Proxmox – written by our in-house server team.",
+    "href": "/tutorials/",
+    "cta": "Browse tutorials"
+   }
+  },
+  {
+   "label": "Support",
+   "href": "/support/"
+  }
+ ],
+ "footer": [
+  {
+   "title": "Hosting",
+   "links": [
+    {
+     "label": "Linux VPS",
+     "href": "/vps/"
+    },
+    {
+     "label": "Windows VPS",
+     "href": "/windows-vps/"
+    },
+    {
+     "label": "SSD VPS (OpenStack)",
+     "href": "/ssd-vps/"
+    },
+    {
+     "label": "Cloud VPS",
+     "href": "/cloud-vps/"
+    },
+    {
+     "label": "AWS Lightsail VPS",
+     "href": "/aws-lightsail-vps/"
+    },
+    {
+     "label": "AI VPS",
+     "href": "/ai-vps/"
+    },
+    {
+     "label": "macOS VPS",
+     "href": "/macos-vps/"
+    },
+    {
+     "label": "OwnCloud Storage",
+     "href": "/owncloud-storage/"
+    }
+   ]
+  },
+  {
+   "title": "Servers",
+   "links": [
+    {
+     "label": "Dedicated Servers",
+     "href": "/dedicated-servers/"
+    },
+    {
+     "label": "Instant Dedicated USA",
+     "href": "/instant-dedicated-servers-usa/"
+    },
+    {
+     "label": "macOS Dedicated",
+     "href": "/macos-dedicated-servers/"
+    },
+    {
+     "label": "Game Servers",
+     "href": "/game-servers/"
+    },
+    {
+     "label": "Pricing",
+     "href": "/pricing/"
+    }
+   ]
+  },
+  {
+   "title": "Infrastructure",
+   "links": [
+    {
+     "label": "Data centres",
+     "href": "/data-centres/"
+    },
+    {
+     "label": "DDoS protection",
+     "href": "/ddos-protection/"
+    },
+    {
+     "label": "Network status",
+     "href": "/network-status/"
+    },
+    {
+     "label": "Sustainability",
+     "href": "/sustainability/"
+    }
+   ]
+  },
+  {
+   "title": "Company",
+   "links": [
+    {
+     "label": "About us",
+     "href": "/about/"
+    },
+    {
+     "label": "References",
+     "href": "/references/"
+    },
+    {
+     "label": "Blog",
+     "href": "/blog/"
+    },
+    {
+     "label": "Privacy policy",
+     "href": "/privacy-policy/"
+    },
+    {
+     "label": "Terms of service",
+     "href": "/terms-of-service/"
+    },
+    {
+     "label": "Cookie policy",
+     "href": "/cookie-policy/"
+    }
+   ]
+  },
+  {
+   "title": "Support",
+   "links": [
+    {
+     "label": "Support centre",
+     "href": "/support/"
+    },
+    {
+     "label": "Knowledge base",
+     "href": "/knowledge-base/"
+    },
+    {
+     "label": "Tutorials",
+     "href": "/tutorials/"
+    },
+    {
+     "label": "FAQ",
+     "href": "/faq/"
+    },
+    {
+     "label": "Client area",
+     "href": "https://my.digitalberg.com/login"
+    }
+   ]
+  }
+ ],
+ "products": [
+  {
+   "slug": "vps",
+   "name": "Linux VPS",
+   "short": "VPS Hosting",
+   "icon": "server",
+   "visual": "dashboard",
+   "title": "Linux VPS Hosting – SSD VPS with Root Access | RMDHost",
+   "description": "Fast Linux VPS hosting from £8.99/mo with SSD-boosted storage, unlimited bandwidth, full root access, DDoS protection and no setup fee.",
+   "eyebrow": "Linux VPS hosting",
+   "h1": "Virtual Private Servers for more power and control",
+   "lede": "SSD-boosted VPS on OpenStack with dedicated vCores, guaranteed RAM and unlimited bandwidth. Built for WordPress, ecommerce, apps, gaming and trading.",
+   "checklist": [
+    "Deca-Core Intel processors",
+    "SSD + HDD hybrid storage",
+    "Unlimited bandwidth",
+    "Full root access, all ports open"
+   ],
+   "from": 8.99,
+   "plans": [
+    {
+     "id": "pro-berg",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=155",
+     "name": "Pro Berg",
+     "price": 8.99,
+     "cpu": "1 vCore",
+     "ram": "4 GB (burst 6 GB)",
+     "storage": "100 GB SSD / 250 GB HDD",
+     "bandwidth": "Unlimited · 100 Mbit/s",
+     "location": "US & Europe",
+     "ddos": "Included",
+     "extras": [
+      "1 IPv4 with root access",
+      "All ports open",
+      "100% uptime guarantee",
+      "No setup fee"
+     ],
+     "note": "Billed monthly · No setup fee"
+    },
+    {
+     "id": "plus-berg",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=156",
+     "name": "Plus Berg",
+     "price": 10.99,
+     "badge": "Most popular",
+     "cpu": "2 vCores",
+     "ram": "8 GB (burst 9 GB)",
+     "storage": "200 GB SSD / 500 GB HDD",
+     "bandwidth": "Unlimited · 100 Mbit/s",
+     "location": "US & Europe",
+     "ddos": "Included",
+     "extras": [
+      "1 IPv4 with root access",
+      "All ports open",
+      "100% uptime guarantee",
+      "No setup fee"
+     ],
+     "note": "Billed monthly · No setup fee"
+    },
+    {
+     "id": "premium-berg",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=157",
+     "name": "Premium Berg",
+     "price": 16.99,
+     "cpu": "4 vCores",
+     "ram": "16 GB (burst 18 GB)",
+     "storage": "300 GB SSD / 1 TB HDD",
+     "bandwidth": "Unlimited · 100 Mbit/s",
+     "location": "US & Europe",
+     "ddos": "Included",
+     "extras": [
+      "1 IPv4 with root access",
+      "All ports open",
+      "100% uptime guarantee",
+      "No setup fee"
+     ],
+     "note": "Billed monthly · No setup fee"
+    },
+    {
+     "id": "platinum-berg",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=159",
+     "name": "Platinum Berg",
+     "price": 26.99,
+     "cpu": "6 vCores",
+     "ram": "32 GB (burst 34 GB)",
+     "storage": "500 GB SSD / 2 TB HDD",
+     "bandwidth": "Unlimited · 100 Mbit/s",
+     "location": "US & Europe",
+     "ddos": "Included",
+     "extras": [
+      "1 IPv4 with root access",
+      "All ports open",
+      "100% uptime guarantee",
+      "No setup fee"
+     ],
+     "note": "Billed monthly · No setup fee"
+    }
+   ],
+   "everyPlan": [
+    "Full root access",
+    "Unlimited bandwidth",
+    "Anti-DDoS protection",
+    "Fibre-optic network",
+    "25+ OS templates",
+    "Snapshot backups",
+    "No setup fee",
+    "Out-of-band VNC console",
+    "24/7 expert support"
+   ],
+   "features": [
+    {
+     "icon": "bolt",
+     "title": "Enterprise SSD at 640,000 IOPS",
+     "text": "Enterprise-grade SSDs in RAID 10 keep databases and busy sites responsive at peak load."
+    },
+    {
+     "icon": "cpu",
+     "title": "Deca-Core Intel processors",
+     "text": "Dedicated vCores on Intel Deca-Core nodes, isolated from every other VPS on the host."
+    },
+    {
+     "icon": "shield",
+     "title": "DDoS protection included",
+     "text": "Attacks are filtered at the network edge before they ever reach your server."
+    },
+    {
+     "icon": "backup",
+     "title": "Snapshot backups",
+     "text": "Schedule image snapshots and restore them straight onto your live server."
+    },
+    {
+     "icon": "terminal",
+     "title": "Complete control",
+     "text": "Root access, any software, and an out-of-band VNC console when SSH is unreachable."
+    },
+    {
+     "icon": "headset",
+     "title": "24/7 hardware support",
+     "text": "Real engineers available around the clock, every day of the year."
+    }
+   ],
+   "useCases": [
+    "High-traffic websites",
+    "WordPress & blogs",
+    "Multiple websites",
+    "Big ecommerce stores",
+    "Development & testing",
+    "Custom applications"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "CentOS",
+    "Fedora",
+    "Windows Server",
+    "FreeBSD"
+   ],
+   "stack": [
+    "Plesk",
+    "cPanel",
+    "Docker",
+    "Nginx",
+    "Apache",
+    "MySQL",
+    "Python",
+    "Node.js",
+    "WordPress",
+    "n8n"
+   ],
+   "faqs": [
+    [
+     "What is VPS hosting?",
+     "A Virtual Private Server gives you a dedicated slice of a physical server – your own vCores, RAM and storage – isolated from other customers. You get consistent performance and full root access to install anything you need."
+    ],
+    [
+     "Can I upgrade my VPS later?",
+     "Yes. You can move to a larger plan at any time from the client area. Your data stays in place and the upgrade usually completes with a single reboot."
+    ],
+    [
+     "Which operating systems are available?",
+     "Over 25 templates including Ubuntu, Debian, AlmaLinux, Rocky Linux, CentOS and Windows Server (licence available at additional low cost). You can reinstall or switch OS at any time."
+    ],
+    [
+     "Is there a setup fee?",
+     "No. Every VPS is provisioned without a setup fee."
+    ],
+    [
+     "Do you include DDoS protection?",
+     "Yes. Network-level DDoS filtering is included with every VPS plan at no extra cost."
+    ]
+   ]
+  },
+  {
+   "slug": "windows-vps",
+   "name": "Windows VPS",
+   "short": "Windows VPS",
+   "icon": "windows",
+   "visual": "windows",
+   "title": "Windows VPS Hosting – Ryzen & NVMe with RDP | RMDHost",
+   "description": "Windows VPS from £7.99/mo on AMD Ryzen with NVMe storage, Remote Desktop access, free backups, dedicated IP and DDoS protection.",
+   "eyebrow": "Windows VPS hosting",
+   "h1": "Windows VPS with NVMe speed and Remote Desktop",
+   "lede": "Ryzen processors and NVMe SSD storage with secure Remote Desktop access. Dedicated resources and instant setup for your Windows applications.",
+   "checklist": [
+    "AMD Ryzen processors",
+    "NVMe SSD storage",
+    "Free automated backups",
+    "Dedicated IPv4 address"
+   ],
+   "from": 7.99,
+   "plans": [
+    {
+     "id": "winberg-x4",
+     "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x4",
+     "name": "Winberg x4",
+     "price": 7.99,
+     "cpu": "2 vCPU Ryzen",
+     "ram": "4 GB",
+     "storage": "40 GB NVMe",
+     "bandwidth": "Unlimited (fair usage)",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Dedicated IPv4",
+      "Free backups",
+      "Remote Desktop access",
+      "Windows Server 2019 / 2022"
+     ]
+    },
+    {
+     "id": "winberg-x8",
+     "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x8",
+     "name": "Winberg x8",
+     "price": 11.38,
+     "badge": "Most popular",
+     "cpu": "4 vCPU Ryzen",
+     "ram": "8 GB",
+     "storage": "60 GB NVMe",
+     "bandwidth": "Unlimited (fair usage)",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Dedicated IPv4",
+      "Free backups",
+      "Remote Desktop access",
+      "Windows Server 2019 / 2022"
+     ]
+    },
+    {
+     "id": "winberg-x12",
+     "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x12",
+     "name": "Winberg x12",
+     "price": 14.38,
+     "cpu": "4 vCPU Ryzen",
+     "ram": "12 GB",
+     "storage": "90 GB NVMe",
+     "bandwidth": "Unlimited (fair usage)",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Dedicated IPv4",
+      "Free backups",
+      "Remote Desktop access",
+      "Windows Server 2019 / 2022"
+     ]
+    },
+    {
+     "id": "winberg-x16",
+     "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x16",
+     "name": "Winberg x16",
+     "price": 18.99,
+     "cpu": "6 vCPU Ryzen",
+     "ram": "16 GB",
+     "storage": "120 GB NVMe",
+     "bandwidth": "Unlimited (fair usage)",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Dedicated IPv4",
+      "Free backups",
+      "Remote Desktop access",
+      "Windows Server 2019 / 2022"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "Remote Desktop (RDP)",
+    "NVMe SSD storage",
+    "Windows Server 2019/2022",
+    "Free automated backups",
+    "Dedicated IPv4",
+    "Anti-DDoS protection",
+    "25 OS templates",
+    "Monthly billing",
+    "24/7 expert support"
+   ],
+   "features": [
+    {
+     "icon": "cpu",
+     "title": "AMD Ryzen performance",
+     "text": "High clock-speed Ryzen cores keep desktop apps, trading platforms and .NET services snappy."
+    },
+    {
+     "icon": "bolt",
+     "title": "NVMe on every plan",
+     "text": "NVMe storage for fast boot times, quick installs and responsive databases."
+    },
+    {
+     "icon": "backup",
+     "title": "Free backups",
+     "text": "Automated off-site backups are included on every Windows VPS plan."
+    },
+    {
+     "icon": "desktop",
+     "title": "Remote Desktop ready",
+     "text": "Connect over RDP from any device and work as if the server were on your desk."
+    },
+    {
+     "icon": "shield",
+     "title": "Protected network",
+     "text": "DDoS filtering and a dedicated IP address on every server."
+    },
+    {
+     "icon": "headset",
+     "title": "Windows specialists",
+     "text": "Our support team helps with licensing, IIS, MSSQL and RDP configuration."
+    }
+   ],
+   "useCases": [
+    "Forex & trading bots",
+    "ASP.NET applications",
+    "MSSQL databases",
+    "Remote office desktops",
+    "Accounting software",
+    "Game & bot hosting"
+   ],
+   "os": [
+    "Windows Server 2022",
+    "Windows Server 2019",
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux"
+   ],
+   "stack": [
+    "IIS",
+    "MSSQL",
+    ".NET",
+    "MetaTrader",
+    "Plesk",
+    "RDP"
+   ],
+   "faqs": [
+    [
+     "Is the Windows licence included?",
+     "Windows Server licences are available as a low-cost add-on during checkout. Bring-your-own-licence is also supported."
+    ],
+    [
+     "How do I connect to my Windows VPS?",
+     "You receive an IP address, username and password by email. Connect with any Remote Desktop client on Windows, macOS, iOS or Android."
+    ],
+    [
+     "Are backups really free?",
+     "Yes. Automated off-site backups are included on all Windows VPS plans."
+    ],
+    [
+     "What does fair usage bandwidth mean?",
+     "Bandwidth is unmetered for normal use. Sustained traffic far beyond typical server usage may be reviewed with you first."
+    ]
+   ]
+  },
+  {
+   "slug": "ssd-vps",
+   "name": "SSD VPS",
+   "short": "SSD VPS (OpenStack)",
+   "icon": "bolt",
+   "visual": "terminal",
+   "title": "SSD VPS on OpenStack with Free Control Panel | RMDHost",
+   "description": "NVMe SSD VPS on OpenStack from £8.99/mo with up to 12 vCores, 48 GB RAM, unlimited traffic, daily backups and a free control panel.",
+   "eyebrow": "SSD VPS on OpenStack",
+   "h1": "NVMe SSD VPS with a free control panel",
+   "lede": "OpenStack-powered virtual servers with NVMe storage, daily backups and unlimited traffic on up to 2 Gbit/s – available in multiple data centres.",
+   "checklist": [
+    "NVMe storage",
+    "Daily backups",
+    "Unlimited traffic up to 2 Gbit/s",
+    "IPv6 /64 included"
+   ],
+   "from": 8.99,
+   "plans": [
+    {
+     "id": "ssd-small",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=252",
+     "name": "Small",
+     "price": 8.99,
+     "cpu": "4 vCores",
+     "ram": "8 GB",
+     "storage": "75 GB NVMe",
+     "bandwidth": "Unlimited · 400 Mbit/s",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Daily backup",
+      "Free setup",
+      "1 IPv4 + IPv6 /64",
+      "Free control panel"
+     ],
+     "note": "Billed monthly · Free setup"
+    },
+    {
+     "id": "ssd-medium",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=253",
+     "name": "Medium",
+     "price": 12.99,
+     "badge": "Most popular",
+     "cpu": "6 vCores",
+     "ram": "12 GB",
+     "storage": "100 GB NVMe",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Daily backup",
+      "Free setup",
+      "1 IPv4 + IPv6 /64",
+      "Free control panel"
+     ],
+     "note": "Billed monthly · Free setup"
+    },
+    {
+     "id": "ssd-large",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=254",
+     "name": "Large",
+     "price": 20.99,
+     "cpu": "8 vCores",
+     "ram": "24 GB",
+     "storage": "200 GB NVMe",
+     "bandwidth": "Unlimited · 1.5 Gbit/s",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Daily backup",
+      "Free setup",
+      "1 IPv4 + IPv6 /64",
+      "Free control panel"
+     ],
+     "note": "Billed monthly · Free setup"
+    },
+    {
+     "id": "ssd-xl",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=255",
+     "name": "Xtra Large",
+     "price": 35.99,
+     "cpu": "12 vCores",
+     "ram": "48 GB",
+     "storage": "300 GB NVMe",
+     "bandwidth": "Unlimited · 2 Gbit/s",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Daily backup",
+      "Free setup",
+      "1 IPv4 + IPv6 /64",
+      "Free control panel"
+     ],
+     "note": "Billed monthly · Free setup"
+    }
+   ],
+   "everyPlan": [
+    "OpenStack hypervisor",
+    "NVMe SSD storage",
+    "Daily backups",
+    "IPv6 /64 per IPv4",
+    "Up to 16 geolocated IPs",
+    "Free control panel",
+    "Plesk from £8/mo",
+    "Anti-DDoS protection",
+    "Free setup"
+   ],
+   "features": [
+    {
+     "icon": "cloud",
+     "title": "Top-tier hypervisor",
+     "text": "Virtualisation managed by OpenStack, a market-leading platform for compute and storage."
+    },
+    {
+     "icon": "bolt",
+     "title": "NVMe storage",
+     "text": "Every plan runs on NVMe drives for consistently low latency."
+    },
+    {
+     "icon": "backup",
+     "title": "Daily backups",
+     "text": "Your server is backed up every day without any extra configuration."
+    },
+    {
+     "icon": "globe",
+     "title": "Geolocated IPs",
+     "text": "Add up to 16 extra IPv4 addresses from different locations."
+    },
+    {
+     "icon": "panel",
+     "title": "Free control panel",
+     "text": "Reboot, reinstall, view the console and manage networking from one panel."
+    },
+    {
+     "icon": "shield",
+     "title": "DDoS protection",
+     "text": "Network-level filtering keeps services online during attacks."
+    }
+   ],
+   "useCases": [
+    "SaaS applications",
+    "API backends",
+    "CI runners",
+    "Databases",
+    "Mail servers",
+    "VPN endpoints"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "CentOS",
+    "Windows Server"
+   ],
+   "stack": [
+    "Docker",
+    "Kubernetes",
+    "Plesk",
+    "cPanel",
+    "PostgreSQL",
+    "Redis"
+   ],
+   "faqs": [
+    [
+     "What is OpenStack VPS hosting?",
+     "OpenStack is an open-source cloud platform. It lets us run scalable, high-performance virtual servers across a distributed cloud environment."
+    ],
+    [
+     "Is the control panel really free?",
+     "Yes, the server control panel is included. Commercial panels like Plesk start from £8.00 per month."
+    ],
+    [
+     "Do I get IPv6?",
+     "Yes. Every IPv4 address comes with a /64 IPv6 block that you can configure from the control panel."
+    ]
+   ]
+  },
+  {
+   "slug": "cloud-vps",
+   "name": "Cloud VPS",
+   "short": "Cloud VPS",
+   "icon": "cloud",
+   "visual": "cloud",
+   "title": "Cloud VPS on OpenStack KVM – Linux & Windows | RMDHost",
+   "description": "Cloud SSD VPS on OpenStack KVM from £11.99/mo with dual-stack networking, automatic snapshots and Linux or Windows options.",
+   "eyebrow": "Cloud VPS hosting",
+   "h1": "Cloud VPS on OpenStack KVM",
+   "lede": "General-purpose cloud servers with dual-stack networking and automatic snapshots. Choose Linux or Windows and scale when you need to.",
+   "checklist": [
+    "KVM virtualisation",
+    "Automatic snapshots",
+    "Dual-stack IPv4 + IPv6",
+    "Linux or Windows"
+   ],
+   "from": 11.99,
+   "plans": [
+    {
+     "id": "vcloud-1",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=256",
+     "name": "vCloud 1",
+     "price": 11.99,
+     "cpu": "2 vCPUs",
+     "ram": "1 GB",
+     "storage": "40 GB SSD",
+     "bandwidth": "2 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £11.99 · Windows £18.99",
+      "Automatic snapshots",
+      "Dual-stack networking"
+     ]
+    },
+    {
+     "id": "vcloud-2",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=257",
+     "name": "vCloud 2",
+     "price": 16.99,
+     "badge": "Most popular",
+     "cpu": "2 vCPUs",
+     "ram": "2 GB",
+     "storage": "60 GB SSD",
+     "bandwidth": "3 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £16.99 · Windows £35.99",
+      "Automatic snapshots",
+      "Dual-stack networking"
+     ]
+    },
+    {
+     "id": "vcloud-3",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=258",
+     "name": "vCloud 3",
+     "price": 29.99,
+     "cpu": "2 vCPUs",
+     "ram": "4 GB",
+     "storage": "80 GB SSD",
+     "bandwidth": "4 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £29.99 · Windows £49.99",
+      "Automatic snapshots",
+      "Dual-stack networking"
+     ]
+    },
+    {
+     "id": "vcloud-4",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=259",
+     "name": "vCloud 4",
+     "price": 48.99,
+     "cpu": "2 vCPUs",
+     "ram": "8 GB",
+     "storage": "160 GB SSD",
+     "bandwidth": "5 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £48.99 · Windows £89.99",
+      "Automatic snapshots",
+      "Dual-stack networking"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "OpenStack KVM",
+    "Automatic snapshots",
+    "IPv6 /64 per IPv4",
+    "Up to 15 geolocated IPs",
+    "Linux or Windows",
+    "Plesk from £10/mo",
+    "Anti-DDoS protection",
+    "Hourly-ready infrastructure",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "cloud",
+     "title": "True cloud infrastructure",
+     "text": "KVM instances on OpenStack with redundant storage and networking."
+    },
+    {
+     "icon": "backup",
+     "title": "Automatic snapshots",
+     "text": "Point-in-time snapshots so you can roll back in a click."
+    },
+    {
+     "icon": "globe",
+     "title": "Dual-stack networking",
+     "text": "IPv4 and IPv6 configured out of the box."
+    },
+    {
+     "icon": "windows",
+     "title": "Linux or Windows",
+     "text": "Pick your OS at checkout – Windows pricing shown on each plan."
+    },
+    {
+     "icon": "scale",
+     "title": "Scale on demand",
+     "text": "Move between plans as your traffic grows."
+    },
+    {
+     "icon": "shield",
+     "title": "DDoS protection",
+     "text": "Edge filtering on every instance."
+    }
+   ],
+   "useCases": [
+    "Web applications",
+    "Staging environments",
+    "Microservices",
+    "Small databases",
+    "Monitoring",
+    "Personal projects"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "Windows Server"
+   ],
+   "stack": [
+    "Docker",
+    "Nginx",
+    "Node.js",
+    "Python",
+    "Plesk"
+   ],
+   "faqs": [
+    [
+     "What is the difference between Cloud VPS and SSD VPS?",
+     "Cloud VPS plans are general-purpose KVM instances with automatic snapshots and metered transfer. SSD VPS plans offer more vCores and RAM with unlimited traffic."
+    ],
+    [
+     "Can I run Windows?",
+     "Yes. Each plan lists its Windows price – the licence is included in that price."
+    ]
+   ]
+  },
+  {
+   "slug": "aws-lightsail-vps",
+   "name": "AWS Lightsail VPS",
+   "short": "Lightsail VPS",
+   "icon": "cloud",
+   "visual": "cloud",
+   "tag": "New",
+   "title": "AWS Lightsail VPS Hosting – Pre-Configured Cloud Servers | RMDHost",
+   "description": "Lightsail-style cloud VPS bundles from £11.99/mo: 2 vCPUs, 1–8 GB RAM, 40–160 GB SSD, 2–5 TB transfer, dual-stack IPv4/IPv6, snapshots and Anti-DDoS Pro. Linux or Windows.",
+   "eyebrow": "AWS Lightsail VPS",
+   "h1": "Predictable cloud VPS bundles, ready in minutes",
+   "lede": "Fixed-price cloud servers with compute, SSD storage and data transfer bundled into one monthly price. Launch Linux or Windows, take snapshots, and scale to a bigger bundle when you need it.",
+   "checklist": [
+    "2 vCPUs on every bundle",
+    "SSD storage + bundled transfer",
+    "Dual-stack IPv4 / IPv6",
+    "Linux or Windows"
+   ],
+   "from": 11.99,
+   "review": "AWS Lightsail platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim an AWS partnership or reseller status.",
+   "disclaimer": "Amazon Web Services, AWS and Amazon Lightsail are trademarks of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon Web Services.",
+   "plans": [
+    {
+     "id": "lightsail-1",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=256",
+     "name": "Lightsail 1 GB",
+     "price": 11.99,
+     "cpu": "2 vCPUs",
+     "ram": "1 GB",
+     "storage": "40 GB SSD",
+     "bandwidth": "2 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £11.99 · Windows £18.99",
+      "Automatic snapshots",
+      "Dual-stack IPv4 / IPv6"
+     ]
+    },
+    {
+     "id": "lightsail-2",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=257",
+     "name": "Lightsail 2 GB",
+     "price": 16.99,
+     "badge": "Most popular",
+     "cpu": "2 vCPUs",
+     "ram": "2 GB",
+     "storage": "60 GB SSD",
+     "bandwidth": "3 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £16.99 · Windows £35.99",
+      "Automatic snapshots",
+      "Dual-stack IPv4 / IPv6"
+     ]
+    },
+    {
+     "id": "lightsail-4",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=258",
+     "name": "Lightsail 4 GB",
+     "price": 29.99,
+     "cpu": "2 vCPUs",
+     "ram": "4 GB",
+     "storage": "80 GB SSD",
+     "bandwidth": "4 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £29.99 · Windows £49.99",
+      "Automatic snapshots",
+      "Dual-stack IPv4 / IPv6"
+     ]
+    },
+    {
+     "id": "lightsail-8",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=259",
+     "name": "Lightsail 8 GB",
+     "price": 48.99,
+     "cpu": "2 vCPUs",
+     "ram": "8 GB",
+     "storage": "160 GB SSD",
+     "bandwidth": "5 TB transfer",
+     "location": "Multiple data centres",
+     "ddos": "Anti-DDoS Pro",
+     "extras": [
+      "Linux £48.99 · Windows £89.99",
+      "Automatic snapshots",
+      "Dual-stack IPv4 / IPv6"
+     ]
+    }
+   ],
+   "tabs": [
+    {
+     "label": "Websites",
+     "text": "Host WordPress, WooCommerce and business sites on a fixed monthly bundle – no surprise compute bills."
+    },
+    {
+     "label": "Dev & test",
+     "text": "Spin up isolated staging and test servers, snapshot them, and throw them away when you’re done."
+    },
+    {
+     "label": "Small apps",
+     "text": "Run APIs, Node.js and Python apps, bots and small databases on 2 vCPUs with SSD storage."
+    },
+    {
+     "label": "Windows",
+     "text": "Choose a Windows bundle for Remote Desktop workloads, line-of-business apps and .NET services."
+    }
+   ],
+   "everyPlan": [
+    "2 vCPUs",
+    "SSD storage",
+    "Bundled data transfer",
+    "Dual-stack IPv4 / IPv6",
+    "IPv6 /64 per IPv4",
+    "Automatic snapshots",
+    "Anti-DDoS Pro",
+    "Linux or Windows",
+    "24/7 ticket support"
+   ],
+   "features": [
+    {
+     "icon": "tag",
+     "title": "One predictable monthly price",
+     "text": "Compute, SSD storage and a data-transfer allowance are bundled together, so you know exactly what you’ll pay."
+    },
+    {
+     "icon": "backup",
+     "title": "Automatic snapshots",
+     "text": "Point-in-time snapshots let you roll back a bad deploy or clone a server in minutes."
+    },
+    {
+     "icon": "globe",
+     "title": "Dual-stack networking",
+     "text": "IPv4 and IPv6 out of the box, with a /64 IPv6 block per IPv4 and up to 15 geolocated IPs."
+    },
+    {
+     "icon": "windows",
+     "title": "Linux or Windows",
+     "text": "Each bundle lists its Linux and Windows price – pick your OS at checkout."
+    },
+    {
+     "icon": "scale",
+     "title": "Scale up when ready",
+     "text": "Move to a larger bundle as traffic grows, or step up to SSD VPS or dedicated servers."
+    },
+    {
+     "icon": "shield",
+     "title": "Anti-DDoS Pro",
+     "text": "Network-level DDoS protection is included with every bundle."
+    }
+   ],
+   "useCases": [
+    "WordPress sites",
+    "Staging servers",
+    "Small business apps",
+    "APIs & bots",
+    "Windows desktops",
+    "Dev environments"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "Windows Server"
+   ],
+   "stack": [
+    "WordPress",
+    "Docker",
+    "Nginx",
+    "Node.js",
+    "Python",
+    "MySQL",
+    "Plesk"
+   ],
+   "faqs": [
+    [
+     "What is a Lightsail-style VPS?",
+     "It is a fixed-price cloud server bundle: a set amount of vCPU, memory, SSD storage and monthly data transfer for one predictable price, designed to be simple to launch and manage."
+    ],
+    [
+     "Is RMDHost an AWS partner?",
+     "No. RMDHost is an independent hosting provider and is not affiliated with or endorsed by Amazon Web Services. Platform and fulfilment details for this product will be confirmed on this page before launch."
+    ],
+    [
+     "What happens if I exceed my data transfer?",
+     "Each bundle includes a monthly transfer allowance (2–5 TB). Contact our team before you expect to exceed it and we will recommend a larger bundle."
+    ],
+    [
+     "Can I run Windows?",
+     "Yes. Every bundle has a Windows option – the Windows price is shown under “More details” on each package."
+    ],
+    [
+     "Can I upgrade later?",
+     "Yes. Move to a larger bundle, or to an SSD VPS or dedicated server, as your workload grows."
+    ]
+   ]
+  },
+  {
+   "slug": "owncloud-storage",
+   "name": "OwnCloud Storage",
+   "short": "OwnCloud",
+   "icon": "folder",
+   "visual": "storage",
+   "title": "OwnCloud Storage Server – Private Cloud Hosting | RMDHost",
+   "description": "Private OwnCloud storage servers from £14.45/mo with up to 1.6 TB SSD-boosted storage, end-to-end encryption and root access.",
+   "eyebrow": "OwnCloud storage",
+   "h1": "Your own private cloud, on your own server",
+   "lede": "OwnCloud pre-installed on Intel Xeon servers with SSD-boosted storage. Sync, share and stream files with end-to-end encryption – and connect FTP, S3, Dropbox or Google Drive.",
+   "checklist": [
+    "End-to-end encryption",
+    "Up to 1.6 TB storage",
+    "Root access + OwnCloud panel",
+    "Unlimited traffic"
+   ],
+   "from": 14.45,
+   "plans": [
+    {
+     "id": "own-fc",
+     "name": "Own – FC",
+     "price": 14.45,
+     "cpu": "4 cores Xeon E5-2650L v3",
+     "ram": "10 GB",
+     "storage": "700 GB SSD boosted",
+     "bandwidth": "Unlimited · 100 Mbit/s",
+     "location": "Germany",
+     "ddos": "Included",
+     "extras": [
+      "Root access",
+      "OwnCloud panel",
+      "End-to-end encryption"
+     ]
+    },
+    {
+     "id": "own-sc",
+     "name": "Own – SC",
+     "price": 19.99,
+     "badge": "Most popular",
+     "cpu": "6 cores Xeon E5-2650L v3",
+     "ram": "20 GB",
+     "storage": "1.4 TB SSD boosted",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Germany",
+     "ddos": "Included",
+     "extras": [
+      "Root access",
+      "OwnCloud panel",
+      "End-to-end encryption"
+     ]
+    },
+    {
+     "id": "own-ec",
+     "name": "Own – EC",
+     "price": 25.99,
+     "cpu": "8 cores Xeon E5-2650L v3",
+     "ram": "30 GB",
+     "storage": "800 GB SSD boosted",
+     "bandwidth": "Unlimited · 600 Mbit/s",
+     "location": "Germany",
+     "ddos": "Included",
+     "extras": [
+      "Root access",
+      "OwnCloud panel",
+      "End-to-end encryption"
+     ]
+    },
+    {
+     "id": "own-tc",
+     "name": "Own – TC",
+     "price": 55.99,
+     "cpu": "10 cores Xeon E5-2650L v3",
+     "ram": "60 GB",
+     "storage": "1.6 TB SSD boosted",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Germany",
+     "ddos": "Included",
+     "extras": [
+      "Root access",
+      "OwnCloud panel",
+      "End-to-end encryption"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "OwnCloud pre-installed",
+    "End-to-end encryption",
+    "Root access",
+    "IPv6 /64 included",
+    "Up to 10 geolocated IPs",
+    "External storage connectors",
+    "Unlimited traffic",
+    "Anti-DDoS protection",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "lock",
+     "title": "End-to-end encryption",
+     "text": "The E2EE plugin encrypts your files before they leave your device."
+    },
+    {
+     "icon": "folder",
+     "title": "Connect existing storage",
+     "text": "Mount FTP, Swift, S3, Dropbox and Google Drive alongside local storage."
+    },
+    {
+     "icon": "users",
+     "title": "Share with your team",
+     "text": "Granular sharing, groups and public links with expiry dates."
+    },
+    {
+     "icon": "play",
+     "title": "Stream media",
+     "text": "Stream high-definition video and audio straight from your cloud."
+    },
+    {
+     "icon": "cpu",
+     "title": "Intel Xeon hardware",
+     "text": "Xeon E5-2650L v3 cores with plenty of RAM for previews and sync."
+    },
+    {
+     "icon": "shield",
+     "title": "Your data, your rules",
+     "text": "Hosted in Germany on a server only you control."
+    }
+   ],
+   "useCases": [
+    "Team file sharing",
+    "Client portals",
+    "Photo & video libraries",
+    "Backups",
+    "Document collaboration",
+    "Replacing Dropbox"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux"
+   ],
+   "stack": [
+    "OwnCloud",
+    "S3",
+    "Dropbox",
+    "Google Drive",
+    "FTP"
+   ],
+   "faqs": [
+    [
+     "Is OwnCloud pre-installed?",
+     "Yes. Your server is delivered with OwnCloud and its admin panel ready to use, plus full root access."
+    ],
+    [
+     "Where is my data stored?",
+     "OwnCloud servers are hosted in our German data centre."
+    ]
+   ]
+  },
+  {
+   "slug": "ai-vps",
+   "name": "AI VPS",
+   "short": "AI VPS",
+   "icon": "spark",
+   "visual": "ai",
+   "tag": "New",
+   "title": "AI VPS Hosting – Servers Ready for AI Workloads | RMDHost",
+   "description": "AI-ready VPS hosting for running LLMs, AI agents, n8n automations and inference APIs. High-memory NVMe servers with DDoS protection.",
+   "eyebrow": "AI VPS hosting",
+   "h1": "AI-ready VPS for agents, models and automations",
+   "lede": "Run open-source LLMs, AI agents, vector databases and automation workflows on high-memory NVMe servers with templates ready in one click.",
+   "checklist": [
+    "High-memory NVMe servers",
+    "Ollama, n8n & Docker templates",
+    "Private – your data stays yours",
+    "Full root access"
+   ],
+   "from": null,
+   "comingSoon": "Final AI VPS pricing and order links are being finalised. Contact sales for early access.",
+   "plans": [
+    {
+     "id": "ai-starter",
+     "name": "AI Starter",
+     "price": null,
+     "cpu": "4 vCores",
+     "ram": "16 GB",
+     "storage": "200 GB NVMe",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "UK · EU · USA",
+     "ddos": "Included",
+     "extras": [
+      "Ollama + Open WebUI template",
+      "n8n template",
+      "Docker pre-installed"
+     ]
+    },
+    {
+     "id": "ai-pro",
+     "name": "AI Pro",
+     "price": null,
+     "badge": "Recommended",
+     "cpu": "8 vCores",
+     "ram": "32 GB",
+     "storage": "400 GB NVMe",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "UK · EU · USA",
+     "ddos": "Included",
+     "extras": [
+      "Run 7B–13B models on CPU",
+      "Vector database ready",
+      "Daily backups"
+     ]
+    },
+    {
+     "id": "ai-ultra",
+     "name": "AI Ultra",
+     "price": null,
+     "cpu": "16 vCores",
+     "ram": "64 GB",
+     "storage": "800 GB NVMe",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "UK · EU · USA",
+     "ddos": "Included",
+     "extras": [
+      "GPU options on request",
+      "Priority support",
+      "Daily backups"
+     ]
+    }
+   ],
+   "tabs": [
+    {
+     "label": "LLM hosting",
+     "text": "Serve open-source models such as Llama, Mistral and Qwen with Ollama or vLLM behind your own API."
+    },
+    {
+     "label": "AI agents",
+     "text": "Keep agents running 24/7 with persistent memory, scheduled jobs and secure access to your tools."
+    },
+    {
+     "label": "Automations",
+     "text": "Self-host n8n and connect hundreds of apps without per-task pricing."
+    },
+    {
+     "label": "Vector search",
+     "text": "Run Qdrant, Weaviate or pgvector next to your app for fast retrieval-augmented generation."
+    }
+   ],
+   "everyPlan": [
+    "NVMe SSD storage",
+    "One-click AI templates",
+    "Docker pre-installed",
+    "Full root access",
+    "Anti-DDoS protection",
+    "Private by default",
+    "Snapshot backups",
+    "IPv6 included",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "spark",
+     "title": "One-click AI stacks",
+     "text": "Ollama, Open WebUI, n8n, Flowise and LangChain templates ready to deploy."
+    },
+    {
+     "icon": "memory",
+     "title": "High-memory plans",
+     "text": "Generous RAM for loading models and embeddings in memory."
+    },
+    {
+     "icon": "lock",
+     "title": "Private by design",
+     "text": "Prompts and data never leave your server."
+    },
+    {
+     "icon": "bolt",
+     "title": "Fast NVMe",
+     "text": "Quick model loading and low-latency vector search."
+    },
+    {
+     "icon": "terminal",
+     "title": "Developer friendly",
+     "text": "Root access, SSH keys, Docker and API access."
+    },
+    {
+     "icon": "shield",
+     "title": "Protected endpoints",
+     "text": "DDoS filtering for your public AI APIs."
+    }
+   ],
+   "useCases": [
+    "Private chatbots",
+    "AI agents",
+    "n8n automations",
+    "RAG pipelines",
+    "Inference APIs",
+    "Model experiments"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "Rocky Linux"
+   ],
+   "stack": [
+    "Ollama",
+    "Open WebUI",
+    "n8n",
+    "Docker",
+    "vLLM",
+    "Qdrant",
+    "LangChain",
+    "Flowise"
+   ],
+   "faqs": [
+    [
+     "Do AI VPS plans include a GPU?",
+     "The standard plans are CPU-based with high memory, ideal for agents, automations and smaller models. GPU configurations are available on request – contact sales."
+    ],
+    [
+     "When will pricing be available?",
+     "Final pricing is being finalised. Contact our sales team for early access and launch pricing."
+    ]
+   ]
+  },
+  {
+   "slug": "macos-vps",
+   "name": "macOS VPS",
+   "short": "macOS VPS",
+   "icon": "apple",
+   "visual": "mac",
+   "tag": "Soon",
+   "title": "macOS VPS Hosting – Virtual Mac in the Cloud | RMDHost",
+   "description": "macOS VPS hosting for iOS builds, Xcode, CI/CD and app testing. Remote access to a virtual Mac on Apple hardware.",
+   "eyebrow": "macOS VPS",
+   "h1": "A Mac in the cloud for builds and testing",
+   "lede": "Virtual macOS servers on Apple hardware for Xcode builds, iOS CI pipelines and remote app testing – accessible from anywhere via VNC or SSH.",
+   "checklist": [
+    "Runs on Apple hardware",
+    "Xcode & CI ready",
+    "VNC + SSH access",
+    "Monthly billing"
+   ],
+   "from": null,
+   "comingSoon": "macOS VPS pricing and order links will be published soon. Contact sales to reserve capacity.",
+   "plans": [
+    {
+     "id": "mac-vps-1",
+     "name": "Mac VPS S",
+     "price": null,
+     "cpu": "4 vCores Apple silicon",
+     "ram": "8 GB",
+     "storage": "128 GB SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "VNC + SSH access",
+      "Xcode ready",
+      "Dedicated IPv4"
+     ]
+    },
+    {
+     "id": "mac-vps-2",
+     "name": "Mac VPS M",
+     "price": null,
+     "badge": "Recommended",
+     "cpu": "6 vCores Apple silicon",
+     "ram": "16 GB",
+     "storage": "256 GB SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "VNC + SSH access",
+      "Xcode ready",
+      "Dedicated IPv4"
+     ]
+    },
+    {
+     "id": "mac-vps-3",
+     "name": "Mac VPS L",
+     "price": null,
+     "cpu": "8 vCores Apple silicon",
+     "ram": "24 GB",
+     "storage": "512 GB SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "VNC + SSH access",
+      "Xcode ready",
+      "Dedicated IPv4"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "Apple hardware",
+    "VNC & SSH access",
+    "Xcode compatible",
+    "Dedicated IPv4",
+    "Anti-DDoS protection",
+    "Snapshot backups",
+    "Monthly billing",
+    "Fast SSD storage",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "apple",
+     "title": "Genuine Apple hardware",
+     "text": "macOS runs on Apple hardware, as Apple licensing requires."
+    },
+    {
+     "icon": "terminal",
+     "title": "CI/CD friendly",
+     "text": "Hook into GitHub Actions, GitLab, Jenkins or Bitrise as a self-hosted runner."
+    },
+    {
+     "icon": "desktop",
+     "title": "Full desktop",
+     "text": "Use the full macOS desktop over VNC from Windows, Linux or another Mac."
+    },
+    {
+     "icon": "bolt",
+     "title": "Fast builds",
+     "text": "SSD storage and modern cores for quick Xcode compiles."
+    },
+    {
+     "icon": "shield",
+     "title": "Protected",
+     "text": "DDoS filtering and isolated networking."
+    },
+    {
+     "icon": "headset",
+     "title": "Mac specialists",
+     "text": "Help with provisioning, Xcode and remote access."
+    }
+   ],
+   "useCases": [
+    "iOS & macOS builds",
+    "Xcode CI runners",
+    "App testing",
+    "Safari testing",
+    "Remote design work",
+    "Mac-only software"
+   ],
+   "os": [
+    "macOS Sequoia",
+    "macOS Sonoma",
+    "macOS Ventura"
+   ],
+   "stack": [
+    "Xcode",
+    "Fastlane",
+    "GitHub Actions",
+    "Homebrew",
+    "Flutter",
+    "React Native"
+   ],
+   "faqs": [
+    [
+     "When will macOS VPS be available?",
+     "We are finalising pricing and capacity. Contact sales and we will reserve a server for you."
+    ],
+    [
+     "Can I use it as a CI runner?",
+     "Yes. You can register it as a self-hosted runner for GitHub Actions, GitLab CI or Jenkins."
+    ]
+   ]
+  },
+  {
+   "slug": "dedicated-servers",
+   "name": "Dedicated Servers",
+   "short": "Dedicated",
+   "icon": "rack",
+   "visual": "rack",
+   "title": "Dedicated Servers – Intel Xeon Bare Metal Hosting | RMDHost",
+   "description": "Dedicated servers from £38/mo with Intel Xeon & Core processors, DDR4 ECC RAM, SSD/NVMe RAID storage, unlimited bandwidth and 1 Gbit/s ports.",
+   "eyebrow": "Dedicated servers",
+   "h1": "Bare-metal power for mission-critical apps",
+   "lede": "An entire server to yourself. Intel Xeon and Core hardware, ECC memory, RAID storage and full administrative control for workloads that demand maximum performance.",
+   "checklist": [
+    "Intel Xeon & Core CPUs",
+    "Up to 128 GB DDR4 ECC",
+    "SSD/NVMe RAID 1",
+    "1 Gbit/s unlimited bandwidth"
+   ],
+   "from": 38,
+   "plans": [
+    {
+     "id": "venus",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=179",
+     "name": "Venus",
+     "price": 38,
+     "cpu": "Intel i7-6700 · 4C/8T 3.4 GHz",
+     "ram": "32–64 GB",
+     "storage": "500 GB SSD – 2 TB SSD/SATA",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Europe or USA",
+     "ddos": "Ask sales",
+     "extras": [
+      "1 IPv4 included (8 max)",
+      "10 GB backup storage",
+      "Full root / admin access"
+     ]
+    },
+    {
+     "id": "mars",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=180",
+     "name": "Mars",
+     "price": 45,
+     "cpu": "Xeon E3-1270v6 · 4C/8T 3.8 GHz",
+     "ram": "32–64 GB",
+     "storage": "2× 512 GB SSD – 2× 2 TB HDD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Europe or USA",
+     "ddos": "Ask sales",
+     "extras": [
+      "1 IPv4 included (4 max)",
+      "10 GB backup storage",
+      "Full root / admin access"
+     ]
+    },
+    {
+     "id": "uranus",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=182",
+     "name": "Uranus",
+     "price": 59,
+     "badge": "Most popular",
+     "cpu": "Intel E-2146G · 6C/12T 3.5 GHz",
+     "ram": "32 GB DDR4 ECC",
+     "storage": "2× 1 TB SSD – 2× 4 TB HDD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Europe or USA",
+     "ddos": "Ask sales",
+     "extras": [
+      "1 IPv4 included (8 max)",
+      "10 GB backup storage",
+      "Full root / admin access"
+     ]
+    },
+    {
+     "id": "neptune",
+     "order": "https://my.digitalberg.com/cart.php?a=add&pid=183",
+     "name": "Neptune",
+     "price": 79,
+     "cpu": "Intel i7-9700 · 8C/8T 3.0 GHz",
+     "ram": "64 GB DDR4",
+     "storage": "2× 1 TB NVMe – 2× 4 TB HDD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "Europe or USA",
+     "ddos": "Ask sales",
+     "extras": [
+      "1 IPv4 included (8 max)",
+      "10 GB backup storage",
+      "Full root / admin access"
+     ]
+    }
+   ],
+   "table": {
+    "title": "More dedicated configurations",
+    "columns": [
+     "Server",
+     "CPU",
+     "Storage",
+     "RAM",
+     "Network",
+     "Price"
+    ],
+    "rows": [
+     {
+      "name": "Mercury",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=178",
+      "cpu": "Intel Core2Duo 1.6 GHz · 2C/2T",
+      "storage": "250 GB SATA",
+      "ram": "4 GB",
+      "network": "100 Mbit/s · Unlimited",
+      "price": 16.99
+     },
+     {
+      "name": "Saturn",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=181",
+      "cpu": "Intel Core E-2286G · 6C/12T",
+      "storage": "2× 1 TB – 2× 8 TB SSD · RAID 1",
+      "ram": "64–128 GB DDR4 ECC",
+      "network": "1 Gbit/s · Unlimited",
+      "price": 99
+     },
+     {
+      "name": "Earth",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=162",
+      "cpu": "Xeon E5-2620v3 · 6 cores",
+      "storage": "2× 2 TB HDD or 2× 256 GB SSD · RAID 1",
+      "ram": "32 GB",
+      "network": "1 Gbit/s · Unlimited",
+      "price": 110
+     },
+     {
+      "name": "Moon",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=160",
+      "cpu": "Xeon E5-2620v3 · 6 cores",
+      "storage": "2× 4 TB HDD or 2× 512 GB SSD · RAID 1",
+      "ram": "32 GB",
+      "network": "1 Gbit/s · Unlimited",
+      "price": 130
+     },
+     {
+      "name": "Jupiter",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=161",
+      "cpu": "2× Xeon E5-2620v3 · 12 cores",
+      "storage": "2× 2 TB HDD or 2× 256 GB SSD · RAID 1",
+      "ram": "64 GB",
+      "network": "1 Gbit/s · Unlimited",
+      "price": 209
+     },
+     {
+      "name": "Pluto",
+      "order": "https://my.digitalberg.com/cart.php?a=add&pid=164",
+      "cpu": "2× Xeon E5-2620v3 · 12 cores",
+      "storage": "4× 4 TB HDD or 4× 512 GB SSD · RAID 1",
+      "ram": "64 GB",
+      "network": "1 Gbit/s · Unlimited",
+      "price": 249
+     }
+    ]
+   },
+   "everyPlan": [
+    "Bare-metal hardware",
+    "Full root / admin access",
+    "RAID 1 storage",
+    "Delivery within 24 hours",
+    "Unlimited bandwidth",
+    "1 Gbit/s fibre port",
+    "Anti-DDoS protection",
+    "10 GB backup storage",
+    "HP, Dell, IBM & Intel hardware"
+   ],
+   "features": [
+    {
+     "icon": "cpu",
+     "title": "Intel Xeon & Core",
+     "text": "Skylake, Coffee Lake and Xeon E5 platforms chosen for reliability and throughput."
+    },
+    {
+     "icon": "memory",
+     "title": "ECC memory",
+     "text": "DDR4 ECC RAM on business-class configurations to protect against data corruption."
+    },
+    {
+     "icon": "drive",
+     "title": "RAID storage",
+     "text": "Mirrored SSD, NVMe or HDD arrays so a single drive failure never takes you offline."
+    },
+    {
+     "icon": "globe",
+     "title": "1 Gbit/s fibre",
+     "text": "Unlimited bandwidth on a 1 Gbit/s port with Cisco 10 Gb/s backbone."
+    },
+    {
+     "icon": "wrench",
+     "title": "Custom builds",
+     "text": "Upgrade RAM, drives or add IPs – just tell us what you need."
+    },
+    {
+     "icon": "headset",
+     "title": "24/7 hardware support",
+     "text": "Engineers on site to swap parts and keep your server healthy."
+    }
+   ],
+   "useCases": [
+    "High-traffic websites",
+    "Large databases",
+    "Virtualisation hosts",
+    "Game servers",
+    "Reseller hosting",
+    "Streaming"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "Windows Server",
+    "Proxmox VE",
+    "VMware ESXi",
+    "FreeBSD"
+   ],
+   "stack": [
+    "Proxmox",
+    "cPanel/WHM",
+    "Plesk",
+    "Docker",
+    "Kubernetes",
+    "MySQL"
+   ],
+   "faqs": [
+    [
+     "How quickly is a dedicated server delivered?",
+     "Standard configurations are delivered within 24 hours. Instant dedicated servers in the USA are online within minutes."
+    ],
+    [
+     "Can I customise the hardware?",
+     "Yes. RAM, drives and IP addresses can be upgraded – contact sales with your requirements."
+    ],
+    [
+     "Do dedicated servers include DDoS protection?",
+     "Yes, network-level DDoS filtering is included on all dedicated servers."
+    ]
+   ]
+  },
+  {
+   "slug": "instant-dedicated-servers-usa",
+   "name": "Instant Dedicated USA",
+   "short": "Instant Dedicated",
+   "icon": "rocket",
+   "visual": "rack",
+   "title": "Instant Dedicated Servers USA – Online in Minutes | RMDHost",
+   "description": "Instant dedicated servers in the USA from £12.99/mo. Pre-configured bare metal with free setup, 1 Gbit unmetered, 5 IPv4 and IPv6 /64.",
+   "eyebrow": "Instant dedicated servers · USA",
+   "h1": "Dedicated servers in the USA, online in minutes",
+   "lede": "Pre-configured bare-metal hardware provisioned and online in minutes, not days. Ideal for web apps, databases and resource-intensive workloads.",
+   "checklist": [
+    "Free setup",
+    "1 Gbit unmetered",
+    "5 usable IPv4 addresses",
+    "/64 IPv6 block"
+   ],
+   "from": 12.99,
+   "instant": true,
+   "filters": [
+    "All servers",
+    "Intel Core",
+    "Intel Xeon",
+    "AMD"
+   ],
+   "servers": [
+    {
+     "name": "Intel Core 2 Duo",
+     "family": "Intel Core",
+     "cpu": "1.6 GHz · 2C/2T",
+     "ram": "4 GB DDR2",
+     "storage": "250 GB HDD",
+     "network": "100 Mbit unmetered · 1 IPv4",
+     "price": 12.99,
+     "stock": true
+    },
+    {
+     "name": "Dual Xeon 5150 Custom",
+     "family": "Intel Xeon",
+     "cpu": "2.66 GHz · 4C/4T",
+     "ram": "16 GB",
+     "storage": "500 GB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 15,
+     "stock": true
+    },
+    {
+     "name": "Dual Xeon 5420 Custom",
+     "family": "Intel Xeon",
+     "cpu": "2.5 GHz · 8C/8T",
+     "ram": "16 GB",
+     "storage": "500 GB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 19.99,
+     "stock": true
+    },
+    {
+     "name": "Intel i3-3220 2 TB",
+     "family": "Intel Core",
+     "cpu": "3.3 GHz · 2C/4T",
+     "ram": "16 GB",
+     "storage": "2 TB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 21.99,
+     "stock": true
+    },
+    {
+     "name": "Intel i3-2100",
+     "family": "Intel Core",
+     "cpu": "3.1 GHz · 2C/4T",
+     "ram": "16 GB",
+     "storage": "240 GB SSD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 20,
+     "stock": false
+    },
+    {
+     "name": "Dual Xeon 5420 240 GB SSD",
+     "family": "Intel Xeon",
+     "cpu": "2.5 GHz · 8C/8T",
+     "ram": "24 GB DDR2",
+     "storage": "240 GB SSD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 25.99,
+     "stock": true
+    },
+    {
+     "name": "Dual Xeon 5520 Custom",
+     "family": "Intel Xeon",
+     "cpu": "2.26 GHz · 8C/16T",
+     "ram": "16 GB",
+     "storage": "500 GB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 29,
+     "stock": false
+    },
+    {
+     "name": "Intel i7-2600 + 1 TB",
+     "family": "Intel Core",
+     "cpu": "3.4 GHz · 4C/8T",
+     "ram": "16 GB",
+     "storage": "120 GB SSD + 1 TB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 30,
+     "stock": true
+    },
+    {
+     "name": "Ryzen 7 3800X",
+     "family": "AMD",
+     "cpu": "3.9 / 4.5 GHz · 8C/16T",
+     "ram": "32 GB DDR4",
+     "storage": "2× 480 GB SSD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 35,
+     "stock": false
+    },
+    {
+     "name": "Xeon E3-1230v2 4 TB",
+     "family": "Intel Xeon",
+     "cpu": "3.2 GHz · 4C/8T",
+     "ram": "32 GB DDR3",
+     "storage": "4 TB SATA",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 40,
+     "stock": true
+    },
+    {
+     "name": "Dual Opteron 6128",
+     "family": "AMD",
+     "cpu": "2.0 GHz · 16C/16T",
+     "ram": "32 GB DDR3",
+     "storage": "480 GB SSD + 3 TB HDD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 43,
+     "stock": true
+    },
+    {
+     "name": "i7-6700K 1 TB NVMe",
+     "family": "Intel Core",
+     "cpu": "4.2 / 4.5 GHz · 4C/8T",
+     "ram": "32 GB DDR4",
+     "storage": "1 TB NVMe",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 45,
+     "stock": true
+    },
+    {
+     "name": "Xeon E3-1240v2 + 4 TB",
+     "family": "Intel Xeon",
+     "cpu": "3.4 / 3.8 GHz · 4C/8T",
+     "ram": "16 GB DDR3",
+     "storage": "480 GB SSD + 4 TB",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 46,
+     "stock": true
+    },
+    {
+     "name": "Ryzen 7 5800H",
+     "family": "AMD",
+     "cpu": "4.4 GHz · 8C/16T",
+     "ram": "32 GB DDR4",
+     "storage": "1 TB NVMe",
+     "network": "1 Gbit port · 5 IPv4",
+     "price": 50,
+     "stock": false
+    },
+    {
+     "name": "i7-9700K 1 TB NVMe",
+     "family": "Intel Core",
+     "cpu": "3.6 / 4.9 GHz · 8C/8T",
+     "ram": "64 GB DDR4",
+     "storage": "1 TB NVMe",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 55,
+     "stock": false
+    },
+    {
+     "name": "Ryzen 3800X 64 GB",
+     "family": "AMD",
+     "cpu": "3.9 / 4.5 GHz · 8C/16T",
+     "ram": "64 GB DDR4",
+     "storage": "2× 480 GB SSD",
+     "network": "1 Gbit unmetered · 5 IPv4",
+     "price": 60,
+     "stock": false
+    }
+   ],
+   "plans": [],
+   "everyPlan": [
+    "Free setup",
+    "Online in minutes",
+    "1 Gbit unmetered",
+    "5 usable IPv4",
+    "/64 IPv6 block",
+    "Full root access",
+    "Anti-DDoS protection",
+    "IPMI on request",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "rocket",
+     "title": "Provisioned in minutes",
+     "text": "Pre-built hardware is racked and ready – we install your OS and hand over access."
+    },
+    {
+     "icon": "globe",
+     "title": "US network",
+     "text": "Low-latency connectivity across North America with unmetered 1 Gbit ports."
+    },
+    {
+     "icon": "cpu",
+     "title": "Intel & AMD options",
+     "text": "From budget Core 2 Duo to Ryzen 7 with NVMe."
+    },
+    {
+     "icon": "shield",
+     "title": "Protected",
+     "text": "DDoS filtering included on every server."
+    },
+    {
+     "icon": "wrench",
+     "title": "Free setup",
+     "text": "No setup fees on in-stock configurations."
+    },
+    {
+     "icon": "headset",
+     "title": "24/7 support",
+     "text": "Engineers ready to help day and night."
+    }
+   ],
+   "useCases": [
+    "Web applications",
+    "Databases",
+    "Game servers",
+    "VPN & proxies",
+    "Backups",
+    "Streaming"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "AlmaLinux",
+    "Rocky Linux",
+    "Windows Server",
+    "Proxmox VE"
+   ],
+   "stack": [
+    "Proxmox",
+    "Docker",
+    "cPanel",
+    "Plesk"
+   ],
+   "faqs": [
+    [
+     "How fast is an instant server delivered?",
+     "In-stock instant servers are usually online within minutes of payment clearing."
+    ],
+    [
+     "What does unmetered mean?",
+     "You can use your full port speed without monthly transfer caps, subject to our acceptable use policy."
+    ]
+   ]
+  },
+  {
+   "slug": "macos-dedicated-servers",
+   "name": "macOS Dedicated",
+   "short": "macOS Dedicated",
+   "icon": "apple",
+   "visual": "mac",
+   "tag": "Soon",
+   "title": "macOS Dedicated Servers – Mac mini & Mac Studio Hosting | RMDHost",
+   "description": "Dedicated Mac servers for CI/CD, iOS builds and rendering. Full access to Apple hardware hosted in our data centres.",
+   "eyebrow": "macOS dedicated servers",
+   "h1": "Dedicated Apple hardware, hosted for you",
+   "lede": "A whole Mac reserved for your team – perfect for build farms, rendering and Mac-only software. We handle power, cooling and network.",
+   "checklist": [
+    "Whole Mac, no sharing",
+    "Apple silicon",
+    "Remote access via SSH & VNC",
+    "1 Gbit/s network"
+   ],
+   "from": null,
+   "comingSoon": "macOS dedicated pricing and order links will be published soon. Contact sales to reserve hardware.",
+   "plans": [
+    {
+     "id": "mac-mini-m4",
+     "name": "Mac mini M4",
+     "price": null,
+     "cpu": "Apple M4 · 10 cores",
+     "ram": "16 GB",
+     "storage": "256 GB SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "Dedicated IPv4",
+      "SSH + VNC access",
+      "Hosted & monitored"
+     ]
+    },
+    {
+     "id": "mac-mini-m4-pro",
+     "name": "Mac mini M4 Pro",
+     "price": null,
+     "badge": "Recommended",
+     "cpu": "Apple M4 Pro · 12 cores",
+     "ram": "24 GB",
+     "storage": "512 GB SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "Dedicated IPv4",
+      "SSH + VNC access",
+      "Hosted & monitored"
+     ]
+    },
+    {
+     "id": "mac-studio",
+     "name": "Mac Studio",
+     "price": null,
+     "cpu": "Apple M-series Max",
+     "ram": "36 GB+",
+     "storage": "512 GB+ SSD",
+     "bandwidth": "Unlimited · 1 Gbit/s",
+     "location": "USA · EU",
+     "ddos": "Included",
+     "extras": [
+      "Dedicated IPv4",
+      "SSH + VNC access",
+      "Custom configurations"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "Dedicated Apple hardware",
+    "SSH & VNC access",
+    "Dedicated IPv4",
+    "Anti-DDoS protection",
+    "1 Gbit/s network",
+    "Hardware monitoring",
+    "Monthly billing",
+    "Custom configs",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "apple",
+     "title": "Apple silicon",
+     "text": "M-series chips for fast, efficient builds and rendering."
+    },
+    {
+     "icon": "terminal",
+     "title": "Build farms",
+     "text": "Run multiple Xcode builds in parallel on dedicated hardware."
+    },
+    {
+     "icon": "desktop",
+     "title": "Remote desktop",
+     "text": "Full GUI over VNC or Apple Remote Desktop."
+    },
+    {
+     "icon": "shield",
+     "title": "Secure hosting",
+     "text": "Biometric data-centre access and DDoS filtering."
+    },
+    {
+     "icon": "wrench",
+     "title": "Custom builds",
+     "text": "Pick the Mac model, memory and storage you need."
+    },
+    {
+     "icon": "headset",
+     "title": "Hands-on support",
+     "text": "Remote hands for reboots and recovery mode."
+    }
+   ],
+   "useCases": [
+    "iOS build farms",
+    "Rendering",
+    "Mac app testing",
+    "Final Cut / Logic",
+    "ML on Apple silicon",
+    "Remote Mac desktops"
+   ],
+   "os": [
+    "macOS Sequoia",
+    "macOS Sonoma"
+   ],
+   "stack": [
+    "Xcode",
+    "Fastlane",
+    "Jenkins",
+    "GitHub Actions",
+    "Homebrew"
+   ],
+   "faqs": [
+    [
+     "Can I choose the Mac model?",
+     "Yes. Tell us the model, memory and storage you need and we will quote a custom configuration."
+    ]
+   ]
+  },
+  {
+   "slug": "game-servers",
+   "name": "Game Servers",
+   "short": "Game Servers",
+   "icon": "game",
+   "visual": "game",
+   "title": "Dedicated Game Servers with Anti-DDoS Game | RMDHost",
+   "description": "Dedicated game servers from £88.99/mo with Anti-DDoS Game protection for Minecraft, CS, ARMA, GTA and more. Up to 256 GB ECC RAM.",
+   "eyebrow": "Dedicated game servers",
+   "h1": "Lag-free game servers with Anti-DDoS Game",
+   "lede": "High-frequency Intel processors, SSD storage and game-aware DDoS mitigation to keep your community online – for Minecraft, Counter-Strike, ARMA, GTA and more.",
+   "checklist": [
+    "Anti-DDoS Game included",
+    "250 Mbps guaranteed bandwidth",
+    "500 GB backup storage",
+    "90+ operating systems"
+   ],
+   "from": 88.99,
+   "plans": [
+    {
+     "id": "dbg-32",
+     "name": "DBG-32",
+     "price": 88.99,
+     "cpu": "Intel i7-4790K · 4C/8T 4.0/4.4 GHz",
+     "ram": "32 GB DDR3",
+     "storage": "2× 240 GB SSD",
+     "bandwidth": "250 Mbps guaranteed",
+     "location": "USA · DE · FR",
+     "ddos": "Anti-DDoS Game",
+     "extras": [
+      "500 GB backup storage",
+      "Up to 256 IPs",
+      "90+ OS templates"
+     ]
+    },
+    {
+     "id": "dbg-128",
+     "name": "DBG-128",
+     "price": 165.99,
+     "badge": "Most popular",
+     "cpu": "Xeon E5-1650v3 · 6C/12T 3.5/3.8 GHz",
+     "ram": "128 GB DDR4 ECC",
+     "storage": "2× 480 GB SSD",
+     "bandwidth": "250 Mbps guaranteed",
+     "location": "USA · DE · FR",
+     "ddos": "Anti-DDoS Game",
+     "extras": [
+      "500 GB backup storage",
+      "Up to 256 IPs",
+      "90+ OS templates"
+     ]
+    },
+    {
+     "id": "dbg-128-1",
+     "name": "DBG-128.1",
+     "price": 173.99,
+     "cpu": "Xeon E5-2630v3 · 8C/16T 2.4/3.2 GHz",
+     "ram": "128 GB DDR4 ECC",
+     "storage": "2× 480 GB SSD",
+     "bandwidth": "250 Mbps guaranteed",
+     "location": "USA · DE · FR",
+     "ddos": "Anti-DDoS Game",
+     "extras": [
+      "500 GB backup storage",
+      "Up to 256 IPs",
+      "90+ OS templates"
+     ]
+    },
+    {
+     "id": "dbg-256",
+     "name": "DBG-256",
+     "price": 249.99,
+     "cpu": "2× Xeon E5-2620v3 · 12C/24T",
+     "ram": "256 GB DDR4 ECC",
+     "storage": "2× 480 GB SSD",
+     "bandwidth": "250 Mbps guaranteed",
+     "location": "USA · DE · FR",
+     "ddos": "Anti-DDoS Game",
+     "extras": [
+      "500 GB backup storage",
+      "Up to 256 IPs",
+      "90+ OS templates"
+     ]
+    }
+   ],
+   "everyPlan": [
+    "Anti-DDoS Game",
+    "250 Mbps guaranteed",
+    "500 GB backup storage",
+    "Up to 256 extra IPs",
+    "90+ OS templates",
+    "SSD storage",
+    "Full root access",
+    "US, DE & FR locations",
+    "24/7 support"
+   ],
+   "features": [
+    {
+     "icon": "shield",
+     "title": "Anti-DDoS Game",
+     "text": "Game-aware mitigation for Minecraft, Counter-Strike, ARMA, GTA, Team Fortress and TeamSpeak."
+    },
+    {
+     "icon": "cpu",
+     "title": "High clock speeds",
+     "text": "Fast single-thread performance where game servers need it most."
+    },
+    {
+     "icon": "memory",
+     "title": "Up to 256 GB ECC",
+     "text": "Run large modded worlds and multiple instances side by side."
+    },
+    {
+     "icon": "backup",
+     "title": "500 GB backups",
+     "text": "Back up your worlds and configs without touching your main disks."
+    },
+    {
+     "icon": "globe",
+     "title": "Three regions",
+     "text": "Host near your players in the USA, Germany or France."
+    },
+    {
+     "icon": "headset",
+     "title": "Gamer-friendly support",
+     "text": "Help with game panels, mods and networking."
+    }
+   ],
+   "useCases": [
+    "Minecraft",
+    "Counter-Strike 2",
+    "ARMA 3",
+    "GTA V (FiveM)",
+    "Rust",
+    "TeamSpeak"
+   ],
+   "os": [
+    "Ubuntu",
+    "Debian",
+    "Windows Server",
+    "AlmaLinux",
+    "Rocky Linux"
+   ],
+   "stack": [
+    "Pterodactyl",
+    "AMP",
+    "SteamCMD",
+    "Docker",
+    "TeamSpeak"
+   ],
+   "faqs": [
+    [
+     "Which games are protected?",
+     "Anti-DDoS Game supports Minecraft, Counter-Strike, ARMA, GTA, Team Fortress, TeamSpeak and many other UDP-based games."
+    ],
+    [
+     "Can I install a game panel?",
+     "Yes. Install Pterodactyl, AMP or any panel you like – you have full root access."
+    ],
+    [
+     "Do additional IPs cost extra?",
+     "Up to 256 IPs are available with no monthly fee, excluding a one-time setup fee of £2.70 excl. VAT per IP."
+    ]
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "What is RMDHost?",
+   "a": "RMDHost is an international hosting provider offering Linux VPS, Windows VPS, cloud servers, dedicated servers, game servers and private cloud storage from data centres in the UK, Europe and North America."
+  },
+  {
+   "q": "Which server is right for me?",
+   "a": "Start with a Linux VPS for websites and apps, choose Windows VPS for Remote Desktop and .NET, and move to a dedicated server when you need a whole machine for heavy traffic, large databases or virtualisation. Our sales team can recommend a plan for free."
+  },
+  {
+   "q": "Do you charge setup fees?",
+   "a": "Linux VPS and SSD VPS plans have no setup fee, and in-stock instant dedicated servers in the USA include free setup. Any setup fee for other products is shown at checkout."
+  },
+  {
+   "q": "Is DDoS protection included?",
+   "a": "VPS plans include DDoS protection – Windows, SSD and Cloud VPS come with Anti-DDoS Pro – and game servers include Anti-DDoS Game. For dedicated servers, ask our sales team about protection options."
+  },
+  {
+   "q": "Where are your data centres?",
+   "a": "Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia) and New York (USA), with additional instant dedicated capacity across the USA."
+  },
+  {
+   "q": "Can I pay in USD or GBP?",
+   "a": "Yes. Use the currency selector at the top of the page to view prices in GBP or USD. You choose your billing currency at checkout."
+  },
+  {
+   "q": "How fast is server delivery?",
+   "a": "VPS plans are provisioned instantly. Standard dedicated servers are delivered within 24 hours and instant dedicated servers in the USA are online within minutes."
+  },
+  {
+   "q": "Do you offer refunds?",
+   "a": "Contact our billing team within 7 days of your first order if the service is not right for you – we will review every request individually. See our Terms of Service for details."
+  },
+  {
+   "q": "Can I upgrade later?",
+   "a": "Yes. VPS plans can be upgraded from the client area at any time and dedicated servers can be customised with more RAM, storage or IP addresses."
+  },
+  {
+   "q": "How do I contact support?",
+   "a": "Our engineers are available 24/7 by ticket and email. Open a ticket from the client area or email support@rmdhost.com."
+  }
+ ],
+ "reviews": [
+  {
+   "sample": true,
+   "name": "Daniel R.",
+   "role": "Agency owner",
+   "product": "Linux VPS",
+   "rating": 5,
+   "text": "We moved twelve client WordPress sites onto two Premium Berg servers. Pages load faster and support answered every ticket within minutes."
+  },
+  {
+   "sample": true,
+   "name": "Aisha K.",
+   "role": "Forex trader",
+   "product": "Windows VPS",
+   "rating": 5,
+   "text": "My MetaTrader bots have run around the clock on a Winberg x8 without a single disconnect. RDP is smooth even from my phone."
+  },
+  {
+   "sample": true,
+   "name": "Marco P.",
+   "role": "Minecraft network admin",
+   "product": "Game Servers",
+   "rating": 5,
+   "text": "Anti-DDoS Game actually works. We were hit during a launch weekend and players never noticed."
+  },
+  {
+   "sample": true,
+   "name": "Sophie L.",
+   "role": "CTO, SaaS startup",
+   "product": "Dedicated",
+   "rating": 5,
+   "text": "The Uranus box handles our Postgres cluster with room to spare. Hardware swaps were handled before we even noticed a disk warning."
+  },
+  {
+   "sample": true,
+   "name": "James T.",
+   "role": "Developer",
+   "product": "SSD VPS",
+   "rating": 4,
+   "text": "Great value NVMe VPS with a clean control panel. Daily backups saved me after a bad deploy."
+  },
+  {
+   "sample": true,
+   "name": "Nina V.",
+   "role": "Photographer",
+   "product": "OwnCloud",
+   "rating": 5,
+   "text": "I replaced Dropbox with my own OwnCloud server in Germany. Clients get private galleries and I keep control of my files."
+  }
+ ],
+ "locations": [
+  {
+   "city": "Derby",
+   "country": "United Kingdom",
+   "code": "GB",
+   "region": "Europe",
+   "lat": 52.92,
+   "lon": -1.48,
+   "label": [
+    "Derby",
+    -3,
+    4.2,
+    "end"
+   ]
+  },
+  {
+   "city": "Leeds",
+   "country": "United Kingdom",
+   "code": "GB",
+   "region": "Europe",
+   "lat": 53.8,
+   "lon": -1.55,
+   "label": [
+    "Leeds",
+    -3,
+    -2,
+    "end"
+   ]
+  },
+  {
+   "city": "Amsterdam",
+   "country": "Netherlands",
+   "code": "NL",
+   "region": "Europe",
+   "lat": 52.37,
+   "lon": 4.9,
+   "label": [
+    "Amsterdam",
+    3,
+    -2.2,
+    "start"
+   ]
+  },
+  {
+   "city": "Frankfurt",
+   "country": "Germany",
+   "code": "DE",
+   "region": "Europe",
+   "lat": 50.11,
+   "lon": 8.68,
+   "label": [
+    "Frankfurt",
+    3,
+    4.6,
+    "start"
+   ]
+  },
+  {
+   "city": "Riga",
+   "country": "Latvia",
+   "code": "LV",
+   "region": "Europe",
+   "lat": 56.95,
+   "lon": 24.1,
+   "label": [
+    "Riga",
+    3,
+    1.3,
+    "start"
+   ]
+  },
+  {
+   "city": "New York",
+   "country": "United States",
+   "code": "US",
+   "region": "North America",
+   "lat": 40.71,
+   "lon": -74,
+   "label": [
+    "New York",
+    -12,
+    -10,
+    "end"
+   ]
+  }
+ ],
+ "posts": [
+  {
+   "slug": "vps-vs-dedicated-server",
+   "title": "VPS vs dedicated server: which one do you need?",
+   "date": "2026-09-18",
+   "tag": "Guides",
+   "excerpt": "A practical comparison of cost, performance and control to help you choose between a VPS and a dedicated server.",
+   "body": [
+    [
+     "p",
+     "Choosing between a Virtual Private Server and a dedicated server comes down to three things: how much performance you need, how predictable that performance must be, and how much you want to spend."
+    ],
+    [
+     "h2",
+     "When a VPS is the right choice"
+    ],
+    [
+     "p",
+     "A VPS gives you guaranteed vCores, RAM and storage on a shared physical host. It is ideal for websites, WordPress, small databases, development environments and most business applications. Plans start from £8.99 per month and can be upgraded in minutes."
+    ],
+    [
+     "h2",
+     "When to move to dedicated"
+    ],
+    [
+     "p",
+     "A dedicated server reserves an entire machine for you. Choose one when you run large databases, virtualisation hosts, high-traffic ecommerce or game servers, or when compliance requires physical isolation."
+    ],
+    [
+     "h2",
+     "A simple rule of thumb"
+    ],
+    [
+     "p",
+     "If your VPS regularly runs above 70% CPU or you need more than 32 GB of RAM, it is time to look at dedicated hardware. Our sales team can benchmark your workload for free."
+    ]
+   ]
+  },
+  {
+   "slug": "secure-a-new-linux-vps",
+   "title": "10 steps to secure a new Linux VPS",
+   "date": "2026-08-27",
+   "tag": "Security",
+   "excerpt": "Harden your server in the first ten minutes: SSH keys, firewalls, updates and more.",
+   "body": [
+    [
+     "p",
+     "A fresh VPS is exposed to the internet the moment it boots. These ten steps take ten minutes and block the vast majority of automated attacks."
+    ],
+    [
+     "h2",
+     "The checklist"
+    ],
+    [
+     "ol",
+     [
+      "Update all packages",
+      "Create a non-root sudo user",
+      "Add your SSH key",
+      "Disable password login",
+      "Disable root SSH login",
+      "Enable a firewall (ufw or firewalld)",
+      "Install fail2ban",
+      "Enable automatic security updates",
+      "Set the correct timezone and NTP",
+      "Schedule snapshot backups"
+     ]
+    ],
+    [
+     "p",
+     "Every RMDHost VPS already includes network-level DDoS protection, so you can focus on hardening the operating system."
+    ]
+   ]
+  },
+  {
+   "slug": "self-host-n8n-on-a-vps",
+   "title": "How to self-host n8n on an AI VPS",
+   "date": "2026-07-30",
+   "tag": "AI & automation",
+   "excerpt": "Run unlimited workflows without per-task pricing by hosting n8n on your own server.",
+   "body": [
+    [
+     "p",
+     "n8n is an open-source automation platform that connects hundreds of apps. Hosting it yourself removes execution limits and keeps your data private."
+    ],
+    [
+     "h2",
+     "What you need"
+    ],
+    [
+     "p",
+     "Any VPS with 2 vCores and 4 GB RAM is enough to start. Install Docker, then run the official n8n container behind a reverse proxy with HTTPS."
+    ],
+    [
+     "h2",
+     "Going further"
+    ],
+    [
+     "p",
+     "Pair n8n with a local LLM through Ollama on an AI VPS to build private AI agents that never send your data to third parties."
+    ]
+   ]
+  }
+ ],
+ "kb": [
+  {
+   "cat": "Getting started",
+   "items": [
+    "Logging in to the client area",
+    "Ordering your first VPS",
+    "Connecting to your server over SSH",
+    "Connecting to Windows VPS with Remote Desktop",
+    "Reinstalling the operating system"
+   ]
+  },
+  {
+   "cat": "Billing",
+   "items": [
+    "Changing your billing currency",
+    "Updating your payment method",
+    "Understanding invoices and VAT",
+    "Upgrading or downgrading a plan",
+    "Cancelling a service"
+   ]
+  },
+  {
+   "cat": "VPS management",
+   "items": [
+    "Using the VNC console",
+    "Creating and restoring snapshots",
+    "Adding an extra IP address",
+    "Configuring IPv6",
+    "Resetting the root password"
+   ]
+  },
+  {
+   "cat": "Dedicated servers",
+   "items": [
+    "Requesting a hardware upgrade",
+    "Accessing IPMI",
+    "Replacing a failed disk",
+    "Setting up software RAID",
+    "Rescue mode"
+   ]
+  },
+  {
+   "cat": "Domains & DNS",
+   "items": [
+    "Pointing a domain to your server",
+    "Creating reverse DNS (PTR) records",
+    "Transferring a domain to RMDHost",
+    "Managing nameservers"
+   ]
+  },
+  {
+   "cat": "Security",
+   "items": [
+    "Enabling two-factor authentication",
+    "Reporting abuse",
+    "How DDoS protection works",
+    "Hardening SSH"
+   ]
+  }
+ ],
+ "tutorials": [
+  {
+   "title": "Install WordPress with Nginx on Ubuntu 24.04",
+   "level": "Beginner",
+   "time": "15 min",
+   "tag": "Web"
+  },
+  {
+   "title": "Deploy a Node.js app with PM2 and Nginx",
+   "level": "Intermediate",
+   "time": "20 min",
+   "tag": "Web"
+  },
+  {
+   "title": "Run Docker and Docker Compose on a VPS",
+   "level": "Beginner",
+   "time": "10 min",
+   "tag": "Containers"
+  },
+  {
+   "title": "Self-host n8n with HTTPS",
+   "level": "Intermediate",
+   "time": "25 min",
+   "tag": "Automation"
+  },
+  {
+   "title": "Run Llama locally with Ollama and Open WebUI",
+   "level": "Intermediate",
+   "time": "20 min",
+   "tag": "AI"
+  },
+  {
+   "title": "Set up a Minecraft server with Pterodactyl",
+   "level": "Intermediate",
+   "time": "30 min",
+   "tag": "Gaming"
+  },
+  {
+   "title": "Configure a WireGuard VPN",
+   "level": "Intermediate",
+   "time": "15 min",
+   "tag": "Networking"
+  },
+  {
+   "title": "Install Proxmox VE on a dedicated server",
+   "level": "Advanced",
+   "time": "40 min",
+   "tag": "Virtualisation"
+  },
+  {
+   "title": "Automate backups to object storage with restic",
+   "level": "Intermediate",
+   "time": "20 min",
+   "tag": "Backups"
+  }
+ ],
+ "statusServices": [
+  {
+   "name": "Client area & billing",
+   "group": "Platform"
+  },
+  {
+   "name": "Website",
+   "group": "Platform"
+  },
+  {
+   "name": "Support ticket system",
+   "group": "Platform"
+  },
+  {
+   "name": "Derby (UK) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "Leeds (UK) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "Amsterdam (NL) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "Frankfurt (DE) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "Riga (LV) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "New York (US) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "VPS provisioning",
+   "group": "Services"
+  },
+  {
+   "name": "Backups & snapshots",
+   "group": "Services"
+  },
+  {
+   "name": "DDoS mitigation",
+   "group": "Services"
+  }
+ ],
+ "references": [
+  {
+   "name": "Northwind Digital",
+   "sector": "Web agency",
+   "product": "Linux VPS"
+  },
+  {
+   "name": "Brightline Trading",
+   "sector": "Fintech",
+   "product": "Windows VPS"
+  },
+  {
+   "name": "Pixelforge Studios",
+   "sector": "Gaming",
+   "product": "Game Servers"
+  },
+  {
+   "name": "Cobalt Analytics",
+   "sector": "SaaS",
+   "product": "Dedicated"
+  },
+  {
+   "name": "Harbour Media",
+   "sector": "Publishing",
+   "product": "Cloud VPS"
+  },
+  {
+   "name": "Atlas Logistics",
+   "sector": "Logistics",
+   "product": "Dedicated"
+  },
+  {
+   "name": "Greenfield Schools",
+   "sector": "Education",
+   "product": "OwnCloud"
+  },
+  {
+   "name": "Vertex Labs",
+   "sector": "AI research",
+   "product": "AI VPS"
+  }
+ ]
+}

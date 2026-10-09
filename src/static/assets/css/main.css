@@ -1019,7 +1019,7 @@ a.soft-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); b
 .bento-card.has-photo:hover .bento-photo img { transform: scale(1.04); }
 .bento-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #000 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.15)); }
 
-.page-photo { position: relative; border-radius: 0; overflow: hidden; aspect-ratio: 21/8; margin-bottom: 48px; }
+.page-photo { position: relative; border-radius: 0; overflow: hidden; aspect-ratio: 21/8; margin: 0 0 48px; }
 .page-photo img { width: 100%; height: 100%; object-fit: cover; }
 .page-photo figcaption { position: absolute; left: 28px; bottom: 24px; color: #fff; font-size: clamp(20px, 3vw, 32px); font-weight: 500; letter-spacing: -.02em; max-width: 520px; z-index: 1; }
 .page-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent 60%); }

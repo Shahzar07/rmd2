@@ -9,6 +9,10 @@
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
   };
+  // Bind each element once, so mount() can run again on markup added later (page builders, AJAX).
+  var once = function (el, k) { var a = 'data-rmd-' + k; if (el.hasAttribute(a)) return false; el.setAttribute(a, ''); return true; };
+  var home = (window.RMD && window.RMD.home) || '';
+  var sparks = {};
 
   /* ───────── theme */
   function currentTheme() {
@@ -25,7 +29,7 @@
 
   /* ───────── header */
   var header = $('[data-header]');
-  var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
+  var onScroll = function () { if (header) header.classList.toggle('scrolled', window.scrollY > 20); };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -80,8 +84,11 @@
     s.addEventListener('change', function () { store.set('rmd-currency', s.value); applyCurrency(s.value); });
   });
 
+  function mount(root) {
+  if (root !== document) applyCurrency(store.get('rmd-currency') || cfg.default);
+
   /* ───────── reveal on scroll (staggered) */
-  var reveals = $$('[data-reveal]');
+  var reveals = $$('[data-reveal]', root).filter(function (el) { return once(el, 'rv'); });
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       var batch = 0;
@@ -109,14 +116,15 @@
     };
     requestAnimationFrame(step);
   }
-  var counters = $$('[data-count]');
+  var counters = $$('[data-count]', root).filter(function (el) { return once(el, 'ct'); });
   if ('IntersectionObserver' in window) {
     var co = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); } }); }, { threshold: 0.5 });
     counters.forEach(function (c) { co.observe(c); });
   } else counters.forEach(runCounter);
 
   /* ───────── tabs with sliding indicator */
-  $$('[data-tabs]').forEach(function (wrap) {
+  $$('[data-tabs]', root).forEach(function (wrap) {
+    if (!once(wrap, 'tabs')) return;
     var list = $('[role=tablist]', wrap), tabs = $$('[role=tab]', list), ind = $('.tab-ind', list);
     function move(tab) {
       if (!ind) return;
@@ -158,10 +166,11 @@
       panel.classList.toggle('open', open);
     });
   }
-  $$('.faq-q, [data-more]').forEach(bindToggle);
+  $$('.faq-q, [data-more]', root).forEach(function (b) { if (once(b, 'tg')) bindToggle(b); });
 
   /* ───────── expanding support cards (auto-rotate) */
-  $$('[data-xcards]').forEach(function (wrap) {
+  $$('[data-xcards]', root).forEach(function (wrap) {
+    if (!once(wrap, 'xc')) return;
     var cards = $$('.xcard', wrap), idx = cards.findIndex(function (c) { return c.classList.contains('active'); }), timer;
     function act(i) {
       idx = i;
@@ -179,7 +188,8 @@
   });
 
   /* ───────── carousels */
-  $$('[data-carousel]').forEach(function (car) {
+  $$('[data-carousel]', root).forEach(function (car) {
+    if (!once(car, 'car')) return;
     var head = car.previousElementSibling;
     var prev = head && $('[data-car-prev]', head), next = head && $('[data-car-next]', head);
     var by = function (d) { var c = car.firstElementChild; car.scrollBy({ left: d * (c ? c.offsetWidth + 16 : 300), behavior: 'smooth' }); };
@@ -188,7 +198,7 @@
   });
 
   /* ───────── spotlight cards */
-  document.addEventListener('pointermove', function (e) {
+  if (root === document) document.addEventListener('pointermove', function (e) {
     var el = e.target.closest && e.target.closest('[data-spot]');
     if (!el) return;
     var r = el.getBoundingClientRect();
@@ -197,7 +207,8 @@
   }, { passive: true });
 
   /* ───────── typewriter placeholder */
-  $$('[data-typewriter]').forEach(function (input) {
+  $$('[data-typewriter]', root).forEach(function (input) {
+    if (!once(input, 'tw')) return;
     var phrases = JSON.parse(input.getAttribute('data-typewriter')), p = 0, c = 0, del = false;
     if (reduce) { input.placeholder = phrases[0]; return; }
     (function tick() {
@@ -223,7 +234,8 @@
     [/usa|america|instant|us server/i, 'Instant Dedicated USA', '/instant-dedicated-servers-usa/', 'Bare metal in the USA, online in minutes with free setup on in-stock servers.'],
     [/docker|kubernetes|api|node|python|app|staging|ci/i, 'SSD VPS (OpenStack)', '/ssd-vps/', 'NVMe VPS with up to 12 vCores, daily backups and a free control panel – great for apps and APIs.'],
   ];
-  $$('[data-idea]').forEach(function (form) {
+  $$('[data-idea]', root).forEach(function (form) {
+    if (!once(form, 'idea')) return;
     var out = $('[data-idea-result]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -235,7 +247,7 @@
       var label = document.createElement('p'); label.className = 'pill pill-xs'; label.textContent = 'Recommended for “' + q.slice(0, 60) + '”';
       var h = document.createElement('h3'); h.textContent = m[1];
       var p = document.createElement('p'); p.textContent = m[3];
-      var a = document.createElement('a'); a.className = 'btn btn-primary'; a.href = m[2]; a.textContent = 'See ' + m[1] + ' plans';
+      var a = document.createElement('a'); a.className = 'btn btn-primary'; a.href = home + m[2]; a.textContent = 'See ' + m[1] + ' plans';
       wrap.append(label, h, p, a);
       out.appendChild(wrap);
       out.style.animation = 'none'; void out.offsetWidth; out.style.animation = '';
@@ -269,13 +281,13 @@
   }
 
   /* ───────── live sparklines + counters + streaming text */
-  var sparks = {};
   function sparkPath(vals) {
     var w = 120, h = 36, step = w / (vals.length - 1);
     return vals.map(function (v, i) { return (i ? 'L' : 'M') + (i * step).toFixed(1) + ' ' + (h - v * h * 0.9 - 2).toFixed(1); }).join(' ');
   }
   function initSparks(root) {
     $$('[data-spark]', root).forEach(function (path) {
+      if (!once(path, 'sp')) return;
       var id = path.getAttribute('data-spark');
       var vals = Array.from({ length: 14 }, function () { return 0.25 + Math.random() * 0.45; });
       var fill = path.parentNode.querySelector('[data-spark-fill]');
@@ -327,19 +339,23 @@
         so.unobserve(el);
       });
     }, { threshold: 0.2 });
-    $$('[data-term], [data-stream]').forEach(function (el) { so.observe(el); });
+    $$('[data-term], [data-stream]', root).forEach(function (el) { if (once(el, 'ts')) so.observe(el); });
   }
-  initSparks(document);
-  tickSparks();
-  if (!reduce) setInterval(tickSparks, 1200);
+  initSparks(root);
+  if (root === document) {
+    tickSparks();
+    if (!reduce) setInterval(tickSparks, 1200);
+  }
 
-  $$('[data-clock]').forEach(function (el) {
+  $$('[data-clock]', root).forEach(function (el) {
+    if (!once(el, 'clk')) return;
     var f = function () { var d = new Date(); el.textContent = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); };
     f(); setInterval(f, 30000);
   });
 
   /* ───────── data-centre map ↔ list highlighting */
-  $$('[data-dc]').forEach(function (dc) {
+  $$('[data-dc]', root).forEach(function (dc) {
+    if (!once(dc, 'dc')) return;
     function hl(i, on) {
       $$('[data-loc="' + i + '"]', dc).forEach(function (el) { el.classList.toggle('hl', on); });
     }
@@ -352,7 +368,8 @@
 
   /* ───────── matrix rain (essentials visuals) */
   var glyphs = '01アイウエオカキクケコｱｲｳｴｵ#$%{}[]<>/\\=+*';
-  $$('canvas[data-matrix]').forEach(function (cv) {
+  $$('canvas[data-matrix]', root).forEach(function (cv) {
+    if (!once(cv, 'mx')) return;
     var ctx = cv.getContext('2d'), cols = [], fs = 12, running = false, last = 0;
     function size() {
       var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -395,7 +412,7 @@
 
   /* ───────── product subnav highlight */
   var sub = $('[data-subnav]');
-  if (sub && 'IntersectionObserver' in window) {
+  if (sub && 'IntersectionObserver' in window && once(sub, 'sn')) {
     var links = $$('a', sub);
     var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
     var sio = new IntersectionObserver(function (es) {
@@ -408,7 +425,8 @@
   }
 
   /* ───────── filters (instant servers, tutorials) */
-  $$('[data-filter-group]').forEach(function (g) {
+  $$('[data-filter-group]', root).forEach(function (g) {
+    if (!once(g, 'fg')) return;
     var target = g.getAttribute('data-target') || '.srow:not(.shead)';
     var scope = g.parentNode;
     var chips = $$('[data-filter]', g), stockBox = $('[data-instock]', g), active = '*';
@@ -431,7 +449,7 @@
 
   /* ───────── knowledge base search */
   var kbForm = $('[data-kb-search]');
-  if (kbForm) {
+  if (kbForm && once(kbForm, 'kb')) {
     var kbIn = $('input', kbForm);
     kbForm.addEventListener('submit', function (e) { e.preventDefault(); });
     kbIn.addEventListener('input', function () {
@@ -448,16 +466,18 @@
 
   /* ───────── contact topic from ?topic= */
   var topicSel = $('[data-topic]');
-  if (topicSel) {
+  if (topicSel && once(topicSel, 'tp')) {
     var tq = new URLSearchParams(location.search).get('topic');
     if (tq) {
-      var opt = document.createElement('option'); opt.textContent = tq; opt.selected = true; topicSel.appendChild(opt);
+      var match = $$('option', topicSel).filter(function (o) { return o.textContent === tq; })[0];
+      if (match) match.selected = true;
+      else { var opt = document.createElement('option'); opt.textContent = tq; opt.selected = true; topicSel.appendChild(opt); }
     }
   }
-  $$('[data-now]').forEach(function (el) { el.textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); });
+  $$('[data-now]', root).forEach(function (el) { el.textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); });
 
   /* ───────── background videos: play only while visible */
-  var vids = $$('video[data-autoplay]');
+  var vids = $$('video[data-autoplay]', root).filter(function (v) { return once(v, 'vid'); });
   if (!reduce && 'IntersectionObserver' in window) {
     var vo = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
@@ -469,6 +489,10 @@
     vids.forEach(function (v) { vo.observe(v); });
   }
 
+  }
+  mount(document);
+  window.RMDMount = mount;
+
   /* ───────── cookie consent */
   var CK = 'rmd-consent';
   var banner = $('[data-cookie]'), modal = $('[data-cookie-modal]');
@@ -476,15 +500,15 @@
   function saveConsent(c) {
     c.necessary = true; c.ts = new Date().toISOString();
     store.set(CK, JSON.stringify(c));
-    banner.hidden = true;
-    if (modal.open) modal.close();
+    if (banner) banner.hidden = true;
+    if (modal && modal.open) modal.close();
     document.dispatchEvent(new CustomEvent('rmd:consent', { detail: c }));
   }
   function syncModal() {
     var c = readConsent() || {};
     $$('[data-ck]', modal).forEach(function (i) { i.checked = !!c[i.getAttribute('data-ck')]; });
   }
-  if (!readConsent()) setTimeout(function () { banner.hidden = false; }, 700);
+  if (banner && modal && !readConsent()) setTimeout(function () { banner.hidden = false; }, 700);
   $$('[data-cookie-accept]').forEach(function (b) { b.addEventListener('click', function () { saveConsent({ analytics: true, marketing: true }); }); });
   $$('[data-cookie-reject]').forEach(function (b) { b.addEventListener('click', function () { saveConsent({ analytics: false, marketing: false }); }); });
   $$('[data-cookie-save]').forEach(function (b) {
@@ -496,6 +520,7 @@
   });
   $$('[data-cookie-manage]').forEach(function (b) {
     b.addEventListener('click', function () {
+      if (!modal) return;
       syncModal();
       if (modal.showModal) modal.showModal(); else modal.setAttribute('open', '');
     });
