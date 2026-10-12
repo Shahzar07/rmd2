@@ -233,10 +233,19 @@ class Schema {
 				'rating_text' => array( 'textarea', __( 'Footer note (HTML links allowed)', 'rmdhost-core' ) ),
 			),
 			'faq'          => array(
-				'title' => $t,
-				'group' => array( 'faq_group', __( 'Questions from', 'rmdhost-core' ) ),
-				'soft'  => array( 'switch', __( 'Grey background', 'rmdhost-core' ) ),
-				'id'    => array( 'text', __( 'Anchor ID', 'rmdhost-core' ) ),
+				'title'  => $t,
+				'text'   => $x,
+				'group'  => array( 'faq_group', __( 'Questions from', 'rmdhost-core' ) ),
+				'layout' => array(
+					'select',
+					__( 'Layout', 'rmdhost-core' ),
+					'options' => array(
+						'split'  => __( 'Intro beside questions', 'rmdhost-core' ),
+						'simple' => __( 'Single column', 'rmdhost-core' ),
+					),
+				),
+				'soft'   => array( 'switch', __( 'Grey background', 'rmdhost-core' ) ),
+				'id'     => array( 'text', __( 'Anchor ID', 'rmdhost-core' ) ),
 			),
 			'cta'          => array(
 				'title'      => array( 'textarea', __( 'Title (HTML <br> allowed)', 'rmdhost-core' ) ),

@@ -183,11 +183,11 @@ ${pageHero({ eyebrow: 'References', h1: 'Teams that run on RMDHost', lede: 'From
 <section class="section">
   <div class="container">
     <div class="ref-grid">
-      ${references.map((r) => `<div class="ref" data-reveal data-spot><span class="ref-logo">${r.name.split(' ').map((w) => w[0]).join('')}</span><b>${r.name}</b><small>${r.sector} · ${r.product}</small><em class="pill pill-xs" title="Replace with a real customer before launch">Sample</em></div>`).join('')}
+      ${references.map((r) => `<div class="ref" data-reveal data-spot><span class="ref-logo">${r.name.split(' ').map((w) => w[0]).join('')}</span><b>${r.name}</b><small>${r.sector} · ${r.product}</small></div>`).join('')}
     </div>
     ${sectionHead({ title: 'What customers say' })}
     <div class="masonry masonry-3">
-      ${reviews.map((r) => `<figure class="review" data-reveal>${stars(r.rating)}<blockquote>“${r.text}”</blockquote><figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span>${r.sample ? '<em class="pill pill-xs">Sample</em>' : ''}</figcaption></figure>`).join('')}
+      ${reviews.map((r) => `<figure class="review" data-reveal>${stars(r.rating)}<blockquote>“${r.text}”</blockquote><figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span></figcaption></figure>`).join('')}
     </div>
   </div>
 </section>

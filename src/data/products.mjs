@@ -189,27 +189,27 @@ export const products = [
     ],
   },
 
-  // ───────────────────────────────────────── AWS Lightsail VPS
-  // Packages, prices and order links from DigitalBerg's "Amazon Lightsail VPS"
+  // ───────────────────────────────────────── Lightsail VPS
+  // Packages, prices and order links from DigitalBerg's Lightsail VPS
   // page (digitalberg.com/cloud-ssd-vps-on-openstack-kvm/, labelled Cloud VPS).
   // ⚠️ Availability, final wording and fulfilment must be confirmed before
   // launch. `review` fields render a visible "To confirm" tag until cleared.
   {
-    slug: 'aws-lightsail-vps',
-    name: 'AWS Lightsail VPS',
+    slug: 'lightsail-vps',
+    name: 'Lightsail VPS',
     short: 'Lightsail VPS',
     icon: 'cloud',
     visual: 'cloud',
     tag: 'New',
-    title: 'AWS Lightsail VPS Hosting – Pre-Configured Cloud Servers | RMDHost',
+    title: 'Lightsail VPS Hosting – Pre-Configured Cloud Servers | RMDHost',
     description: 'Lightsail-style cloud VPS bundles from £11.99/mo: 2 vCPUs, 1–8 GB RAM, 40–160 GB SSD, 2–5 TB transfer, dual-stack IPv4/IPv6, snapshots and Anti-DDoS Pro. Linux or Windows.',
-    eyebrow: 'AWS Lightsail VPS',
+    eyebrow: 'Lightsail VPS',
     h1: 'Predictable cloud VPS bundles, ready in minutes',
     lede: 'Fixed-price cloud servers with compute, SSD storage and data transfer bundled into one monthly price. Launch Linux or Windows, take snapshots, and scale to a bigger bundle when you need it.',
     checklist: ['2 vCPUs on every bundle', 'SSD storage + bundled transfer', 'Dual-stack IPv4 / IPv6', 'Linux or Windows'],
     from: 11.99,
-    review: 'AWS Lightsail platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim an AWS partnership or reseller status.',
-    disclaimer: 'Amazon Web Services, AWS and Amazon Lightsail are trademarks of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon Web Services.',
+    review: 'Lightsail VPS platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim a partnership or reseller status.',
+    disclaimer: 'Amazon Lightsail is a trademark of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon.',
     plans: [
       { id: 'lightsail-1', order: 'https://my.digitalberg.com/cart.php?a=add&pid=256', name: 'Lightsail 1 GB', price: 11.99, cpu: '2 vCPUs', ram: '1 GB', storage: '40 GB SSD', bandwidth: '2 TB transfer', location: 'Multiple data centres', ddos: 'Anti-DDoS Pro', extras: ['Linux £11.99 · Windows £18.99', 'Automatic snapshots', 'Dual-stack IPv4 / IPv6'] },
       { id: 'lightsail-2', order: 'https://my.digitalberg.com/cart.php?a=add&pid=257', name: 'Lightsail 2 GB', price: 16.99, badge: 'Most popular', cpu: '2 vCPUs', ram: '2 GB', storage: '60 GB SSD', bandwidth: '3 TB transfer', location: 'Multiple data centres', ddos: 'Anti-DDoS Pro', extras: ['Linux £16.99 · Windows £35.99', 'Automatic snapshots', 'Dual-stack IPv4 / IPv6'] },
@@ -236,7 +236,7 @@ export const products = [
     stack: ['WordPress', 'Docker', 'Nginx', 'Node.js', 'Python', 'MySQL', 'Plesk'],
     faqs: [
       ['What is a Lightsail-style VPS?', 'It is a fixed-price cloud server bundle: a set amount of vCPU, memory, SSD storage and monthly data transfer for one predictable price, designed to be simple to launch and manage.'],
-      ['Is RMDHost an AWS partner?', 'No. RMDHost is an independent hosting provider and is not affiliated with or endorsed by Amazon Web Services. Platform and fulfilment details for this product will be confirmed on this page before launch.'],
+      ['Is RMDHost affiliated with Amazon?', 'No. RMDHost is an independent hosting provider and is not affiliated with or endorsed by Amazon. Platform and fulfilment details for this product will be confirmed on this page before launch.'],
       ['What happens if I exceed my data transfer?', 'Each bundle includes a monthly transfer allowance (2–5 TB). Contact our team before you expect to exceed it and we will recommend a larger bundle.'],
       ['Can I run Windows?', 'Yes. Every bundle has a Windows option – the Windows price is shown under “More details” on each package.'],
       ['Can I upgrade later?', 'Yes. Move to a larger bundle, or to an SSD VPS or dedicated server, as your workload grows.'],

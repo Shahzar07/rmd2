@@ -57,7 +57,7 @@
  },
  "homepage": {
   "hero": {
-   "eyebrow": "KVM VPS · Bare-metal dedicated · Cloud",
+   "eyebrow": "Cloud • VPS • Dedicated servers • AI",
    "headline": "High-performance VPS & dedicated servers",
    "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
    "offer": {
@@ -148,8 +148,8 @@
        "icon": "cloud"
       },
       {
-       "label": "AWS Lightsail VPS",
-       "href": "/aws-lightsail-vps/",
+       "label": "Lightsail VPS",
+       "href": "/lightsail-vps/",
        "desc": "Fixed-price cloud VPS bundles",
        "icon": "cloud",
        "tag": "New"
@@ -365,8 +365,8 @@
      "href": "/cloud-vps/"
     },
     {
-     "label": "AWS Lightsail VPS",
-     "href": "/aws-lightsail-vps/"
+     "label": "Lightsail VPS",
+     "href": "/lightsail-vps/"
     },
     {
      "label": "AI VPS",
@@ -1201,15 +1201,15 @@
    ]
   },
   {
-   "slug": "aws-lightsail-vps",
-   "name": "AWS Lightsail VPS",
+   "slug": "lightsail-vps",
+   "name": "Lightsail VPS",
    "short": "Lightsail VPS",
    "icon": "cloud",
    "visual": "cloud",
    "tag": "New",
-   "title": "AWS Lightsail VPS Hosting – Pre-Configured Cloud Servers | RMDHost",
+   "title": "Lightsail VPS Hosting – Pre-Configured Cloud Servers | RMDHost",
    "description": "Lightsail-style cloud VPS bundles from £11.99/mo: 2 vCPUs, 1–8 GB RAM, 40–160 GB SSD, 2–5 TB transfer, dual-stack IPv4/IPv6, snapshots and Anti-DDoS Pro. Linux or Windows.",
-   "eyebrow": "AWS Lightsail VPS",
+   "eyebrow": "Lightsail VPS",
    "h1": "Predictable cloud VPS bundles, ready in minutes",
    "lede": "Fixed-price cloud servers with compute, SSD storage and data transfer bundled into one monthly price. Launch Linux or Windows, take snapshots, and scale to a bigger bundle when you need it.",
    "checklist": [
@@ -1219,8 +1219,8 @@
     "Linux or Windows"
    ],
    "from": 11.99,
-   "review": "AWS Lightsail platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim an AWS partnership or reseller status.",
-   "disclaimer": "Amazon Web Services, AWS and Amazon Lightsail are trademarks of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon Web Services.",
+   "review": "Lightsail VPS platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim a partnership or reseller status.",
+   "disclaimer": "Amazon Lightsail is a trademark of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon.",
    "plans": [
     {
      "id": "lightsail-1",
@@ -1383,8 +1383,8 @@
      "It is a fixed-price cloud server bundle: a set amount of vCPU, memory, SSD storage and monthly data transfer for one predictable price, designed to be simple to launch and manage."
     ],
     [
-     "Is RMDHost an AWS partner?",
-     "No. RMDHost is an independent hosting provider and is not affiliated with or endorsed by Amazon Web Services. Platform and fulfilment details for this product will be confirmed on this page before launch."
+     "Is RMDHost affiliated with Amazon?",
+     "No. RMDHost is an independent hosting provider and is not affiliated with or endorsed by Amazon. Platform and fulfilment details for this product will be confirmed on this page before launch."
     ],
     [
      "What happens if I exceed my data transfer?",
@@ -2783,8 +2783,8 @@
    "lon": -1.48,
    "label": [
     "Derby",
-    -3,
-    4.2,
+    -6,
+    9,
     "end"
    ]
   },
@@ -2797,9 +2797,9 @@
    "lon": -1.55,
    "label": [
     "Leeds",
-    -3,
-    -2,
-    "end"
+    3,
+    -16,
+    "start"
    ]
   },
   {
@@ -2811,8 +2811,8 @@
    "lon": 4.9,
    "label": [
     "Amsterdam",
-    3,
-    -2.2,
+    6,
+    -11,
     "start"
    ]
   },
@@ -2825,8 +2825,8 @@
    "lon": 8.68,
    "label": [
     "Frankfurt",
-    3,
-    4.6,
+    6,
+    8,
     "start"
    ]
   },
@@ -2839,9 +2839,9 @@
    "lon": 24.1,
    "label": [
     "Riga",
-    3,
-    1.3,
-    "start"
+    -5,
+    -7,
+    "end"
    ]
   },
   {
@@ -2853,8 +2853,8 @@
    "lon": -74,
    "label": [
     "New York",
-    -12,
-    -10,
+    -20,
+    -28,
     "end"
    ]
   }

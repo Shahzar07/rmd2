@@ -137,6 +137,9 @@ export function siteFooter() {
 </footer>`;
 }
 
+// Back-to-top button: shown once the visitor has scrolled down (see main.js).
+export const toTop = () => `<button type="button" class="to-top" data-to-top aria-label="Back to top">${icon('arrowUp')}<span class="to-top-bar" aria-hidden="true"></span></button>`;
+
 export function cookieUI() {
   return `
 <div class="cookie" data-cookie hidden role="dialog" aria-live="polite" aria-label="Cookie consent">
@@ -212,6 +215,7 @@ ${header()}
 ${body}
 </main>
 ${siteFooter()}
+${toTop()}
 ${cookieUI()}
 <script>window.RMD=${JSON.stringify({ currency: site.currency })};</script>
 <script src="/assets/js/main.js" defer></script>

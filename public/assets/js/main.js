@@ -33,6 +33,30 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ───────── back to top (appears after roughly one screen of scrolling) */
+  var toTop = $('[data-to-top]');
+  if (toTop) {
+    var topTick = false, cookieBar = $('[data-cookie]');
+    var updTop = function () {
+      topTick = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      // Sit above the cookie banner while it is open.
+      toTop.style.setProperty('--lift', cookieBar && !cookieBar.hidden ? cookieBar.offsetHeight + 'px' : '0px');
+      toTop.classList.toggle('show', window.scrollY > Math.min(600, window.innerHeight * 0.8));
+      toTop.style.setProperty('--p', max > 0 ? Math.min(1, window.scrollY / max).toFixed(3) : 0);
+    };
+    window.addEventListener('scroll', function () { if (!topTick) { topTick = true; requestAnimationFrame(updTop); } }, { passive: true });
+    window.addEventListener('resize', updTop);
+    if (cookieBar && window.MutationObserver) new MutationObserver(updTop).observe(cookieBar, { attributes: true, attributeFilter: ['hidden'] });
+    updTop();
+    toTop.addEventListener('click', function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var logo = $('.site-header .logo') || $('.site-header a');
+      if (logo) logo.focus({ preventScroll: true });
+    });
+  }
+
   /* ───────── mega menu */
   var items = $$('.has-mega');
   function closeAll(except) {
@@ -164,6 +188,8 @@
       var open = btn.getAttribute('aria-expanded') !== 'true';
       btn.setAttribute('aria-expanded', open);
       panel.classList.toggle('open', open);
+      var item = btn.closest('.faq-item');
+      if (item) item.classList.toggle('is-open', open);
     });
   }
   $$('.faq-q, [data-more]', root).forEach(function (b) { if (once(b, 'tg')) bindToggle(b); });
@@ -356,13 +382,16 @@
   /* ───────── data-centre map ↔ list highlighting */
   $$('[data-dc]', root).forEach(function (dc) {
     if (!once(dc, 'dc')) return;
+    var read = $('[data-dc-read]', dc);
     function hl(i, on) {
       $$('[data-loc="' + i + '"]', dc).forEach(function (el) { el.classList.toggle('hl', on); });
+      var li = $('.dc-list li[data-loc="' + i + '"]', dc);
+      if (read) read.textContent = on && li ? li.getAttribute('data-read') : read.getAttribute('data-default');
     }
-    $$('.dc-list li', dc).forEach(function (li) {
-      var i = li.getAttribute('data-loc');
-      ['mouseenter', 'focus'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, true); }); });
-      ['mouseleave', 'blur'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, false); }); });
+    $$('.dc-list li, .mk', dc).forEach(function (el) {
+      var i = el.getAttribute('data-loc');
+      ['mouseenter', 'focus'].forEach(function (ev) { el.addEventListener(ev, function () { hl(i, true); }); });
+      ['mouseleave', 'blur'].forEach(function (ev) { el.addEventListener(ev, function () { hl(i, false); }); });
     });
   });
 

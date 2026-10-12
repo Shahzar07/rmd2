@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ICONS } from '../src/lib/icons.mjs';
 import { scenes, techVisual } from '../src/lib/components.mjs';
-import { MAP, EUROPE, WORLD_PATH, EUROPE_PATH } from '../src/data/world-dots.mjs';
+import { MAP, EUROPE, WORLD_GRID, EUROPE_GRID, WORLD_PATH, EUROPE_PATH } from '../src/data/world-dots.mjs';
 import { MEDIA } from '../src/data/media.mjs';
 import { site, nav, footer } from '../src/data/site.mjs';
 import { products } from '../src/data/products.mjs';
@@ -52,7 +52,7 @@ for (const kind of ['linux', 'windows', 'rack', 'storage']) {
 
 // 4. Map + media manifest ---------------------------------------------------------
 write(join(theme, 'inc/generated/map.php'),
-  `${HEAD}\nreturn array(\n\t'map'    => array( 'w' => ${MAP.w}, 'h' => ${MAP.h}, 'lat_top' => ${MAP.latTop}, 'lat_bottom' => ${MAP.latBottom} ),\n\t'europe' => array( 'lon_min' => ${EUROPE.lonMin}, 'lon_max' => ${EUROPE.lonMax}, 'lat_min' => ${EUROPE.latMin}, 'lat_max' => ${EUROPE.latMax} ),\n\t'world'  => ${php(WORLD_PATH)},\n\t'eu'     => ${php(EUROPE_PATH)},\n);\n`);
+  `${HEAD}\nreturn array(\n\t'map'    => array( 'w' => ${MAP.w}, 'h' => ${MAP.h}, 'lat_top' => ${MAP.latTop}, 'lat_bottom' => ${MAP.latBottom} ),\n\t'europe' => array( 'lon_min' => ${EUROPE.lonMin}, 'lon_max' => ${EUROPE.lonMax}, 'lat_min' => ${EUROPE.latMin}, 'lat_max' => ${EUROPE.latMax} ),\n\t'world_grid' => array( 'x' => ${WORLD_GRID.x}, 'y' => ${WORLD_GRID.y}, 's' => ${WORLD_GRID.s} ),\n\t'eu_grid'    => array( 'x' => ${EUROPE_GRID.x}, 'y' => ${EUROPE_GRID.y}, 's' => ${EUROPE_GRID.s} ),\n\t'world'  => ${php(WORLD_PATH)},\n\t'eu'     => ${php(EUROPE_PATH)},\n);\n`);
 write(join(theme, 'inc/generated/media.php'),
   `${HEAD}\nreturn array(\n${Object.entries(MEDIA).map(([k, v]) => `\t${php(k)} => array( 'w' => ${v.w}, 'h' => ${v.h}, 'small' => ${v.small || 0} ),`).join('\n')}\n);\n`);
 

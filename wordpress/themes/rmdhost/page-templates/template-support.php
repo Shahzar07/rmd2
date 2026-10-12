@@ -27,8 +27,9 @@ while ( have_posts() ) :
 	rmdhost_section(
 		'faq',
 		array(
-			'title' => __( 'Quick answers', 'rmdhost' ),
-			'faqs'  => array_slice( RMDHost\Data::faqs(), 0, 5 ),
+			'title'  => __( 'Quick answers', 'rmdhost' ),
+			'faqs'   => array_slice( RMDHost\Data::faqs(), 0, 5 ),
+			'layout' => 'simple',
 		)
 	);
 endwhile;

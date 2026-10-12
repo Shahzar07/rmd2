@@ -78,6 +78,6 @@ Tested with WordPress 7.1, PHP 8.3, WooCommerce 11.2 and Elementor 4.3.
 
 ## Notes
 
-- The "To confirm" note on the AWS Lightsail page is shown only to logged-in editors in WordPress.
-- Reviews and references are marked "Sample". Replace them with real, permitted reviews before launch.
+- The "To confirm" note on the Lightsail VPS page is shown only to logged-in editors in WordPress.
+- Reviews and references ship as placeholders (flagged "Sample" in the admin only, not on the site). Replace them with real, permitted reviews before launch.
 - The bundled photos and videos were made for RMDHost. Replace them before redistributing the theme.

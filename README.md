@@ -5,7 +5,7 @@ A fast, static hosting website for RMDHost: technical black/white design with sq
 - **31 pages**: home, 11 product pages, pricing, data centres, DDoS, network status, about, references, sustainability, FAQ, blog (+3 posts), knowledge base, tutorials, support, privacy, terms, cookie policy and 404.
 - **No dependencies**: you only need Node 18 or newer. Nothing to `npm install`.
 - **SEO**: a unique title, description, canonical URL and H1 on every page, Open Graph tags, Organization/Product/FAQ/Breadcrumb/BlogPosting JSON-LD, plus `sitemap.xml` and `robots.txt`.
-- **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences) and a mobile layout.
+- **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences), a back-to-top button and a mobile layout.
 
 ## WordPress theme
 
@@ -31,7 +31,7 @@ At build time, the site reads `WP_URL/wp-json/rmdhost/v1/homepage`. Any filled W
 
 ## Before going live (Phase 1 homepage)
 
-- **AWS Lightsail VPS** (`/aws-lightsail-vps/`): the packages, prices and order links come from DigitalBerg's "Amazon Lightsail VPS" page. Availability, AWS wording and fulfilment still need confirming. The page shows a "To confirm" note (`review` in `products.mjs`) and a trademark disclaimer, and it makes no partnership claim.
+- **Lightsail VPS** (`/lightsail-vps/`, the old `/aws-lightsail-vps/` URL redirects here): the packages, prices and order links come from DigitalBerg's Lightsail VPS page. The word "AWS" is intentionally not used anywhere on the site. Availability, wording and fulfilment still need confirming. The page shows a "To confirm" note (`review` in `products.mjs`) and a trademark disclaimer, and it makes no partnership claim.
 - **Mega-menu promo** "Award-Winning Dedicated/VPS Servers" is RMDHost-supplied copy (`src/data/site.mjs`). Keep it only if the award can be referenced.
 - **Pricing tabs** show all four DigitalBerg packages per tab with their real cart links. Location and DDoS rows only state what each DigitalBerg page states. Dedicated servers show "Ask sales" for DDoS because the source page makes no DDoS claim.
 
@@ -82,7 +82,7 @@ Each plan box shows **CPU | RAM | Storage | Bandwidth | Location | DDoS | Price 
 ## Before going live (other pages)
 
 1. The client area is set to `my.digitalberg.com`, and the account icon goes to `/login`. Linux, Windows, SSD and Cloud VPS, Lightsail and dedicated plans have real cart links. Instant dedicated and game servers still use the generic cart link.
-2. Replace the **sample reviews and references** in `src/data/content.mjs` with real customer content and set `sample: false`. While samples remain, they show a "Sample" tag and the build prints a warning.
+2. Replace the **sample reviews and references** in `src/data/content.mjs` with real customer content and set `sample: false`. The "Sample" tag is no longer shown on the site, so the build warning is the only reminder.
 3. Confirm the specs and prices for **AI VPS, macOS VPS and macOS Dedicated**, which are placeholders.
 4. Have a lawyer review the **Privacy policy, Terms and Cookie policy** templates.
 5. Connect **analytics** after consent: `main.js` fires a `rmd:consent` event (see the comment at the end of the cookie section).
@@ -92,6 +92,6 @@ Each plan box shows **CPU | RAM | Storage | Bandwidth | Location | DDoS | Price 
 ## Regenerating the world map
 
 ```bash
-curl -sSLo land.json https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json
+curl -sSLo land.json https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-50m.json
 node scripts/make-map.mjs land.json
 ```

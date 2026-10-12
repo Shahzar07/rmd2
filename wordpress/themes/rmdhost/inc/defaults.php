@@ -136,9 +136,9 @@ function rmdhost_section_base_defaults( $name ) {
 				'cards'      => array(
 					array(
 						'tag'   => __( 'New', 'rmdhost' ),
-						'title' => __( 'AWS Lightsail VPS', 'rmdhost' ),
-						'text'  => __( 'Fixed-price cloud bundles: 2 vCPUs, 1–8 GB RAM and 2–5 TB transfer from {price:aws-lightsail-vps}.', 'rmdhost' ),
-						'url'   => '/aws-lightsail-vps/',
+						'title' => __( 'Lightsail VPS', 'rmdhost' ),
+						'text'  => __( 'Fixed-price cloud bundles: 2 vCPUs, 1–8 GB RAM and 2–5 TB transfer from {price:lightsail-vps}.', 'rmdhost' ),
+						'url'   => '/lightsail-vps/',
 						'icon'  => '',
 					),
 					array(
@@ -429,7 +429,8 @@ function rmdhost_section_base_defaults( $name ) {
 		case 'faq':
 			return array(
 				/* translators: %s: site name */
-				'title' => sprintf( __( '%s hosting FAQs', 'rmdhost' ), get_bloginfo( 'name' ) ),
+				'title' => sprintf( __( '%s FAQs', 'rmdhost' ), get_bloginfo( 'name' ) ),
+				'text'  => __( 'Quick answers about plans, billing, data centres and support. Can’t find what you need? Our engineers are a ticket away.', 'rmdhost' ),
 				'group' => 'general',
 				'soft'  => true,
 			);

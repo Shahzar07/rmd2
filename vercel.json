@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/aws-lightsail-vps", "destination": "/lightsail-vps/", "permanent": true },
+    { "source": "/aws-lightsail-vps/(.*)", "destination": "/lightsail-vps/", "permanent": true }
+  ]
+}
