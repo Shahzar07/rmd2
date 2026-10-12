@@ -788,6 +788,17 @@ a.soft-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); b
 .f-copy { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 28px; color: var(--muted); }
 
 /* cookie */
+/* ───────── back to top */
+.to-top { position: fixed; z-index: 110; right: 24px; bottom: calc(24px + var(--lift, 0px)); display: grid; place-items: center; width: 48px; height: 48px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 0; background: #0a0a0b; color: #fff; box-shadow: 0 12px 32px rgba(0,0,0,.28); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s, bottom .3s var(--ease), background .2s, color .2s; }
+.to-top.show { opacity: 1; visibility: visible; transform: none; transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s, bottom .3s var(--ease), background .2s, color .2s; }
+.to-top .ico { width: 20px; height: 20px; transition: transform .25s var(--ease); }
+.to-top:hover { background: var(--signal); color: #04140a; }
+.to-top:hover .ico { transform: translateY(-2px); }
+.to-top:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.to-top-bar { position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--signal); transform: scaleX(var(--p, 0)); transform-origin: left; }
+.to-top:hover .to-top-bar { background: #04140a; }
+@media (max-width: 640px) { .to-top { right: 16px; bottom: calc(16px + var(--lift, 0px)); width: 44px; height: 44px; } }
+@media print { .to-top { display: none; } }
 .cookie { position: fixed; z-index: 120; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: center; animation: cookieIn .5s var(--ease); }
 .cookie[hidden] { display: none; }
 @keyframes cookieIn { from { opacity: 0; transform: translateY(30px); } }

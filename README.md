@@ -5,7 +5,7 @@ A fast, static hosting website for RMDHost: technical black/white design with sq
 - **31 pages**: home, 11 product pages, pricing, data centres, DDoS, network status, about, references, sustainability, FAQ, blog (+3 posts), knowledge base, tutorials, support, privacy, terms, cookie policy and 404.
 - **No dependencies**: you only need Node 18 or newer. Nothing to `npm install`.
 - **SEO**: a unique title, description, canonical URL and H1 on every page, Open Graph tags, Organization/Product/FAQ/Breadcrumb/BlogPosting JSON-LD, plus `sitemap.xml` and `robots.txt`.
-- **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences) and a mobile layout.
+- **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences), a back-to-top button and a mobile layout.
 
 ## WordPress theme
 

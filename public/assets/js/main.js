@@ -33,6 +33,30 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ───────── back to top (appears after roughly one screen of scrolling) */
+  var toTop = $('[data-to-top]');
+  if (toTop) {
+    var topTick = false, cookieBar = $('[data-cookie]');
+    var updTop = function () {
+      topTick = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      // Sit above the cookie banner while it is open.
+      toTop.style.setProperty('--lift', cookieBar && !cookieBar.hidden ? cookieBar.offsetHeight + 'px' : '0px');
+      toTop.classList.toggle('show', window.scrollY > Math.min(600, window.innerHeight * 0.8));
+      toTop.style.setProperty('--p', max > 0 ? Math.min(1, window.scrollY / max).toFixed(3) : 0);
+    };
+    window.addEventListener('scroll', function () { if (!topTick) { topTick = true; requestAnimationFrame(updTop); } }, { passive: true });
+    window.addEventListener('resize', updTop);
+    if (cookieBar && window.MutationObserver) new MutationObserver(updTop).observe(cookieBar, { attributes: true, attributeFilter: ['hidden'] });
+    updTop();
+    toTop.addEventListener('click', function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var logo = $('.site-header .logo') || $('.site-header a');
+      if (logo) logo.focus({ preventScroll: true });
+    });
+  }
+
   /* ───────── mega menu */
   var items = $$('.has-mega');
   function closeAll(except) {

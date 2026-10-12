@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 if ( ! RMDHost\Elementor::location( 'footer' ) ) {
 	get_template_part( 'template-parts/layout/site-footer' );
 }
+get_template_part( 'template-parts/layout/to-top' );
 if ( get_theme_mod( 'rmdhost_cookie_enabled', true ) ) {
 	get_template_part( 'template-parts/layout/cookie' );
 }
