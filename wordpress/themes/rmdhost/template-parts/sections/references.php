@@ -23,11 +23,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				);
 				?>
-				<div class="ref" data-reveal data-spot><span class="ref-logo"><?php echo esc_html( $rmdhost_initials ); ?></span><b><?php echo esc_html( $rmdhost_r['name'] ); ?></b><small><?php echo esc_html( $rmdhost_r['sector'] . ' · ' . $rmdhost_r['product'] ); ?></small>
-				<?php
-				if ( ! isset( $rmdhost_r['sample'] ) || $rmdhost_r['sample'] ) :
-					?>
-					<em class="pill pill-xs" title="<?php esc_attr_e( 'Replace with a real customer before launch', 'rmdhost' ); ?>"><?php esc_html_e( 'Sample', 'rmdhost' ); ?></em><?php endif; ?></div>
+				<div class="ref" data-reveal data-spot><span class="ref-logo"><?php echo esc_html( $rmdhost_initials ); ?></span><b><?php echo esc_html( $rmdhost_r['name'] ); ?></b><small><?php echo esc_html( $rmdhost_r['sector'] . ' · ' . $rmdhost_r['product'] ); ?></small></div>
 			<?php endforeach; ?>
 		</div>
 		<?php echo rmdhost_section_head( array( 'title' => $args['title'] ?? __( 'What customers say', 'rmdhost' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

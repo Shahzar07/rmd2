@@ -33,17 +33,25 @@ list( $rmdhost_world, $rmdhost_eu ) = rmdhost_maps( $rmdhost_locations );
 						<a class="btn btn-white" href="<?php echo esc_url( rmdhost_url( $rmdhost_a['button_url'] ) ); ?>"><?php echo esc_html( $rmdhost_a['button'] ); ?></a>
 					<?php endif; ?>
 				</div>
+				<?php
+				$rmdhost_countries = count( array_unique( wp_list_pluck( $rmdhost_locations, 'code' ) ) );
+				$rmdhost_eu_count  = count( wp_list_filter( $rmdhost_locations, array( 'region' => 'Europe' ) ) );
+				/* translators: 1: number of sites, 2: number of countries */
+				$rmdhost_summary = sprintf( __( '%1$d SITES · %2$d COUNTRIES', 'rmdhost' ), count( $rmdhost_locations ), $rmdhost_countries );
+				/* translators: %d: number of European sites */
+				$rmdhost_eu_label = sprintf( __( '%d SITES', 'rmdhost' ), $rmdhost_eu_count );
+				?>
 				<div class="dc-maps">
-					<figure class="dc-world"><figcaption><?php esc_html_e( 'WORLD', 'rmdhost' ); ?></figcaption><?php echo $rmdhost_world; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaping in rmdhost_maps(). ?></figure>
-					<figure class="dc-eu"><figcaption><?php esc_html_e( 'EUROPE · ZOOM', 'rmdhost' ); ?></figcaption><?php echo $rmdhost_eu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></figure>
+					<figure class="dc-world"><figcaption><span><?php esc_html_e( 'WORLD', 'rmdhost' ); ?></span><span class="dc-read" data-dc-read data-default="<?php echo esc_attr( $rmdhost_summary ); ?>"><?php echo esc_html( $rmdhost_summary ); ?></span></figcaption><?php echo $rmdhost_world; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaping in rmdhost_maps(). ?></figure>
+					<figure class="dc-eu"><figcaption><span><?php esc_html_e( 'EUROPE · ZOOM', 'rmdhost' ); ?></span><span><?php echo esc_html( $rmdhost_eu_label ); ?></span></figcaption><?php echo $rmdhost_eu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></figure>
 				</div>
 				<ol class="dc-list">
 					<?php foreach ( $rmdhost_locations as $rmdhost_i => $rmdhost_l ) : ?>
-						<li data-loc="<?php echo (int) $rmdhost_i; ?>" tabindex="0">
+						<li data-loc="<?php echo (int) $rmdhost_i; ?>" data-read="<?php echo esc_attr( rmdhost_coords( $rmdhost_l ) . ' · ' . mb_strtoupper( $rmdhost_l['city'] ) ); ?>" tabindex="0">
 							<span class="dc-n"><?php echo esc_html( str_pad( (string) ( $rmdhost_i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
 							<span class="dc-city"><b><?php echo esc_html( $rmdhost_l['city'] ); ?></b><small><?php echo esc_html( $rmdhost_l['country'] ); ?></small></span>
 							<span class="dc-code"><?php echo esc_html( $rmdhost_l['code'] ); ?></span>
-							<span class="dc-status"><i class="led"></i><?php echo esc_html( $rmdhost_a['status'] ); ?></span>
+							<span class="dc-status"><i class="led"></i><?php echo esc_html( $rmdhost_a['status'] ); ?><span class="dc-ll"><?php echo esc_html( rmdhost_coords( $rmdhost_l ) ); ?></span></span>
 						</li>
 					<?php endforeach; ?>
 				</ol>

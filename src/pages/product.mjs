@@ -1,7 +1,7 @@
 import { products } from '../data/products.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
-  scenes, planGrid, everyPlan, sectionHead, faqList, faqSchema, breadcrumbSchema, productSchema,
+  scenes, planGrid, everyPlan, sectionHead, faqSection, faqSchema, breadcrumbSchema, productSchema,
   featureGrid, locationsBlock, ctaBand, checklist, money, orderUrl,
 } from '../lib/components.mjs';
 
@@ -141,12 +141,7 @@ ${useTabs(p)}
   </div>
 </section>
 
-<section class="section section-soft" id="faq">
-  <div class="container narrow">
-    ${sectionHead({ title: `${p.name} FAQs` })}
-    ${faqList(p.faqs)}
-  </div>
-</section>
+${faqSection({ title: `${p.name} FAQs`, faqs: p.faqs, id: 'faq' })}
 
 <section class="section">
   <div class="container">

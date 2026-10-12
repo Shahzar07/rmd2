@@ -164,6 +164,8 @@
       var open = btn.getAttribute('aria-expanded') !== 'true';
       btn.setAttribute('aria-expanded', open);
       panel.classList.toggle('open', open);
+      var item = btn.closest('.faq-item');
+      if (item) item.classList.toggle('is-open', open);
     });
   }
   $$('.faq-q, [data-more]', root).forEach(function (b) { if (once(b, 'tg')) bindToggle(b); });
@@ -356,13 +358,16 @@
   /* ───────── data-centre map ↔ list highlighting */
   $$('[data-dc]', root).forEach(function (dc) {
     if (!once(dc, 'dc')) return;
+    var read = $('[data-dc-read]', dc);
     function hl(i, on) {
       $$('[data-loc="' + i + '"]', dc).forEach(function (el) { el.classList.toggle('hl', on); });
+      var li = $('.dc-list li[data-loc="' + i + '"]', dc);
+      if (read) read.textContent = on && li ? li.getAttribute('data-read') : read.getAttribute('data-default');
     }
-    $$('.dc-list li', dc).forEach(function (li) {
-      var i = li.getAttribute('data-loc');
-      ['mouseenter', 'focus'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, true); }); });
-      ['mouseleave', 'blur'].forEach(function (ev) { li.addEventListener(ev, function () { hl(i, false); }); });
+    $$('.dc-list li, .mk', dc).forEach(function (el) {
+      var i = el.getAttribute('data-loc');
+      ['mouseenter', 'focus'].forEach(function (ev) { el.addEventListener(ev, function () { hl(i, true); }); });
+      ['mouseleave', 'blur'].forEach(function (ev) { el.addEventListener(ev, function () { hl(i, false); }); });
     });
   });
 

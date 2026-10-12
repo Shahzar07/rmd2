@@ -1,7 +1,7 @@
 {
   "_help": "Homepage hero, offer banner, review score and stats. Edit here, or in WordPress (Settings → RMDHost Homepage) when WP_URL is set at build time. Empty values are hidden on the site.",
   "hero": {
-    "eyebrow": "KVM VPS · Bare-metal dedicated · Cloud",
+    "eyebrow": "Cloud • VPS • Dedicated servers • AI",
     "headline": "High-performance VPS & dedicated servers",
     "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
     "offer": {

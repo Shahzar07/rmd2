@@ -1,6 +1,6 @@
 import { site } from '../data/site.mjs';
 import { locations } from '../data/content.mjs';
-import { MAP, EUROPE, WORLD_PATH, EUROPE_PATH } from '../data/world-dots.mjs';
+import { MAP, EUROPE, WORLD_GRID, EUROPE_GRID, WORLD_PATH, EUROPE_PATH } from '../data/world-dots.mjs';
 import { MEDIA } from '../data/media.mjs';
 import { icon } from './icons.mjs';
 import { esc } from './layout.mjs';
@@ -82,14 +82,33 @@ export const everyPlan = (items) => `
 </div>`;
 
 // ───────────────────────────── FAQ
-export const faqList = (faqs) => `
+export const faqList = (faqs, { open = -1 } = {}) => `
 <div class="faq">
   ${faqs.map(([q, a], i) => `
-  <div class="faq-item" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-${i}-${q.length}">${q}<span class="faq-ico">${icon('plus')}</span></button>
-    <div class="faq-a" id="fa-${i}-${q.length}"><div><p>${a}</p></div></div>
+  <div class="faq-item${i === open ? ' is-open' : ''}" data-reveal>
+    <button class="faq-q" type="button" aria-expanded="${i === open}" aria-controls="fa-${i}-${q.length}"><span class="faq-n">${String(i + 1).padStart(2, '0')}</span><span class="faq-t">${q}</span><span class="faq-ico">${icon('plus')}</span></button>
+    <div class="faq-a${i === open ? ' open' : ''}" id="fa-${i}-${q.length}"><div><p>${a}</p></div></div>
   </div>`).join('')}
 </div>`;
+
+// Two-column FAQ: sticky intro + help card on the left, accordion on the right.
+export const faqSection = ({ title, text = '', faqs, id = '', soft = true }) => `
+<section class="section faq-sec ${soft ? 'section-soft' : ''}"${id ? ` id="${id}"` : ''}>
+  <div class="container faq-wrap">
+    <div class="faq-side" data-reveal>
+      <p class="kicker">// FAQ · ${faqs.length} answers</p>
+      <h2 class="h2">${title}</h2>
+      ${text ? `<p class="muted">${text}</p>` : ''}
+      <div class="faq-help">
+        <span class="faq-help-ico">${icon('headset')}</span>
+        <strong>Still have a question?</strong>
+        <span>Our in-house engineers answer tickets 24/7 – no chatbots, no scripts.</span>
+        <span class="faq-help-cta"><a class="btn btn-primary" href="/support/">Open a ticket</a><a class="row-link inline" href="/faq/">All FAQs${icon('arrow')}</a></span>
+      </div>
+    </div>
+    ${faqList(faqs, { open: 0 })}
+  </div>
+</section>`;
 
 export const faqSchema = (faqs) => ({
   '@context': 'https://schema.org',
@@ -272,41 +291,100 @@ export const lonlat = (lon, lat) => [
   ((MAP.latTop - lat) / (MAP.latTop - MAP.latBottom)) * MAP.h,
 ];
 
-// Square, numbered markers. `n` matches the numbered location list.
-const marker = (l, i, { size = 7, label = false } = {}) => {
+const n2 = (i) => String(i + 1).padStart(2, '0');
+const f = (v) => +v.toFixed(2);
+
+// "52.92°N 1.48°W" – shown in the list and in the map readout.
+export const coords = (l) => `${Math.abs(l.lat).toFixed(2)}°${l.lat >= 0 ? 'N' : 'S'} ${Math.abs(l.lon).toFixed(2)}°${l.lon >= 0 ? 'E' : 'W'}`;
+
+// Links drawn between sites: a minimum spanning tree over lon/lat, so the
+// lines always join each site to its nearest neighbour whatever the list holds.
+export function mapLinks(locs) {
+  if (locs.length < 2) return [];
+  const d = (a, b) => Math.hypot(a.lon - b.lon, a.lat - b.lat);
+  const inTree = [0], links = [];
+  while (inTree.length < locs.length) {
+    let best = null;
+    inTree.forEach((a) => locs.forEach((l, b) => {
+      if (inTree.includes(b)) return;
+      const dist = d(locs[a], l);
+      if (!best || dist < best[2]) best = [a, b, dist];
+    }));
+    inTree.push(best[1]);
+    links.push([best[0], best[1]]);
+  }
+  return links;
+}
+
+// Quadratic arc between two points, bowed upwards.
+const arc = ([x1, y1], [x2, y2], bend = 0.2) => {
+  const dx = x2 - x1, dy = y2 - y1;
+  let nx = -dy, ny = dx;
+  if (ny > 0 || (ny === 0 && nx > 0)) { nx = -nx; ny = -ny; }
+  return `M${f(x1)} ${f(y1)}Q${f((x1 + x2) / 2 + nx * bend)} ${f((y1 + y2) / 2 + ny * bend)} ${f(x2)} ${f(y2)}`;
+};
+
+const linkPaths = (links, locs) => links.map(([a, b]) => {
+  const d = arc(lonlat(locs[a].lon, locs[a].lat), lonlat(locs[b].lon, locs[b].lat));
+  return `<path class="ln" d="${d}"/><path class="ln-pk" d="${d}" pathLength="100" style="--d:${f(a * 0.4 + b * 0.25)}s"/>`;
+}).join('');
+
+// Label chip with a leader line. `fs` is the font size in map units; the
+// mono font advances 0.6em per character, so the chip width is exact.
+const chip = (text, ox, oy, anchor, fs, lead = true) => {
+  const w = text.length * fs * 0.6 + fs * 1.2, h = fs * 1.8;
+  const x = anchor === 'end' ? ox - w : ox;
+  return `<g class="mk-tag">${lead ? `<line class="mk-lead" x1="0" y1="0" x2="${f(ox)}" y2="${f(oy)}"/>` : ''}<rect class="mk-chip" x="${f(x)}" y="${f(oy - h / 2)}" width="${f(w)}" height="${f(h)}"/><text x="${f(x + fs * 0.6)}" y="${f(oy + fs * 0.36)}" font-size="${fs}">${text}</text></g>`;
+};
+
+// Square marker with pulse and glow. `n` matches the numbered location list.
+const marker = (l, i, { size, glow, fs, label }) => {
   const [x, y] = lonlat(l.lon, l.lat);
-  const h = size / 2;
-  const lb = label && l.label;
-  return `<g class="mk" data-loc="${i}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})" style="--d:${i * 0.35}s">
+  const h = size / 2, lb = label && l.label;
+  return `<g class="mk" data-loc="${i}" transform="translate(${f(x)} ${f(y)})" style="--d:${f(i * 0.35)}s">
+    <circle class="mk-glow" r="${glow}"/>
+    ${lb ? chip(`${n2(i)} ${esc(l.city).toUpperCase()}`, lb[1], lb[2], lb[3], fs) : ''}
     <rect class="mk-pulse" x="${-h}" y="${-h}" width="${size}" height="${size}"/>
     <rect class="mk-dot" x="${-h}" y="${-h}" width="${size}" height="${size}"/>
-    ${lb ? `<text class="mk-label" x="${lb[1]}" y="${lb[2]}" text-anchor="${lb[3]}"><tspan class="mk-n">${String(i + 1).padStart(2, '0')}</tspan> ${l.city}</text>` : ''}
   </g>`;
 };
 
+const land = (g, d) => `<path class="land" transform="translate(${g.x} ${g.y}) scale(${g.s})" d="${d}"/>`;
+const glowDef = '<defs><radialGradient id="mkGlow"><stop offset="0" stop-color="#3ddc84" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient></defs>';
+
 export function worldMap({ cls = '' } = {}) {
-  // Europe cluster outline (matches the inset).
   const [ex1, ey1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
   const [ex2, ey2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
-  const ny = locations.findIndex((l) => l.region === 'North America');
-  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-label="World map showing RMDHost data centres in the UK, Europe and the United States">
-    <path class="land" d="${WORLD_PATH}"/>
-    <rect class="eu-box" x="${ex1.toFixed(1)}" y="${ey1.toFixed(1)}" width="${(ex2 - ex1).toFixed(1)}" height="${(ey2 - ey1).toFixed(1)}"/>
-    <text class="eu-box-label" x="${(ex1 + 2).toFixed(1)}" y="${(ey1 - 5).toFixed(1)}">EUROPE · 5 SITES</text>
-    ${locations.map((l, i) => marker(l, i, { size: 10, label: i === ny })).join('')}
+  const euCount = locations.filter((l) => l.region === 'Europe').length;
+  const grat = [];
+  for (let lon = -150; lon < 180; lon += 30) grat.push(`M${f(lonlat(lon, 0)[0])} 0V${MAP.h}`);
+  for (let lat = -40; lat <= 60; lat += 20) grat.push(`M0 ${f(lonlat(0, lat)[1])}H${MAP.w}`);
+  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-label="World map showing ${site.name} data centres in the UK, Europe and the United States">
+    ${glowDef}
+    <path class="grat" d="${grat.join('')}"/>
+    <path class="equator" d="M0 ${f(lonlat(0, 0)[1])}H${MAP.w}"/>
+    ${land(WORLD_GRID, WORLD_PATH)}
+    <g class="eu-zone"><rect class="eu-box" x="${f(ex1)}" y="${f(ey1)}" width="${f(ex2 - ex1)}" height="${f(ey2 - ey1)}"/>${chip(`EUROPE · ${euCount} SITES`, ex1 - 1, ey1 - 15, 'start', 13, false)}</g>
+    <g class="links">${linkPaths(mapLinks(locations), locations)}</g>
+    ${locations.map((l, i) => marker(l, i, { size: 9, glow: 34, fs: 17, label: l.region !== 'Europe' })).join('')}
   </svg>`;
 }
 
 export function europeMap() {
   const [x1, y1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
   const [x2, y2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
-  return `<svg class="eumap" viewBox="${x1.toFixed(2)} ${y1.toFixed(2)} ${(x2 - x1).toFixed(2)} ${(y2 - y1).toFixed(2)}" role="img" aria-label="Map of RMDHost data centres in Europe">
-    <path class="land" d="${EUROPE_PATH}"/>
-    ${locations.map((l, i) => (l.region === 'Europe' ? marker(l, i, { size: 2.6, label: true }) : '')).join('')}
+  const eu = locations.map((l, i) => [l, i]).filter(([l]) => l.region === 'Europe');
+  const links = mapLinks(eu.map(([l]) => l)).map(([a, b]) => [eu[a][1], eu[b][1]]);
+  return `<svg class="eumap" viewBox="${f(x1)} ${f(y1)} ${f(x2 - x1)} ${f(y2 - y1)}" role="img" aria-label="Map of ${site.name} data centres in Europe">
+    ${land(EUROPE_GRID, EUROPE_PATH)}
+    <g class="links">${linkPaths(links, locations)}</g>
+    ${eu.map(([l, i]) => marker(l, i, { size: 2.4, glow: 9, fs: 3.1, label: true })).join('')}
   </svg>`;
 }
 
 export function locationsBlock() {
+  const countries = new Set(locations.map((l) => l.code)).size;
+  const eu = locations.filter((l) => l.region === 'Europe').length;
   return `
 <div class="dc" data-reveal data-dc>
   <div class="dc-head">
@@ -318,16 +396,22 @@ export function locationsBlock() {
     <a class="btn btn-white" href="/data-centres/">Data-centre details</a>
   </div>
   <div class="dc-maps">
-    <figure class="dc-world"><figcaption>WORLD</figcaption>${worldMap()}</figure>
-    <figure class="dc-eu"><figcaption>EUROPE · ZOOM</figcaption>${europeMap()}</figure>
+    <figure class="dc-world">
+      <figcaption><span>WORLD</span><span class="dc-read" data-dc-read data-default="${locations.length} SITES · ${countries} COUNTRIES">${locations.length} SITES · ${countries} COUNTRIES</span></figcaption>
+      ${worldMap()}
+    </figure>
+    <figure class="dc-eu">
+      <figcaption><span>EUROPE · ZOOM</span><span>${eu} SITES</span></figcaption>
+      ${europeMap()}
+    </figure>
   </div>
   <ol class="dc-list">
     ${locations.map((l, i) => `
-    <li data-loc="${i}" tabindex="0">
-      <span class="dc-n">${String(i + 1).padStart(2, '0')}</span>
+    <li data-loc="${i}" data-read="${coords(l)} · ${esc(l.city).toUpperCase()}" tabindex="0">
+      <span class="dc-n">${n2(i)}</span>
       <span class="dc-city"><b>${l.city}</b><small>${l.country}</small></span>
       <span class="dc-code">${l.code}</span>
-      <span class="dc-status"><i class="led"></i>Online</span>
+      <span class="dc-status"><i class="led"></i>Online<span class="dc-ll">${coords(l)}</span></span>
     </li>`).join('')}
   </ol>
 </div>`;

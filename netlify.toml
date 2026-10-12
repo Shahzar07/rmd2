@@ -13,3 +13,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
+
+[[redirects]]
+  from = "/aws-lightsail-vps/*"
+  to = "/lightsail-vps/"
+  status = 301

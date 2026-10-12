@@ -334,11 +334,19 @@ function rmdhost_plan_card( $plan, $args = array() ) {
  * FAQ accordion.
  *
  * @param array $faqs List of array( 'q' => ..., 'a' => ... ).
+ * @param int   $open Index of the item open on load (-1 for none).
  * @return string
  */
-function rmdhost_faq_list( $faqs ) {
+function rmdhost_faq_list( $faqs, $open = -1 ) {
 	ob_start();
-	get_template_part( 'template-parts/components/faq-list', null, array( 'faqs' => $faqs ) );
+	get_template_part(
+		'template-parts/components/faq-list',
+		null,
+		array(
+			'faqs' => $faqs,
+			'open' => $open,
+		)
+	);
 	return ob_get_clean();
 }
 
@@ -551,23 +559,138 @@ function rmdhost_map_data() {
 }
 
 /**
- * Square, numbered map marker.
+ * Number formatting for SVG attributes (max 2 decimals, no trailing zeros).
  *
- * @param array $loc   Location.
- * @param int   $i     Index.
- * @param float $size  Marker size.
- * @param bool  $label Show label.
+ * @param float $v Value.
  * @return string
  */
-function rmdhost_map_marker( $loc, $i, $size, $label ) {
-	list( $x, $y ) = rmdhost_lonlat( (float) $loc['lon'], (float) $loc['lat'] );
-	$h             = $size / 2;
-	$out           = sprintf( '<g class="mk" data-loc="%1$d" transform="translate(%2$.2f %3$.2f)" style="--d:%4$ss"><rect class="mk-pulse" x="%5$s" y="%5$s" width="%6$s" height="%6$s"/><rect class="mk-dot" x="%5$s" y="%5$s" width="%6$s" height="%6$s"/>', $i, $x, $y, esc_attr( $i * 0.35 ), -$h, $size );
-	if ( $label && ! empty( $loc['label'] ) ) {
-		$lb   = $loc['label'];
-		$out .= sprintf( '<text class="mk-label" x="%1$s" y="%2$s" text-anchor="%3$s"><tspan class="mk-n">%4$s</tspan> %5$s</text>', esc_attr( $lb[1] ), esc_attr( $lb[2] ), esc_attr( $lb[3] ), str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ), esc_html( $loc['city'] ) );
+function rmdhost_svg_num( $v ) {
+	$s = rtrim( rtrim( number_format( (float) $v, 2, '.', '' ), '0' ), '.' );
+	return '-0' === $s ? '0' : $s;
+}
+
+/**
+ * Formatted coordinates, e.g. "52.92°N 1.48°W".
+ *
+ * @param array $loc Location with lat/lon.
+ * @return string
+ */
+function rmdhost_coords( $loc ) {
+	$lat = (float) $loc['lat'];
+	$lon = (float) $loc['lon'];
+	return sprintf( '%s°%s %s°%s', number_format( abs( $lat ), 2 ), $lat >= 0 ? 'N' : 'S', number_format( abs( $lon ), 2 ), $lon >= 0 ? 'E' : 'W' );
+}
+
+/**
+ * Links between sites: a minimum spanning tree over lon/lat, so each site
+ * joins its nearest neighbour whatever the location list holds.
+ *
+ * @param array $locs Locations.
+ * @return array List of array( a, b ) index pairs.
+ */
+function rmdhost_map_links( $locs ) {
+	$locs = array_values( $locs );
+	if ( count( $locs ) < 2 ) {
+		return array();
 	}
-	return $out . '</g>';
+	$in    = array( 0 );
+	$links = array();
+	$total = count( $locs );
+	for ( $n = 1; $n < $total; $n++ ) {
+		$best = null;
+		foreach ( $in as $a ) {
+			foreach ( $locs as $b => $l ) {
+				if ( in_array( $b, $in, true ) ) {
+					continue;
+				}
+				$d = hypot( (float) $locs[ $a ]['lon'] - (float) $l['lon'], (float) $locs[ $a ]['lat'] - (float) $l['lat'] );
+				if ( null === $best || $d < $best[2] ) {
+					$best = array( $a, $b, $d );
+				}
+			}
+		}
+		$in[]    = $best[1];
+		$links[] = array( $best[0], $best[1] );
+	}
+	return $links;
+}
+
+/**
+ * Link paths (faint line + travelling packet) bowed upwards.
+ *
+ * @param array $links Index pairs into $locs.
+ * @param array $locs  Locations.
+ * @return string
+ */
+function rmdhost_map_link_paths( $links, $locs ) {
+	$out = '';
+	foreach ( $links as $link ) {
+		list( $a, $b )   = $link;
+		list( $x1, $y1 ) = rmdhost_lonlat( (float) $locs[ $a ]['lon'], (float) $locs[ $a ]['lat'] );
+		list( $x2, $y2 ) = rmdhost_lonlat( (float) $locs[ $b ]['lon'], (float) $locs[ $b ]['lat'] );
+		$nx              = -( $y2 - $y1 );
+		$ny              = $x2 - $x1;
+		if ( $ny > 0 || ( 0.0 === (float) $ny && $nx > 0 ) ) {
+			$nx = -$nx;
+			$ny = -$ny;
+		}
+		$d    = 'M' . rmdhost_svg_num( $x1 ) . ' ' . rmdhost_svg_num( $y1 ) . 'Q' . rmdhost_svg_num( ( $x1 + $x2 ) / 2 + $nx * 0.2 ) . ' ' . rmdhost_svg_num( ( $y1 + $y2 ) / 2 + $ny * 0.2 ) . ' ' . rmdhost_svg_num( $x2 ) . ' ' . rmdhost_svg_num( $y2 );
+		$out .= sprintf( '<path class="ln" d="%1$s"/><path class="ln-pk" d="%1$s" pathLength="100" style="--d:%2$ss"/>', esc_attr( $d ), rmdhost_svg_num( $a * 0.4 + $b * 0.25 ) );
+	}
+	return $out;
+}
+
+/**
+ * Label chip with an optional leader line. The mono font advances 0.6em per
+ * character, so the chip width is exact.
+ *
+ * @param string $text   Label.
+ * @param float  $ox     Chip x offset.
+ * @param float  $oy     Chip y offset.
+ * @param string $anchor start|end.
+ * @param float  $fs     Font size in map units.
+ * @param bool   $lead   Draw a leader line from the origin.
+ * @return string
+ */
+function rmdhost_map_chip( $text, $ox, $oy, $anchor, $fs, $lead = true ) {
+	$w = mb_strlen( $text ) * $fs * 0.6 + $fs * 1.2;
+	$h = $fs * 1.8;
+	$x = 'end' === $anchor ? $ox - $w : $ox;
+	return '<g class="mk-tag">'
+		. ( $lead ? sprintf( '<line class="mk-lead" x1="0" y1="0" x2="%s" y2="%s"/>', rmdhost_svg_num( $ox ), rmdhost_svg_num( $oy ) ) : '' )
+		. sprintf( '<rect class="mk-chip" x="%s" y="%s" width="%s" height="%s"/>', rmdhost_svg_num( $x ), rmdhost_svg_num( $oy - $h / 2 ), rmdhost_svg_num( $w ), rmdhost_svg_num( $h ) )
+		. sprintf( '<text x="%s" y="%s" font-size="%s">%s</text>', rmdhost_svg_num( $x + $fs * 0.6 ), rmdhost_svg_num( $oy + $fs * 0.36 ), rmdhost_svg_num( $fs ), esc_html( $text ) )
+		. '</g>';
+}
+
+/**
+ * Square, numbered map marker with glow, pulse and optional label chip.
+ *
+ * @param array $loc  Location.
+ * @param int   $i    Index.
+ * @param array $opts size, glow, fs, label.
+ * @return string
+ */
+function rmdhost_map_marker( $loc, $i, $opts ) {
+	list( $x, $y ) = rmdhost_lonlat( (float) $loc['lon'], (float) $loc['lat'] );
+	$s             = $opts['size'];
+	$h             = rmdhost_svg_num( -$s / 2 );
+	$tag           = '';
+	if ( $opts['label'] && ! empty( $loc['label'] ) && count( $loc['label'] ) >= 4 ) {
+		$lb  = $loc['label'];
+		$tag = rmdhost_map_chip( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) . ' ' . mb_strtoupper( $loc['city'] ), (float) $lb[1], (float) $lb[2], $lb[3], $opts['fs'] );
+	}
+	return sprintf(
+		'<g class="mk" data-loc="%1$d" transform="translate(%2$s %3$s)" style="--d:%4$ss"><circle class="mk-glow" r="%5$s"/>%6$s<rect class="mk-pulse" x="%7$s" y="%7$s" width="%8$s" height="%8$s"/><rect class="mk-dot" x="%7$s" y="%7$s" width="%8$s" height="%8$s"/></g>',
+		$i,
+		rmdhost_svg_num( $x ),
+		rmdhost_svg_num( $y ),
+		rmdhost_svg_num( $i * 0.35 ),
+		rmdhost_svg_num( $opts['glow'] ),
+		$tag,
+		$h,
+		rmdhost_svg_num( $s )
+	);
 }
 
 /**
@@ -579,42 +702,83 @@ function rmdhost_map_marker( $loc, $i, $size, $label ) {
 function rmdhost_maps( $locations ) {
 	$m                 = rmdhost_map_data();
 	$eu                = $m['europe'];
+	$locations         = array_values( $locations );
 	list( $ex1, $ey1 ) = rmdhost_lonlat( $eu['lon_min'], $eu['lat_max'] );
 	list( $ex2, $ey2 ) = rmdhost_lonlat( $eu['lon_max'], $eu['lat_min'] );
+	$land              = function ( $g, $d ) {
+		return sprintf( '<path class="land" transform="translate(%s %s) scale(%s)" d="%s"/>', esc_attr( $g['x'] ), esc_attr( $g['y'] ), esc_attr( $g['s'] ), esc_attr( $d ) );
+	};
 
-	$eu_count = 0;
 	$markers  = '';
 	$eu_marks = '';
-	foreach ( array_values( $locations ) as $i => $loc ) {
-		$is_eu     = isset( $loc['region'] ) && 'Europe' === $loc['region'];
-		$eu_count += $is_eu ? 1 : 0;
-		$markers  .= rmdhost_map_marker( $loc, $i, 10, ! $is_eu );
-		$eu_marks .= $is_eu ? rmdhost_map_marker( $loc, $i, 2.6, true ) : '';
+	$eu_locs  = array();
+	foreach ( $locations as $i => $loc ) {
+		$is_eu    = isset( $loc['region'] ) && 'Europe' === $loc['region'];
+		$markers .= rmdhost_map_marker(
+			$loc,
+			$i,
+			array(
+				'size'  => 9,
+				'glow'  => 34,
+				'fs'    => 17,
+				'label' => ! $is_eu,
+			)
+		);
+		if ( $is_eu ) {
+			$eu_locs[ $i ] = $loc;
+			$eu_marks     .= rmdhost_map_marker(
+				$loc,
+				$i,
+				array(
+					'size'  => 2.4,
+					'glow'  => 9,
+					'fs'    => 3.1,
+					'label' => true,
+				)
+			);
+		}
 	}
+	$eu_index = array_keys( $eu_locs );
+	$eu_links = array();
+	foreach ( rmdhost_map_links( $eu_locs ) as $link ) {
+		$eu_links[] = array( $eu_index[ $link[0] ], $eu_index[ $link[1] ] );
+	}
+
+	$grat = '';
+	for ( $lon = -150; $lon < 180; $lon += 30 ) {
+		$grat .= 'M' . rmdhost_svg_num( rmdhost_lonlat( $lon, 0 )[0] ) . ' 0V' . $m['map']['h'];
+	}
+	for ( $lat = -40; $lat <= 60; $lat += 20 ) {
+		$grat .= 'M0 ' . rmdhost_svg_num( rmdhost_lonlat( 0, $lat )[1] ) . 'H' . $m['map']['w'];
+	}
+	$eq = rmdhost_svg_num( rmdhost_lonlat( 0, 0 )[1] );
+
 	$world = sprintf(
-		'<svg class="worldmap" viewBox="0 0 %1$d %2$d" role="img" aria-label="%3$s"><path class="land" d="%4$s"/><rect class="eu-box" x="%5$.1f" y="%6$.1f" width="%7$.1f" height="%8$.1f"/><text class="eu-box-label" x="%9$.1f" y="%10$.1f">%11$s</text>%12$s</svg>',
+		'<svg class="worldmap" viewBox="0 0 %1$d %2$d" role="img" aria-label="%3$s"><defs><radialGradient id="mkGlow"><stop offset="0" stop-color="#3ddc84" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient></defs><path class="grat" d="%4$s"/><path class="equator" d="M0 %5$sH%1$d"/>%6$s<g class="eu-zone"><rect class="eu-box" x="%7$s" y="%8$s" width="%9$s" height="%10$s"/>%11$s</g><g class="links">%12$s</g>%13$s</svg>',
 		$m['map']['w'],
 		$m['map']['h'],
 		esc_attr__( 'World map showing data-centre locations', 'rmdhost' ),
-		esc_attr( $m['world'] ),
-		$ex1,
-		$ey1,
-		$ex2 - $ex1,
-		$ey2 - $ey1,
-		$ex1 + 2,
-		$ey1 - 5,
+		$grat,
+		$eq,
+		$land( $m['world_grid'], $m['world'] ),
+		rmdhost_svg_num( $ex1 ),
+		rmdhost_svg_num( $ey1 ),
+		rmdhost_svg_num( $ex2 - $ex1 ),
+		rmdhost_svg_num( $ey2 - $ey1 ),
 		/* translators: %d: number of European data centres */
-		esc_html( sprintf( __( 'EUROPE · %d SITES', 'rmdhost' ), $eu_count ) ),
+		rmdhost_map_chip( sprintf( __( 'EUROPE · %d SITES', 'rmdhost' ), count( $eu_locs ) ), $ex1 - 1, $ey1 - 15, 'start', 13, false ),
+		rmdhost_map_link_paths( rmdhost_map_links( $locations ), $locations ),
 		$markers
 	);
 	$europe = sprintf(
-		'<svg class="eumap" viewBox="%1$.2f %2$.2f %3$.2f %4$.2f" role="img" aria-label="%5$s"><path class="land" d="%6$s"/>%7$s</svg>',
-		$ex1,
-		$ey1,
-		$ex2 - $ex1,
-		$ey2 - $ey1,
+		'<svg class="eumap" viewBox="%1$s %2$s %3$s %4$s" role="img" aria-label="%5$s">%6$s<g class="links">%7$s</g>%8$s</svg>',
+		rmdhost_svg_num( $ex1 ),
+		rmdhost_svg_num( $ey1 ),
+		rmdhost_svg_num( $ex2 - $ex1 ),
+		rmdhost_svg_num( $ey2 - $ey1 ),
 		esc_attr__( 'Map of data centres in Europe', 'rmdhost' ),
-		esc_attr( $m['eu'] ),
+		$land( $m['eu_grid'], $m['eu'] ),
+		rmdhost_map_link_paths( $eu_links, $locations ),
 		$eu_marks
 	);
 	return array( $world, $europe );

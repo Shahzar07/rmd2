@@ -26,13 +26,15 @@ export const reviews = [
 
 // Data centres as listed on digitalberg.com/data-center/.
 // `label`: [text, dx, dy, anchor] for the Europe inset map.
+// `label`: [text, chip x offset, chip y offset, anchor] in the units of the map
+// the site is labelled on (Europe zoom for European sites, world map otherwise).
 export const locations = [
-  { city: 'Derby', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 52.92, lon: -1.48, label: ['Derby', -3, 4.2, 'end'] },
-  { city: 'Leeds', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 53.8, lon: -1.55, label: ['Leeds', -3, -2, 'end'] },
-  { city: 'Amsterdam', country: 'Netherlands', code: 'NL', region: 'Europe', lat: 52.37, lon: 4.9, label: ['Amsterdam', 3, -2.2, 'start'] },
-  { city: 'Frankfurt', country: 'Germany', code: 'DE', region: 'Europe', lat: 50.11, lon: 8.68, label: ['Frankfurt', 3, 4.6, 'start'] },
-  { city: 'Riga', country: 'Latvia', code: 'LV', region: 'Europe', lat: 56.95, lon: 24.1, label: ['Riga', 3, 1.3, 'start'] },
-  { city: 'New York', country: 'United States', code: 'US', region: 'North America', lat: 40.71, lon: -74.0, label: ['New York', -12, -10, 'end'] },
+  { city: 'Derby', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 52.92, lon: -1.48, label: ['Derby', -6, 9, 'end'] },
+  { city: 'Leeds', country: 'United Kingdom', code: 'GB', region: 'Europe', lat: 53.8, lon: -1.55, label: ['Leeds', 3, -16, 'start'] },
+  { city: 'Amsterdam', country: 'Netherlands', code: 'NL', region: 'Europe', lat: 52.37, lon: 4.9, label: ['Amsterdam', 6, -11, 'start'] },
+  { city: 'Frankfurt', country: 'Germany', code: 'DE', region: 'Europe', lat: 50.11, lon: 8.68, label: ['Frankfurt', 6, 8, 'start'] },
+  { city: 'Riga', country: 'Latvia', code: 'LV', region: 'Europe', lat: 56.95, lon: 24.1, label: ['Riga', -5, -7, 'end'] },
+  { city: 'New York', country: 'United States', code: 'US', region: 'North America', lat: 40.71, lon: -74.0, label: ['New York', -20, -28, 'end'] },
 ];
 
 export const posts = [

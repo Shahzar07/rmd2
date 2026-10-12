@@ -3,7 +3,7 @@ import { bySlug, products } from '../data/products.mjs';
 import { homeFaqs, reviews } from '../data/content.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
-  scenes, techVisual, planCard, sectionHead, faqList, faqSchema, locationsBlock, ctaBand, money, stars, checklist, img, vid,
+  scenes, techVisual, planCard, sectionHead, faqSection, faqSchema, locationsBlock, ctaBand, money, stars, checklist, img, vid,
 } from '../lib/components.mjs';
 import { esc } from '../lib/layout.mjs';
 
@@ -63,7 +63,7 @@ const review = (r) => `
       <figure class="review" data-reveal>
         ${stars(r.rating)}
         <blockquote>“${r.text}”</blockquote>
-        <figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span>${r.sample ? '<em class="pill pill-xs" title="Replace with a real customer review before launch">Sample</em>' : ''}</figcaption>
+        <figcaption><span class="av">${r.name[0]}</span><span><b>${r.name}</b><small>${r.role} · ${r.product}</small></span></figcaption>
       </figure>`;
 
 // Hostinger-style wall: four columns mixing videos, photos and reviews.
@@ -153,9 +153,9 @@ ${hero(home)}
         <span class="btn btn-white">Explore all offers</span>
       </span>
     </a>
-    <a class="promo-small" href="/aws-lightsail-vps/" data-reveal data-spot>
+    <a class="promo-small" href="/lightsail-vps/" data-reveal data-spot>
       <span class="pill">New</span>${icon('arrowUpRight', 'corner')}
-      <strong>AWS Lightsail VPS</strong>
+      <strong>Lightsail VPS</strong>
       <span>Fixed-price cloud bundles: 2 vCPUs, 1–8 GB RAM and 2–5 TB transfer from ${money(11.99)}.</span>
     </a>
     <a class="promo-small" href="/instant-dedicated-servers-usa/" data-reveal data-spot>
@@ -375,12 +375,7 @@ ${hero(home)}
 </section>
 
 <!-- FAQ -->
-<section class="section section-soft">
-  <div class="container narrow">
-    ${sectionHead({ title: `${site.name} hosting FAQs` })}
-    ${faqList(homeFaqs)}
-  </div>
-</section>
+${faqSection({ title: `${site.name} FAQs`, text: 'Quick answers about plans, billing, data centres and support. Can’t find what you need? Our engineers are a ticket away.', faqs: homeFaqs })}
 
 ${ctaBand()}
 `,
