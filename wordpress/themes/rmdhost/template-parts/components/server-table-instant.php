@@ -35,8 +35,10 @@ $rmdhost_g = $args['group'];
 			<span role="cell" data-l="<?php esc_attr_e( 'Included', 'rmdhost' ); ?>"><?php echo esc_html( $rmdhost_s['network'] ); ?><small><?php esc_html_e( '/64 IPv6 · DDoS protection', 'rmdhost' ); ?></small></span>
 			<span role="cell" data-l="<?php esc_attr_e( 'Price', 'rmdhost' ); ?>" class="sprice"><?php echo rmdhost_money( $rmdhost_s['price'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 			<span role="cell">
-				<?php if ( $rmdhost_s['stock'] ) : ?>
+				<?php if ( $rmdhost_s['stock'] && $rmdhost_s['order'] ) : ?>
 					<a class="btn btn-primary btn-sm" href="<?php echo esc_url( $rmdhost_s['order'] ); ?>"><?php esc_html_e( 'Order now', 'rmdhost' ); ?></a><small class="free"><?php esc_html_e( 'Free setup', 'rmdhost' ); ?></small>
+				<?php elseif ( $rmdhost_s['stock'] ) : ?>
+					<span class="btn btn-sm btn-disabled" aria-disabled="true"><?php esc_html_e( 'Coming Soon', 'rmdhost' ); ?></span>
 				<?php else : ?>
 					<span class="btn btn-sm btn-disabled" aria-disabled="true"><?php esc_html_e( 'Sold out', 'rmdhost' ); ?></span>
 				<?php endif; ?>

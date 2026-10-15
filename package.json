@@ -2,14 +2,15 @@
   "name": "rmdhost-website",
   "version": "1.0.0",
   "private": true,
-  "description": "RMDHost.com – static website for VPS, dedicated and game server hosting",
+  "description": "RMDHost.com \u2013 static website for VPS, dedicated and game server hosting",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs && node scripts/build-wp.mjs",
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "build:wp": "node scripts/build-wp.mjs",
-    "package:wp": "node scripts/build-wp.mjs && node scripts/package-wp.mjs"
+    "package:wp": "node scripts/build-wp.mjs && node scripts/package-wp.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
   "engines": {
     "node": ">=18"

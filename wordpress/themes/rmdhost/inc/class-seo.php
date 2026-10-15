@@ -132,7 +132,7 @@ class SEO {
 		$group = self::current_group();
 		if ( $group ) {
 			$prices  = array_filter(
-				wp_list_pluck( Data::plans( $group['slug'] ), 'price' ),
+				wp_list_pluck( array_filter( Data::plans( $group['slug'] ), static function ( $plan ) { return ! empty( $plan['order'] ); } ), 'price' ),
 				static function ( $p ) {
 					return null !== $p;
 				}

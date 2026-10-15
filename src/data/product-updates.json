@@ -1,0 +1,1018 @@
+{
+  "products": {
+    "ai-vps": {
+      "plans": [
+        {
+          "id": "intel-ai-starter",
+          "name": "Intel AI Starter",
+          "price": 7.09,
+          "usd": 9.0,
+          "cpu": "2 vCPU · Intel Xeon E5 v3/v4",
+          "ram": "2 GB",
+          "storage": "40 GB SSD",
+          "bandwidth": "2 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "intel-ai-chat",
+          "name": "Intel AI Chat",
+          "price": 11.81,
+          "usd": 15.0,
+          "cpu": "2 vCPU · Intel Xeon E5 v3/v4",
+          "ram": "4 GB",
+          "storage": "60 GB SSD",
+          "bandwidth": "4 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "intel-ai-workspace",
+          "name": "Intel AI Workspace",
+          "price": 18.9,
+          "usd": 24.0,
+          "cpu": "4 vCPU · Intel Xeon E5 v3/v4",
+          "ram": "8 GB",
+          "storage": "100 GB SSD",
+          "bandwidth": "8 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price",
+          "badge": "Recommended"
+        },
+        {
+          "id": "intel-ai-workspace-plus",
+          "name": "Intel AI Workspace Plus",
+          "price": 29.92,
+          "usd": 38.0,
+          "cpu": "6 vCPU · Intel Xeon E5 v3/v4",
+          "ram": "16 GB",
+          "storage": "200 GB SSD",
+          "bandwidth": "12 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "ryzen-ai-developer",
+          "name": "Ryzen AI Developer",
+          "price": 14.96,
+          "usd": 19.0,
+          "cpu": "2 vCPU · AMD Ryzen",
+          "ram": "4 GB",
+          "storage": "50 GB NVMe",
+          "bandwidth": "3 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "ryzen-ai-inference",
+          "name": "Ryzen AI Inference",
+          "price": 25.2,
+          "usd": 32.0,
+          "cpu": "4 vCPU · AMD Ryzen",
+          "ram": "8 GB",
+          "storage": "100 GB NVMe",
+          "bandwidth": "6 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "ryzen-ai-inference-plus",
+          "name": "Ryzen AI Inference Plus",
+          "price": 46.46,
+          "usd": 59.0,
+          "cpu": "8 vCPU · AMD Ryzen",
+          "ram": "16 GB",
+          "storage": "150 GB NVMe",
+          "bandwidth": "9 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price",
+          "badge": "Recommended"
+        },
+        {
+          "id": "ryzen-ai-large-model",
+          "name": "Ryzen AI Large Model",
+          "price": 77.95,
+          "usd": 99.0,
+          "cpu": "12 vCPU · AMD Ryzen",
+          "ram": "32 GB",
+          "storage": "200 GB NVMe",
+          "bandwidth": "12 TB/month @1Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "epyc-ai-production",
+          "name": "EPYC AI Production",
+          "price": 38.58,
+          "usd": 49.0,
+          "cpu": "4 vCPU · AMD EPYC",
+          "ram": "8 GB",
+          "storage": "75 GB NVMe",
+          "bandwidth": "8 TB/month @10Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "epyc-ai-team",
+          "name": "EPYC AI Team",
+          "price": 62.2,
+          "usd": 79.0,
+          "cpu": "8 vCPU · AMD EPYC",
+          "ram": "16 GB",
+          "storage": "150 GB NVMe",
+          "bandwidth": "14 TB/month @10Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "epyc-ai-business",
+          "name": "EPYC AI Business",
+          "price": 109.45,
+          "usd": 139.0,
+          "cpu": "16 vCPU · AMD EPYC",
+          "ram": "32 GB",
+          "storage": "300 GB NVMe",
+          "bandwidth": "18 TB/month @10Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price",
+          "badge": "Recommended"
+        },
+        {
+          "id": "epyc-ai-enterprise",
+          "name": "EPYC AI Enterprise",
+          "price": 188.19,
+          "usd": 239.0,
+          "cpu": "24 vCPU · AMD EPYC",
+          "ram": "64 GB",
+          "storage": "450 GB NVMe",
+          "bandwidth": "24 TB/month @10Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "epyc-ai-enterprise-max",
+          "name": "EPYC AI Enterprise Max",
+          "price": 314.17,
+          "usd": 399.0,
+          "cpu": "32 vCPU · AMD EPYC",
+          "ram": "128 GB",
+          "storage": "600GB NVMe",
+          "bandwidth": "30 TB/month @10Gbps",
+          "location": "Confirm at launch",
+          "ddos": "Confirm for selected location",
+          "extras": [
+            "CPU-based infrastructure; no GPU",
+            "Third-party AI API fees billed separately",
+            "IPv4 only"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        }
+      ],
+      "title": "AI VPS Hosting – Intel, Ryzen & EPYC Plans | RMDHost",
+      "description": "Compare CPU-based AI VPS plans for automation, local models and vector search. Intel, Ryzen and EPYC options with SSD or NVMe storage.",
+      "lede": "Choose Intel for API-backed automation, Ryzen for local inference, or EPYC for larger RAG and multi-user workloads. CPU-based plans; AI provider usage is billed separately.",
+      "checklist": [
+        "Intel, AMD Ryzen & AMD EPYC",
+        "SSD or NVMe by plan",
+        "2 GB to 128 GB RAM",
+        "CPU infrastructure · no GPU"
+      ],
+      "everyPlan": [
+        "CPU-based VPS",
+        "Dedicated IPv4",
+        "Monthly billing",
+        "Third-party API charges separate"
+      ],
+      "features": [
+        {
+          "icon": "cpu",
+          "title": "Choose your CPU",
+          "text": "Intel for automation, Ryzen for development and EPYC for memory-intensive services."
+        },
+        {
+          "icon": "memory",
+          "title": "Memory for your model",
+          "text": "Match RAM to model size, quantization, context length and concurrent users."
+        },
+        {
+          "icon": "terminal",
+          "title": "Automation workloads",
+          "text": "Run tools such as n8n, Flowise and API-backed assistants."
+        },
+        {
+          "icon": "folder",
+          "title": "Vector search",
+          "text": "Size storage and memory for your documents, embeddings and database."
+        },
+        {
+          "icon": "lock",
+          "title": "Choose where data goes",
+          "text": "Local inference and external AI APIs have different data flows. Configure each integration deliberately."
+        },
+        {
+          "icon": "bolt",
+          "title": "SSD and NVMe options",
+          "text": "Intel plans use SSD; Ryzen and EPYC plans use NVMe."
+        }
+      ],
+      "faqs": [
+        [
+          "Do these plans include a GPU?",
+          "These packages are CPU-based. No GPU is included."
+        ],
+        [
+          "Are AI API fees included?",
+          "No. API usage, tokens and commercial model licences are separate costs."
+        ],
+        [
+          "Which CPU should I choose?",
+          "Intel suits automation and API-backed tools. Ryzen suits local experiments; EPYC suits larger databases and multi-user workloads. Benchmark your model before scaling."
+        ],
+        [
+          "Is IPv6 included?",
+          "The referenced AI packages currently provide IPv4 only."
+        ],
+        [
+          "When can I order?",
+          "Order links are coming soon. Contact sales to confirm availability, location and final billing currency."
+        ]
+      ],
+      "fromPrice": 7.09,
+      "comingSoon": "Order links coming soon. Contact sales to confirm availability and final checkout totals.",
+      "tag": "Coming Soon"
+    },
+    "macos-vps": {
+      "name": "MacOS VPS",
+      "short": "MacOS VPS",
+      "plans": [
+        {
+          "id": "mac-vps-x8",
+          "name": "Mac VPS X8",
+          "price": 19.72,
+          "usd": 25.04,
+          "cpu": "4 cores",
+          "ram": "8 GB",
+          "storage": "100 GB NVMe",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Confirm at launch",
+          "extras": [
+            "Free backup"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "mac-vps-x16",
+          "name": "Mac VPS X16",
+          "price": 31.5,
+          "usd": 40,
+          "cpu": "4 cores",
+          "ram": "16 GB",
+          "storage": "100 GB NVMe",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Confirm at launch",
+          "extras": [
+            "Free backup"
+          ],
+          "note": "GBP estimate · USD supplier price",
+          "badge": "Popular"
+        },
+        {
+          "id": "mac-vps-x32",
+          "name": "Mac VPS X32",
+          "price": 51.31,
+          "usd": 65.17,
+          "cpu": "8 cores",
+          "ram": "32 GB",
+          "storage": "100 GB NVMe",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Confirm at launch",
+          "extras": [
+            "Free backup"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        }
+      ],
+      "title": "MacOS VPS – 8 GB to 32 GB NVMe Plans | RMDHost",
+      "description": "Compare MacOS VPS X8, X16 and X32 packages with 4 or 8 CPU cores, 100 GB NVMe and free backup. Checkout links coming soon.",
+      "lede": "A remote MacOS environment for development and testing. Choose 8, 16 or 32 GB RAM with 100 GB NVMe storage and free backup.",
+      "checklist": [
+        "4 or 8 CPU cores",
+        "8 GB to 32 GB RAM",
+        "100 GB NVMe",
+        "Free backup"
+      ],
+      "everyPlan": [
+        "100 GB NVMe",
+        "Free backup",
+        "Monthly billing"
+      ],
+      "features": [
+        {
+          "icon": "cpu",
+          "title": "CPU choice",
+          "text": "Choose four cores on X8/X16 or eight cores on X32."
+        },
+        {
+          "icon": "memory",
+          "title": "Memory options",
+          "text": "8, 16 and 32 GB packages for different workloads."
+        },
+        {
+          "icon": "drive",
+          "title": "NVMe storage",
+          "text": "100 GB NVMe in each published package."
+        },
+        {
+          "icon": "backup",
+          "title": "Backup included",
+          "text": "Free backup is listed by the supplier. Confirm retention and recovery details before ordering."
+        }
+      ],
+      "faqs": [
+        [
+          "How much RAM is available?",
+          "X8 has 8 GB, X16 has 16 GB and X32 has 32 GB RAM."
+        ],
+        [
+          "How much disk space is included?",
+          "Each package includes 100 GB NVMe storage."
+        ],
+        [
+          "Are backups included?",
+          "The source lists free backup. Confirm schedule, retention and restore access with sales."
+        ],
+        [
+          "When can I order?",
+          "RMDHost order links are coming soon. Confirm macOS version, location and availability before purchase."
+        ]
+      ],
+      "fromPrice": 19.72,
+      "comingSoon": "Order links coming soon. Contact sales to confirm availability and final checkout totals.",
+      "tag": "Coming Soon",
+      "os": [
+        "macOS version confirmed at launch"
+      ]
+    },
+    "macos-dedicated-servers": {
+      "name": "MacOS Dedicated",
+      "short": "MacOS Dedicated",
+      "plans": [
+        {
+          "id": "macmini-m1-01",
+          "name": "MacMini M1-01",
+          "price": 78.7,
+          "usd": 99.95,
+          "cpu": "Apple M1 · 8 cores",
+          "ram": "8 GB",
+          "storage": "512 GB NVMe",
+          "bandwidth": "1 Gbit/s unmetered",
+          "location": "Tampa, Florida",
+          "ddos": "Included",
+          "extras": [
+            "8-core GPU · 16-core Neural Engine",
+            "1 dedicated IPv4",
+            "Full admin access",
+            "Supplier delivery estimate: 24 hours"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "macmini-m1-02",
+          "name": "MacMini M1-02",
+          "price": 102.32,
+          "usd": 129.95,
+          "cpu": "Apple M1 · 8 cores",
+          "ram": "16 GB",
+          "storage": "512 GB NVMe",
+          "bandwidth": "1 Gbit/s unmetered",
+          "location": "Tampa, Florida",
+          "ddos": "Included",
+          "extras": [
+            "8-core GPU · 16-core Neural Engine",
+            "1 dedicated IPv4",
+            "Full admin access",
+            "Supplier delivery estimate: 24 hours"
+          ],
+          "note": "GBP estimate · USD supplier price",
+          "badge": "Best value"
+        },
+        {
+          "id": "macmini-m4-03",
+          "name": "MacMini M4-03",
+          "price": 118.07,
+          "usd": 149.95,
+          "cpu": "Apple M4 · 10 cores",
+          "ram": "16 GB",
+          "storage": "256 GB NVMe",
+          "bandwidth": "10 Gbit/s unmetered",
+          "location": "Tampa, Florida",
+          "ddos": "Included",
+          "extras": [
+            "10-core GPU · 16-core Neural Engine",
+            "1 dedicated IPv4",
+            "Full admin access",
+            "Supplier delivery estimate: 24 hours"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        }
+      ],
+      "title": "MacOS Dedicated Servers – Mac mini M1 & M4 | RMDHost",
+      "description": "Dedicated Apple Mac mini M1 and M4 packages in Tampa with 8–16 GB RAM, NVMe storage and 1 or 10 Gbit/s unmetered networking.",
+      "lede": "Dedicated Mac mini hardware for Xcode builds, app testing and remote Mac workloads. M1 and M4 packages hosted in Tampa, Florida, with full admin access.",
+      "checklist": [
+        "Dedicated Apple M1 or M4",
+        "Tampa, Florida",
+        "Full admin access",
+        "1 or 10 Gbit/s by package"
+      ],
+      "everyPlan": [
+        "Dedicated Apple hardware",
+        "Full admin access",
+        "1 dedicated IPv4",
+        "Unmetered bandwidth",
+        "Monthly billing"
+      ],
+      "features": [
+        {
+          "icon": "apple",
+          "title": "M1 or M4 hardware",
+          "text": "A complete Mac mini assigned to your workload."
+        },
+        {
+          "icon": "terminal",
+          "title": "Xcode builds",
+          "text": "Run Mac development tools and CI jobs on Apple silicon."
+        },
+        {
+          "icon": "globe",
+          "title": "Tampa location",
+          "text": "These packages are listed in Tampa, Florida."
+        },
+        {
+          "icon": "bolt",
+          "title": "Plan-specific networking",
+          "text": "M1 plans list 1 Gbit/s; the M4 plan lists 10 Gbit/s. Port speed is not a guarantee of every transfer rate."
+        }
+      ],
+      "faqs": [
+        [
+          "Which Mac models are listed?",
+          "Two M1 configurations and one M4 configuration. The plan cards show the exact RAM and storage."
+        ],
+        [
+          "Where are these servers hosted?",
+          "The supplier lists Tampa, Florida, for these packages."
+        ],
+        [
+          "Does every Mac have a 10 Gbit/s port?",
+          "No. M1 packages list 1 Gbit/s; M4-03 lists 10 Gbit/s unmetered."
+        ],
+        [
+          "When can I order?",
+          "WHMCS links are coming soon. Confirm stock and delivery time with sales."
+        ]
+      ],
+      "fromPrice": 78.7,
+      "comingSoon": "Order links coming soon. Contact sales to confirm availability and final checkout totals.",
+      "tag": "Coming Soon",
+      "os": [
+        "macOS version confirmed at launch"
+      ]
+    },
+    "game-servers": {
+      "plans": [
+        {
+          "id": "minecraft-gold",
+          "name": "Minecraft Gold",
+          "price": 3.14,
+          "usd": 3.99,
+          "cpu": "2 cores",
+          "ram": "4 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "minecraft-diamond",
+          "name": "Minecraft Diamond",
+          "price": 7.87,
+          "usd": 9.99,
+          "cpu": "2 cores Extreme",
+          "ram": "8 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "minecraft-amethyst",
+          "name": "Minecraft Amethyst",
+          "price": 11.8,
+          "usd": 14.99,
+          "cpu": "4 cores Extreme",
+          "ram": "16 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "minecraft-beacon",
+          "name": "Minecraft Beacon",
+          "price": 22.83,
+          "usd": 28.99,
+          "cpu": "6 cores Extreme",
+          "ram": "32 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "rust",
+          "name": "Rust",
+          "price": 7.08,
+          "usd": 8.99,
+          "cpu": "4 cores Extreme",
+          "ram": "16 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "7-days-to-die",
+          "name": "7 Days To Die",
+          "price": 5.5,
+          "usd": 6.99,
+          "cpu": "4 cores Extreme",
+          "ram": "8 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "conan-exiles",
+          "name": "Conan Exiles",
+          "price": 7.08,
+          "usd": 8.99,
+          "cpu": "4 cores Extreme",
+          "ram": "16 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "left-4-dead",
+          "name": "Left 4 Dead",
+          "price": 3.14,
+          "usd": 3.99,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "ark-survival-evolved",
+          "name": "ARK: Survival Evolved",
+          "price": 7.08,
+          "usd": 8.99,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "half-life-1",
+          "name": "Half Life 1",
+          "price": 4.72,
+          "usd": 5.99,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "left-4-dead-2",
+          "name": "Left 4 Dead 2",
+          "price": 3.93,
+          "usd": 4.99,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "hurtworld",
+          "name": "Hurtworld",
+          "price": 7.08,
+          "usd": 8.99,
+          "cpu": "4 cores Extreme",
+          "ram": "8 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "garry-s-mod",
+          "name": "Garry's Mod",
+          "price": 5.5,
+          "usd": 6.99,
+          "cpu": "4 cores Extreme",
+          "ram": "8 GB",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "insurgency",
+          "name": "Insurgency",
+          "price": 2.39,
+          "usd": 3.04,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "call-of-duty-4",
+          "name": "Call Of Duty 4",
+          "price": 3.99,
+          "usd": 5.07,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "sa-mp-san-andreas-multiplayer",
+          "name": "(SA:MP) San Andreas Multiplayer",
+          "price": 0.86,
+          "usd": 1.09,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "killing-floor-2",
+          "name": "Killing Floor 2",
+          "price": 3.93,
+          "usd": 4.99,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "mta-multi-theft-auto",
+          "name": "MTA (Multi Theft Auto)",
+          "price": 0.86,
+          "usd": 1.09,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "arma-3",
+          "name": "Arma 3",
+          "price": 3.99,
+          "usd": 5.07,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "reign-of-kings",
+          "name": "Reign Of Kings",
+          "price": 3.99,
+          "usd": 5.07,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "half-life-2-death-match",
+          "name": "Half Life 2 Death Match",
+          "price": 2.39,
+          "usd": 3.04,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        },
+        {
+          "id": "unturned",
+          "name": "Unturned",
+          "price": 2.54,
+          "usd": 3.22,
+          "cpu": "Game-dependent allocation",
+          "ram": "Game-dependent allocation",
+          "storage": "Confirm at launch",
+          "bandwidth": "Confirm at launch",
+          "location": "Confirm at launch",
+          "ddos": "Anti-DDoS",
+          "extras": [
+            "Player capacity depends on game and workload"
+          ],
+          "note": "GBP estimate · USD supplier price"
+        }
+      ],
+      "title": "Game Server Hosting – Minecraft, Rust & More | RMDHost",
+      "description": "Compare monthly game server packages for Minecraft, Rust, ARK and more. Game-specific CPU and RAM, Anti-DDoS and panel management.",
+      "eyebrow": "Game server hosting",
+      "h1": "Your world. Your rules. Your game server.",
+      "lede": "Compare game-specific packages for survival worlds, sandbox communities and multiplayer sessions. Choose resources for your game, mods and player count.",
+      "checklist": [
+        "Game-specific CPU & RAM",
+        "Anti-DDoS listed on packages",
+        "Monthly billing",
+        "Choose a location near your players"
+      ],
+      "everyPlan": [
+        "Game-specific configuration",
+        "Anti-DDoS listed by supplier",
+        "Monthly billing"
+      ],
+      "features": [
+        {
+          "icon": "cpu",
+          "title": "Resources for your game",
+          "text": "Compare published CPU and RAM rather than choosing on player slots alone."
+        },
+        {
+          "icon": "globe",
+          "title": "Plan for low latency",
+          "text": "Confirm available locations and test a route near your players before ordering."
+        },
+        {
+          "icon": "shield",
+          "title": "DDoS-aware hosting",
+          "text": "Anti-DDoS is listed on the referenced packages. Coverage and limits depend on the selected service."
+        },
+        {
+          "icon": "wrench",
+          "title": "Mod-aware sizing",
+          "text": "Large maps and mod packs can need more memory and CPU than a vanilla world."
+        }
+      ],
+      "os": [
+        "Confirm game edition and version with sales"
+      ],
+      "stack": [
+        "Game console",
+        "File management",
+        "Mod configuration",
+        "Player management"
+      ],
+      "useCases": [
+        "Minecraft",
+        "Rust",
+        "7 Days to Die",
+        "Conan Exiles",
+        "ARK: Survival Evolved",
+        "Garry’s Mod"
+      ],
+      "faqs": [
+        [
+          "Which games are supported?",
+          "The catalogue includes Minecraft, Rust, 7 Days to Die, Conan Exiles, ARK and other listed games. Confirm the edition and version before purchase."
+        ],
+        [
+          "Are player slots a performance guarantee?",
+          "No. Performance depends on CPU time, memory, map size, mods and simultaneous players, even when a package advertises unlimited slots."
+        ],
+        [
+          "Is DDoS protection available?",
+          "The referenced packages list Anti-DDoS. Ask sales to confirm filtering limits and game-specific coverage."
+        ],
+        [
+          "Can I manage mods and files?",
+          "The supplier illustrates console, files, mods, versions and player tools. Availability depends on the game and selected package."
+        ],
+        [
+          "When can I order?",
+          "Order links are coming soon. Contact sales to confirm stock, region, storage and your game configuration."
+        ]
+      ],
+      "fromPrice": 0.86,
+      "comingSoon": "Order links coming soon. Contact sales to confirm availability and final checkout totals.",
+      "tag": "Coming Soon"
+    }
+  },
+  "extraFaqs": {
+    "owncloud-storage": [
+      [
+        "Can I connect external storage?",
+        "OwnCloud supports external connectors such as FTP, S3 and Google Drive; setup and provider charges may apply."
+      ],
+      [
+        "Are backups the same as file sync?",
+        "No. Keep a separate backup of important data. Sync can also replicate accidental deletion."
+      ]
+    ],
+    "instant-dedicated-servers-usa": [
+      [
+        "How do I choose a server?",
+        "Match CPU, RAM, disks and network allocation to your application, then confirm stock with sales."
+      ]
+    ],
+    "cloud-vps": [
+      [
+        "How do I choose cloud resources?",
+        "Compare CPU, RAM, storage and transfer with your workload. Confirm available location, backup options and operating-system support before ordering."
+      ]
+    ]
+  }
+}

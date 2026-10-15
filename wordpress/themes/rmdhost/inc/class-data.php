@@ -151,9 +151,6 @@ class Data {
 			$plan['extras'] = array_filter( array_map( 'trim', explode( "\n", $plan['extras'] ) ) );
 		}
 		$plan['price'] = ( null === $plan['price'] || '' === $plan['price'] ) ? null : (float) $plan['price'];
-		if ( ! $plan['order'] ) {
-			$plan['order'] = add_query_arg( 'plan', rawurlencode( $plan['id'] ? $plan['id'] : $plan['name'] ), self::setting( 'order_fallback' ) );
-		}
 		return $plan;
 	}
 

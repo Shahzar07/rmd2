@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 $rmdhost_plan    = $args['plan'];
 $rmdhost_feat    = ! empty( $args['featured'] );
-$rmdhost_soon    = null === $rmdhost_plan['price'];
+$rmdhost_soon    = null === $rmdhost_plan['price'] || ! $rmdhost_plan['order'];
 $rmdhost_id      = 'pd-' . sanitize_html_class( $rmdhost_plan['id'] ? $rmdhost_plan['id'] : sanitize_title( $rmdhost_plan['name'] ) ) . '-' . wp_unique_id();
 $rmdhost_rows    = array(
 	array( 'cpu', __( 'CPU', 'rmdhost' ), $rmdhost_plan['cpu'] ),
@@ -33,9 +33,10 @@ $rmdhost_contact = add_query_arg( 'topic', rawurlencode( $rmdhost_plan['name'] )
 		<?php endif; ?>
 	</header>
 	<div class="plan-price"><?php echo rmdhost_money( $rmdhost_plan['price'], array( 'usd' => $rmdhost_plan['usd'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-	<p class="plan-note"><?php echo esc_html( $rmdhost_soon ? __( 'Final pricing announced soon', 'rmdhost' ) : ( $rmdhost_plan['note'] ? $rmdhost_plan['note'] : __( 'Billed monthly · Excl. VAT', 'rmdhost' ) ) ); ?></p>
+	<p class="plan-note"><?php echo esc_html( null === $rmdhost_plan['price'] ? __( 'Final pricing announced soon', 'rmdhost' ) : ( $rmdhost_plan['note'] ? $rmdhost_plan['note'] : __( 'Billed monthly · Excl. VAT', 'rmdhost' ) ) ); ?></p>
 	<?php if ( $rmdhost_soon ) : ?>
-		<a class="btn <?php echo $rmdhost_feat ? 'btn-white' : 'btn-outline'; ?> btn-block" href="<?php echo esc_url( $rmdhost_contact ); ?>"><?php esc_html_e( 'Contact sales', 'rmdhost' ); ?></a>
+		<span class="btn btn-outline btn-block btn-disabled" aria-disabled="true"><?php esc_html_e( 'Coming Soon', 'rmdhost' ); ?></span>
+		<a class="row-link inline plan-enquiry" href="<?php echo esc_url( $rmdhost_contact ); ?>"><?php esc_html_e( 'Ask about this plan', 'rmdhost' ); ?></a>
 	<?php else : ?>
 		<a class="btn <?php echo $rmdhost_feat ? 'btn-white' : 'btn-primary'; ?> btn-block" href="<?php echo esc_url( rmdhost_url( $rmdhost_plan['order'] ) ); ?>"><?php esc_html_e( 'Order now', 'rmdhost' ); ?></a>
 	<?php endif; ?>

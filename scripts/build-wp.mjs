@@ -59,7 +59,9 @@ write(join(theme, 'inc/generated/media.php'),
 // 5. Catalogue (fallback content + demo data) -----------------------------------------
 const homepage = JSON.parse(readFileSync(join(root, 'src/data/homepage.json'), 'utf8'));
 delete homepage._help;
+const infrastructure = JSON.parse(readFileSync(join(root, 'src/data/infrastructure.json'), 'utf8'));
 const catalog = {
+  infrastructure,
   version: 1,
   site: {
     name: site.name, email: site.email, salesEmail: site.salesEmail, clientArea: site.clientArea,
@@ -80,10 +82,19 @@ write(join(plugin, 'demo/catalog.json'), json);
 // Legal page bodies for the demo importer (prose only, no hero).
 const { default: pages } = await import('../src/pages/pages.mjs');
 const legal = {};
-for (const pg of pages.filter((x) => ['/privacy-policy/', '/terms-of-service/', '/cookie-policy/'].includes(x.path))) {
+for (const pg of pages.filter((x) => ['/privacy-policy/', '/terms-of-service/', '/cookie-policy/', '/acceptable-use/', '/fair-use/', '/sla/'].includes(x.path))) {
   const m = pg.body().match(/<div class="container narrow prose">([\s\S]*?)<\/div><\/section>/);
-  legal[pg.path.replace(/\//g, '')] = { title: ((t) => t.charAt(0) + t.slice(1).toLowerCase())(pg.title.split(' | ')[0]), excerpt: pg.description, html: m ? m[1].trim() : '' };
+  legal[pg.path.replace(/\//g, '')] = { title: ((t) => t.charAt(0) + t.slice(1).toLowerCase())(pg.title.split(' | ')[0]), excerpt: pg.description, draft: !!pg.noindex, html: m ? m[1].trim() : '' };
 }
 write(join(plugin, 'demo/legal.json'), JSON.stringify(legal, null, 1));
 
 console.log(`WordPress theme synced: ${Object.keys(scenes).length + 4} scenes, ${Object.keys(ICONS).length} icons, ${products.length} products.`);
+
+// Same game/policy/protection sections in both deliverables.
+const { gameSections } = await import('../src/lib/game-sections.mjs');
+const { protectionContent } = await import('../src/pages/protection.mjs');
+const wpPaths = (html) => html.replace(/[ \t]+$/gm, '')
+  .replace(/src="(\/assets\/[^" ]+)"/g, (_, path) => `src="<?php echo esc_url( get_theme_file_uri( ${php(path)} ) ); ?>"`)
+  .replace(/href="(\/[^" ]*)"/g, (_, path) => `href="<?php echo esc_url( home_url( ${php(path)} ) ); ?>"`);
+write(join(theme, 'template-parts/generated/game-sections.php'), `${HEAD}?>\n${wpPaths(gameSections())}\n`);
+write(join(theme, 'template-parts/generated/protection-content.php'), `${HEAD}?>\n${wpPaths(protectionContent())}\n`);

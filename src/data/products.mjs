@@ -1,3 +1,4 @@
+import { loadCatalogue, mergeCatalogue } from '../lib/cms.mjs';
 // All server products, plans and prices.
 //
 // Prices are monthly, in GBP. Set `price: null` to show "Price coming soon"
@@ -7,6 +8,8 @@
 // `extras` are listed under "More details" on each plan box.
 //
 // Source for current specifications and pricing: DigitalBerg.com.
+
+import { readFileSync } from 'node:fs';
 
 const EU_US = 'UK · EU · USA';
 
@@ -549,8 +552,26 @@ export const products = [
   },
 ];
 
+// Version 2 supplier-verified packages. Keep protected product plans unchanged.
+const updates = JSON.parse(readFileSync(new URL('./product-updates.json', import.meta.url), 'utf8'));
+for (const p of products) {
+  const patch = updates.products[p.slug];
+  if (patch) {
+    Object.assign(p, patch, { from: patch.fromPrice });
+    delete p.fromPrice;
+    delete p.review;
+    delete p.disclaimer;
+  }
+  if (updates.extraFaqs[p.slug]) p.faqs.push(...updates.extraFaqs[p.slug]);
+  if (p.slug === 'owncloud-storage') p.plans.forEach((pl, i) => { pl.order = `https://my.digitalberg.com/cart.php?a=add&pid=${286 + i}`; });
+}
+
 // Card footnote per product – setup-fee wording only where the source page states it.
 const NOTES = { vps: 'Billed monthly · No setup fee', 'ssd-vps': 'Billed monthly · Free setup' };
 for (const p of products) for (const pl of p.plans) pl.note ??= NOTES[p.slug];
+
+// Apply published backend edits to both pricing tabs and product pages.
+const remoteProducts = mergeCatalogue(products, await loadCatalogue());
+products.splice(0, products.length, ...remoteProducts);
 
 export const bySlug = Object.fromEntries(products.map((p) => [p.slug, p]));

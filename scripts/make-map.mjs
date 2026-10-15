@@ -48,7 +48,7 @@ const onLand = (pt) => polygons.some(({ rings: [outer, ...holes], box }) =>
   pt[0] >= box[0] && pt[0] <= box[2] && pt[1] >= box[1] && pt[1] <= box[3]
   && inRing(pt, outer) && !holes.some((h) => inRing(pt, h)));
 
-export const MAP = { w: 1000, h: 420, latTop: 80, latBottom: -56 };
+export const MAP = { w: 1000, h: 377.7778, latTop: 80, latBottom: -56 };
 const px = (lon) => ((lon + 180) / 360) * MAP.w;
 const py = (lat) => ((MAP.latTop - lat) / (MAP.latTop - MAP.latBottom)) * MAP.h;
 // Latitude step that makes a grid cell square in map units.

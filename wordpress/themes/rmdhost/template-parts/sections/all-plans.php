@@ -46,6 +46,6 @@ $rmdhost_instant = RMDHost\Data::from_price( 'instant-dedicated-servers-usa' );
 				<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/instant-dedicated-servers-usa/' ) ); ?>"><?php esc_html_e( 'View instant servers', 'rmdhost' ); ?></a>
 			</div>
 		<?php endif; ?>
-		<p class="fine"><?php echo esc_html( $args['fine'] ?? __( 'Prices exclude VAT and are billed monthly.', 'rmdhost' ) ); ?></p>
+		<p class="fine"><?php echo esc_html( $args['fine'] ?? __( 'Applicable taxes and final billing totals are shown at checkout.', 'rmdhost' ) ); ?></p>
 	</div>
 </section>
