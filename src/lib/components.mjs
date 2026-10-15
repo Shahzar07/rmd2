@@ -24,7 +24,7 @@ export function money(gbp, { usd, per = '/mo', cls = '' } = {}) {
   return `<span class="price ${cls}" data-price data-gbp="${gbp}"${usd ? ` data-usd="${usd}"` : ''}><span data-sym>£</span><span data-amt>${fmt}</span></span>${per ? `<span class="per">${per}</span>` : ''}`;
 }
 
-export const orderUrl = (plan) => plan.order || `${site.orderFallback}?plan=${encodeURIComponent(plan.id || plan.name)}`;
+export const orderUrl = (plan) => /^https?:\/\//.test(plan.order || '') ? plan.order : '';
 
 // ───────────────────────────── headings
 export const sectionHead = ({ eyebrow, title, text, center = true, cls = '' }) => `
@@ -47,26 +47,26 @@ export function planCard(plan, { featured = false, product } = {}) {
     ['location', 'Location', plan.location],
     ['shield', 'DDoS', plan.ddos],
   ];
-  const soon = plan.price == null;
+  const soon = plan.price == null || !orderUrl(plan);
   const id = `pd-${plan.id}`;
   return `
 <article class="plan ${featured ? 'featured' : ''}" data-reveal data-spot>
-  ${plan.badge ? `<p class="plan-flag">${plan.badge}</p>` : ''}
+  ${plan.badge ? `<p class="plan-flag">${esc(plan.badge)}</p>` : ''}
   <header class="plan-head">
-    <h3>${plan.name}</h3>
+    <h3>${esc(plan.name)}</h3>
     ${product ? `<p class="plan-sub">${product}</p>` : ''}
   </header>
   <div class="plan-price">${money(plan.price, { usd: plan.usd })}</div>
-  <p class="plan-note">${soon ? 'Final pricing announced soon' : plan.note || 'Billed monthly · Excl. VAT'}</p>
+  <p class="plan-note">${esc(plan.price == null ? 'Final pricing announced soon' : plan.note || 'Billed monthly · Excl. VAT')}</p>
   ${soon
-    ? `<a class="btn ${featured ? 'btn-white' : 'btn-outline'} btn-block" href="/support/?topic=${encodeURIComponent(plan.name)}">Contact sales</a>`
-    : `<a class="btn ${featured ? 'btn-white' : 'btn-primary'} btn-block" href="${orderUrl(plan)}">Order now</a>`}
+    ? `<span class="btn btn-outline btn-block btn-disabled" aria-disabled="true">Coming Soon</span><a class="row-link inline plan-enquiry" href="/support/?topic=${encodeURIComponent(plan.name)}">Ask about this plan ${icon('arrow')}</a>`
+    : `<a class="btn ${featured ? 'btn-white' : 'btn-primary'} btn-block" href="${esc(orderUrl(plan))}">Order now</a>`}
   <ul class="specs">
     ${rows.map(([ic, k, v]) => `<li>${icon(ic)}<span class="k">${k}</span><span class="v">${esc(v)}</span></li>`).join('')}
   </ul>
   ${plan.extras?.length ? `
   <button class="more" type="button" aria-expanded="false" aria-controls="${id}" data-more>More details ${icon('chevron')}</button>
-  <div class="more-panel" id="${id}"><div>${checklist(plan.extras, 'checks-sm')}</div></div>` : ''}
+  <div class="more-panel" id="${id}"><div>${checklist(plan.extras.map(esc), 'checks-sm')}</div></div>` : ''}
 </article>`;
 }
 
@@ -82,12 +82,12 @@ export const everyPlan = (items) => `
 </div>`;
 
 // ───────────────────────────── FAQ
-export const faqList = (faqs, { open = -1 } = {}) => `
+export const faqList = (faqs, { open = -1, prefix = 'faq' } = {}) => `
 <div class="faq">
   ${faqs.map(([q, a], i) => `
   <div class="faq-item${i === open ? ' is-open' : ''}" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="${i === open}" aria-controls="fa-${i}-${q.length}"><span class="faq-n">${String(i + 1).padStart(2, '0')}</span><span class="faq-t">${q}</span><span class="faq-ico">${icon('plus')}</span></button>
-    <div class="faq-a${i === open ? ' open' : ''}" id="fa-${i}-${q.length}"><div><p>${a}</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="${i === open}" aria-controls="fa-${prefix}-${i}-${q.length}"><span class="faq-n">${String(i + 1).padStart(2, '0')}</span><span class="faq-t">${q}</span><span class="faq-ico">${icon('plus')}</span></button>
+    <div class="faq-a${i === open ? ' open' : ''}" id="fa-${prefix}-${i}-${q.length}"><div><p>${a}</p></div></div>
   </div>`).join('')}
 </div>`;
 
@@ -122,23 +122,16 @@ export const breadcrumbSchema = (trail) => ({
   itemListElement: trail.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site.url + path })),
 });
 
-export const productSchema = (p) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: `${site.name} ${p.name}`,
-  description: p.description,
-  brand: { '@type': 'Brand', name: site.name },
-  ...(p.from != null ? {
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'GBP',
-      lowPrice: Math.min(...(p.plans.length ? p.plans : p.servers).map((x) => x.price)),
-      highPrice: Math.max(...(p.plans.length ? p.plans : p.servers).map((x) => x.price)),
-      offerCount: (p.plans.length || p.servers.length),
-      url: `${site.url}/${p.slug}/`,
-    },
-  } : {}),
-});
+export const productSchema = (p) => {
+  const plans = (p.plans.length ? p.plans : p.servers || []).filter((pl) => pl.price != null && orderUrl(pl));
+  return {
+    '@context': 'https://schema.org', '@type': 'Product', name: `${site.name} ${p.name}`,
+    description: p.description, brand: { '@type': 'Brand', name: site.name },
+    ...(plans.length ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'GBP',
+      lowPrice: Math.min(...plans.map((x) => x.price)), highPrice: Math.max(...plans.map((x) => x.price)),
+      offerCount: plans.length, url: `${site.url}/${p.slug}/` } } : {}),
+  };
+};
 
 // ───────────────────────────── animated scenes ("videos")
 const winChrome = (title, extra = '') => `<div class="win-bar"><i></i><i></i><i></i><span>${title}</span>${extra}</div>`;

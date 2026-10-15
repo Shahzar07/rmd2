@@ -1,0 +1,536 @@
+{
+  "sourceCommit": "e5a009956801ef366a11296431a8aba24cee5429",
+  "products": [
+    {
+      "slug": "vps",
+      "plans": [
+        {
+          "id": "pro-berg",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=155",
+          "name": "Pro Berg",
+          "price": 8.99,
+          "cpu": "1 vCore",
+          "ram": "4 GB (burst 6 GB)",
+          "storage": "100 GB SSD / 250 GB HDD",
+          "bandwidth": "Unlimited \u00b7 100 Mbit/s",
+          "location": "US & Europe",
+          "ddos": "Included",
+          "extras": [
+            "1 IPv4 with root access",
+            "All ports open",
+            "100% uptime guarantee",
+            "No setup fee"
+          ],
+          "note": "Billed monthly \u00b7 No setup fee"
+        },
+        {
+          "id": "plus-berg",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=156",
+          "name": "Plus Berg",
+          "price": 10.99,
+          "badge": "Most popular",
+          "cpu": "2 vCores",
+          "ram": "8 GB (burst 9 GB)",
+          "storage": "200 GB SSD / 500 GB HDD",
+          "bandwidth": "Unlimited \u00b7 100 Mbit/s",
+          "location": "US & Europe",
+          "ddos": "Included",
+          "extras": [
+            "1 IPv4 with root access",
+            "All ports open",
+            "100% uptime guarantee",
+            "No setup fee"
+          ],
+          "note": "Billed monthly \u00b7 No setup fee"
+        },
+        {
+          "id": "premium-berg",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=157",
+          "name": "Premium Berg",
+          "price": 16.99,
+          "cpu": "4 vCores",
+          "ram": "16 GB (burst 18 GB)",
+          "storage": "300 GB SSD / 1 TB HDD",
+          "bandwidth": "Unlimited \u00b7 100 Mbit/s",
+          "location": "US & Europe",
+          "ddos": "Included",
+          "extras": [
+            "1 IPv4 with root access",
+            "All ports open",
+            "100% uptime guarantee",
+            "No setup fee"
+          ],
+          "note": "Billed monthly \u00b7 No setup fee"
+        },
+        {
+          "id": "platinum-berg",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=159",
+          "name": "Platinum Berg",
+          "price": 26.99,
+          "cpu": "6 vCores",
+          "ram": "32 GB (burst 34 GB)",
+          "storage": "500 GB SSD / 2 TB HDD",
+          "bandwidth": "Unlimited \u00b7 100 Mbit/s",
+          "location": "US & Europe",
+          "ddos": "Included",
+          "extras": [
+            "1 IPv4 with root access",
+            "All ports open",
+            "100% uptime guarantee",
+            "No setup fee"
+          ],
+          "note": "Billed monthly \u00b7 No setup fee"
+        }
+      ]
+    },
+    {
+      "slug": "windows-vps",
+      "plans": [
+        {
+          "id": "winberg-x4",
+          "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x4",
+          "name": "Winberg x4",
+          "price": 7.99,
+          "cpu": "2 vCPU Ryzen",
+          "ram": "4 GB",
+          "storage": "40 GB NVMe",
+          "bandwidth": "Unlimited (fair usage)",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Dedicated IPv4",
+            "Free backups",
+            "Remote Desktop access",
+            "Windows Server 2019 / 2022"
+          ]
+        },
+        {
+          "id": "winberg-x8",
+          "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x8",
+          "name": "Winberg x8",
+          "price": 11.38,
+          "badge": "Most popular",
+          "cpu": "4 vCPU Ryzen",
+          "ram": "8 GB",
+          "storage": "60 GB NVMe",
+          "bandwidth": "Unlimited (fair usage)",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Dedicated IPv4",
+            "Free backups",
+            "Remote Desktop access",
+            "Windows Server 2019 / 2022"
+          ]
+        },
+        {
+          "id": "winberg-x12",
+          "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x12",
+          "name": "Winberg x12",
+          "price": 14.38,
+          "cpu": "4 vCPU Ryzen",
+          "ram": "12 GB",
+          "storage": "90 GB NVMe",
+          "bandwidth": "Unlimited (fair usage)",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Dedicated IPv4",
+            "Free backups",
+            "Remote Desktop access",
+            "Windows Server 2019 / 2022"
+          ]
+        },
+        {
+          "id": "winberg-x16",
+          "order": "https://my.digitalberg.com/store/windows-vps-hosting/winberg-x16",
+          "name": "Winberg x16",
+          "price": 18.99,
+          "cpu": "6 vCPU Ryzen",
+          "ram": "16 GB",
+          "storage": "120 GB NVMe",
+          "bandwidth": "Unlimited (fair usage)",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Dedicated IPv4",
+            "Free backups",
+            "Remote Desktop access",
+            "Windows Server 2019 / 2022"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ssd-vps",
+      "plans": [
+        {
+          "id": "ssd-small",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=252",
+          "name": "Small",
+          "price": 8.99,
+          "cpu": "4 vCores",
+          "ram": "8 GB",
+          "storage": "75 GB NVMe",
+          "bandwidth": "Unlimited \u00b7 400 Mbit/s",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Daily backup",
+            "Free setup",
+            "1 IPv4 + IPv6 /64",
+            "Free control panel"
+          ],
+          "note": "Billed monthly \u00b7 Free setup"
+        },
+        {
+          "id": "ssd-medium",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=253",
+          "name": "Medium",
+          "price": 12.99,
+          "badge": "Most popular",
+          "cpu": "6 vCores",
+          "ram": "12 GB",
+          "storage": "100 GB NVMe",
+          "bandwidth": "Unlimited \u00b7 1 Gbit/s",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Daily backup",
+            "Free setup",
+            "1 IPv4 + IPv6 /64",
+            "Free control panel"
+          ],
+          "note": "Billed monthly \u00b7 Free setup"
+        },
+        {
+          "id": "ssd-large",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=254",
+          "name": "Large",
+          "price": 20.99,
+          "cpu": "8 vCores",
+          "ram": "24 GB",
+          "storage": "200 GB NVMe",
+          "bandwidth": "Unlimited \u00b7 1.5 Gbit/s",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Daily backup",
+            "Free setup",
+            "1 IPv4 + IPv6 /64",
+            "Free control panel"
+          ],
+          "note": "Billed monthly \u00b7 Free setup"
+        },
+        {
+          "id": "ssd-xl",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=255",
+          "name": "Xtra Large",
+          "price": 35.99,
+          "cpu": "12 vCores",
+          "ram": "48 GB",
+          "storage": "300 GB NVMe",
+          "bandwidth": "Unlimited \u00b7 2 Gbit/s",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Daily backup",
+            "Free setup",
+            "1 IPv4 + IPv6 /64",
+            "Free control panel"
+          ],
+          "note": "Billed monthly \u00b7 Free setup"
+        }
+      ]
+    },
+    {
+      "slug": "cloud-vps",
+      "plans": [
+        {
+          "id": "vcloud-1",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=256",
+          "name": "vCloud 1",
+          "price": 11.99,
+          "cpu": "2 vCPUs",
+          "ram": "1 GB",
+          "storage": "40 GB SSD",
+          "bandwidth": "2 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a311.99 \u00b7 Windows \u00a318.99",
+            "Automatic snapshots",
+            "Dual-stack networking"
+          ]
+        },
+        {
+          "id": "vcloud-2",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=257",
+          "name": "vCloud 2",
+          "price": 16.99,
+          "badge": "Most popular",
+          "cpu": "2 vCPUs",
+          "ram": "2 GB",
+          "storage": "60 GB SSD",
+          "bandwidth": "3 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a316.99 \u00b7 Windows \u00a335.99",
+            "Automatic snapshots",
+            "Dual-stack networking"
+          ]
+        },
+        {
+          "id": "vcloud-3",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=258",
+          "name": "vCloud 3",
+          "price": 29.99,
+          "cpu": "2 vCPUs",
+          "ram": "4 GB",
+          "storage": "80 GB SSD",
+          "bandwidth": "4 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a329.99 \u00b7 Windows \u00a349.99",
+            "Automatic snapshots",
+            "Dual-stack networking"
+          ]
+        },
+        {
+          "id": "vcloud-4",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=259",
+          "name": "vCloud 4",
+          "price": 48.99,
+          "cpu": "2 vCPUs",
+          "ram": "8 GB",
+          "storage": "160 GB SSD",
+          "bandwidth": "5 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a348.99 \u00b7 Windows \u00a389.99",
+            "Automatic snapshots",
+            "Dual-stack networking"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lightsail-vps",
+      "plans": [
+        {
+          "id": "lightsail-1",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=256",
+          "name": "Lightsail 1 GB",
+          "price": 11.99,
+          "cpu": "2 vCPUs",
+          "ram": "1 GB",
+          "storage": "40 GB SSD",
+          "bandwidth": "2 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a311.99 \u00b7 Windows \u00a318.99",
+            "Automatic snapshots",
+            "Dual-stack IPv4 / IPv6"
+          ]
+        },
+        {
+          "id": "lightsail-2",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=257",
+          "name": "Lightsail 2 GB",
+          "price": 16.99,
+          "badge": "Most popular",
+          "cpu": "2 vCPUs",
+          "ram": "2 GB",
+          "storage": "60 GB SSD",
+          "bandwidth": "3 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a316.99 \u00b7 Windows \u00a335.99",
+            "Automatic snapshots",
+            "Dual-stack IPv4 / IPv6"
+          ]
+        },
+        {
+          "id": "lightsail-4",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=258",
+          "name": "Lightsail 4 GB",
+          "price": 29.99,
+          "cpu": "2 vCPUs",
+          "ram": "4 GB",
+          "storage": "80 GB SSD",
+          "bandwidth": "4 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a329.99 \u00b7 Windows \u00a349.99",
+            "Automatic snapshots",
+            "Dual-stack IPv4 / IPv6"
+          ]
+        },
+        {
+          "id": "lightsail-8",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=259",
+          "name": "Lightsail 8 GB",
+          "price": 48.99,
+          "cpu": "2 vCPUs",
+          "ram": "8 GB",
+          "storage": "160 GB SSD",
+          "bandwidth": "5 TB transfer",
+          "location": "Multiple data centres",
+          "ddos": "Anti-DDoS Pro",
+          "extras": [
+            "Linux \u00a348.99 \u00b7 Windows \u00a389.99",
+            "Automatic snapshots",
+            "Dual-stack IPv4 / IPv6"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dedicated-servers",
+      "plans": [
+        {
+          "id": "venus",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=179",
+          "name": "Venus",
+          "price": 38,
+          "cpu": "Intel i7-6700 \u00b7 4C/8T 3.4 GHz",
+          "ram": "32\u201364 GB",
+          "storage": "500 GB SSD \u2013 2 TB SSD/SATA",
+          "bandwidth": "Unlimited \u00b7 1 Gbit/s",
+          "location": "Europe or USA",
+          "ddos": "Ask sales",
+          "extras": [
+            "1 IPv4 included (8 max)",
+            "10 GB backup storage",
+            "Full root / admin access"
+          ]
+        },
+        {
+          "id": "mars",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=180",
+          "name": "Mars",
+          "price": 45,
+          "cpu": "Xeon E3-1270v6 \u00b7 4C/8T 3.8 GHz",
+          "ram": "32\u201364 GB",
+          "storage": "2\u00d7 512 GB SSD \u2013 2\u00d7 2 TB HDD",
+          "bandwidth": "Unlimited \u00b7 1 Gbit/s",
+          "location": "Europe or USA",
+          "ddos": "Ask sales",
+          "extras": [
+            "1 IPv4 included (4 max)",
+            "10 GB backup storage",
+            "Full root / admin access"
+          ]
+        },
+        {
+          "id": "uranus",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=182",
+          "name": "Uranus",
+          "price": 59,
+          "badge": "Most popular",
+          "cpu": "Intel E-2146G \u00b7 6C/12T 3.5 GHz",
+          "ram": "32 GB DDR4 ECC",
+          "storage": "2\u00d7 1 TB SSD \u2013 2\u00d7 4 TB HDD",
+          "bandwidth": "Unlimited \u00b7 1 Gbit/s",
+          "location": "Europe or USA",
+          "ddos": "Ask sales",
+          "extras": [
+            "1 IPv4 included (8 max)",
+            "10 GB backup storage",
+            "Full root / admin access"
+          ]
+        },
+        {
+          "id": "neptune",
+          "order": "https://my.digitalberg.com/cart.php?a=add&pid=183",
+          "name": "Neptune",
+          "price": 79,
+          "cpu": "Intel i7-9700 \u00b7 8C/8T 3.0 GHz",
+          "ram": "64 GB DDR4",
+          "storage": "2\u00d7 1 TB NVMe \u2013 2\u00d7 4 TB HDD",
+          "bandwidth": "Unlimited \u00b7 1 Gbit/s",
+          "location": "Europe or USA",
+          "ddos": "Ask sales",
+          "extras": [
+            "1 IPv4 included (8 max)",
+            "10 GB backup storage",
+            "Full root / admin access"
+          ]
+        }
+      ],
+      "table": {
+        "title": "More dedicated configurations",
+        "columns": [
+          "Server",
+          "CPU",
+          "Storage",
+          "RAM",
+          "Network",
+          "Price"
+        ],
+        "rows": [
+          {
+            "name": "Mercury",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=178",
+            "cpu": "Intel Core2Duo 1.6 GHz \u00b7 2C/2T",
+            "storage": "250 GB SATA",
+            "ram": "4 GB",
+            "network": "100 Mbit/s \u00b7 Unlimited",
+            "price": 16.99
+          },
+          {
+            "name": "Saturn",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=181",
+            "cpu": "Intel Core E-2286G \u00b7 6C/12T",
+            "storage": "2\u00d7 1 TB \u2013 2\u00d7 8 TB SSD \u00b7 RAID 1",
+            "ram": "64\u2013128 GB DDR4 ECC",
+            "network": "1 Gbit/s \u00b7 Unlimited",
+            "price": 99
+          },
+          {
+            "name": "Earth",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=162",
+            "cpu": "Xeon E5-2620v3 \u00b7 6 cores",
+            "storage": "2\u00d7 2 TB HDD or 2\u00d7 256 GB SSD \u00b7 RAID 1",
+            "ram": "32 GB",
+            "network": "1 Gbit/s \u00b7 Unlimited",
+            "price": 110
+          },
+          {
+            "name": "Moon",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=160",
+            "cpu": "Xeon E5-2620v3 \u00b7 6 cores",
+            "storage": "2\u00d7 4 TB HDD or 2\u00d7 512 GB SSD \u00b7 RAID 1",
+            "ram": "32 GB",
+            "network": "1 Gbit/s \u00b7 Unlimited",
+            "price": 130
+          },
+          {
+            "name": "Jupiter",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=161",
+            "cpu": "2\u00d7 Xeon E5-2620v3 \u00b7 12 cores",
+            "storage": "2\u00d7 2 TB HDD or 2\u00d7 256 GB SSD \u00b7 RAID 1",
+            "ram": "64 GB",
+            "network": "1 Gbit/s \u00b7 Unlimited",
+            "price": 209
+          },
+          {
+            "name": "Pluto",
+            "order": "https://my.digitalberg.com/cart.php?a=add&pid=164",
+            "cpu": "2\u00d7 Xeon E5-2620v3 \u00b7 12 cores",
+            "storage": "4\u00d7 4 TB HDD or 4\u00d7 512 GB SSD \u00b7 RAID 1",
+            "ram": "64 GB",
+            "network": "1 Gbit/s \u00b7 Unlimited",
+            "price": 249
+          }
+        ]
+      }
+    }
+  ]
+}

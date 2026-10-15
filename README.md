@@ -2,7 +2,7 @@
 
 A fast, static hosting website for RMDHost: technical black/white design with square edges and a terminal-green accent. The layout, page flow and motion follow the Hostinger.com style (dark glowing hero, promo grid, tabbed product scenes, expanding support cards, pricing cards, dotted world map, review masonry, FAQ and CTA band). All code, artwork and copy are original, and the site uses RMDHost branding only.
 
-- **31 pages**: home, 11 product pages, pricing, data centres, DDoS, network status, about, references, sustainability, FAQ, blog (+3 posts), knowledge base, tutorials, support, privacy, terms, cookie policy and 404.
+- **35 pages** (including three new policy routes): home, 11 product pages, pricing, data centres, DDoS, network status, about, references, sustainability, FAQ, blog (+3 posts), knowledge base, tutorials, support, privacy, terms, cookie policy and 404.
 - **No dependencies**: you only need Node 18 or newer. Nothing to `npm install`.
 - **SEO**: a unique title, description, canonical URL and H1 on every page, Open Graph tags, Organization/Product/FAQ/Breadcrumb/BlogPosting JSON-LD, plus `sitemap.xml` and `robots.txt`.
 - **Features**: light/dark mode, GBP/USD currency switch, mega menu, domain search, cookie consent (Accept all / Reject all / Manage preferences), a back-to-top button and a mobile layout.
@@ -77,7 +77,7 @@ Each plan box shows **CPU | RAM | Storage | Bandwidth | Location | DDoS | Price 
 
 - Prices are monthly and in **GBP**. USD is converted with the rate in `site.mjs` unless a plan sets `usd`.
 - `price: null` shows "Price coming soon" with a **Contact sales** button. The AI VPS, macOS VPS and macOS Dedicated pages use this until final prices are ready.
-- Plans without an `order` link go to `${clientArea}/cart.php?plan=<id>`.
+- Plans without an `order` link show **Coming Soon**. No fabricated checkout is generated.
 
 ## Before going live (other pages)
 
@@ -95,3 +95,15 @@ Each plan box shows **CPU | RAM | Storage | Bandwidth | Location | DDoS | Price 
 curl -sSLo land.json https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-50m.json
 node scripts/make-map.mjs land.json
 ```
+
+## Version 2 brief
+
+See [requirements mapping and release notes](docs/V2-implementation.md) for supplier verification, branch dependencies, currency handling and owner confirmations. [Media sources](docs/media-sources.md) identify artwork and the supplier preview.
+
+- `src/data/product-updates.json`: verified AI, Mac and game packages shared by pricing and product pages.
+- `src/data/infrastructure.json`: requested infrastructure claims and evidence status; unverified claims are held.
+- `src/pages/policies.mjs`: original policy drafts held from indexing until approved.
+- Static backend sync: set **WP_URL**, edit **RMDHost → Server plans**, and configure **RMDHost → Static build** with a hosting deploy hook.
+- `npm test`: plan preservation, checkout, currency, CMS fallback and SEO contract checks.
+
+Version 2 supersedes the initial placeholder-package and fallback-checkout descriptions in the earlier launch notes above.

@@ -17,8 +17,9 @@ while ( have_posts() ) :
 	}
 	rmdhost_singular_hero(
 		array(
+			'title'   => __( 'Powerful VPS & Dedicated Servers. Built for Performance.', 'rmdhost' ),
 			'eyebrow' => __( 'Plans and prices', 'rmdhost' ),
-			'lede'    => __( 'Monthly billing, no setup fees on VPS, DDoS protection on every server. Switch between GBP and USD at any time.', 'rmdhost' ),
+			'lede'    => __( 'Intel, AMD Ryzen™ and AMD EPYC options, with SSD or NVMe storage by plan. Compare flexible monthly packages and plan-specific DDoS protection, with 24/7 support.', 'rmdhost' ),
 		)
 	);
 	rmdhost_section( 'all-plans' );

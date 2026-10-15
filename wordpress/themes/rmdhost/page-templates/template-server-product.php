@@ -46,6 +46,9 @@ while ( have_posts() ) :
 		);
 	}
 	rmdhost_section( 'plans', array( 'group' => $rmdhost_slug ) );
+	if ( 'game-servers' === $rmdhost_slug ) {
+		get_template_part( 'template-parts/generated/game-sections' );
+	}
 	rmdhost_page_content();
 	rmdhost_section( 'use-tabs', array( 'group' => $rmdhost_slug ) );
 	rmdhost_section( 'features', array( 'group' => $rmdhost_slug ) );

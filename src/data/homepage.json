@@ -51,8 +51,8 @@
       "label": "Setup fee · Linux & SSD VPS"
     },
     {
-      "value": "1 Gbit/s",
-      "label": "Ports on dedicated servers"
+      "value": "10 Gbit/s",
+      "label": "Ports · selected dedicated servers"
     }
   ]
 }

@@ -23,6 +23,7 @@ define( 'RMDHOST_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RMDHOST_CORE_URL', plugin_dir_url( __FILE__ ) );
 
 require_once RMDHOST_CORE_DIR . 'includes/class-post-types.php';
+require_once RMDHOST_CORE_DIR . 'includes/class-catalogue.php';
 require_once RMDHOST_CORE_DIR . 'includes/class-render.php';
 require_once RMDHOST_CORE_DIR . 'includes/class-schema.php';
 require_once RMDHOST_CORE_DIR . 'includes/class-contact.php';
@@ -35,6 +36,7 @@ add_action(
 	static function () {
 		load_plugin_textdomain( 'rmdhost-core', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		RMDHost_Core\Post_Types::init();
+		RMDHost_Core\Catalogue::init();
 		RMDHost_Core\Render::init();
 		RMDHost_Core\Contact::init();
 		RMDHost_Core\Blocks::init();
@@ -51,3 +53,14 @@ register_activation_hook(
 	}
 );
 register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+
+add_filter(
+	'wp_robots',
+	static function ( $robots ) {
+		if ( is_singular() && get_post_meta( get_queried_object_id(), '_rmd_policy_draft', true ) ) {
+			$robots['noindex'] = true;
+			unset( $robots['index'] );
+		}
+		return $robots;
+	}
+);

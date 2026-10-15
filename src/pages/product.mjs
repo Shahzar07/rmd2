@@ -1,3 +1,4 @@
+import { gameSections } from '../lib/game-sections.mjs';
 import { products } from '../data/products.mjs';
 import { icon } from '../lib/icons.mjs';
 import {
@@ -20,7 +21,7 @@ function instantTable(p) {
     <span role="cell" data-l="Storage">${s.storage}</span>
     <span role="cell" data-l="Included">${s.network}<small>/64 IPv6 · DDoS protection</small></span>
     <span role="cell" data-l="Price" class="sprice">${money(s.price)}</span>
-    <span role="cell">${s.stock ? `<a class="btn btn-primary btn-sm" href="${orderUrl(s)}">Order now</a><small class="free">Free setup</small>` : '<span class="btn btn-sm btn-disabled" aria-disabled="true">Sold out</span>'}</span>
+    <span role="cell">${s.stock && orderUrl(s) ? `<a class="btn btn-primary btn-sm" href="${orderUrl(s)}">Order now</a><small class="free">Free setup</small>` : `<span class="btn btn-sm btn-disabled" aria-disabled="true">${s.stock ? 'Coming Soon' : 'Sold out'}</span>`}</span>
   </div>`).join('')}
 </div>`;
 }
@@ -38,7 +39,7 @@ function dedicatedTable(t) {
     <span role="cell" data-l="RAM">${r.ram}</span>
     <span role="cell" data-l="Network">${r.network}</span>
     <span role="cell" data-l="Price" class="sprice">${money(r.price)}</span>
-    <span role="cell"><a class="btn btn-outline btn-sm" href="${orderUrl({ id: r.name.toLowerCase(), name: r.name })}">Order now</a></span>
+    <span role="cell">${orderUrl(r) ? `<a class="btn btn-outline btn-sm" href="${orderUrl(r)}">Order now</a>` : '<span class="btn btn-sm btn-disabled" aria-disabled="true">Coming Soon</span>'}</span>
   </div>`).join('')}
 </div>`;
 }
@@ -79,7 +80,7 @@ const productPage = (p) => ({
   <div class="container hero-split">
     <div class="hero-copy">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${p.name}</span></nav>
-      <p class="eyebrow eyebrow-hero" data-reveal>${p.eyebrow}${p.from != null ? ` · from <b>${money(p.from)}</b>` : ''}${p.tag ? ` <em class="pill pill-xs pill-invert">${p.tag}</em>` : ''}</p>
+      <p class="eyebrow eyebrow-hero" data-reveal>${p.eyebrow}${p.from != null ? ` · from <b>${money(p.from, { usd: p.plans.find((pl) => pl.price === p.from)?.usd })}</b>` : ''}${p.tag ? ` <em class="pill pill-xs pill-invert">${p.tag}</em>` : ''}</p>
       <h1 class="h1" data-reveal>${p.h1}</h1>
       <p class="lead" data-reveal>${p.lede}</p>
       <div data-reveal>${checklist(p.checklist, 'checks-hero')}</div>
@@ -87,7 +88,7 @@ const productPage = (p) => ({
         <a class="btn btn-white btn-lg" href="#plans">${p.from != null ? 'Choose plan' : 'See specifications'}</a>
         ${p.from == null ? '<a class="btn btn-ghost-light btn-lg" href="/support/">Contact sales</a>' : ''}
       </div>
-      <p class="hero-note left" data-reveal>${icon('shield')} DDoS protection included · 24/7 expert support</p>
+      <p class="hero-note left" data-reveal>${icon('shield')} Plan-specific protection · 24/7 support</p>
     </div>
     <div class="hero-visual" data-reveal>${scenes[p.visual]()}</div>
   </div>
@@ -95,7 +96,7 @@ const productPage = (p) => ({
 
 <div class="subnav" data-subnav>
   <div class="container"><nav class="subnav-pill" aria-label="On this page">
-    <a href="#plans" class="on">Pricing</a><a href="#features">Features</a><a href="#os">OS &amp; apps</a><a href="#locations">Locations</a><a href="#faq">FAQ</a>
+    <a href="#plans" class="on">Pricing</a>${p.slug === 'game-servers' ? '<a href="#control-panel">Control panel</a><a href="#supported-games">Games</a>' : ''}<a href="#features">Features</a><a href="#os">OS &amp; apps</a><a href="#locations">Locations</a><a href="#faq">FAQ</a>
   </nav></div>
 </div>
 
@@ -106,9 +107,11 @@ const productPage = (p) => ({
     ${p.table ? dedicatedTable(p.table) : ''}
     ${everyPlan(p.everyPlan)}
     ${p.review ? `<p class="to-confirm"><em class="pill pill-xs">To confirm</em> ${p.review}</p>` : ''}
-    <p class="fine">Prices exclude VAT and are billed monthly. Toggle GBP / USD in the header.</p>
+    <p class="fine">Applicable taxes and final billing totals are shown at checkout. Toggle GBP / USD in the header.</p>
   </div>
 </section>
+
+${p.slug === 'game-servers' ? gameSections() : ''}
 
 ${useTabs(p)}
 
@@ -125,7 +128,7 @@ ${useTabs(p)}
 
 <section class="section pt-0" id="os">
   <div class="container">
-    ${sectionHead({ title: 'One-click deployment', text: 'Deploy popular operating systems, control panels and applications. Get up and running in minutes.' })}
+    ${sectionHead({ title: 'One-click deployment', text: p.slug === 'game-servers' ? 'Management tools and use cases depend on your selected game package.' : 'Choose operating systems, control panels and applications for your workload. Availability depends on the selected package.' })}
     <div class="tabs" data-tabs data-reveal>
       <div class="tablist" role="tablist">
         <span class="tab-ind" aria-hidden="true"></span>

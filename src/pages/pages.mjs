@@ -1,3 +1,7 @@
+import { protectionPage, protectionContent } from './protection.mjs';
+import { policyPages } from './policies.mjs';
+import { readFileSync } from 'node:fs';
+const infrastructure = JSON.parse(readFileSync(new URL('../data/infrastructure.json', import.meta.url), 'utf8'));
 import { site } from '../data/site.mjs';
 import { products } from '../data/products.mjs';
 import { homeFaqs, locations, posts, kb, tutorials, statusServices, references, reviews } from '../data/content.mjs';
@@ -19,7 +23,7 @@ const pricing = {
   description: 'Compare every RMDHost plan: Linux VPS from £8.99/mo, Windows VPS from £7.99/mo, SSD VPS, Cloud VPS, OwnCloud, dedicated and game servers.',
   schema: [bc('Pricing', '/pricing/')],
   body: () => `
-${pageHero({ eyebrow: 'Plans and prices', h1: 'Simple, transparent pricing', lede: 'Monthly billing, no setup fees on VPS, DDoS protection on every server. Switch between GBP and USD at any time.', crumbs: crumbs('Pricing', '/pricing/') })}
+${pageHero({ eyebrow: 'Plans and prices', h1: 'Powerful VPS & Dedicated Servers. Built for Performance.', lede: infrastructure.pricingIntro, crumbs: crumbs('Pricing', '/pricing/') })}
 <section class="section">
   <div class="container">
     <div class="tabs" data-tabs>
@@ -37,7 +41,7 @@ ${pageHero({ eyebrow: 'Plans and prices', h1: 'Simple, transparent pricing', led
       <div><h2 class="h3">Need instant bare metal in the USA?</h2><p class="muted">Pre-configured dedicated servers online in minutes from ${money(12.99)}.</p></div>
       <a class="btn btn-primary" href="/instant-dedicated-servers-usa/">View instant servers</a>
     </div>
-    <p class="fine">Prices exclude VAT and are billed monthly.</p>
+    <p class="fine">Applicable taxes and final billing totals are shown at checkout.</p>
   </div>
 </section>
 ${ctaBand()}`,
@@ -74,40 +78,6 @@ ${ctaBand({ title: 'Pick a location.<br>Deploy in seconds.' })}`,
 };
 
 // ───────────────────────────── DDoS
-const ddos = {
-  path: '/ddos-protection/',
-  title: 'DDoS Protection – Included on Every Server | RMDHost',
-  description: 'Always-on DDoS protection with edge filtering for every RMDHost VPS, dedicated and game server. Game-aware mitigation for UDP-based games.',
-  schema: [bc('DDoS protection', '/ddos-protection/'), faqSchema([
-    ['Is DDoS protection free?', 'Yes. Network-level DDoS protection is included with every VPS, dedicated and game server at no extra cost.'],
-    ['Does it add latency?', 'No. Filtering happens inline at the network edge and clean traffic is forwarded without measurable added latency.'],
-  ])],
-  body: () => `
-${pageHero({ eyebrow: 'Security', h1: 'DDoS protection that never sleeps', lede: 'Attacks are detected and filtered at the network edge, so only clean traffic reaches your server. Included on every plan.', visual: scenes.shield(), crumbs: crumbs('DDoS protection', '/ddos-protection/') })}
-<section class="section">
-  <div class="container">
-    ${sectionHead({ title: 'How it works' })}
-    <ol class="steps">
-      ${[['Detect', 'Traffic is analysed continuously for volumetric and protocol anomalies.'], ['Filter', 'Malicious packets are dropped at the edge before they reach your network port.'], ['Deliver', 'Clean traffic is forwarded to your server with no change to your setup.'], ['Report', 'Our team monitors every mitigation and contacts you if action is needed.']].map(([t, d], i) => `<li data-reveal><span class="step-n">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join('')}
-    </ol>
-  </div>
-</section>
-<section class="section section-soft">
-  <div class="container">
-    ${sectionHead({ title: 'Protection for every workload' })}
-    ${featureGrid([
-      { icon: 'server', title: 'VPS & Cloud', text: 'Always-on filtering for websites, APIs and applications.' },
-      { icon: 'rack', title: 'Dedicated servers', text: 'High-capacity mitigation for bare-metal workloads.' },
-      { icon: 'game', title: 'Anti-DDoS Game', text: 'Game-aware filtering for Minecraft, CS, ARMA, GTA, Team Fortress and TeamSpeak.' },
-      { icon: 'pulse', title: 'Layer 3/4 attacks', text: 'UDP, SYN and amplification floods filtered automatically.' },
-      { icon: 'clock', title: 'Instant reaction', text: 'Mitigation starts within seconds – no manual switching.' },
-      { icon: 'check', title: 'No extra cost', text: 'Included in every price you see on our site.' },
-    ])}
-  </div>
-</section>
-${ctaBand({ title: 'Stay online.<br>Whatever happens.' })}`,
-};
-
 // ───────────────────────────── Network status
 const status = {
   path: '/network-status/',
@@ -229,8 +199,8 @@ ${pageHero({ eyebrow: 'FAQ', h1: 'Questions? We’ve got answers', lede: 'Everyt
 <section class="section">
   <div class="container narrow">
     <h2 class="h3 faq-h">General</h2>
-    ${faqList(homeFaqs)}
-    ${products.map((p) => `<h2 class="h3 faq-h" id="faq-${p.slug}">${p.name}</h2>${faqList(p.faqs)}`).join('')}
+    ${faqList(homeFaqs, { prefix: 'general' })}
+    ${products.map((p) => `<h2 class="h3 faq-h" id="faq-${p.slug}">${p.name}</h2>${faqList(p.faqs, { prefix: p.slug })}`).join('')}
   </div>
 </section>
 ${ctaBand({ title: 'Still have questions?', text: 'Our engineers are available 24/7.', href: '/support/', cta: 'Contact support' })}`,
@@ -371,38 +341,6 @@ ${pageHero({ eyebrow: 'Support', h1: 'Talk to a real engineer, 24/7', lede: 'Our
 const legalHero = (h1, path) => pageHero({ eyebrow: 'Legal', h1, lede: `Last updated: 1 October 2026`, crumbs: crumbs(h1, path), small: true });
 const legalNote = '<p class="note">This document is a starting template. Have it reviewed by a qualified legal professional before publishing.</p>';
 
-const privacy = {
-  path: '/privacy-policy/',
-  title: 'Privacy Policy | RMDHost',
-  description: 'How RMDHost collects, uses and protects your personal data, and the rights you have under UK GDPR and EU GDPR.',
-  schema: [bc('Privacy policy', '/privacy-policy/')],
-  body: () => `${legalHero('Privacy policy', '/privacy-policy/')}${prose(`${legalNote}
-<h2>Who we are</h2><p>${site.name} (“we”, “us”) provides hosting services through ${site.domain}. We are the controller of personal data processed through this website and our client area. Contact: <a href="mailto:${site.email}">${site.email}</a>.</p>
-<h2>Data we collect</h2><ul><li>Account details: name, email address, postal address, phone number.</li><li>Billing details processed by our payment providers.</li><li>Technical data: IP address, browser type, log files.</li><li>Support communications.</li><li>Cookie data, according to your preferences.</li></ul>
-<h2>Why we use it</h2><p>To provide and bill for services (contract), to secure our network and prevent abuse (legitimate interests), to meet legal obligations such as tax records, and – only with your consent – for analytics and marketing.</p>
-<h2>Sharing</h2><p>We share data only with service providers who help us run our business (payment processors, data-centre operators, email providers) under appropriate contracts, or where required by law.</p>
-<h2>International transfers</h2><p>Where data is transferred outside the UK/EEA we use appropriate safeguards such as standard contractual clauses.</p>
-<h2>Retention</h2><p>We keep account and billing records for as long as required by law (typically six years) and delete other data when no longer needed.</p>
-<h2>Your rights</h2><p>You may request access, correction, deletion, restriction, portability or object to processing. You can withdraw consent at any time via <button type="button" class="linklike" data-cookie-manage>cookie settings</button>. You may complain to the ICO or your local supervisory authority.</p>`)}`,
-};
-
-const terms = {
-  path: '/terms-of-service/',
-  title: 'Terms of Service | RMDHost',
-  description: 'The terms and conditions that apply to RMDHost hosting services, billing, acceptable use and cancellations.',
-  schema: [bc('Terms of service', '/terms-of-service/')],
-  body: () => `${legalHero('Terms of service', '/terms-of-service/')}${prose(`${legalNote}
-<h2>1. Agreement</h2><p>By ordering a service from ${site.name} you agree to these terms and our Acceptable Use Policy.</p>
-<h2>2. Services</h2><p>We provide virtual and dedicated servers, storage and related services as described on our website at the time of order.</p>
-<h2>3. Billing</h2><p>Services are billed in advance on a monthly basis unless stated otherwise. Prices exclude VAT, which is added where applicable. Unpaid services may be suspended after the due date.</p>
-<h2>4. Acceptable use</h2><p>You must not use our services for illegal content, spam, malware, network attacks, or activities that harm our network or other customers. “Unlimited” bandwidth is subject to fair use.</p>
-<h2>5. Uptime & support</h2><p>We aim for 99.99% network availability. Planned maintenance is announced in advance. Support is available 24/7 via the client area.</p>
-<h2>6. Backups</h2><p>Unless a plan explicitly includes backups, you are responsible for backing up your data.</p>
-<h2>7. Cancellation & refunds</h2><p>You may cancel at any time from the client area; cancellation takes effect at the end of the billing period. Refund requests made within 7 days of a first order are reviewed individually.</p>
-<h2>8. Liability</h2><p>Our liability is limited to the fees paid for the affected service in the previous month, except where the law does not allow such limitation.</p>
-<h2>9. Governing law</h2><p>These terms are governed by the laws of England and Wales.</p>`)}`,
-};
-
 const cookies = {
   path: '/cookie-policy/',
   title: 'Cookie Policy | RMDHost',
@@ -430,4 +368,4 @@ const notFound = {
 ${pageHero({ eyebrow: 'Error 404', h1: 'This page went offline', lede: 'The page you’re looking for doesn’t exist or has moved.', actions: '<div class="hero-cta"><a class="btn btn-white btn-lg" href="/">Back to home</a></div>' })}`,
 };
 
-export default [pricing, dataCentres, ddos, status, about, refs, sustain, faqPage, blog, ...postPages, kbPage, tutPage, support, privacy, terms, cookies, notFound];
+export default [pricing, dataCentres, protectionPage, status, about, refs, sustain, faqPage, blog, ...postPages, kbPage, tutPage, support, ...policyPages, cookies, notFound];

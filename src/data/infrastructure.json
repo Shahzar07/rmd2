@@ -1,0 +1,12 @@
+{
+  "checkedOn": "2026-10-15",
+  "requestedStats": [
+    { "value": "40+", "label": "DATA CENTRES · OWNED & LEASED", "verified": false, "reason": "DigitalBerg lists six cities; no evidence of 40+ RMDHost facilities was found." },
+    { "value": "100%", "label": "NETWORK UPTIME SLA", "verified": false, "reason": "Supplier VPS uptime marketing is not a confirmed RMDHost network SLA or credit schedule." },
+    { "value": "30 Tbps+", "label": "DDOS PROTECTION CAPACITY", "verified": false, "reason": "Reference competitor capacity does not establish RMDHost or its suppliers' mitigation capacity." },
+    { "value": "10 Gbit/s", "label": "PORTS · SELECTED DEDICATED SERVERS", "verified": true, "source": "https://www.solidvps.com/macos-dedicated.php", "reason": "MacMini M4-03 only; M1 and existing dedicated packages have different ports." }
+  ],
+  "requestedPricingIntro": "Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.",
+  "pricingIntroVerified": false,
+  "pricingIntro": "Intel, AMD Ryzen™ and AMD EPYC options, with SSD or NVMe storage by plan. Compare flexible monthly packages and plan-specific DDoS protection, with 24/7 support."
+}

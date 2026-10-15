@@ -35,7 +35,13 @@ $rmdhost_l = array( __( 'Server', 'rmdhost' ), __( 'CPU', 'rmdhost' ), __( 'Stor
 			<span role="cell" data-l="<?php echo esc_attr( $rmdhost_l[3] ); ?>"><?php echo esc_html( $rmdhost_r['ram'] ); ?></span>
 			<span role="cell" data-l="<?php echo esc_attr( $rmdhost_l[4] ); ?>"><?php echo esc_html( $rmdhost_r['network'] ); ?></span>
 			<span role="cell" data-l="<?php echo esc_attr( $rmdhost_l[5] ); ?>" class="sprice"><?php echo rmdhost_money( $rmdhost_r['price'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-			<span role="cell"><a class="btn btn-outline btn-sm" href="<?php echo esc_url( $rmdhost_r['order'] ); ?>"><?php esc_html_e( 'Order now', 'rmdhost' ); ?></a></span>
+			<span role="cell">
+				<?php if ( $rmdhost_r['order'] ) : ?>
+					<a class="btn btn-outline btn-sm" href="<?php echo esc_url( $rmdhost_r['order'] ); ?>"><?php esc_html_e( 'Order now', 'rmdhost' ); ?></a>
+				<?php else : ?>
+					<span class="btn btn-sm btn-disabled" aria-disabled="true"><?php esc_html_e( 'Coming Soon', 'rmdhost' ); ?></span>
+				<?php endif; ?>
+			</span>
 		</div>
 	<?php endforeach; ?>
 </div>

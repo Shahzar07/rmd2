@@ -454,7 +454,7 @@ function rmdhost_section_base_defaults( $name ) {
 				'title' => '',
 				'text'  => '',
 				'every' => true,
-				'fine'  => __( 'Prices exclude VAT and are billed monthly. Toggle GBP / USD in the header.', 'rmdhost' ),
+				'fine'  => __( 'Applicable taxes and final billing totals are shown at checkout. Toggle GBP / USD in the header.', 'rmdhost' ),
 				'id'    => 'plans',
 			);
 
@@ -530,7 +530,7 @@ function rmdhost_section_base_defaults( $name ) {
 		case 'all-plans':
 			return array(
 				'callout' => true,
-				'fine'    => __( 'Prices exclude VAT and are billed monthly.', 'rmdhost' ),
+				'fine'    => __( 'Applicable taxes and final billing totals are shown at checkout.', 'rmdhost' ),
 			);
 		case 'kb':
 		case 'tutorials':

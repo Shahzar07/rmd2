@@ -59,7 +59,7 @@ export const nav = [
           { label: 'Cloud VPS', href: '/cloud-vps/', desc: 'OpenStack KVM with snapshots', icon: 'cloud' },
           { label: 'Lightsail VPS', href: '/lightsail-vps/', desc: 'Fixed-price cloud VPS bundles', icon: 'cloud', tag: 'New' },
           { label: 'AI VPS', href: '/ai-vps/', desc: 'Servers ready for AI workloads', icon: 'spark', tag: 'New' },
-          { label: 'macOS VPS', href: '/macos-vps/', desc: 'Virtual Macs for builds and testing', icon: 'apple', tag: 'Soon' },
+          { label: 'MacOS VPS', href: '/macos-vps/', desc: 'Virtual Macs for builds and testing', icon: 'apple', tag: 'Coming Soon' },
         ],
       },
       {
@@ -67,7 +67,7 @@ export const nav = [
         items: [
           { label: 'Dedicated Servers', href: '/dedicated-servers/', desc: 'Bare metal Intel Xeon & Core', icon: 'rack' },
           { label: 'Instant Dedicated USA', href: '/instant-dedicated-servers-usa/', desc: 'Online in minutes, not days', icon: 'rocket' },
-          { label: 'macOS Dedicated', href: '/macos-dedicated-servers/', desc: 'Dedicated Mac hardware', icon: 'apple', tag: 'Soon' },
+          { label: 'MacOS Dedicated', href: '/macos-dedicated-servers/', desc: 'Dedicated Mac hardware', icon: 'apple', tag: 'Coming Soon' },
           { label: 'Game Servers', href: '/game-servers/', desc: 'Anti-DDoS Game protection', icon: 'game' },
         ],
       },
@@ -159,7 +159,7 @@ export const footer = [
       ['Cloud VPS', '/cloud-vps/'],
       ['Lightsail VPS', '/lightsail-vps/'],
       ['AI VPS', '/ai-vps/'],
-      ['macOS VPS', '/macos-vps/'],
+      ['MacOS VPS', '/macos-vps/'],
       ['OwnCloud Storage', '/owncloud-storage/'],
     ],
   },
@@ -168,7 +168,7 @@ export const footer = [
     links: [
       ['Dedicated Servers', '/dedicated-servers/'],
       ['Instant Dedicated USA', '/instant-dedicated-servers-usa/'],
-      ['macOS Dedicated', '/macos-dedicated-servers/'],
+      ['MacOS Dedicated', '/macos-dedicated-servers/'],
       ['Game Servers', '/game-servers/'],
       ['Pricing', '/pricing/'],
     ],
@@ -191,6 +191,9 @@ export const footer = [
       ['Privacy policy', '/privacy-policy/'],
       ['Terms of service', '/terms-of-service/'],
       ['Cookie policy', '/cookie-policy/'],
+      ['Acceptable use', '/acceptable-use/'],
+      ['Fair use', '/fair-use/'],
+      ['Service level agreement', '/sla/'],
     ],
   },
   {

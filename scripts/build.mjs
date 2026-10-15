@@ -26,7 +26,7 @@ for (const page of pages) {
   const html = document({ ...page, body: page.body(ctx) });
   const file = page.file ? join(out, page.file) : join(out, page.path, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, html);
+  writeFileSync(file, html.replace(/[ \t]+$/gm, ''));
 }
 
 const today = new Date().toISOString().slice(0, 10);

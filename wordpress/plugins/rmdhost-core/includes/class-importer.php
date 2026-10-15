@@ -311,6 +311,20 @@ class Importer {
 				}
 			}
 		}
+		// Keep retired demo packages as drafts; never delete custom plans.
+		$current = array();
+		foreach ( $catalog['products'] as $product ) {
+			foreach ( $product['plans'] as $plan ) {
+				$current[] = 'plan:' . $product['slug'] . ':' . ( $plan['id'] ?? sanitize_title( $plan['name'] ) );
+			}
+		}
+		$demo_plans = get_posts( array( 'post_type' => 'rmd_plan', 'post_status' => 'publish', 'posts_per_page' => -1, 'meta_key' => '_rmd_demo' ) ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- demo import only.
+		foreach ( $demo_plans as $demo_plan ) {
+			$key = get_post_meta( $demo_plan->ID, '_rmd_demo', true );
+			if ( 0 === strpos( $key, 'plan:' ) && ! in_array( $key, $current, true ) ) {
+				wp_update_post( array( 'ID' => $demo_plan->ID, 'post_status' => 'draft' ) );
+			}
+		}
 		/* translators: %d: count. */
 		self::$log[] = sprintf( __( '%d server plans', 'rmdhost-core' ), $n );
 
@@ -496,16 +510,16 @@ class Importer {
 		$pages    = array(
 			'home'            => array( __( 'Home', 'rmdhost-core' ), '', '', array() ),
 			'blog'            => array( __( 'Blog', 'rmdhost-core' ), '', '', array( '_rmd_hero_title' => __( 'Guides, news and ideas', 'rmdhost-core' ) ) ),
-			'pricing'         => array( __( 'Pricing', 'rmdhost-core' ), $tpl( 'pricing' ), '', array( '_rmd_hero_title' => __( 'Simple, transparent pricing', 'rmdhost-core' ) ) ),
+			'pricing'         => array( __( 'Pricing', 'rmdhost-core' ), $tpl( 'pricing' ), '', array( '_rmd_hero_title' => __( 'Powerful VPS & Dedicated Servers. Built for Performance.', 'rmdhost-core' ) ) ),
 			'data-centres'    => array( __( 'Data centres', 'rmdhost-core' ), $tpl( 'data-centres' ), '', array( '_rmd_hero_title' => __( 'Data centres around the world', 'rmdhost-core' ) ) ),
 			'ddos-protection' => array(
 				__( 'DDoS protection', 'rmdhost-core' ),
-				$tpl( 'full-width' ),
-				$patterns['ddos'][1],
+				$tpl( 'ddos' ),
+				'',
 				array(
 					'_rmd_hero_eyebrow' => __( 'Security', 'rmdhost-core' ),
-					'_rmd_hero_title'   => __( 'DDoS protection that never sleeps', 'rmdhost-core' ),
-					'_rmd_hero_lede'    => __( 'Attacks are detected and filtered at the network edge, so only clean traffic reaches your server. Included on every plan.', 'rmdhost-core' ),
+					'_rmd_hero_title'   => __( 'DDoS protection. Clear coverage. Real support.', 'rmdhost-core' ),
+					'_rmd_hero_lede'    => __( 'Understand what protects your server, how mitigation works and which technical limits apply to your workload.', 'rmdhost-core' ),
 					'_rmd_hero_visual'  => 'shield',
 				),
 			),
@@ -543,7 +557,8 @@ class Importer {
 				"<!-- wp:html -->\n" . $l['html'] . "\n<!-- /wp:html -->",
 				array(
 					'_rmd_hero_eyebrow' => __( 'Legal', 'rmdhost-core' ),
-					'_rmd_hero_lede'    => __( 'Last updated: 1 October 2026', 'rmdhost-core' ),
+					'_rmd_hero_lede'    => __( 'Draft for review · Prepared 15 October 2026', 'rmdhost-core' ),
+					'_rmd_policy_draft' => ! empty( $l['draft'] ),
 				),
 			);
 		}
