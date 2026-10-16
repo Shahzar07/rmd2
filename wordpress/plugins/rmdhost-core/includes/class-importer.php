@@ -517,10 +517,21 @@ class Importer {
 				$tpl( 'ddos' ),
 				'',
 				array(
-					'_rmd_hero_eyebrow' => __( 'Security', 'rmdhost-core' ),
-					'_rmd_hero_title'   => __( 'DDoS protection. Clear coverage. Real support.', 'rmdhost-core' ),
-					'_rmd_hero_lede'    => __( 'Understand what protects your server, how mitigation works and which technical limits apply to your workload.', 'rmdhost-core' ),
+					'_rmd_hero_eyebrow' => __( 'Network security', 'rmdhost-core' ),
+					'_rmd_hero_title'   => __( 'DDoS protection with 30 Tbps+ of capacity', 'rmdhost-core' ),
+					'_rmd_hero_lede'    => __( 'Always-on, multi-layer filtering that absorbs volumetric, protocol and game-specific attacks before they reach your server. Included free on VPS plans.', 'rmdhost-core' ),
 					'_rmd_hero_visual'  => 'shield',
+				),
+			),
+			'edge-servers'    => array(
+				__( 'Edge servers', 'rmdhost-core' ),
+				$tpl( 'edge' ),
+				'',
+				array(
+					'_rmd_hero_eyebrow' => __( 'Edge servers', 'rmdhost-core' ),
+					'_rmd_hero_title'   => __( 'Edge servers that keep your origin hidden', 'rmdhost-core' ),
+					'_rmd_hero_lede'    => __( 'Put a protected edge server between the internet and your game or application server. Users connect to the edge, 30 Tbps+ DDoS filtering removes attacks, and only clean traffic reaches your origin.', 'rmdhost-core' ),
+					'_rmd_hero_visual'  => 'game',
 				),
 			),
 			'network-status'  => array( __( 'Network status', 'rmdhost-core' ), $tpl( 'network-status' ), '', array() ),
@@ -557,7 +568,7 @@ class Importer {
 				"<!-- wp:html -->\n" . $l['html'] . "\n<!-- /wp:html -->",
 				array(
 					'_rmd_hero_eyebrow' => __( 'Legal', 'rmdhost-core' ),
-					'_rmd_hero_lede'    => __( 'Draft for review · Prepared 15 October 2026', 'rmdhost-core' ),
+					'_rmd_hero_lede'    => ! empty( $l['lede'] ) ? $l['lede'] : __( 'Draft for review · Prepared 15 October 2026', 'rmdhost-core' ),
 					'_rmd_policy_draft' => ! empty( $l['draft'] ),
 				),
 			);

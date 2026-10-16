@@ -531,6 +531,24 @@ function rmdhost_currency_select( $id ) {
 }
 
 /**
+ * Anchor ID for a plan card ("plan-<id>"), e.g. for links from the game
+ * cards. Returns '' when the same plan was already rendered on this page,
+ * so IDs stay unique.
+ *
+ * @param string $id Plan ID.
+ * @return string
+ */
+function rmdhost_plan_anchor( $id ) {
+	static $seen = array();
+	$anchor = 'plan-' . sanitize_html_class( (string) $id );
+	if ( isset( $seen[ $anchor ] ) ) {
+		return '';
+	}
+	$seen[ $anchor ] = true;
+	return $anchor;
+}
+
+/**
  * Map projection helper.
  *
  * @param float $lon Longitude.
@@ -538,11 +556,47 @@ function rmdhost_currency_select( $id ) {
  * @return float[]
  */
 function rmdhost_lonlat( $lon, $lat ) {
-	$m = rmdhost_map_data();
+	// Equal Earth projection, same as src/lib/projection.mjs.
+	$m  = rmdhost_map_data();
+	$t  = asin( sqrt( 3 ) / 2 * sin( deg2rad( $lat ) ) );
+	$t2 = $t * $t;
+	$t6 = $t2 * $t2 * $t2;
+	$x  = ( 2 * sqrt( 3 ) * deg2rad( $lon ) * cos( $t ) ) / ( 3 * ( 9 * 0.003796 * $t6 * $t2 + 7 * 0.000893 * $t6 + 3 * -0.081106 * $t2 + 1.340264 ) );
+	$y  = $t * ( 1.340264 + -0.081106 * $t2 + $t6 * ( 0.000893 + 0.003796 * $t2 ) );
 	return array(
-		( ( $lon + 180 ) / 360 ) * $m['map']['w'],
-		( ( $m['map']['lat_top'] - $lat ) / ( $m['map']['lat_top'] - $m['map']['lat_bottom'] ) ) * $m['map']['h'],
+		$m['map']['w'] / 2 + $m['map']['k'] * $x,
+		$m['map']['y0'] - $m['map']['k'] * $y,
 	);
+}
+
+/**
+ * SVG polyline through lon/lat points (map units).
+ *
+ * @param array $pts Points as array( lon, lat ).
+ * @return string
+ */
+function rmdhost_map_polyline( $pts ) {
+	$d = '';
+	foreach ( array_values( $pts ) as $i => $p ) {
+		list( $x, $y ) = rmdhost_lonlat( $p[0], $p[1] );
+		$d            .= ( $i ? 'L' : 'M' ) . rmdhost_svg_num( $x ) . ' ' . rmdhost_svg_num( $y );
+	}
+	return $d;
+}
+
+/**
+ * Curved meridian from the top to the bottom of the map.
+ *
+ * @param float $lon Longitude.
+ * @return string
+ */
+function rmdhost_map_meridian( $lon ) {
+	$m   = rmdhost_map_data();
+	$pts = array();
+	for ( $i = 0; $i < 36; $i++ ) {
+		$pts[] = array( $lon, $m['map']['lat_top'] - ( ( $m['map']['lat_top'] - $m['map']['lat_bottom'] ) * $i ) / 35 );
+	}
+	return rmdhost_map_polyline( $pts );
 }
 
 /**
@@ -703,8 +757,10 @@ function rmdhost_maps( $locations ) {
 	$m                 = rmdhost_map_data();
 	$eu                = $m['europe'];
 	$locations         = array_values( $locations );
-	list( $ex1, $ey1 ) = rmdhost_lonlat( $eu['lon_min'], $eu['lat_max'] );
-	list( $ex2, $ey2 ) = rmdhost_lonlat( $eu['lon_max'], $eu['lat_min'] );
+	$ex1               = (float) $eu['x'];
+	$ey1               = (float) $eu['y'];
+	$ex2               = (float) $eu['x2'];
+	$ey2               = (float) $eu['y2'];
 	$land              = function ( $g, $d ) {
 		return sprintf( '<path class="land" transform="translate(%s %s) scale(%s)" d="%s"/>', esc_attr( $g['x'] ), esc_attr( $g['y'] ), esc_attr( $g['s'] ), esc_attr( $d ) );
 	};
@@ -746,18 +802,19 @@ function rmdhost_maps( $locations ) {
 
 	$grat = '';
 	for ( $lon = -150; $lon < 180; $lon += 30 ) {
-		$grat .= 'M' . rmdhost_svg_num( rmdhost_lonlat( $lon, 0 )[0] ) . ' 0V' . $m['map']['h'];
+		$grat .= rmdhost_map_meridian( $lon );
 	}
-	for ( $lat = -40; $lat <= 60; $lat += 20 ) {
-		$grat .= 'M0 ' . rmdhost_svg_num( rmdhost_lonlat( 0, $lat )[1] ) . 'H' . $m['map']['w'];
+	for ( $lat = -40; $lat <= 80; $lat += 20 ) {
+		$grat .= rmdhost_map_polyline( array( array( -180, $lat ), array( 180, $lat ) ) );
 	}
-	$eq = rmdhost_svg_num( rmdhost_lonlat( 0, 0 )[1] );
+	$edge = rmdhost_map_meridian( -180 ) . rmdhost_map_meridian( 180 );
+	$eq   = rmdhost_map_polyline( array( array( -180, 0 ), array( 180, 0 ) ) );
 
 	$world = sprintf(
-		'<svg class="worldmap" viewBox="0 0 %1$d %2$d" role="img" aria-label="%3$s"><defs><radialGradient id="mkGlow"><stop offset="0" stop-color="#3ddc84" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient></defs><path class="grat" d="%4$s"/><path class="equator" d="M0 %5$sH%1$d"/>%6$s<g class="eu-zone"><rect class="eu-box" x="%7$s" y="%8$s" width="%9$s" height="%10$s"/>%11$s</g><g class="links">%12$s</g>%13$s</svg>',
-		$m['map']['w'],
-		$m['map']['h'],
-		esc_attr__( 'World map showing data-centre locations', 'rmdhost' ),
+		'<svg class="worldmap" viewBox="0 0 %1$s %2$s" role="img" aria-label="%3$s"><defs><radialGradient id="mkGlow"><stop offset="0" stop-color="#3ddc84" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient></defs><path class="grat" d="%4$s"/><path class="grat grat-edge" d="%14$s"/><path class="equator" d="%5$s"/>%6$s<g class="eu-zone"><rect class="eu-box" x="%7$s" y="%8$s" width="%9$s" height="%10$s"/>%11$s</g><g class="links">%12$s</g>%13$s</svg>',
+		rmdhost_svg_num( $m['map']['w'] ),
+		rmdhost_svg_num( $m['map']['h'] ),
+		esc_attr__( 'Equal Earth world map showing core data-centre locations', 'rmdhost' ),
 		$grat,
 		$eq,
 		$land( $m['world_grid'], $m['world'] ),
@@ -768,7 +825,8 @@ function rmdhost_maps( $locations ) {
 		/* translators: %d: number of European data centres */
 		rmdhost_map_chip( sprintf( __( 'EUROPE · %d SITES', 'rmdhost' ), count( $eu_locs ) ), $ex1 - 1, $ey1 - 15, 'start', 13, false ),
 		rmdhost_map_link_paths( rmdhost_map_links( $locations ), $locations ),
-		$markers
+		$markers,
+		$edge
 	);
 	$europe = sprintf(
 		'<svg class="eumap" viewBox="%1$s %2$s %3$s %4$s" role="img" aria-label="%5$s">%6$s<g class="links">%7$s</g>%8$s</svg>',

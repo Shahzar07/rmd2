@@ -19,7 +19,7 @@ while ( have_posts() ) :
 		array(
 			'title'   => __( 'Powerful VPS & Dedicated Servers. Built for Performance.', 'rmdhost' ),
 			'eyebrow' => __( 'Plans and prices', 'rmdhost' ),
-			'lede'    => __( 'Intel, AMD Ryzen™ and AMD EPYC options, with SSD or NVMe storage by plan. Compare flexible monthly packages and plan-specific DDoS protection, with 24/7 support.', 'rmdhost' ),
+			'lede'    => __( 'Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.', 'rmdhost' ),
 		)
 	);
 	rmdhost_section( 'all-plans' );

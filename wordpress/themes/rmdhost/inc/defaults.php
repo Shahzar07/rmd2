@@ -193,7 +193,7 @@ function rmdhost_section_base_defaults( $name ) {
 						'scene' => 'shield',
 						'icon'  => 'shield',
 						'title' => __( 'Filtered at the edge.', 'rmdhost' ),
-						'text'  => __( 'Volumetric and protocol attacks are scrubbed upstream before they reach your port. Game servers add UDP-aware mitigation for Minecraft, CS and ARMA.', 'rmdhost' ),
+						'text'  => __( 'Volumetric and protocol attacks are scrubbed upstream by 30 Tbps+ of mitigation capacity before they reach your port. Game servers add UDP-aware filtering for Minecraft, Rust, ARK and Arma 3.', 'rmdhost' ),
 						'link'  => __( 'How DDoS protection works', 'rmdhost' ),
 						'url'   => '/ddos-protection/',
 					),
@@ -220,7 +220,7 @@ function rmdhost_section_base_defaults( $name ) {
 					array(
 						'icon'  => 'game',
 						'title' => __( 'Game servers', 'rmdhost' ),
-						'text'  => __( 'Anti-DDoS Game for Minecraft, CS2, ARMA and more.', 'rmdhost' ),
+						'text'  => __( 'Anti-DDoS game hosting for Minecraft, Rust, ARK, Arma 3 and more.', 'rmdhost' ),
 						'url'   => '/game-servers/',
 					),
 				),
@@ -336,7 +336,7 @@ function rmdhost_section_base_defaults( $name ) {
 				'groups' => array( 'vps', 'windows-vps', 'ssd-vps', 'dedicated-servers' ),
 				'labels' => array(),
 				'limit'  => 4,
-				'fine'   => __( 'Prices exclude VAT. All plans are billed monthly. Unlimited bandwidth is subject to our Acceptable Use Policy.', 'rmdhost' ),
+				'fine'   => __( 'Applicable taxes and final billing totals are shown at checkout. Unlimited bandwidth is subject to our Fair Use Policy.', 'rmdhost' ),
 				'id'     => 'pricing',
 				'soft'   => true,
 			);
@@ -367,8 +367,8 @@ function rmdhost_section_base_defaults( $name ) {
 		case 'locations':
 			return array(
 				'kicker'     => __( '// Global network', 'rmdhost' ),
-				'title'      => __( '6 data centres. UK, EU & US.', 'rmdhost' ),
-				'text'       => __( 'Deploy close to your users in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York. Every site is staffed 24/7 with CCTV, fob-controlled access, VESDA fire detection and N+1 diesel backup power.', 'rmdhost' ),
+				'title'      => __( '40+ data centres. Owned & leased.', 'rmdhost' ),
+				'text'       => __( 'Our network spans 40+ owned and leased data centres with 30 Tbps+ DDoS protection capacity and a 100% network uptime SLA. The map shows our core locations: Derby, Leeds, Amsterdam, Frankfurt, Riga, New York and Tampa.', 'rmdhost' ),
 				'button'     => __( 'Data-centre details', 'rmdhost' ),
 				'button_url' => '/data-centres/',
 				'stats'      => true,

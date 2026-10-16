@@ -240,11 +240,11 @@ class Blocks {
 						'features' => $features(
 							array(
 								array( 'bolt', __( 'NVMe & SSD everywhere', 'rmdhost-core' ), __( 'Enterprise drives delivering up to 640,000 IOPS.', 'rmdhost-core' ) ),
-								array( 'shield', __( 'Anti-DDoS Pro', 'rmdhost-core' ), __( 'Multi-layer filtering included on every plan.', 'rmdhost-core' ) ),
-								array( 'globe', __( 'Six locations', 'rmdhost-core' ), __( 'UK, EU and US data centres with LINX connectivity.', 'rmdhost-core' ) ),
+								array( 'shield', __( '30 Tbps+ DDoS protection', 'rmdhost-core' ), __( 'Multi-layer, always-on filtering included free on VPS plans.', 'rmdhost-core' ) ),
+								array( 'globe', __( '40+ data centres', 'rmdhost-core' ), __( 'Owned and leased facilities, with core sites in the UK, EU and US.', 'rmdhost-core' ) ),
 								array( 'headset', __( '24/7 engineers', 'rmdhost-core' ), __( 'Real people, real answers – no chatbots.', 'rmdhost-core' ) ),
 								array( 'backup', __( 'Backups included', 'rmdhost-core' ), __( 'Free backups on Windows VPS, snapshots on Linux.', 'rmdhost-core' ) ),
-								array( 'check', __( '99.99% uptime SLA', 'rmdhost-core' ), __( 'Redundant power, cooling and network paths.', 'rmdhost-core' ) ),
+								array( 'check', __( '100% network uptime SLA', 'rmdhost-core' ), __( 'Redundant power, cooling and network paths, backed by service credits.', 'rmdhost-core' ) ),
 							)
 						),
 					)

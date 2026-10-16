@@ -3,7 +3,7 @@
   "hero": {
     "eyebrow": "Cloud • VPS • Dedicated servers • AI",
     "headline": "High-performance VPS & dedicated servers",
-    "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
+    "text": "Root-access virtual servers and bare-metal machines across 40+ owned and leased data centres – SSD and NVMe storage, 30 Tbps+ DDoS protection, unmetered bandwidth options and engineers on call 24/7.",
     "offer": {
       "label": "Linux VPS from",
       "price": 8.99,
@@ -39,20 +39,20 @@
   },
   "stats": [
     {
-      "value": "6",
-      "label": "Data centres · UK, EU & US"
+      "value": "40+",
+      "label": "Data centres · owned & leased"
     },
     {
-      "value": "24/7",
-      "label": "In-house engineers"
+      "value": "100%",
+      "label": "Network uptime SLA"
     },
     {
-      "value": "£0",
-      "label": "Setup fee · Linux & SSD VPS"
+      "value": "30 Tbps+",
+      "label": "DDoS protection capacity"
     },
     {
       "value": "10 Gbit/s",
-      "label": "Ports · selected dedicated servers"
+      "label": "Ports on dedicated servers"
     }
   ]
 }

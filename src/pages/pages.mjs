@@ -1,8 +1,7 @@
 import { protectionPage, protectionContent } from './protection.mjs';
 import { policyPages } from './policies.mjs';
-import { readFileSync } from 'node:fs';
-const infrastructure = JSON.parse(readFileSync(new URL('../data/infrastructure.json', import.meta.url), 'utf8'));
-import { site } from '../data/site.mjs';
+import { edgePage } from './edge.mjs';
+import { site, infra } from '../data/site.mjs';
 import { products } from '../data/products.mjs';
 import { homeFaqs, locations, posts, kb, tutorials, statusServices, references, reviews } from '../data/content.mjs';
 import { icon } from '../lib/icons.mjs';
@@ -19,11 +18,11 @@ const prose = (html) => `<section class="section"><div class="container narrow p
 // ───────────────────────────── Pricing
 const pricing = {
   path: '/pricing/',
-  title: 'Pricing – VPS, Windows VPS & Dedicated Server Plans | RMDHost',
-  description: 'Compare every RMDHost plan: Linux VPS from £8.99/mo, Windows VPS from £7.99/mo, SSD VPS, Cloud VPS, OwnCloud, dedicated and game servers.',
+  title: 'Pricing – VPS & Dedicated Server Plans | RMDHost',
+  description: 'Compare VPS and dedicated server plans with Intel, AMD Ryzen and AMD EPYC processors, NVMe Gen4 SSD storage and free 30 Tbps+ DDoS protection. Monthly billing, no VPS setup fees.',
   schema: [bc('Pricing', '/pricing/')],
   body: () => `
-${pageHero({ eyebrow: 'Plans and prices', h1: 'Powerful VPS & Dedicated Servers. Built for Performance.', lede: infrastructure.pricingIntro, crumbs: crumbs('Pricing', '/pricing/') })}
+${pageHero({ eyebrow: 'Plans and prices', h1: 'Powerful VPS & Dedicated Servers. Built for Performance.', lede: infra.pricingIntro, crumbs: crumbs('Pricing', '/pricing/') })}
 <section class="section">
   <div class="container">
     <div class="tabs" data-tabs>
@@ -34,6 +33,7 @@ ${pageHero({ eyebrow: 'Plans and prices', h1: 'Powerful VPS & Dedicated Servers.
       ${products.filter((p) => p.plans.length).map((p, i) => `
       <div class="tabpanel" role="tabpanel" id="pp-${p.slug}" aria-labelledby="pt-${p.slug}" ${i ? 'hidden' : ''}>
         <div class="plans plans-${p.plans.length}">${p.plans.map((pl) => planCard(pl, { featured: !!pl.badge, product: p.name })).join('')}</div>
+        ${p.platformNote ? `<p class="fine">${p.platformNote}</p>` : ''}
         <p class="center mt"><a class="row-link inline" href="/${p.slug}/">${p.name} details${icon('arrowUpRight')}</a></p>
       </div>`).join('')}
     </div>
@@ -50,14 +50,14 @@ ${ctaBand()}`,
 // ───────────────────────────── Data centres
 const dataCentres = {
   path: '/data-centres/',
-  title: 'Data Centres & Server Locations – UK, EU & USA | RMDHost',
-  description: 'RMDHost data centres in Derby, Leeds, Amsterdam, Frankfurt, Riga and New York with Cisco 10 Gb/s fibre, LINX peering, N+1 power and 24/7 security.',
+  title: 'Data Centres & Server Locations – 40+ Facilities | RMDHost',
+  description: '40+ owned and leased data centres with core sites in Derby, Leeds, Amsterdam, Frankfurt, Riga, New York and Tampa. 30 Tbps+ DDoS protection and a 100% network uptime SLA.',
   schema: [bc('Data centres', '/data-centres/')],
   body: () => `
-${pageHero({ eyebrow: 'Global network', h1: 'Data centres around the world', lede: 'Deploy closer to your users. Six locations across the UK, Europe and North America with Cisco 10 Gb/s fibre and direct LINX connectivity.', crumbs: crumbs('Data centres', '/data-centres/') })}
+${pageHero({ eyebrow: 'Global network', h1: 'Data centres around the world', lede: `Deploy closer to your users. ${infra.dataCentres.value} owned and leased data centres, ${infra.ddosCapacity.value} of DDoS protection capacity and a ${infra.networkSla.value} network uptime SLA.`, crumbs: crumbs('Data centres', '/data-centres/') })}
 <section class="section">
   <div class="container">
-<figure class="page-photo" data-reveal>${img('datacentre-aisle', 'Server racks lining a data centre aisle', { sizes: '100vw' })}<figcaption>Six data centres. One network built for uptime.</figcaption></figure>
+<figure class="page-photo" data-reveal>${img('datacentre-aisle', 'Server racks lining a data centre aisle', { sizes: '100vw' })}<figcaption>${infra.dataCentres.value} data centres. One network built for uptime.</figcaption></figure>
     <div class="dark-panel dark">${locationsBlock()}</div>
   </div>
 </section>
@@ -69,9 +69,13 @@ ${pageHero({ eyebrow: 'Global network', h1: 'Data centres around the world', led
       { icon: 'bolt', title: 'Redundant power', text: 'Dual power feeds, N+1 UPS battery backup and diesel generators.' },
       { icon: 'leaf', title: 'Efficient cooling', text: 'N+1 climate control with under-floor air distribution.' },
       { icon: 'globe', title: 'Carrier-grade network', text: 'Cisco 10 Gb/s fibre backbone with multi-path connectivity and LINX peering.' },
-      { icon: 'shield', title: 'DDoS mitigation', text: 'Edge filtering protects every server in every location.' },
+      { icon: 'shield', title: 'DDoS mitigation', text: `${infra.ddosCapacity.value} of always-on filtering capacity protects servers in every location.` },
       { icon: 'headset', title: 'Remote hands', text: 'Engineers on site to replace hardware and assist 24/7.' },
     ])}
+    <div class="stats stats-plain" data-reveal>
+      ${[infra.dataCentres, infra.networkSla, infra.ddosCapacity, infra.dedicatedPorts].map((x) => `<div class="stat"><b>${x.value}</b><span>${x.label}</span></div>`).join('')}
+    </div>
+    <p class="center mt"><a class="row-link inline" href="/edge-servers/">Protect your origin with edge servers${icon('arrowUpRight')}</a></p>
   </div>
 </section>
 ${ctaBand({ title: 'Pick a location.<br>Deploy in seconds.' })}`,
@@ -131,11 +135,11 @@ ${pageHero({ eyebrow: 'About us', h1: 'Infrastructure built on trust and perform
     ${sectionHead({ title: 'Why teams choose RMDHost' })}
     ${featureGrid([
       { icon: 'bolt', title: 'NVMe & SSD everywhere', text: 'Enterprise drives delivering up to 640,000 IOPS.' },
-      { icon: 'shield', title: 'Anti-DDoS Pro', text: 'Multi-layer filtering included on every plan.' },
-      { icon: 'globe', title: 'Six locations', text: 'UK, EU and US data centres with LINX connectivity.' },
+      { icon: 'shield', title: `${infra.ddosCapacity.value} DDoS protection`, text: 'Multi-layer, always-on filtering included free on VPS plans.' },
+      { icon: 'globe', title: `${infra.dataCentres.value} data centres`, text: 'Owned and leased facilities, with core sites in the UK, EU and US.' },
       { icon: 'headset', title: '24/7 engineers', text: 'Real people, real answers – no chatbots.' },
       { icon: 'backup', title: 'Backups included', text: 'Free backups on Windows VPS, snapshots on Linux.' },
-      { icon: 'check', title: '99.99% uptime SLA', text: 'Redundant power, cooling and network paths.' },
+      { icon: 'check', title: `${infra.networkSla.value} network uptime SLA`, text: 'Redundant power, cooling and network paths, backed by service credits.' },
     ])}
   </div>
 </section>
@@ -368,4 +372,4 @@ const notFound = {
 ${pageHero({ eyebrow: 'Error 404', h1: 'This page went offline', lede: 'The page you’re looking for doesn’t exist or has moved.', actions: '<div class="hero-cta"><a class="btn btn-white btn-lg" href="/">Back to home</a></div>' })}`,
 };
 
-export default [pricing, dataCentres, protectionPage, status, about, refs, sustain, faqPage, blog, ...postPages, kbPage, tutPage, support, ...policyPages, cookies, notFound];
+export default [pricing, dataCentres, protectionPage, edgePage, status, about, refs, sustain, faqPage, blog, ...postPages, kbPage, tutPage, support, ...policyPages, cookies, notFound];

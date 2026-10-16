@@ -46,12 +46,22 @@ test('invalid backend data falls back without partly mutating the catalogue',()=
  const bad2={products:[{slug:'vps',plans:[{...bySlug.vps.plans[0],usd:'NaN'}]}]};
  assert.equal(mergeCatalogue(products,bad2),products);
 });
-test('new product pages have 3–5 FAQs and policy drafts are excluded from sitemap',()=>{
+test('new product pages have 3–5 FAQs; policy drafts are noindex and the SLA/AUP are published',()=>{
  for(const p of products) assert.ok(p.faqs.length>=3&&p.faqs.length<=5,p.slug);
  const sitemap=readFileSync('public/sitemap.xml','utf8');
- for(const slug of ['terms-of-service','privacy-policy','acceptable-use','fair-use','sla']){
+ for(const slug of ['terms-of-service','privacy-policy','fair-use']){
   assert.ok(!sitemap.includes(`/${slug}/`));assert.match(readFileSync(`public/${slug}/index.html`,'utf8'),/noindex/);
  }
+ for(const slug of ['acceptable-use','sla','edge-servers']){
+  const html=readFileSync(`public/${slug}/index.html`,'utf8');
+  assert.ok(sitemap.includes(`/${slug}/`),slug);assert.ok(!/noindex/.test(html),slug);assert.ok(!html.includes('Draft for'),slug);
+ }
+ const sla=readFileSync('public/sla/index.html','utf8');
+ assert.match(sla,/100% Network Uptime SLA/);assert.match(sla,/Service credit/);
+});
+test('Coming Soon products use Service schema; orderable products keep Product offers',()=>{
+ assert.equal(productSchema(bySlug['game-servers'])['@type'],'Service');
+ assert.equal(productSchema(bySlug.vps)['@type'],'Product');
 });
 
 test('configured WordPress endpoint is consumed by the real product module', async () => {

@@ -9,70 +9,83 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <section class="section"><div class="container">
+  <div class="stats stats-plain" data-reveal>
+    <div class="stat"><b>30 Tbps+</b><span>Mitigation capacity</span></div><div class="stat"><b>L3–L7</b><span>Attack layers covered</span></div><div class="stat"><b>24/7</b><span>Always-on detection and mitigation</span></div><div class="stat"><b>£0</b><span>Included free on VPS plans</span></div>
+  </div>
 
 <div class="s-head center " data-reveal>
-  <p class="eyebrow">Understand your protection</p>
-  <h2 class="h2">Filter the attack. Keep the service reachable.</h2>
-  <p class="lead">Network mitigation separates abusive traffic from legitimate connections. The exact filtering path and capacity depend on the service and upstream network.</p>
+  <p class="eyebrow">How it works</p>
+  <h2 class="h2">Detect. Divert. Scrub. Deliver.</h2>
+  <p class="lead">Every packet that reaches our network is analysed. When an attack starts, traffic for the targeted IP is routed through 30 Tbps+ of mitigation capacity, and only clean traffic continues to your server.</p>
 </div>
 <ol class="steps">
-<li data-reveal><span class="step-n">01</span><h3>Observe</h3><p class="muted">Traffic patterns, packet rates and protocol behaviour help identify unusual demand.</p></li><li data-reveal><span class="step-n">02</span><h3>Mitigate</h3><p class="muted">Upstream filters can drop attack traffic or apply protocol-specific rules.</p></li><li data-reveal><span class="step-n">03</span><h3>Forward</h3><p class="muted">Permitted traffic continues toward the server, subject to the service port and routing policy.</p></li><li data-reveal><span class="step-n">04</span><h3>Investigate</h3><p class="muted">Engineers review impact, routing and false positives when an incident is reported.</p></li>
+<li data-reveal><span class="step-n">01</span><h3>Detect</h3><p class="muted">Traffic patterns, packet rates and protocol behaviour are analysed continuously to spot an attack within moments of it starting.</p></li><li data-reveal><span class="step-n">02</span><h3>Divert</h3><p class="muted">Traffic for the targeted IP is routed through filtering infrastructure at the edge of the network, before it reaches your port.</p></li><li data-reveal><span class="step-n">03</span><h3>Scrub</h3><p class="muted">Layer 3/4 floods, amplification and malformed packets are dropped. Game and protocol-aware rules keep real sessions connected.</p></li><li data-reveal><span class="step-n">04</span><h3>Deliver</h3><p class="muted">Clean traffic is forwarded to your server. When the attack ends, routing returns to normal automatically.</p></li>
 </ol></div></section>
 <section class="section section-soft"><div class="container">
 
 <div class="s-head center " data-reveal>
 
-  <h2 class="h2">Network attacks and application security</h2>
-  <p class="lead">Different attacks need different controls. Confirm the protections available for your protocol before deploying.</p>
+  <h2 class="h2">Protection against every type of attack</h2>
+  <p class="lead">Volumetric, protocol and application attacks need different defences. Our network handles the first two automatically and helps you with the third.</p>
 </div>
 <div class="bento">
   <div class="bento-card wide" data-reveal data-spot>
 
     <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
     <h3>Volumetric floods</h3>
-    <p>High traffic volume can exhaust links. Upstream filtering capacity matters before traffic reaches your server port.</p>
+    <p>UDP floods, ICMP floods and amplification attacks (DNS, NTP, SSDP, CLDAP, Memcached) are absorbed by 30 Tbps+ of capacity before they can saturate your link.</p>
   </div>
   <div class="bento-card " data-reveal data-spot>
 
     <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span>
     <h3>Protocol attacks · Layer 3/4</h3>
-    <p>SYN, UDP and reflection floods target network or transport resources. Filtering rules depend on the network and service.</p>
+    <p>SYN, ACK and RST floods, fragmentation and state-exhaustion attacks are filtered before they reach your server.</p>
   </div>
   <div class="bento-card " data-reveal data-spot>
 
     <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10.5v4M5 12.5h4M15.5 11.5h.01M18 13.5h.01"/></svg></span>
-    <h3>Game traffic</h3>
-    <p>UDP game sessions need rules that distinguish legitimate packets from floods. Ask which games and query protocols are covered.</p>
+    <h3>Game server protection</h3>
+    <p>UDP-aware filtering for Minecraft, Rust, ARK, Arma 3 and other game servers, tuned to keep real players connected during an attack.</p>
   </div>
   <div class="bento-card " data-reveal data-spot>
 
     <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
     <h3>Application attacks · Layer 7</h3>
-    <p>HTTP floods and costly application requests may require a WAF, caching or application rate limits. A network DDoS plan alone does not establish this coverage.</p>
+    <p>HTTP/S floods can be reduced with rate limiting and filtering. Pair them with a WAF or CDN for login abuse and scraping.</p>
   </div>
   <div class="bento-card " data-reveal data-spot>
 
-    <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></span>
-    <h3>Host security</h3>
-    <p>Patch software, close unused ports, restrict administrative access and use strong credentials or SSH keys.</p>
+    <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+    <h3>Edge servers</h3>
+    <p>Hide your origin IP behind a protected edge server so attackers cannot bypass filtering by hitting your server directly.</p>
   </div>
   <div class="bento-card wide" data-reveal data-spot>
 
-    <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l3 2"/></svg></span>
-    <h3>Recovery planning</h3>
-    <p>Maintain independent backups and incident contacts. DDoS filtering does not recover deleted data or repair compromised software.</p>
+    <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></span>
+    <h3>Host security</h3>
+    <p>Patch software, close unused ports, use SSH keys and restrict admin access. Network protection and host security work together.</p>
   </div></div></div></section>
 <section class="section"><div class="container narrow prose">
-<h2>Technical details to confirm with your plan</h2>
-<table class="tbl"><thead><tr><th>Detail</th><th>What it means for your service</th></tr></thead><tbody>
-<tr><td>Mitigation capacity</td><td>Shared filtering capacity is different from your server port speed. There is no confirmed 30 Tbps RMDHost-wide specification.</td></tr>
-<tr><td>Activation</td><td>Confirm whether filtering is always on or starts after detection, and whether routing changes during an incident.</td></tr>
-<tr><td>Coverage</td><td>Confirm protected IPs, ports, protocols and any exclusions, especially for game queries and voice traffic.</td></tr>
-<tr><td>Limits and emergency action</td><td>Severe incidents may require traffic restrictions or temporary null routing. Ask for the policy applicable to your package.</td></tr>
-<tr><td>Availability commitments</td><td>Uptime targets, exclusions and service credits are defined by the service agreement. Protection is not a promise of zero downtime.</td></tr>
+<h2>Technical details</h2>
+<table class="tbl"><thead><tr><th>Feature</th><th>Details</th></tr></thead><tbody>
+<tr><td>Mitigation capacity</td><td>30 Tbps+ of network-wide filtering capacity. This is separate from your server port speed, which is listed on each plan.</td></tr>
+<tr><td>Activation</td><td>Always-on monitoring with automatic mitigation. No manual activation, DNS change or ticket is needed.</td></tr>
+<tr><td>Layer 3 / 4</td><td>UDP, ICMP, SYN, ACK, RST and fragmentation floods, plus reflection and amplification (DNS, NTP, SSDP, CLDAP, Memcached, Chargen).</td></tr>
+<tr><td>Game traffic</td><td>UDP-aware rules that separate real player sessions from floods, including query floods and malformed packets aimed at game ports.</td></tr>
+<tr><td>Layer 7</td><td>HTTP/S floods can be reduced with rate limiting and filtering on request. For login abuse, scraping and application bugs, use a WAF and application-level limits as well.</td></tr>
+<tr><td>Clean traffic</td><td>Legitimate traffic keeps flowing to your server during an attack, so your service stays reachable while the flood is filtered.</td></tr>
+<tr><td>Origin protection</td><td>Put an <a href="<?php echo esc_url( home_url( '/edge-servers/' ) ); ?>">edge server</a> in front of your origin to hide its IP address and filter traffic close to your users.</td></tr>
+<tr><td>Incident support</td><td>Engineers investigate attacks, false positives and routing 24/7. Send the service ID, affected IP and ports, and the start time with timezone.</td></tr>
 </tbody></table>
-<p>For workloads close to players or users, location and routing influence latency. Filtering capacity and physical proximity describe different aspects of the network.</p>
-<p>Read the <a href="<?php echo esc_url( home_url( '/sla/' ) ); ?>">Service Level Agreement</a>, <a href="<?php echo esc_url( home_url( '/acceptable-use/' ) ); ?>">Acceptable Use Policy</a> and <a href="<?php echo esc_url( home_url( '/fair-use/' ) ); ?>">Fair Use Policy</a>, or <a href="<?php echo esc_url( home_url( '/support/' ) ); ?>">ask support about your configuration</a>.</p>
+<h2>Protection by product</h2>
+<table class="tbl"><thead><tr><th>Product</th><th>Protection</th></tr></thead><tbody>
+<tr><td><a href="<?php echo esc_url( home_url( '/vps/' ) ); ?>">Linux VPS</a></td><td>DDoS protection included free</td></tr>
+<tr><td><a href="<?php echo esc_url( home_url( '/windows-vps/' ) ); ?>">Windows VPS</a>, <a href="<?php echo esc_url( home_url( '/ssd-vps/' ) ); ?>">SSD VPS</a>, <a href="<?php echo esc_url( home_url( '/cloud-vps/' ) ); ?>">Cloud VPS</a>, <a href="<?php echo esc_url( home_url( '/lightsail-vps/' ) ); ?>">Lightsail VPS</a></td><td>Anti-DDoS Pro included free</td></tr>
+<tr><td><a href="<?php echo esc_url( home_url( '/game-servers/' ) ); ?>">Game servers</a></td><td>Game-aware Anti-DDoS filtering included</td></tr>
+<tr><td><a href="<?php echo esc_url( home_url( '/dedicated-servers/' ) ); ?>">Dedicated servers</a></td><td>Protection options available. Ask sales for your configuration</td></tr>
+<tr><td><a href="<?php echo esc_url( home_url( '/edge-servers/' ) ); ?>">Edge servers</a></td><td>Filtering at the edge, with your origin IP hidden</td></tr>
+</tbody></table>
+<p>Your uptime commitment and service credits are set out in our <a href="<?php echo esc_url( home_url( '/sla/' ) ); ?>">Service Level Agreement</a>. Using our network to attack others is forbidden by the <a href="<?php echo esc_url( home_url( '/acceptable-use/' ) ); ?>">Acceptable Use Policy</a>. Under attack right now? <a href="<?php echo esc_url( home_url( '/support/' ) ); ?>">Open a ticket</a> and an engineer will help 24/7.</p>
 </div></section>
 
 <section class="section faq-sec section-soft">
@@ -92,24 +105,24 @@ defined( 'ABSPATH' ) || exit;
 <div class="faq">
 
   <div class="faq-item is-open" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="true" aria-controls="fa-faq-0-31"><span class="faq-n">01</span><span class="faq-t">Which plans include protection?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-    <div class="faq-a open" id="fa-faq-0-31"><div><p>Check the DDoS row on the selected package. Protection, network provider and filtering limits can differ by product and location.</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="true" aria-controls="fa-faq-0-24"><span class="faq-n">01</span><span class="faq-t">Is DDoS protection free?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+    <div class="faq-a open" id="fa-faq-0-24"><div><p>Yes. Protection from our 30 Tbps+ mitigation network is included free on VPS plans, and game servers include game-aware filtering. The DDoS row on each plan shows the protection it includes. Ask sales about options for dedicated servers.</p></div></div>
   </div>
   <div class="faq-item" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-1-45"><span class="faq-n">02</span><span class="faq-t">Does a protected server also need a firewall?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-    <div class="faq-a" id="fa-faq-1-45"><div><p>Yes. Network filtering does not replace patching, access controls, application rate limits or a host firewall.</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-1-34"><span class="faq-n">02</span><span class="faq-t">Do I need to switch protection on?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+    <div class="faq-a" id="fa-faq-1-34"><div><p>No. Traffic is monitored continuously and mitigation starts automatically when an attack is detected. You do not need to open a ticket or change DNS to activate it.</p></div></div>
   </div>
   <div class="faq-item" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-2-35"><span class="faq-n">03</span><span class="faq-t">Is 30 Tbps available on my service?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-    <div class="faq-a" id="fa-faq-2-35"><div><p>No RMDHost-wide capacity figure has been confirmed. Ask for the mitigation capacity and policy applicable to your exact package.</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-2-27"><span class="faq-n">03</span><span class="faq-t">Which attacks are filtered?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+    <div class="faq-a" id="fa-faq-2-27"><div><p>Volumetric floods (UDP, ICMP and amplification attacks such as DNS, NTP, SSDP, CLDAP and Memcached), protocol attacks (SYN, ACK and fragmentation floods) and game-specific floods against UDP game ports. For HTTP floods and other application-layer attacks, combine network protection with rate limiting or a WAF.</p></div></div>
   </div>
   <div class="faq-item" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-3-41"><span class="faq-n">04</span><span class="faq-t">Can mitigation affect legitimate players?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-    <div class="faq-a" id="fa-faq-3-41"><div><p>Filtering or emergency routing can affect sessions and latency. Share timestamps, affected ports and examples with support so false positives can be investigated.</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-3-28"><span class="faq-n">04</span><span class="faq-t">Does mitigation add latency?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+    <div class="faq-a" id="fa-faq-3-28"><div><p>Clean traffic is forwarded to your server after filtering, normally with little or no noticeable added latency. If you see packet loss or legitimate players being blocked, send us timestamps and affected ports so we can tune the filtering.</p></div></div>
   </div>
   <div class="faq-item" data-reveal>
-    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-4-44"><span class="faq-n">05</span><span class="faq-t">What should I send when reporting an attack?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-    <div class="faq-a" id="fa-faq-4-44"><div><p>Open a support ticket with your service ID, affected IP and ports, start time with timezone, symptoms and any safe packet or log samples. Never send passwords.</p></div></div>
+    <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa-faq-4-27"><span class="faq-n">05</span><span class="faq-t">Do I still need a firewall?</span><span class="faq-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
+    <div class="faq-a" id="fa-faq-4-27"><div><p>Yes. DDoS filtering stops floods before they reach your port. It does not replace patching, a host firewall, strong passwords or SSH keys, or application rate limits.</p></div></div>
   </div>
 </div>
   </div>

@@ -1,6 +1,12 @@
 // Global site settings. Edit this file to change company details, links,
 // currencies and navigation. Every page is rebuilt from it by `npm run build`.
 
+import { readFileSync } from 'node:fs';
+
+// Network claims (data centres, SLA, DDoS capacity, port speed): edit
+// infrastructure.json to change them on every page at once.
+export const infra = JSON.parse(readFileSync(new URL('./infrastructure.json', import.meta.url), 'utf8'));
+
 export const site = {
   name: 'RMDHost',
   domain: 'rmdhost.com',
@@ -39,8 +45,8 @@ export const site = {
   stats: [
     { value: 10, suffix: 'K+', label: 'Active clients' },
     { value: 15, suffix: '+', label: 'Years in hosting' },
-    { value: 99.99, suffix: '%', decimals: 2, label: 'Uptime SLA' },
-    { value: 6, suffix: '', label: 'Data centre locations' },
+    { value: 100, suffix: '%', label: 'Network uptime SLA' },
+    { value: 40, suffix: '+', label: 'Data centres · owned & leased' },
   ],
 };
 
@@ -58,7 +64,7 @@ export const nav = [
           { label: 'SSD VPS (OpenStack)', href: '/ssd-vps/', desc: 'NVMe VPS with free control panel', icon: 'bolt' },
           { label: 'Cloud VPS', href: '/cloud-vps/', desc: 'OpenStack KVM with snapshots', icon: 'cloud' },
           { label: 'Lightsail VPS', href: '/lightsail-vps/', desc: 'Fixed-price cloud VPS bundles', icon: 'cloud', tag: 'New' },
-          { label: 'AI VPS', href: '/ai-vps/', desc: 'Servers ready for AI workloads', icon: 'spark', tag: 'New' },
+          { label: 'AI VPS', href: '/ai-vps/', desc: 'Servers ready for AI workloads', icon: 'spark', tag: 'Coming Soon' },
           { label: 'MacOS VPS', href: '/macos-vps/', desc: 'Virtual Macs for builds and testing', icon: 'apple', tag: 'Coming Soon' },
         ],
       },
@@ -102,8 +108,9 @@ export const nav = [
       {
         title: 'Infrastructure',
         items: [
-          { label: 'Data centres', href: '/data-centres/', desc: 'Six locations across UK, EU & US', icon: 'globe' },
-          { label: 'DDoS protection', href: '/ddos-protection/', desc: 'Edge filtering on every plan', icon: 'shield' },
+          { label: 'Data centres', href: '/data-centres/', desc: '40+ owned & leased facilities', icon: 'globe' },
+          { label: 'DDoS protection', href: '/ddos-protection/', desc: '30 Tbps+ always-on filtering', icon: 'shield' },
+          { label: 'Edge servers', href: '/edge-servers/', desc: 'Protected entry points near players', icon: 'bolt' },
           { label: 'Network status', href: '/network-status/', desc: 'Live service health', icon: 'pulse' },
         ],
       },
@@ -111,8 +118,8 @@ export const nav = [
     promo: {
       visual: 'map',
       eyebrow: 'Infrastructure',
-      title: 'Six data centres across the UK, EU and US',
-      text: 'Deploy in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York – staffed 24/7 with CCTV, fob access and N+1 diesel backup power.',
+      title: '40+ data centres, owned & leased',
+      text: 'Deploy in core locations such as Derby, Leeds, Amsterdam, Frankfurt, Riga, New York and Tampa – with 30 Tbps+ DDoS protection and a 100% network uptime SLA.',
       href: '/data-centres/',
       cta: 'Explore data centres',
     },
@@ -178,6 +185,7 @@ export const footer = [
     links: [
       ['Data centres', '/data-centres/'],
       ['DDoS protection', '/ddos-protection/'],
+      ['Edge servers', '/edge-servers/'],
       ['Network status', '/network-status/'],
       ['Sustainability', '/sustainability/'],
     ],

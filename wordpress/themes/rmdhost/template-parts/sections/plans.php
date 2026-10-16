@@ -42,6 +42,9 @@ $rmdhost_text  = $rmdhost_a['text'] ? $rmdhost_a['text'] : ( $rmdhost_group['com
 		<?php if ( ! empty( $rmdhost_group['table']['rows'] ) ) : ?>
 			<?php get_template_part( 'template-parts/components/server-table', 'dedicated', array( 'table' => $rmdhost_group['table'] ) ); ?>
 		<?php endif; ?>
+		<?php if ( ! empty( $rmdhost_group['platformNote'] ) ) : ?>
+			<p class="fine"><?php echo esc_html( $rmdhost_group['platformNote'] ); ?></p>
+		<?php endif; ?>
 		<?php if ( $rmdhost_a['every'] && ! empty( $rmdhost_group['everyPlan'] ) ) : ?>
 			<div class="every" data-reveal>
 				<p class="every-title"><?php echo wp_kses( __( 'Every plan has <u>everything you need</u> and more', 'rmdhost' ), array( 'u' => array() ) ); ?></p>

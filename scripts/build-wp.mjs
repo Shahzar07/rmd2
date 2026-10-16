@@ -52,7 +52,7 @@ for (const kind of ['linux', 'windows', 'rack', 'storage']) {
 
 // 4. Map + media manifest ---------------------------------------------------------
 write(join(theme, 'inc/generated/map.php'),
-  `${HEAD}\nreturn array(\n\t'map'    => array( 'w' => ${MAP.w}, 'h' => ${MAP.h}, 'lat_top' => ${MAP.latTop}, 'lat_bottom' => ${MAP.latBottom} ),\n\t'europe' => array( 'lon_min' => ${EUROPE.lonMin}, 'lon_max' => ${EUROPE.lonMax}, 'lat_min' => ${EUROPE.latMin}, 'lat_max' => ${EUROPE.latMax} ),\n\t'world_grid' => array( 'x' => ${WORLD_GRID.x}, 'y' => ${WORLD_GRID.y}, 's' => ${WORLD_GRID.s} ),\n\t'eu_grid'    => array( 'x' => ${EUROPE_GRID.x}, 'y' => ${EUROPE_GRID.y}, 's' => ${EUROPE_GRID.s} ),\n\t'world'  => ${php(WORLD_PATH)},\n\t'eu'     => ${php(EUROPE_PATH)},\n);\n`);
+  `${HEAD}\nreturn array(\n\t'map'    => array( 'w' => ${MAP.w}, 'h' => ${MAP.h}, 'lat_top' => ${MAP.latTop}, 'lat_bottom' => ${MAP.latBottom}, 'k' => ${MAP.k}, 'y0' => ${MAP.y0} ),\n\t'europe' => array( 'lon_min' => ${EUROPE.lonMin}, 'lon_max' => ${EUROPE.lonMax}, 'lat_min' => ${EUROPE.latMin}, 'lat_max' => ${EUROPE.latMax}, 'x' => ${EUROPE.x}, 'y' => ${EUROPE.y}, 'x2' => ${EUROPE.x2}, 'y2' => ${EUROPE.y2} ),\n\t'world_grid' => array( 'x' => ${WORLD_GRID.x}, 'y' => ${WORLD_GRID.y}, 's' => ${WORLD_GRID.s} ),\n\t'eu_grid'    => array( 'x' => ${EUROPE_GRID.x}, 'y' => ${EUROPE_GRID.y}, 's' => ${EUROPE_GRID.s} ),\n\t'world'  => ${php(WORLD_PATH)},\n\t'eu'     => ${php(EUROPE_PATH)},\n);\n`);
 write(join(theme, 'inc/generated/media.php'),
   `${HEAD}\nreturn array(\n${Object.entries(MEDIA).map(([k, v]) => `\t${php(k)} => array( 'w' => ${v.w}, 'h' => ${v.h}, 'small' => ${v.small || 0} ),`).join('\n')}\n);\n`);
 
@@ -84,7 +84,7 @@ const { default: pages } = await import('../src/pages/pages.mjs');
 const legal = {};
 for (const pg of pages.filter((x) => ['/privacy-policy/', '/terms-of-service/', '/cookie-policy/', '/acceptable-use/', '/fair-use/', '/sla/'].includes(x.path))) {
   const m = pg.body().match(/<div class="container narrow prose">([\s\S]*?)<\/div><\/section>/);
-  legal[pg.path.replace(/\//g, '')] = { title: ((t) => t.charAt(0) + t.slice(1).toLowerCase())(pg.title.split(' | ')[0]), excerpt: pg.description, draft: !!pg.noindex, html: m ? m[1].trim() : '' };
+  legal[pg.path.replace(/\//g, '')] = { title: ((t) => t.charAt(0) + t.slice(1).toLowerCase())(pg.title.split(' | ')[0]), excerpt: pg.description, draft: !!pg.noindex, lede: pg.lede || '', html: m ? m[1].trim() : '' };
 }
 write(join(plugin, 'demo/legal.json'), JSON.stringify(legal, null, 1));
 
@@ -93,8 +93,10 @@ console.log(`WordPress theme synced: ${Object.keys(scenes).length + 4} scenes, $
 // Same game/policy/protection sections in both deliverables.
 const { gameSections } = await import('../src/lib/game-sections.mjs');
 const { protectionContent } = await import('../src/pages/protection.mjs');
+const { edgeContent } = await import('../src/pages/edge.mjs');
 const wpPaths = (html) => html.replace(/[ \t]+$/gm, '')
   .replace(/src="(\/assets\/[^" ]+)"/g, (_, path) => `src="<?php echo esc_url( get_theme_file_uri( ${php(path)} ) ); ?>"`)
   .replace(/href="(\/[^" ]*)"/g, (_, path) => `href="<?php echo esc_url( home_url( ${php(path)} ) ); ?>"`);
 write(join(theme, 'template-parts/generated/game-sections.php'), `${HEAD}?>\n${wpPaths(gameSections())}\n`);
 write(join(theme, 'template-parts/generated/protection-content.php'), `${HEAD}?>\n${wpPaths(protectionContent())}\n`);
+write(join(theme, 'template-parts/generated/edge-content.php'), `${HEAD}?>\n${wpPaths(edgeContent())}\n`);

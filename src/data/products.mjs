@@ -212,6 +212,9 @@ export const products = [
     checklist: ['2 vCPUs on every bundle', 'SSD storage + bundled transfer', 'Dual-stack IPv4 / IPv6', 'Linux or Windows'],
     from: 11.99,
     review: 'Lightsail VPS platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim a partnership or reseller status.',
+    // Shown under the plans on the product page and pricing tab, because these
+    // bundles share their specs and checkout with the Cloud VPS plans.
+    platformNote: 'Lightsail VPS bundles run on the same OpenStack KVM cloud platform as our Cloud VPS plans and use the same checkout: each bundle opens the matching Cloud VPS package in the client area.',
     disclaimer: 'Amazon Lightsail is a trademark of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon.',
     plans: [
       { id: 'lightsail-1', order: 'https://my.digitalberg.com/cart.php?a=add&pid=256', name: 'Lightsail 1 GB', price: 11.99, cpu: '2 vCPUs', ram: '1 GB', storage: '40 GB SSD', bandwidth: '2 TB transfer', location: 'Multiple data centres', ddos: 'Anti-DDoS Pro', extras: ['Linux £11.99 · Windows £18.99', 'Automatic snapshots', 'Dual-stack IPv4 / IPv6'] },

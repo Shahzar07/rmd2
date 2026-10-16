@@ -1,12 +1,16 @@
 {
-  "checkedOn": "2026-10-15",
-  "requestedStats": [
-    { "value": "40+", "label": "DATA CENTRES · OWNED & LEASED", "verified": false, "reason": "DigitalBerg lists six cities; no evidence of 40+ RMDHost facilities was found." },
-    { "value": "100%", "label": "NETWORK UPTIME SLA", "verified": false, "reason": "Supplier VPS uptime marketing is not a confirmed RMDHost network SLA or credit schedule." },
-    { "value": "30 Tbps+", "label": "DDOS PROTECTION CAPACITY", "verified": false, "reason": "Reference competitor capacity does not establish RMDHost or its suppliers' mitigation capacity." },
-    { "value": "10 Gbit/s", "label": "PORTS · SELECTED DEDICATED SERVERS", "verified": true, "source": "https://www.solidvps.com/macos-dedicated.php", "reason": "MacMini M4-03 only; M1 and existing dedicated packages have different ports." }
-  ],
-  "requestedPricingIntro": "Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.",
-  "pricingIntroVerified": false,
-  "pricingIntro": "Intel, AMD Ryzen™ and AMD EPYC options, with SSD or NVMe storage by plan. Compare flexible monthly packages and plan-specific DDoS protection, with 24/7 support."
+  "_help": "Network and infrastructure claims used across the site: data-centre map heading, stats rows, pricing banner, DDoS, Edge Servers and SLA pages. Change a figure here and rebuild to update it everywhere. The homepage hero stats are edited separately in homepage.json (or WordPress). RMDHost must hold evidence for every figure before publishing.",
+  "updatedOn": "2026-10-16",
+  "dataCentres": { "value": "40+", "label": "Data centres · owned & leased" },
+  "networkSla": { "value": "100%", "label": "Network uptime SLA" },
+  "ddosCapacity": { "value": "30 Tbps+", "label": "DDoS protection capacity" },
+  "dedicatedPorts": { "value": "10 Gbit/s", "label": "Ports on dedicated servers" },
+  "pricingIntro": "Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.",
+  "slaCredits": [
+    { "downtime": "Up to 15 minutes", "credit": "5%" },
+    { "downtime": "15 minutes to 1 hour", "credit": "10%" },
+    { "downtime": "1 to 4 hours", "credit": "25%" },
+    { "downtime": "4 to 12 hours", "credit": "50%" },
+    { "downtime": "More than 12 hours", "credit": "100%" }
+  ]
 }

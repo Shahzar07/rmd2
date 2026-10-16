@@ -29,7 +29,7 @@ const themeToggle = `
 // Small CSS visuals for the mega-menu promo panels.
 function promoVisual(kind) {
   if (kind === 'rack') return `<span class="mp-vis mp-rack" aria-hidden="true">${[0, 1, 2, 3].map((i) => `<i style="--d:${i * 0.3}s"><b></b><b></b></i>`).join('')}</span>`;
-  if (kind === 'map') return `<span class="mp-vis mp-map" aria-hidden="true">${[[22, 38], [23, 34], [32, 36], [40, 46], [58, 24], [-62, 58]].map(([x, y], i) => `<i style="left:${x < 0 ? 12 : 30 + x}%;top:${y}%;--d:${i * 0.3}s"></i>`).join('')}</span>`;
+  if (kind === 'map') return `<span class="mp-vis mp-map" aria-hidden="true">${[[52, 38], [53, 34], [62, 36], [70, 46], [88, 24], [12, 58], [9, 72]].map(([x, y], i) => `<i style="left:${x}%;top:${y}%;--d:${i * 0.3}s"></i>`).join('')}</span>`;
   if (kind === 'terminal') return `<span class="mp-vis mp-term" aria-hidden="true"><b>$ ssh root@srv-482</b><b>$ ufw allow 22/tcp</b><b class="g">Rules updated ✓</b></span>`;
   return '';
 }

@@ -36,6 +36,9 @@ $rmdhost_instant = RMDHost\Data::from_price( 'instant-dedicated-servers-usa' );
 						}
 						?>
 					</div>
+					<?php if ( ! empty( $rmdhost_t[0]['platformNote'] ) ) : ?>
+						<p class="fine"><?php echo esc_html( $rmdhost_t[0]['platformNote'] ); ?></p>
+					<?php endif; ?>
 					<p class="center mt"><a class="row-link inline" href="<?php echo esc_url( home_url( '/' . $rmdhost_t[0]['slug'] . '/' ) ); ?>"><?php /* translators: %s: product name */ echo esc_html( sprintf( __( '%s details', 'rmdhost' ), $rmdhost_t[0]['name'] ) ); ?><?php echo rmdhost_icon( 'arrowUpRight' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></p>
 				</div>
 			<?php endforeach; ?>

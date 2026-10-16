@@ -1297,7 +1297,10 @@ a.soft-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); b
 .game-card:first-child img { object-fit: contain; padding: 36px; background: #0c2016; image-rendering: pixelated; }
 .game-card > div { padding: 22px; }
 .game-card h3 { font-size: 20px; margin-bottom: 12px; }
-.game-card span { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+.game-card > div > span { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
+.game-card > div > span > span { display: inline; }
+.game-card .price { color: var(--fg); font-weight: 600; }
+.plan[id] { scroll-margin-top: 60px; } /* clears the sticky product sub-nav when a game card links to a plan */
 .game-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
 .game-benefits article { padding-top: 24px; border-top: 1px solid var(--line); }
 .game-benefits h3 { margin: 12px 0; }

@@ -251,9 +251,9 @@
 
   /* ───────── "tell us your project" recommender */
   var rules = [
-    [/minecraft|cs2|counter|arma|gta|fivem|rust|game|teamspeak|server for \d+ players/i, 'Game Servers', '/game-servers/', 'Anti-DDoS Game protection, high clock speeds and up to 256 GB ECC RAM keep your players online.'],
-    [/mac|ios|xcode|swift|iphone|ipad/i, 'macOS VPS', '/macos-vps/', 'A virtual Mac on Apple hardware for Xcode builds, CI runners and app testing.'],
-    [/\bai\b|llm|gpt|chatgpt|ollama|llama|agent|model|rag|n8n|automation/i, 'AI VPS', '/ai-vps/', 'High-memory NVMe servers with one-click Ollama, Open WebUI and n8n templates – private by default.'],
+    [/minecraft|cs2|counter|arma|gta|fivem|rust|game|teamspeak|server for \d+ players/i, 'Game Servers', '/game-servers/', 'Game-tuned packages for Minecraft, Rust, ARK and more, with Anti-DDoS protection and a control panel for console, files and mods.'],
+    [/mac|ios|xcode|swift|iphone|ipad/i, 'MacOS VPS', '/macos-vps/', 'A remote MacOS environment with 8–32 GB RAM and NVMe storage for Xcode builds and app testing.'],
+    [/\bai\b|llm|gpt|chatgpt|ollama|llama|agent|model|rag|n8n|automation/i, 'AI VPS', '/ai-vps/', 'Intel, AMD Ryzen and AMD EPYC plans for automation, local models and vector search – private by default.'],
     [/windows|rdp|remote desktop|metatrader|mt4|mt5|forex|trading|\.net|asp|mssql|iis/i, 'Windows VPS', '/windows-vps/', 'Ryzen + NVMe with Remote Desktop, free backups and a dedicated IP – ideal for trading platforms and Windows apps.'],
     [/storage|files|dropbox|owncloud|nextcloud|photos|backup/i, 'OwnCloud Storage', '/owncloud-storage/', 'Your own private cloud with end-to-end encryption and up to 1.6 TB of storage.'],
     [/database|postgres|mysql|saas|high traffic|enterprise|virtuali|proxmox|bare metal|dedicated|heavy/i, 'Dedicated Servers', '/dedicated-servers/', 'A whole Intel Xeon server with ECC RAM and RAID storage for demanding, high-traffic workloads.'],

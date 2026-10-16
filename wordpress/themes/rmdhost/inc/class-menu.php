@@ -136,8 +136,8 @@ class Menu {
 			$out .= '</span>';
 		} elseif ( 'map' === $kind ) {
 			$out = '<span class="mp-vis mp-map" aria-hidden="true">';
-			foreach ( array( array( 22, 38 ), array( 23, 34 ), array( 32, 36 ), array( 40, 46 ), array( 58, 24 ), array( -62, 58 ) ) as $i => $p ) {
-				$out .= '<i style="left:' . esc_attr( $p[0] < 0 ? 12 : 30 + $p[0] ) . '%;top:' . esc_attr( $p[1] ) . '%;--d:' . esc_attr( $i * 0.3 ) . 's"></i>';
+			foreach ( array( array( 52, 38 ), array( 53, 34 ), array( 62, 36 ), array( 70, 46 ), array( 88, 24 ), array( 12, 58 ), array( 9, 72 ) ) as $i => $p ) {
+				$out .= '<i style="left:' . esc_attr( $p[0] ) . '%;top:' . esc_attr( $p[1] ) . '%;--d:' . esc_attr( $i * 0.3 ) . 's"></i>';
 			}
 			$out .= '</span>';
 		} elseif ( 'terminal' === $kind ) {

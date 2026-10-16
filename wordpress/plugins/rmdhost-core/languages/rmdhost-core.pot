@@ -101,7 +101,7 @@ msgid "Multi-layer filtering included on every plan."
 msgstr ""
 
 #: includes/class-blocks.php:244
-msgid "Six locations"
+msgid "40+ data centres"
 msgstr ""
 
 #: includes/class-blocks.php:244
@@ -125,7 +125,7 @@ msgid "Free backups on Windows VPS, snapshots on Linux."
 msgstr ""
 
 #: includes/class-blocks.php:247
-msgid "99.99% uptime SLA"
+msgid "100% network uptime SLA"
 msgstr ""
 
 #: includes/class-blocks.php:247

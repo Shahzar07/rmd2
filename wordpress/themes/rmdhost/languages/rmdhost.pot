@@ -957,7 +957,7 @@ msgid "Game servers"
 msgstr ""
 
 #: inc/defaults.php:223
-msgid "Anti-DDoS Game for Minecraft, CS2, ARMA and more."
+msgid "Anti-DDoS game hosting for Minecraft, Rust, ARK, Arma 3 and more."
 msgstr ""
 
 #: inc/defaults.php:231
@@ -1151,7 +1151,7 @@ msgid "Monthly billing"
 msgstr ""
 
 #: inc/defaults.php:339
-msgid "Prices exclude VAT. All plans are billed monthly. Unlimited bandwidth is subject to our Acceptable Use Policy."
+msgid "Applicable taxes and final billing totals are shown at checkout. Unlimited bandwidth is subject to our Fair Use Policy."
 msgstr ""
 
 #: inc/defaults.php:346
@@ -1191,7 +1191,7 @@ msgid "// Global network"
 msgstr ""
 
 #: inc/defaults.php:370
-msgid "6 data centres. UK, EU & US."
+msgid "40+ data centres. Owned & leased."
 msgstr ""
 
 #: inc/defaults.php:371
@@ -1296,10 +1296,6 @@ msgstr ""
 msgid "Deploy a VPS in London"
 msgstr ""
 
-#: inc/defaults.php:456
-msgid "Prices exclude VAT and are billed monthly. Toggle GBP / USD in the header."
-msgstr ""
-
 #: inc/defaults.php:472
 msgid "One-click deployment"
 msgstr ""
@@ -1335,11 +1331,6 @@ msgstr ""
 #: inc/defaults.php:527
 #: template-parts/sections/contact.php:30
 msgid "Send us a message"
-msgstr ""
-
-#: inc/defaults.php:532
-#: template-parts/sections/all-plans.php:49
-msgid "Prices exclude VAT and are billed monthly."
 msgstr ""
 
 #: inc/template-tags.php:96
@@ -1458,7 +1449,7 @@ msgid "Global network"
 msgstr ""
 
 #: page-templates/template-data-centres.php:21
-msgid "Deploy closer to your users. Six locations across the UK, Europe and North America with Cisco 10 Gb/s fibre and direct LINX connectivity."
+msgid "Deploy closer to your users. 40+ owned and leased data centres, 30 Tbps+ of DDoS protection capacity and a 100% network uptime SLA."
 msgstr ""
 
 #: page-templates/template-data-centres.php:29
@@ -1466,7 +1457,7 @@ msgid "Server racks lining a data centre aisle"
 msgstr ""
 
 #: page-templates/template-data-centres.php:30
-msgid "Six data centres. One network built for uptime."
+msgid "40+ data centres. One network built for uptime."
 msgstr ""
 
 #: page-templates/template-data-centres.php:38

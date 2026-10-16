@@ -4,12 +4,15 @@
 //   curl -sSLo land.json https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-50m.json
 //   node scripts/make-map.mjs land.json
 //
-// Dots sit on a square grid. Each path is drawn in grid units (one unit = one
+// The land is drawn in the Equal Earth projection (src/lib/projection.mjs),
+// so continents keep their true proportions. Dots sit on a square grid in
+// projected map units. Each path is drawn in grid units (one unit = one
 // dot) inside a `translate(x y) scale(s)` group, and every horizontal run of
 // land becomes a single line rendered as dots with `stroke-dasharray: 0 1`.
 // That keeps the inline SVG small (~10 KB instead of ~100 KB of single dots).
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { project, invert, frame } from '../src/lib/projection.mjs';
 
 const [, , file] = process.argv;
 if (!file) throw new Error('usage: node scripts/make-map.mjs land-50m.json');
@@ -48,38 +51,50 @@ const onLand = (pt) => polygons.some(({ rings: [outer, ...holes], box }) =>
   pt[0] >= box[0] && pt[0] <= box[2] && pt[1] >= box[1] && pt[1] <= box[3]
   && inRing(pt, outer) && !holes.some((h) => inRing(pt, h)));
 
-export const MAP = { w: 1000, h: 377.7778, latTop: 80, latBottom: -56 };
-const px = (lon) => ((lon + 180) / 360) * MAP.w;
-const py = (lat) => ((MAP.latTop - lat) / (MAP.latTop - MAP.latBottom)) * MAP.h;
-// Latitude step that makes a grid cell square in map units.
-const ASPECT = (MAP.w / 360) / (MAP.h / (MAP.latTop - MAP.latBottom));
+// Equal Earth projection, cropped above Antarctica. Map units: x 0…w left to
+// right, y 0…h top to bottom.
+const LAT_TOP = 83.6, LAT_BOTTOM = -56;
+const W = 1000;
+const { k, y0, h } = frame(W, LAT_TOP, LAT_BOTTOM);
+export const MAP = { w: W, h: +h.toFixed(4), latTop: LAT_TOP, latBottom: LAT_BOTTOM, k: +k.toFixed(6), y0: +y0.toFixed(6) };
+const toMap = (lon, lat) => { const [x, y] = project(lon, lat); return [MAP.w / 2 + MAP.k * x, MAP.y0 - MAP.k * y]; };
+const toLonLat = (mx, my) => invert((mx - MAP.w / 2) / MAP.k, (MAP.y0 - my) / MAP.k);
 
-// Samples a lon/lat box and returns { x, y, s, d }: the group transform and
-// a path of dotted runs in grid units.
-function grid({ lonMin, lonMax, latMin, latMax, step }) {
-  const latStep = step * ASPECT;
-  const s = (step / 360) * MAP.w;
+// Samples a box in map units on a square grid of `s` units and returns
+// { x, y, s, d }: the group transform and a path of dotted runs in grid units.
+function grid({ x1, y1, x2, y2, s }) {
   const rows = [];
-  let cols = 0;
-  for (let r = 0, lat = latMax; lat >= latMin; r++, lat -= latStep) {
+  for (let r = 0, my = y1; my <= y2; r++, my += s) {
     let run = null, out = '';
     const flush = () => { if (run) out += `M${run[0]} ${r}h${run[1] - run[0]}`; run = null; };
-    let c = 0;
-    for (let lon = lonMin; lon <= lonMax; c++, lon += step) {
-      if (onLand([lon, lat])) { if (run && run[1] === c - 1) run[1] = c; else { flush(); run = [c, c]; } }
+    for (let c = 0, mx = x1; mx <= x2; c++, mx += s) {
+      const ll = toLonLat(mx, my);
+      if (ll && onLand(ll)) { if (run && run[1] === c - 1) run[1] = c; else { flush(); run = [c, c]; } }
     }
     flush();
-    cols = Math.max(cols, c);
     rows.push(out);
   }
-  return { x: +px(lonMin).toFixed(2), y: +py(latMax).toFixed(2), s: +s.toFixed(4), d: rows.join('') };
+  return { x: +x1.toFixed(2), y: +y1.toFixed(2), s, d: rows.join('') };
 }
 
-const world = grid({ lonMin: -180, lonMax: 180, latMin: MAP.latBottom, latMax: MAP.latTop, step: 1.5 });
+const world = grid({ x1: 0, y1: 0, x2: MAP.w, y2: MAP.h, s: 4.1667 });
 
-// Finer grid for the Europe zoom (same coordinate space as the world map).
-export const EUROPE = { lonMin: -11, lonMax: 31, latMin: 44, latMax: 61.5 };
-const europe = grid({ ...EUROPE, step: 0.42 });
+// Europe zoom: the map-unit bounding box of a lon/lat window, sampled on a
+// finer grid in the same coordinate space as the world map.
+const EU_LL = { lonMin: -11, lonMax: 31, latMin: 44, latMax: 61.5 };
+const edge = [];
+for (let i = 0; i <= 40; i++) {
+  const lon = EU_LL.lonMin + ((EU_LL.lonMax - EU_LL.lonMin) * i) / 40;
+  const lat = EU_LL.latMin + ((EU_LL.latMax - EU_LL.latMin) * i) / 40;
+  edge.push(toMap(lon, EU_LL.latMin), toMap(lon, EU_LL.latMax), toMap(EU_LL.lonMin, lat), toMap(EU_LL.lonMax, lat));
+}
+const r2 = (v) => +v.toFixed(2);
+export const EUROPE = {
+  ...EU_LL,
+  x: r2(Math.min(...edge.map((p) => p[0]))), y: r2(Math.min(...edge.map((p) => p[1]))),
+  x2: r2(Math.max(...edge.map((p) => p[0]))), y2: r2(Math.max(...edge.map((p) => p[1]))),
+};
+const europe = grid({ x1: EUROPE.x, y1: EUROPE.y, x2: EUROPE.x2, y2: EUROPE.y2, s: 1.1667 });
 
 writeFileSync(
   new URL('../src/data/world-dots.mjs', import.meta.url),

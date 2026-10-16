@@ -1,36 +1,46 @@
 {
  "infrastructure": {
-  "checkedOn": "2026-10-15",
-  "requestedStats": [
+  "_help": "Network and infrastructure claims used across the site: data-centre map heading, stats rows, pricing banner, DDoS, Edge Servers and SLA pages. Change a figure here and rebuild to update it everywhere. The homepage hero stats are edited separately in homepage.json (or WordPress). RMDHost must hold evidence for every figure before publishing.",
+  "updatedOn": "2026-10-16",
+  "dataCentres": {
+   "value": "40+",
+   "label": "Data centres · owned & leased"
+  },
+  "networkSla": {
+   "value": "100%",
+   "label": "Network uptime SLA"
+  },
+  "ddosCapacity": {
+   "value": "30 Tbps+",
+   "label": "DDoS protection capacity"
+  },
+  "dedicatedPorts": {
+   "value": "10 Gbit/s",
+   "label": "Ports on dedicated servers"
+  },
+  "pricingIntro": "Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.",
+  "slaCredits": [
    {
-    "value": "40+",
-    "label": "DATA CENTRES · OWNED & LEASED",
-    "verified": false,
-    "reason": "DigitalBerg lists six cities; no evidence of 40+ RMDHost facilities was found."
+    "downtime": "Up to 15 minutes",
+    "credit": "5%"
    },
    {
-    "value": "100%",
-    "label": "NETWORK UPTIME SLA",
-    "verified": false,
-    "reason": "Supplier VPS uptime marketing is not a confirmed RMDHost network SLA or credit schedule."
+    "downtime": "15 minutes to 1 hour",
+    "credit": "10%"
    },
    {
-    "value": "30 Tbps+",
-    "label": "DDOS PROTECTION CAPACITY",
-    "verified": false,
-    "reason": "Reference competitor capacity does not establish RMDHost or its suppliers' mitigation capacity."
+    "downtime": "1 to 4 hours",
+    "credit": "25%"
    },
    {
-    "value": "10 Gbit/s",
-    "label": "PORTS · SELECTED DEDICATED SERVERS",
-    "verified": true,
-    "source": "https://www.solidvps.com/macos-dedicated.php",
-    "reason": "MacMini M4-03 only; M1 and existing dedicated packages have different ports."
+    "downtime": "4 to 12 hours",
+    "credit": "50%"
+   },
+   {
+    "downtime": "More than 12 hours",
+    "credit": "100%"
    }
-  ],
-  "requestedPricingIntro": "Intel, AMD Ryzen™ and AMD EPYC processors, NVMe Gen4 SSD storage, and free 30 Tbps+ DDoS protection. Flexible monthly billing, no VPS setup fees, and 24/7 support.",
-  "pricingIntroVerified": false,
-  "pricingIntro": "Intel, AMD Ryzen™ and AMD EPYC options, with SSD or NVMe storage by plan. Compare flexible monthly packages and plan-specific DDoS protection, with 24/7 support."
+  ]
  },
  "version": 1,
  "site": {
@@ -76,15 +86,14 @@
     "label": "Years in hosting"
    },
    {
-    "value": 99.99,
+    "value": 100,
     "suffix": "%",
-    "decimals": 2,
-    "label": "Uptime SLA"
+    "label": "Network uptime SLA"
    },
    {
-    "value": 6,
-    "suffix": "",
-    "label": "Data centre locations"
+    "value": 40,
+    "suffix": "+",
+    "label": "Data centres · owned & leased"
    }
   ]
  },
@@ -92,7 +101,7 @@
   "hero": {
    "eyebrow": "Cloud • VPS • Dedicated servers • AI",
    "headline": "High-performance VPS & dedicated servers",
-   "text": "Root-access virtual servers and bare-metal machines in six UK, EU and US data centres – SSD and NVMe storage, unmetered bandwidth options and engineers on call 24/7.",
+   "text": "Root-access virtual servers and bare-metal machines across 40+ owned and leased data centres – SSD and NVMe storage, 30 Tbps+ DDoS protection, unmetered bandwidth options and engineers on call 24/7.",
    "offer": {
     "label": "Linux VPS from",
     "price": 8.99,
@@ -128,20 +137,20 @@
   },
   "stats": [
    {
-    "value": "6",
-    "label": "Data centres · UK, EU & US"
+    "value": "40+",
+    "label": "Data centres · owned & leased"
    },
    {
-    "value": "24/7",
-    "label": "In-house engineers"
+    "value": "100%",
+    "label": "Network uptime SLA"
    },
    {
-    "value": "£0",
-    "label": "Setup fee · Linux & SSD VPS"
+    "value": "30 Tbps+",
+    "label": "DDoS protection capacity"
    },
    {
     "value": "10 Gbit/s",
-    "label": "Ports · selected dedicated servers"
+    "label": "Ports on dedicated servers"
    }
   ]
  },
@@ -192,7 +201,7 @@
        "href": "/ai-vps/",
        "desc": "Servers ready for AI workloads",
        "icon": "spark",
-       "tag": "New"
+       "tag": "Coming Soon"
       },
       {
        "label": "MacOS VPS",
@@ -286,14 +295,20 @@
       {
        "label": "Data centres",
        "href": "/data-centres/",
-       "desc": "Six locations across UK, EU & US",
+       "desc": "40+ owned & leased facilities",
        "icon": "globe"
       },
       {
        "label": "DDoS protection",
        "href": "/ddos-protection/",
-       "desc": "Edge filtering on every plan",
+       "desc": "30 Tbps+ always-on filtering",
        "icon": "shield"
+      },
+      {
+       "label": "Edge servers",
+       "href": "/edge-servers/",
+       "desc": "Protected entry points near players",
+       "icon": "bolt"
       },
       {
        "label": "Network status",
@@ -307,8 +322,8 @@
    "promo": {
     "visual": "map",
     "eyebrow": "Infrastructure",
-    "title": "Six data centres across the UK, EU and US",
-    "text": "Deploy in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York – staffed 24/7 with CCTV, fob access and N+1 diesel backup power.",
+    "title": "40+ data centres, owned & leased",
+    "text": "Deploy in core locations such as Derby, Leeds, Amsterdam, Frankfurt, Riga, New York and Tampa – with 30 Tbps+ DDoS protection and a 100% network uptime SLA.",
     "href": "/data-centres/",
     "cta": "Explore data centres"
    }
@@ -450,6 +465,10 @@
     {
      "label": "DDoS protection",
      "href": "/ddos-protection/"
+    },
+    {
+     "label": "Edge servers",
+     "href": "/edge-servers/"
     },
     {
      "label": "Network status",
@@ -1269,6 +1288,7 @@
    ],
    "from": 11.99,
    "review": "Lightsail VPS platform, availability and fulfilment details are placeholders awaiting confirmation. RMDHost does not claim a partnership or reseller status.",
+   "platformNote": "Lightsail VPS bundles run on the same OpenStack KVM cloud platform as our Cloud VPS plans and use the same checkout: each bundle opens the matching Cloud VPS package in the client area.",
    "disclaimer": "Amazon Lightsail is a trademark of Amazon.com, Inc. or its affiliates. RMDHost is an independent hosting provider and is not affiliated with, endorsed or sponsored by Amazon.",
    "plans": [
     {
@@ -1657,7 +1677,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "intel-ai-chat",
@@ -1675,7 +1695,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "intel-ai-workspace",
@@ -1693,7 +1713,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price",
+     "note": "GBP estimate · USD list price",
      "badge": "Recommended"
     },
     {
@@ -1712,7 +1732,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "ryzen-ai-developer",
@@ -1730,7 +1750,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "ryzen-ai-inference",
@@ -1748,7 +1768,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "ryzen-ai-inference-plus",
@@ -1766,7 +1786,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price",
+     "note": "GBP estimate · USD list price",
      "badge": "Recommended"
     },
     {
@@ -1785,7 +1805,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "epyc-ai-production",
@@ -1803,7 +1823,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "epyc-ai-team",
@@ -1821,7 +1841,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "epyc-ai-business",
@@ -1839,7 +1859,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price",
+     "note": "GBP estimate · USD list price",
      "badge": "Recommended"
     },
     {
@@ -1858,7 +1878,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "epyc-ai-enterprise-max",
@@ -1876,7 +1896,7 @@
       "Third-party AI API fees billed separately",
       "IPv4 only"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     }
    ],
    "tabs": [
@@ -1973,7 +1993,7 @@
     ],
     [
      "Is IPv6 included?",
-     "The referenced AI packages currently provide IPv4 only."
+     "AI VPS packages currently include IPv4 only."
     ],
     [
      "When can I order?",
@@ -2016,7 +2036,7 @@
      "extras": [
       "Free backup"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "mac-vps-x16",
@@ -2032,7 +2052,7 @@
      "extras": [
       "Free backup"
      ],
-     "note": "GBP estimate · USD supplier price",
+     "note": "GBP estimate · USD list price",
      "badge": "Popular"
     },
     {
@@ -2049,7 +2069,7 @@
      "extras": [
       "Free backup"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     }
    ],
    "everyPlan": [
@@ -2076,7 +2096,7 @@
     {
      "icon": "backup",
      "title": "Backup included",
-     "text": "Free backup is listed by the supplier. Confirm retention and recovery details before ordering."
+     "text": "Free backup is included with every package. Ask sales about retention and recovery."
     }
    ],
    "useCases": [
@@ -2109,7 +2129,7 @@
     ],
     [
      "Are backups included?",
-     "The source lists free backup. Confirm schedule, retention and restore access with sales."
+     "Yes, free backup is included. Ask sales about the backup schedule, retention and how to restore."
     ],
     [
      "When can I order?",
@@ -2661,9 +2681,9 @@
       "8-core GPU · 16-core Neural Engine",
       "1 dedicated IPv4",
       "Full admin access",
-      "Supplier delivery estimate: 24 hours"
+      "Typical delivery: 24 hours"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "macmini-m1-02",
@@ -2680,9 +2700,9 @@
       "8-core GPU · 16-core Neural Engine",
       "1 dedicated IPv4",
       "Full admin access",
-      "Supplier delivery estimate: 24 hours"
+      "Typical delivery: 24 hours"
      ],
-     "note": "GBP estimate · USD supplier price",
+     "note": "GBP estimate · USD list price",
      "badge": "Best value"
     },
     {
@@ -2700,9 +2720,9 @@
       "10-core GPU · 16-core Neural Engine",
       "1 dedicated IPv4",
       "Full admin access",
-      "Supplier delivery estimate: 24 hours"
+      "Typical delivery: 24 hours"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     }
    ],
    "everyPlan": [
@@ -2759,7 +2779,7 @@
     ],
     [
      "Where are these servers hosted?",
-     "The supplier lists Tampa, Florida, for these packages."
+     "These Mac mini packages are hosted in Tampa, Florida."
     ],
     [
      "Does every Mac have a 10 Gbit/s port?",
@@ -2784,7 +2804,7 @@
    "lede": "Compare game-specific packages for survival worlds, sandbox communities and multiplayer sessions. Choose resources for your game, mods and player count.",
    "checklist": [
     "Game-specific CPU & RAM",
-    "Anti-DDoS listed on packages",
+    "Anti-DDoS on every package",
     "Monthly billing",
     "Choose a location near your players"
    ],
@@ -2804,7 +2824,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "minecraft-diamond",
@@ -2820,7 +2840,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "minecraft-amethyst",
@@ -2836,7 +2856,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "minecraft-beacon",
@@ -2852,7 +2872,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "rust",
@@ -2868,7 +2888,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "7-days-to-die",
@@ -2884,7 +2904,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "conan-exiles",
@@ -2900,7 +2920,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "left-4-dead",
@@ -2916,7 +2936,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "ark-survival-evolved",
@@ -2932,7 +2952,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "half-life-1",
@@ -2948,7 +2968,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "left-4-dead-2",
@@ -2964,7 +2984,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "hurtworld",
@@ -2980,7 +3000,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "garry-s-mod",
@@ -2996,7 +3016,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "insurgency",
@@ -3012,7 +3032,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "call-of-duty-4",
@@ -3028,7 +3048,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "sa-mp-san-andreas-multiplayer",
@@ -3044,7 +3064,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "killing-floor-2",
@@ -3060,7 +3080,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "mta-multi-theft-auto",
@@ -3076,7 +3096,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "arma-3",
@@ -3092,7 +3112,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "reign-of-kings",
@@ -3108,7 +3128,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "half-life-2-death-match",
@@ -3124,7 +3144,7 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     },
     {
      "id": "unturned",
@@ -3140,12 +3160,12 @@
      "extras": [
       "Player capacity depends on game and workload"
      ],
-     "note": "GBP estimate · USD supplier price"
+     "note": "GBP estimate · USD list price"
     }
    ],
    "everyPlan": [
     "Game-specific configuration",
-    "Anti-DDoS listed by supplier",
+    "Anti-DDoS protection",
     "Monthly billing"
    ],
    "features": [
@@ -3162,7 +3182,7 @@
     {
      "icon": "shield",
      "title": "DDoS-aware hosting",
-     "text": "Anti-DDoS is listed on the referenced packages. Coverage and limits depend on the selected service."
+     "text": "Game-aware Anti-DDoS on every package, backed by our network-wide DDoS mitigation."
     },
     {
      "icon": "wrench",
@@ -3198,11 +3218,11 @@
     ],
     [
      "Is DDoS protection available?",
-     "The referenced packages list Anti-DDoS. Ask sales to confirm filtering limits and game-specific coverage."
+     "Yes. Every game package includes Anti-DDoS with game-aware filtering, backed by our network-wide mitigation capacity. See the DDoS protection page for technical details."
     ],
     [
      "Can I manage mods and files?",
-     "The supplier illustrates console, files, mods, versions and player tools. Availability depends on the game and selected package."
+     "Yes. The game control panel includes a live console, file manager, mod and version tools and player management. Available tools vary by game."
     ],
     [
      "When can I order?",
@@ -3228,11 +3248,11 @@
   },
   {
    "q": "Is DDoS protection included?",
-   "a": "VPS plans include DDoS protection – Windows, SSD and Cloud VPS come with Anti-DDoS Pro – and game servers include Anti-DDoS Game. For dedicated servers, ask our sales team about protection options."
+   "a": "Yes. Our network has more than 30 Tbps of DDoS mitigation capacity, and protection is free on VPS plans – Windows, SSD and Cloud VPS come with Anti-DDoS Pro, and game servers include game-aware filtering. The DDoS row on each plan shows its protection; ask sales about options for dedicated servers."
   },
   {
    "q": "Where are your data centres?",
-   "a": "Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia) and New York (USA), with additional instant dedicated capacity across the USA."
+   "a": "RMDHost services run across 40+ owned and leased data centres. Core locations include Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia), New York and Tampa (USA), with additional instant dedicated capacity across the USA. Available locations are shown on each plan."
   },
   {
    "q": "Can I pay in USD or GBP?",
@@ -3387,6 +3407,20 @@
     "New York",
     -20,
     -28,
+    "end"
+   ]
+  },
+  {
+   "city": "Tampa",
+   "country": "United States",
+   "code": "US",
+   "region": "North America",
+   "lat": 27.95,
+   "lon": -82.46,
+   "label": [
+    "Tampa",
+    -22,
+    24,
     "end"
    ]
   }
@@ -3646,6 +3680,10 @@
   },
   {
    "name": "New York (US) network",
+   "group": "Data centres"
+  },
+  {
+   "name": "Tampa (US) network",
    "group": "Data centres"
   },
   {

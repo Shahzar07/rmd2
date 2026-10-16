@@ -21,8 +21,9 @@ $rmdhost_rows    = array(
 	array( 'shield', __( 'DDoS', 'rmdhost' ), $rmdhost_plan['ddos'] ),
 );
 $rmdhost_contact = add_query_arg( 'topic', rawurlencode( $rmdhost_plan['name'] ), home_url( '/support/' ) );
+$rmdhost_anchor  = rmdhost_plan_anchor( $rmdhost_plan['id'] ? $rmdhost_plan['id'] : sanitize_title( $rmdhost_plan['name'] ) );
 ?>
-<article class="plan <?php echo $rmdhost_feat ? 'featured' : ''; ?>" data-reveal data-spot>
+<article class="plan <?php echo $rmdhost_feat ? 'featured' : ''; ?>"<?php echo $rmdhost_anchor ? ' id="' . esc_attr( $rmdhost_anchor ) . '"' : ''; ?> data-reveal data-spot>
 	<?php if ( $rmdhost_plan['badge'] ) : ?>
 		<p class="plan-flag"><?php echo esc_html( $rmdhost_plan['badge'] ); ?></p>
 	<?php endif; ?>

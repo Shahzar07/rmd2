@@ -1,9 +1,10 @@
-import { site } from '../data/site.mjs';
+import { site, infra } from '../data/site.mjs';
 import { locations } from '../data/content.mjs';
 import { MAP, EUROPE, WORLD_GRID, EUROPE_GRID, WORLD_PATH, EUROPE_PATH } from '../data/world-dots.mjs';
 import { MEDIA } from '../data/media.mjs';
 import { icon } from './icons.mjs';
 import { esc } from './layout.mjs';
+import { project } from './projection.mjs';
 
 // ───────────────────────────── photos & videos (src/static/assets/media)
 // Generated with Nano Banana 2.1 (images) and Seedance 2.5 (video).
@@ -50,7 +51,7 @@ export function planCard(plan, { featured = false, product } = {}) {
   const soon = plan.price == null || !orderUrl(plan);
   const id = `pd-${plan.id}`;
   return `
-<article class="plan ${featured ? 'featured' : ''}" data-reveal data-spot>
+<article class="plan ${featured ? 'featured' : ''}" id="plan-${esc(plan.id)}" data-reveal data-spot>
   ${plan.badge ? `<p class="plan-flag">${esc(plan.badge)}</p>` : ''}
   <header class="plan-head">
     <h3>${esc(plan.name)}</h3>
@@ -122,14 +123,24 @@ export const breadcrumbSchema = (trail) => ({
   itemListElement: trail.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site.url + path })),
 });
 
+// Product (with an AggregateOffer) only when plans can actually be ordered;
+// Coming Soon products are described as a Service, so no Offer is implied
+// and Google's Product rich-result checks are not failed by a missing offer.
 export const productSchema = (p) => {
   const plans = (p.plans.length ? p.plans : p.servers || []).filter((pl) => pl.price != null && orderUrl(pl));
+  const url = `${site.url}/${p.slug}/`;
+  if (!plans.length) {
+    return {
+      '@context': 'https://schema.org', '@type': 'Service', name: `${site.name} ${p.name}`, serviceType: p.name,
+      description: p.description, url, provider: { '@type': 'Organization', name: site.name, url: site.url },
+    };
+  }
   return {
     '@context': 'https://schema.org', '@type': 'Product', name: `${site.name} ${p.name}`,
-    description: p.description, brand: { '@type': 'Brand', name: site.name },
-    ...(plans.length ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'GBP',
+    description: p.description, url, brand: { '@type': 'Brand', name: site.name },
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'GBP',
       lowPrice: Math.min(...plans.map((x) => x.price)), highPrice: Math.max(...plans.map((x) => x.price)),
-      offerCount: plans.length, url: `${site.url}/${p.slug}/` } } : {}),
+      offerCount: plans.length, url },
   };
 };
 
@@ -279,10 +290,14 @@ export function techVisual(kind) {
 }
 
 // ───────────────────────────── world map + data-centre list
-export const lonlat = (lon, lat) => [
-  ((lon + 180) / 360) * MAP.w,
-  ((MAP.latTop - lat) / (MAP.latTop - MAP.latBottom)) * MAP.h,
-];
+// Equal Earth projection → map units (see src/lib/projection.mjs).
+export const lonlat = (lon, lat) => {
+  const [x, y] = project(lon, lat);
+  return [MAP.w / 2 + MAP.k * x, MAP.y0 - MAP.k * y];
+};
+
+// Polyline through lon/lat points, in map units.
+const polyline = (pts) => pts.map(([lon, lat], i) => { const [x, y] = lonlat(lon, lat); return `${i ? 'L' : 'M'}${f(x)} ${f(y)}`; }).join('');
 
 const n2 = (i) => String(i + 1).padStart(2, '0');
 const f = (v) => +v.toFixed(2);
@@ -345,17 +360,21 @@ const marker = (l, i, { size, glow, fs, label }) => {
 const land = (g, d) => `<path class="land" transform="translate(${g.x} ${g.y}) scale(${g.s})" d="${d}"/>`;
 const glowDef = '<defs><radialGradient id="mkGlow"><stop offset="0" stop-color="#3ddc84" stop-opacity=".45"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient></defs>';
 
+// Meridians curve and parallels stay straight in Equal Earth; the outer
+// meridians (±180°) draw the edge of the globe.
+const meridian = (lon) => polyline(Array.from({ length: 36 }, (_, i) => [lon, MAP.latTop - ((MAP.latTop - MAP.latBottom) * i) / 35]));
+
 export function worldMap({ cls = '' } = {}) {
-  const [ex1, ey1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
-  const [ex2, ey2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
+  const { x: ex1, y: ey1, x2: ex2, y2: ey2 } = EUROPE;
   const euCount = locations.filter((l) => l.region === 'Europe').length;
   const grat = [];
-  for (let lon = -150; lon < 180; lon += 30) grat.push(`M${f(lonlat(lon, 0)[0])} 0V${MAP.h}`);
-  for (let lat = -40; lat <= 60; lat += 20) grat.push(`M0 ${f(lonlat(0, lat)[1])}H${MAP.w}`);
-  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-label="World map showing ${site.name} data centres in the UK, Europe and the United States">
+  for (let lon = -150; lon < 180; lon += 30) grat.push(meridian(lon));
+  for (let lat = -40; lat <= 80; lat += 20) grat.push(polyline([[-180, lat], [180, lat]]));
+  return `<svg class="worldmap ${cls}" viewBox="0 0 ${MAP.w} ${f(MAP.h)}" role="img" aria-label="Equal Earth world map showing ${site.name} core data-centre locations in the UK, Europe and the United States">
     ${glowDef}
     <path class="grat" d="${grat.join('')}"/>
-    <path class="equator" d="M0 ${f(lonlat(0, 0)[1])}H${MAP.w}"/>
+    <path class="grat grat-edge" d="${meridian(-180)}${meridian(180)}"/>
+    <path class="equator" d="${polyline([[-180, 0], [180, 0]])}"/>
     ${land(WORLD_GRID, WORLD_PATH)}
     <g class="eu-zone"><rect class="eu-box" x="${f(ex1)}" y="${f(ey1)}" width="${f(ex2 - ex1)}" height="${f(ey2 - ey1)}"/>${chip(`EUROPE · ${euCount} SITES`, ex1 - 1, ey1 - 15, 'start', 13, false)}</g>
     <g class="links">${linkPaths(mapLinks(locations), locations)}</g>
@@ -364,8 +383,7 @@ export function worldMap({ cls = '' } = {}) {
 }
 
 export function europeMap() {
-  const [x1, y1] = lonlat(EUROPE.lonMin, EUROPE.latMax);
-  const [x2, y2] = lonlat(EUROPE.lonMax, EUROPE.latMin);
+  const { x: x1, y: y1, x2, y2 } = EUROPE;
   const eu = locations.map((l, i) => [l, i]).filter(([l]) => l.region === 'Europe');
   const links = mapLinks(eu.map(([l]) => l)).map(([a, b]) => [eu[a][1], eu[b][1]]);
   return `<svg class="eumap" viewBox="${f(x1)} ${f(y1)} ${f(x2 - x1)} ${f(y2 - y1)}" role="img" aria-label="Map of ${site.name} data centres in Europe">
@@ -383,9 +401,9 @@ export function locationsBlock() {
   <div class="dc-head">
     <div>
       <p class="kicker">// Global network</p>
-      <h3 class="h3">6 data centres. UK, EU &amp; US.</h3>
+      <h3 class="h3">${esc(infra.dataCentres.value)} data centres. Owned &amp; leased.</h3>
     </div>
-    <p class="muted">Deploy close to your users in Derby, Leeds, Amsterdam, Frankfurt, Riga or New York. Every site is staffed 24/7 with CCTV, fob-controlled access, VESDA fire detection and N+1 diesel backup power.</p>
+    <p class="muted">Our network spans ${esc(infra.dataCentres.value)} owned and leased data centres with ${esc(infra.ddosCapacity.value)} DDoS protection capacity and a ${esc(infra.networkSla.value)} network uptime SLA. The map shows our core locations: ${locations.slice(0, -1).map((l) => l.city).join(', ')} and ${locations.at(-1).city}.</p>
     <a class="btn btn-white" href="/data-centres/">Data-centre details</a>
   </div>
   <div class="dc-maps">

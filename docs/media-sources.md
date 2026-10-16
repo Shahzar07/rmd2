@@ -4,7 +4,7 @@ The brief requests game artwork and control-panel images based on supplier refer
 
 | Asset | Source |
 | --- | --- |
-| panel-console.webp | https://www.rabisu.com/images/pt/console.webp |
+| panel-console.webp | https://www.rabisu.com/images/pt/console.webp (edited 16 Oct 2026: supplier name and server IP replaced with neutral text) |
 | minecraft.webp | https://www.rabisu.com/images/minecrafticon.webp |
 | rust.jpg | https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg |
 | 7-days-to-die.jpg | https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/251570/header.jpg |

@@ -18,7 +18,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "intel-ai-chat",
@@ -36,7 +36,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "intel-ai-workspace",
@@ -54,7 +54,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price",
+          "note": "GBP estimate · USD list price",
           "badge": "Recommended"
         },
         {
@@ -73,7 +73,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "ryzen-ai-developer",
@@ -91,7 +91,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "ryzen-ai-inference",
@@ -109,7 +109,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "ryzen-ai-inference-plus",
@@ -127,7 +127,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price",
+          "note": "GBP estimate · USD list price",
           "badge": "Recommended"
         },
         {
@@ -146,7 +146,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "epyc-ai-production",
@@ -164,7 +164,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "epyc-ai-team",
@@ -182,7 +182,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "epyc-ai-business",
@@ -200,7 +200,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price",
+          "note": "GBP estimate · USD list price",
           "badge": "Recommended"
         },
         {
@@ -219,7 +219,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "epyc-ai-enterprise-max",
@@ -237,7 +237,7 @@
             "Third-party AI API fees billed separately",
             "IPv4 only"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         }
       ],
       "title": "AI VPS Hosting – Intel, Ryzen & EPYC Plans | RMDHost",
@@ -302,7 +302,7 @@
         ],
         [
           "Is IPv6 included?",
-          "The referenced AI packages currently provide IPv4 only."
+          "AI VPS packages currently include IPv4 only."
         ],
         [
           "When can I order?",
@@ -331,7 +331,7 @@
           "extras": [
             "Free backup"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "mac-vps-x16",
@@ -347,7 +347,7 @@
           "extras": [
             "Free backup"
           ],
-          "note": "GBP estimate · USD supplier price",
+          "note": "GBP estimate · USD list price",
           "badge": "Popular"
         },
         {
@@ -364,7 +364,7 @@
           "extras": [
             "Free backup"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         }
       ],
       "title": "MacOS VPS – 8 GB to 32 GB NVMe Plans | RMDHost",
@@ -400,7 +400,7 @@
         {
           "icon": "backup",
           "title": "Backup included",
-          "text": "Free backup is listed by the supplier. Confirm retention and recovery details before ordering."
+          "text": "Free backup is included with every package. Ask sales about retention and recovery."
         }
       ],
       "faqs": [
@@ -414,7 +414,7 @@
         ],
         [
           "Are backups included?",
-          "The source lists free backup. Confirm schedule, retention and restore access with sales."
+          "Yes, free backup is included. Ask sales about the backup schedule, retention and how to restore."
         ],
         [
           "When can I order?",
@@ -447,9 +447,9 @@
             "8-core GPU · 16-core Neural Engine",
             "1 dedicated IPv4",
             "Full admin access",
-            "Supplier delivery estimate: 24 hours"
+            "Typical delivery: 24 hours"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "macmini-m1-02",
@@ -466,9 +466,9 @@
             "8-core GPU · 16-core Neural Engine",
             "1 dedicated IPv4",
             "Full admin access",
-            "Supplier delivery estimate: 24 hours"
+            "Typical delivery: 24 hours"
           ],
-          "note": "GBP estimate · USD supplier price",
+          "note": "GBP estimate · USD list price",
           "badge": "Best value"
         },
         {
@@ -486,9 +486,9 @@
             "10-core GPU · 16-core Neural Engine",
             "1 dedicated IPv4",
             "Full admin access",
-            "Supplier delivery estimate: 24 hours"
+            "Typical delivery: 24 hours"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         }
       ],
       "title": "MacOS Dedicated Servers – Mac mini M1 & M4 | RMDHost",
@@ -536,7 +536,7 @@
         ],
         [
           "Where are these servers hosted?",
-          "The supplier lists Tampa, Florida, for these packages."
+          "These Mac mini packages are hosted in Tampa, Florida."
         ],
         [
           "Does every Mac have a 10 Gbit/s port?",
@@ -570,7 +570,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "minecraft-diamond",
@@ -586,7 +586,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "minecraft-amethyst",
@@ -602,7 +602,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "minecraft-beacon",
@@ -618,7 +618,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "rust",
@@ -634,7 +634,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "7-days-to-die",
@@ -650,7 +650,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "conan-exiles",
@@ -666,7 +666,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "left-4-dead",
@@ -682,7 +682,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "ark-survival-evolved",
@@ -698,7 +698,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "half-life-1",
@@ -714,7 +714,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "left-4-dead-2",
@@ -730,7 +730,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "hurtworld",
@@ -746,7 +746,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "garry-s-mod",
@@ -762,7 +762,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "insurgency",
@@ -778,7 +778,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "call-of-duty-4",
@@ -794,7 +794,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "sa-mp-san-andreas-multiplayer",
@@ -810,7 +810,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "killing-floor-2",
@@ -826,7 +826,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "mta-multi-theft-auto",
@@ -842,7 +842,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "arma-3",
@@ -858,7 +858,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "reign-of-kings",
@@ -874,7 +874,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "half-life-2-death-match",
@@ -890,7 +890,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         },
         {
           "id": "unturned",
@@ -906,7 +906,7 @@
           "extras": [
             "Player capacity depends on game and workload"
           ],
-          "note": "GBP estimate · USD supplier price"
+          "note": "GBP estimate · USD list price"
         }
       ],
       "title": "Game Server Hosting – Minecraft, Rust & More | RMDHost",
@@ -916,13 +916,13 @@
       "lede": "Compare game-specific packages for survival worlds, sandbox communities and multiplayer sessions. Choose resources for your game, mods and player count.",
       "checklist": [
         "Game-specific CPU & RAM",
-        "Anti-DDoS listed on packages",
+        "Anti-DDoS on every package",
         "Monthly billing",
         "Choose a location near your players"
       ],
       "everyPlan": [
         "Game-specific configuration",
-        "Anti-DDoS listed by supplier",
+        "Anti-DDoS protection",
         "Monthly billing"
       ],
       "features": [
@@ -939,7 +939,7 @@
         {
           "icon": "shield",
           "title": "DDoS-aware hosting",
-          "text": "Anti-DDoS is listed on the referenced packages. Coverage and limits depend on the selected service."
+          "text": "Game-aware Anti-DDoS on every package, backed by our network-wide DDoS mitigation."
         },
         {
           "icon": "wrench",
@@ -975,11 +975,11 @@
         ],
         [
           "Is DDoS protection available?",
-          "The referenced packages list Anti-DDoS. Ask sales to confirm filtering limits and game-specific coverage."
+          "Yes. Every game package includes Anti-DDoS with game-aware filtering, backed by our network-wide mitigation capacity. See the DDoS protection page for technical details."
         ],
         [
           "Can I manage mods and files?",
-          "The supplier illustrates console, files, mods, versions and player tools. Availability depends on the game and selected package."
+          "Yes. The game control panel includes a live console, file manager, mod and version tools and player management. Available tools vary by game."
         ],
         [
           "When can I order?",

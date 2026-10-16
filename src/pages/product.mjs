@@ -105,6 +105,7 @@ const productPage = (p) => ({
     ${sectionHead({ title: `Choose your ${p.short} plan`, text: p.comingSoon || null })}
     ${p.instant ? instantTable(p) : planGrid(p.plans, p.name)}
     ${p.table ? dedicatedTable(p.table) : ''}
+    ${p.platformNote ? `<p class="fine">${p.platformNote}</p>` : ''}
     ${everyPlan(p.everyPlan)}
     ${p.review ? `<p class="to-confirm"><em class="pill pill-xs">To confirm</em> ${p.review}</p>` : ''}
     <p class="fine">Applicable taxes and final billing totals are shown at checkout. Toggle GBP / USD in the header.</p>

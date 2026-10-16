@@ -23,7 +23,7 @@ const tabs = [
   {
     id: 'protect', label: 'Protect', scene: 'shield', icon: 'shield',
     title: 'Filtered at the edge.',
-    text: 'Volumetric and protocol attacks are scrubbed upstream before they reach your port. Game servers add UDP-aware mitigation for Minecraft, CS and ARMA.',
+    text: 'Volumetric and protocol attacks are scrubbed upstream by 30 Tbps+ of mitigation capacity before they reach your port. Game servers add UDP-aware filtering for Minecraft, Rust, ARK and Arma 3.',
     link: ['How DDoS protection works', '/ddos-protection/'],
   },
   {
@@ -131,7 +131,7 @@ function hero(h) {
 export default {
   path: '/',
   title: 'RMDHost – Fast VPS, Windows VPS & Dedicated Server Hosting',
-  description: 'High-performance Linux VPS from £8.99/mo, Windows VPS, dedicated and game servers in six UK, EU and US data centres. DDoS protection, no setup fees and 24/7 expert support.',
+  description: 'Linux VPS from £8.99/mo, Windows VPS, dedicated and game servers across 40+ owned and leased data centres. Free 30 Tbps+ DDoS protection, 100% network uptime SLA and 24/7 support.',
   schema: [
     faqSchema(homeFaqs),
     { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.url },
@@ -207,7 +207,7 @@ ${hero(home)}
     <h3 class="sub-h" data-reveal>Want more hands-on control?</h3>
     <div class="duo">
       <a class="soft-card" href="/dedicated-servers/" data-reveal data-spot>${icon('rack')}${icon('arrowUpRight', 'corner')}<strong>Dedicated servers</strong><span>Bare-metal Xeon, fully under your control.</span></a>
-      <a class="soft-card" href="/game-servers/" data-reveal data-spot>${icon('game')}${icon('arrowUpRight', 'corner')}<strong>Game servers</strong><span>Anti-DDoS Game for Minecraft, CS2, ARMA and more.</span></a>
+      <a class="soft-card" href="/game-servers/" data-reveal data-spot>${icon('game')}${icon('arrowUpRight', 'corner')}<strong>Game servers</strong><span>Anti-DDoS game hosting for Minecraft, Rust, ARK, Arma 3 and more.</span></a>
     </div>
   </div>
 </section>
@@ -310,7 +310,7 @@ ${hero(home)}
         <p class="center mt"><a class="row-link inline" href="/${t.product.slug}/">View all ${t.product.name} plans${icon('arrowUpRight')}</a></p>
       </div>`).join('')}
     </div>
-    <p class="fine">Prices exclude VAT. All plans are billed monthly. Unlimited bandwidth is subject to our Acceptable Use Policy.</p>
+    <p class="fine">Applicable taxes and final billing totals are shown at checkout. Unlimited bandwidth is subject to our <a href="/fair-use/">Fair Use Policy</a>.</p>
   </div>
 </section>
 

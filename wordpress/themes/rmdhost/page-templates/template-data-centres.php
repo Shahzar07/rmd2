@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	rmdhost_singular_hero(
 		array(
 			'eyebrow' => __( 'Global network', 'rmdhost' ),
-			'lede'    => __( 'Deploy closer to your users. Six locations across the UK, Europe and North America with Cisco 10 Gb/s fibre and direct LINX connectivity.', 'rmdhost' ),
+			'lede'    => __( 'Deploy closer to your users. 40+ owned and leased data centres, 30 Tbps+ of DDoS protection capacity and a 100% network uptime SLA.', 'rmdhost' ),
 		)
 	);
 	rmdhost_section(
@@ -27,7 +27,7 @@ while ( have_posts() ) :
 			'stats'     => false,
 			'photo'     => has_post_thumbnail() ? get_post_thumbnail_id() : 'datacentre-aisle',
 			'photo_alt' => __( 'Server racks lining a data centre aisle', 'rmdhost' ),
-			'caption'   => __( 'Six data centres. One network built for uptime.', 'rmdhost' ),
+			'caption'   => __( '40+ data centres. One network built for uptime.', 'rmdhost' ),
 		)
 	);
 	rmdhost_page_content( 'section pt-0' );
@@ -61,7 +61,7 @@ while ( have_posts() ) :
 				array(
 					'icon'  => 'shield',
 					'title' => __( 'DDoS mitigation', 'rmdhost' ),
-					'text'  => __( 'Edge filtering protects every server in every location.', 'rmdhost' ),
+					'text'  => __( '30 Tbps+ of always-on filtering capacity protects servers in every location.', 'rmdhost' ),
 				),
 				array(
 					'icon'  => 'headset',

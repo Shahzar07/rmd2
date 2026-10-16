@@ -4,8 +4,8 @@ export const homeFaqs = [
   ['What is RMDHost?', 'RMDHost is an international hosting provider offering Linux VPS, Windows VPS, cloud servers, dedicated servers, game servers and private cloud storage from data centres in the UK, Europe and North America.'],
   ['Which server is right for me?', 'Start with a Linux VPS for websites and apps, choose Windows VPS for Remote Desktop and .NET, and move to a dedicated server when you need a whole machine for heavy traffic, large databases or virtualisation. Our sales team can recommend a plan for free.'],
   ['Do you charge setup fees?', 'Linux VPS and SSD VPS plans have no setup fee, and in-stock instant dedicated servers in the USA include free setup. Any setup fee for other products is shown at checkout.'],
-  ['Is DDoS protection included?', 'VPS plans include DDoS protection – Windows, SSD and Cloud VPS come with Anti-DDoS Pro – and game servers include Anti-DDoS Game. For dedicated servers, ask our sales team about protection options.'],
-  ['Where are your data centres?', 'Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia) and New York (USA), with additional instant dedicated capacity across the USA.'],
+  ['Is DDoS protection included?', 'Yes. Our network has more than 30 Tbps of DDoS mitigation capacity, and protection is free on VPS plans – Windows, SSD and Cloud VPS come with Anti-DDoS Pro, and game servers include game-aware filtering. The DDoS row on each plan shows its protection; ask sales about options for dedicated servers.'],
+  ['Where are your data centres?', 'RMDHost services run across 40+ owned and leased data centres. Core locations include Derby and Leeds (UK), Amsterdam (Netherlands), Frankfurt (Germany), Riga (Latvia), New York and Tampa (USA), with additional instant dedicated capacity across the USA. Available locations are shown on each plan.'],
   ['Can I pay in USD or GBP?', 'Yes. Use the currency selector at the top of the page to view prices in GBP or USD. You choose your billing currency at checkout.'],
   ['How fast is server delivery?', 'VPS plans are provisioned instantly. Standard dedicated servers are delivered within 24 hours and instant dedicated servers in the USA are online within minutes.'],
   ['Do you offer refunds?', 'Contact our billing team within 7 days of your first order if the service is not right for you – we will review every request individually. See our Terms of Service for details.'],
@@ -24,7 +24,9 @@ export const reviews = [
   { sample: true, name: 'Nina V.', role: 'Photographer', product: 'OwnCloud', rating: 5, text: 'I replaced Dropbox with my own OwnCloud server in Germany. Clients get private galleries and I keep control of my files.' },
 ];
 
-// Data centres as listed on digitalberg.com/data-center/.
+// Core data-centre locations shown on the map: the six sites listed on
+// digitalberg.com/data-center/ plus Tampa, where the MacOS Dedicated
+// packages are hosted. Only add a site once it is confirmed.
 // `label`: [text, dx, dy, anchor] for the Europe inset map.
 // `label`: [text, chip x offset, chip y offset, anchor] in the units of the map
 // the site is labelled on (Europe zoom for European sites, world map otherwise).
@@ -35,6 +37,7 @@ export const locations = [
   { city: 'Frankfurt', country: 'Germany', code: 'DE', region: 'Europe', lat: 50.11, lon: 8.68, label: ['Frankfurt', 6, 8, 'start'] },
   { city: 'Riga', country: 'Latvia', code: 'LV', region: 'Europe', lat: 56.95, lon: 24.1, label: ['Riga', -5, -7, 'end'] },
   { city: 'New York', country: 'United States', code: 'US', region: 'North America', lat: 40.71, lon: -74.0, label: ['New York', -20, -28, 'end'] },
+  { city: 'Tampa', country: 'United States', code: 'US', region: 'North America', lat: 27.95, lon: -82.46, label: ['Tampa', -22, 24, 'end'] },
 ];
 
 export const posts = [
@@ -114,6 +117,7 @@ export const statusServices = [
   { name: 'Frankfurt (DE) network', group: 'Data centres' },
   { name: 'Riga (LV) network', group: 'Data centres' },
   { name: 'New York (US) network', group: 'Data centres' },
+  { name: 'Tampa (US) network', group: 'Data centres' },
   { name: 'VPS provisioning', group: 'Services' },
   { name: 'Backups & snapshots', group: 'Services' },
   { name: 'DDoS mitigation', group: 'Services' },

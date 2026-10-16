@@ -65,3 +65,27 @@ New suppliers quote USD. Each plan stores exact supplier USD in `usd`. GBP is an
 - PHP 8.3 syntax check: all 112 WordPress PHP files passed.
 - Headless Chromium at 1440, 768 and 390 pixels: 24 page/viewport combinations, all product pricing tabs, More Details controls, real mobile-menu currency selection and game images passed without JavaScript errors or horizontal page overflow.
 - Desktop/mobile map, pricing and game screenshots inspected. No production order or deployment was performed. A complete native WordPress installation was not available; PHP syntax and endpoint contract checks do not replace staging integration testing.
+
+## QA follow-up · 16 October 2026
+
+Changes made against *RMDHost DevOps Homepage and Pricing V2 QA*:
+
+| QA item | Change |
+| --- | --- |
+| Statistics boxes | Hero stats now read 40+ · Data centres · owned & leased, 100% · Network uptime SLA, 30 Tbps+ · DDoS protection capacity, 10 Gbit/s · Ports on dedicated servers. |
+| "6 data centres" wording | Replaced on the homepage (hero, meta, map heading, FAQ, stats row), mega menu, Data centres page, About page and WordPress defaults. Figures come from `src/data/infrastructure.json`. |
+| Map | Redrawn in the Equal Earth (equal-area) projection with curved graticule. Markers show confirmed core sites only: the six DigitalBerg cities plus Tampa (MacOS Dedicated). |
+| Pricing banner and meta | Exact requested text; meta description updated. |
+| Game control panel | Caption and alt text no longer name the supplier; supplier name and server IP removed from the screenshot. |
+| Supported games | Each card links to that game's plan card (`#plan-<id>`) with its lowest price. Benefits cover performance, low latency and DDoS protection. |
+| VAT sentence | Homepage line replaced with the checkout-tax wording used on the pricing page. The footer "Prices are listed without VAT" and the "Excl. VAT" plan notes are kept as the tax disclosure. |
+| Structured data / ALT text | Coming Soon products now emit `Service` schema instead of an offer-less `Product`; Product schema gains `url`. Game and panel images have descriptive ALT text. |
+| AI VPS tag | Menu tag changed from "New" to "Coming Soon" to match the homepage. |
+| CS2 | Removed from homepage copy and the project recommender; listed games only. |
+| Lightsail vs Cloud VPS | Plans and order links unchanged as instructed; a note on the Lightsail tab and page explains that the bundles share the Cloud VPS platform and checkout. |
+| Linux VPS "100% uptime guarantee" | Plans unchanged as instructed; now consistent with the published 100% Network Uptime SLA. |
+| DDoS page | Rewritten with 30 Tbps+ capacity, how-it-works, attack types, technical details and protection by product. |
+| SLA / AUP | SLA published (indexable) with a 100% network uptime target, credit table, exclusions and claim process. AUP expanded and published. |
+| Edge Servers | New `/edge-servers/` page with a `#what` section, technical details, FAQs and locations; added to the menu, footer, sitemap and WordPress importer. |
+
+Owner sign-off still needed: evidence for 40+ facilities, 30 Tbps+ capacity, NVMe Gen4 and the 10 Gbit/s dedicated-port claim (only MacMini M4-03 lists 10 Gbit/s; the other dedicated servers list 1 Gbit/s); the SLA credit percentages, 14-day claim window and exclusions; the AUP crypto-mining rule; and the OwnCloud cart IDs 286–289.
